@@ -8,13 +8,7 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-    snapshot:{
-      skip: true,
-    }
   },
-  initialGlobals: {
-    foo: 'bar',
-  }
 };
 
 export default preview;

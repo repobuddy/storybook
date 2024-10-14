@@ -84,6 +84,9 @@ importers:
 
   apps/demo:
     dependencies:
+      '@storybook/csf':
+        specifier: ^0.1.11
+        version: 0.1.11
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -97,6 +100,82 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.0
         version: 18.3.1
+
+  packages/storybook:
+    dependencies:
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@chromatic-com/storybook':
+        specifier: ^1.9.0
+        version: 1.9.0(react@18.3.1)
+      '@eslint/js':
+        specifier: ^9.11.1
+        version: 9.12.0
+      '@storybook/addon-essentials':
+        specifier: ^8.3.5
+        version: 8.3.5(storybook@8.3.5)
+      '@storybook/addon-interactions':
+        specifier: ^8.3.5
+        version: 8.3.5(storybook@8.3.5)
+      '@storybook/addon-links':
+        specifier: ^8.3.5
+        version: 8.3.5(react@18.3.1)(storybook@8.3.5)
+      '@storybook/addon-onboarding':
+        specifier: ^8.3.5
+        version: 8.3.5(react@18.3.1)(storybook@8.3.5)
+      '@storybook/blocks':
+        specifier: ^8.3.5
+        version: 8.3.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.5)
+      '@storybook/react':
+        specifier: ^8.3.5
+        version: 8.3.5(@storybook/test@8.3.5(storybook@8.3.5))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.5)(typescript@5.6.3)
+      '@storybook/react-vite':
+        specifier: ^8.3.5
+        version: 8.3.5(@storybook/test@8.3.5(storybook@8.3.5))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.24.0)(storybook@8.3.5)(typescript@5.6.3)(vite@5.4.8(@types/node@22.7.5))
+      '@storybook/test':
+        specifier: ^8.3.5
+        version: 8.3.5(storybook@8.3.5)
+      '@types/react':
+        specifier: ^18.3.10
+        version: 18.3.11
+      '@types/react-dom':
+        specifier: ^18.3.0
+        version: 18.3.1
+      '@vitejs/plugin-react':
+        specifier: ^4.3.2
+        version: 4.3.2(vite@5.4.8(@types/node@22.7.5))
+      eslint:
+        specifier: ^9.11.1
+        version: 9.12.0
+      eslint-plugin-react-hooks:
+        specifier: ^5.1.0-rc.0
+        version: 5.1.0-rc-fb9a90fa48-20240614(eslint@9.12.0)
+      eslint-plugin-react-refresh:
+        specifier: ^0.4.12
+        version: 0.4.12(eslint@9.12.0)
+      eslint-plugin-storybook:
+        specifier: ^0.9.0
+        version: 0.9.0(eslint@9.12.0)(typescript@5.6.3)
+      globals:
+        specifier: ^15.9.0
+        version: 15.11.0
+      storybook:
+        specifier: ^8.3.5
+        version: 8.3.5
+      typescript:
+        specifier: ^5.5.3
+        version: 5.6.3
+      typescript-eslint:
+        specifier: ^8.7.0
+        version: 8.8.1(eslint@9.12.0)(typescript@5.6.3)
+      vite:
+        specifier: ^5.4.8
+        version: 5.4.8(@types/node@22.7.5)
 
 packages:
 

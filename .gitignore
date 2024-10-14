@@ -43,3 +43,4 @@ node_modules
 # project
 /.turbo
 *.tsbuildinfo
+__screenshots__

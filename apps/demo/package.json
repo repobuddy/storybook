@@ -9,7 +9,7 @@
     "dev": "vite",
     "lint": "eslint .",
     "preview": "vite preview",
-    "sb": "storybook dev -p 6006",
+    "sb": "storybook dev -p 6007",
     "test": "vitest run",
     "w": "vitest"
   },
@@ -19,6 +19,7 @@
     ]
   },
   "dependencies": {
+    "@storybook/csf": "^0.1.11",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
