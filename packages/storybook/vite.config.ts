@@ -10,7 +10,7 @@ export default defineProject({
 		storybookTest(),
 	],
 	test: {
-		name: 'storybook',
+		name: 'sb',
 		browser: {
 			enabled: true,
 			headless: true,
@@ -20,7 +20,7 @@ export default defineProject({
 		globals: true,
 		include: [
 			// Technically non-storybook tests can be execute in NodeJS.
-			// But we are including them here to cover this scenario that,
+			// But we are including them here to cover this scenario that
 			// not all tests are stories.
 			'**/*.spec.ts',
 			'**/*.stories.?(m)[jt]s?(x)',

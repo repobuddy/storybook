@@ -1,6 +1,7 @@
 import { setProjectAnnotations } from '@storybook/react'
+import { page } from '@vitest/browser/context'
 import { afterEach, beforeAll, expect } from 'vitest'
-import { type TestContext, toMatchImageSnapshot } from '../src/index'
+import { imageSnapshot, type TestContext, toMatchImageSnapshot } from '../src/index.js'
 import * as projectAnnotations from './preview'
 
 // This is an important step to apply the right configuration when testing your stories.
@@ -9,6 +10,7 @@ const project = setProjectAnnotations([projectAnnotations])
 
 beforeAll((ctx) => {
 	console.info('beforeAll: story', ctx)
+	page.extend({ imageSnapshot })
 	expect.extend({ toMatchImageSnapshot })
 	project.beforeAll()
 })
