@@ -147,6 +147,9 @@ importers:
       '@types/jest-image-snapshot':
         specifier: ^6.4.0
         version: 6.4.0
+      '@types/pixelmatch':
+        specifier: ^5.2.6
+        version: 5.2.6
       '@types/react':
         specifier: ^18.3.10
         version: 18.3.11

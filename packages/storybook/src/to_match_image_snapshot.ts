@@ -1,4 +1,5 @@
 import type { AsyncExpectationResult, MatcherState } from '@vitest/expect'
+import { imageSnapshotSymbol } from './_symbols'
 import { page } from './context/page'
 
 declare global {
@@ -14,12 +15,21 @@ export async function toMatchImageSnapshot<T extends MatcherState = MatcherState
 	this: T,
 	actual: any,
 ): AsyncExpectationResult {
+	const subject = await actual
+	if (subject.base64 && !subject[imageSnapshotSymbol]) {
+		return {
+			pass: false,
+			actual,
+			message: () =>
+				'`toMatchImageSnapshot()` expects the subject the result of `page.imageSnapshot()`, but seems like you are using `page.screenshot()`?',
+		}
+	}
 	if (typeof actual !== 'object') {
 		return {
 			pass: false,
 			actual,
 			message: () =>
-				`toMatchImageSnapshot() expects the subject to be an element, locator, or result of page.imageSnapshot(), but got: ${actual}`,
+				`\`toMatchImageSnapshot()\` expects the subject to be an element, locator, or result of \`page.imageSnapshot()\`, but got: \`${actual}\``,
 		}
 	}
 	page.screenshot({ element: actual })
