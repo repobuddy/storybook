@@ -16,7 +16,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.3",
-		"@chromatic-com/storybook": "^1.9.0",
+		"@chromatic-com/storybook": "^2.0.0",
 		"@eslint/js": "^9.12.0",
 		"@repobuddy/biome": "1.7.1",
 		"@storybook/addon-essentials": "^8.3.5",
