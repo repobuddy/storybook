@@ -23,5 +23,5 @@
 		"editor.defaultFormatter": "biomejs.biome",
 		"editor.formatOnSave": true
 	},
-	"cSpell.words": ["repobuddy", "ssim"]
+	"cSpell.words": ["pathe", "repobuddy", "ssim"]
 }

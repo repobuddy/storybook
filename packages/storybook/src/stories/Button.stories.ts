@@ -31,7 +31,10 @@ export const PageHasImageSnapshotFn: Story = {
 		primary: true,
 		label: 'Button',
 	},
-	async play() {
+	async play(ctx) {
+		console.info('play: ctx.globalTypes', ctx.globalTypes)
+		console.info('play: ctx.globals', ctx.globals)
+		// console.info('play: ctx.context', ctx.context)
 		expect(typeof page.imageSnapshot).toBe('function')
 	},
 }
