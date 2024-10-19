@@ -12,8 +12,8 @@ importers:
         specifier: 1.9.3
         version: 1.9.3
       '@chromatic-com/storybook':
-        specifier: ^1.9.0
-        version: 1.9.0(react@18.3.1)
+        specifier: ^2.0.0
+        version: 2.0.2(react@18.3.1)
       '@eslint/js':
         specifier: ^9.12.0
         version: 9.12.0
@@ -103,8 +103,8 @@ importers:
         version: 6.0.0
     devDependencies:
       '@chromatic-com/storybook':
-        specifier: ^1.9.0
-        version: 1.9.0(react@18.3.1)
+        specifier: ^2.0.0
+        version: 2.0.2(react@18.3.1)
       '@eslint/js':
         specifier: ^9.11.1
         version: 9.12.0
@@ -364,8 +364,8 @@ packages:
   '@bundled-es-modules/tough-cookie@0.1.6':
     resolution: {integrity: sha512-dvMHbL464C0zI+Yqxbz6kZ5TOEp7GLW+pry/RWndAR8MJQAXZ2rPmIs8tziTZjeIyhSNZgZbCePtfSbdWqStJw==}
 
-  '@chromatic-com/storybook@1.9.0':
-    resolution: {integrity: sha512-vYQ+TcfktEE3GHnLZXHCzXF/sN9dw+KivH8a5cmPyd9YtQs7fZtHrEgsIjWpYycXiweKMo1Lm1RZsjxk8DH3rA==}
+  '@chromatic-com/storybook@2.0.2':
+    resolution: {integrity: sha512-7bPIliISedeIpnVKbzktysFYW5n56bN91kxuOj1XXKixmjbUHRUMvcXd4K2liN6MiR5ZqJtmtcPsZ6CebbGlEA==}
     engines: {node: '>=16.0.0', yarn: '>=1.22.18'}
 
   '@esbuild/aix-ppc64@0.21.5':
@@ -3529,7 +3529,7 @@ snapshots:
       '@types/tough-cookie': 4.0.5
       tough-cookie: 4.1.4
 
-  '@chromatic-com/storybook@1.9.0(react@18.3.1)':
+  '@chromatic-com/storybook@2.0.2(react@18.3.1)':
     dependencies:
       chromatic: 11.12.5
       filesize: 10.1.6
