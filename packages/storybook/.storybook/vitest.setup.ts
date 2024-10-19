@@ -14,8 +14,8 @@ beforeAll((ctx) => {
 
 afterEach<TestContext>(async (ctx) => {
 	// console.info('afterEach: key(ctx)', Object.keys(ctx))
-	console.info('afterEach: task', ctx.task)
-	console.info('afterEach: story', ctx.story)
+	// console.info('afterEach: task', ctx.task)
+	// console.info('afterEach: story', ctx.story)
 	// if (ctx.story) {
 	// 	const { tags, parameters, id, globals, context } = ctx.story
 	// 	console.log('afterEach', parameters)

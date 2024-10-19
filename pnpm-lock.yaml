@@ -101,6 +101,9 @@ importers:
       pixelmatch:
         specifier: ^6.0.0
         version: 6.0.0
+      type-plus:
+        specifier: 8.0.0-beta.6
+        version: 8.0.0-beta.6
     devDependencies:
       '@chromatic-com/storybook':
         specifier: ^1.9.0
@@ -183,9 +186,6 @@ importers:
       storybook:
         specifier: ^8.3.5
         version: 8.3.5
-      type-plus:
-        specifier: ^7.6.2
-        version: 7.6.2
       typescript:
         specifier: ^5.5.3
         version: 5.6.3
@@ -3067,6 +3067,9 @@ packages:
 
   type-plus@7.6.2:
     resolution: {integrity: sha512-qUlXv9Y0/W56pg38m275IMD3WA03QbVoqNY16S3kmwtuA4gOT2iheyUdOp8NWrmXWpf7om98hzr7AZD/eW2jLA==}
+
+  type-plus@8.0.0-beta.6:
+    resolution: {integrity: sha512-9OIBdqWZ5B2gPKRBwk5OelGGzQZbySLKFitpHJZWeYZ9Gyax+Cz42S06IKymIW2loyt9beEfxO/z8utLubRDTA==}
 
   typescript-eslint@8.8.1:
     resolution: {integrity: sha512-R0dsXFt6t4SAFjUSKFjMh4pXDtq04SsFKCVGDP3ZOzNP7itF0jBcZYU4fMsZr4y7O7V7Nc751dDeESbe4PbQMQ==}
@@ -6408,6 +6411,11 @@ snapshots:
       unpartial: 1.0.5
 
   type-plus@7.6.2:
+    dependencies:
+      tersify: 3.12.1
+      unpartial: 1.0.5
+
+  type-plus@8.0.0-beta.6:
     dependencies:
       tersify: 3.12.1
       unpartial: 1.0.5

@@ -8,8 +8,8 @@ export type SetupOptions = {
 }
 
 export function setupBeforeAll(ctx: Readonly<RunnerTestSuite | RunnerTestFile>) {
-	console.info('setup', ctx)
-	console.info('file', ctx.file.filepath)
+	// console.info('setup', ctx)
+	// console.info('file', ctx.file.filepath)
 	// const name = ctx.name
 	// const filepath = ctx.filepath
 	// ctx.meta.snapshot = '1234'

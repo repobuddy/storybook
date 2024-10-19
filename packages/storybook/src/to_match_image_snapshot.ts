@@ -1,6 +1,5 @@
 import type { AsyncExpectationResult, MatcherState } from '@vitest/expect'
 import { page } from './context/page'
-import { AssertionError } from 'chai'
 
 declare global {
 	namespace jest {
@@ -16,7 +15,12 @@ export async function toMatchImageSnapshot<T extends MatcherState = MatcherState
 	actual: any,
 ): AsyncExpectationResult {
 	if (typeof actual !== 'object') {
-		throw new AssertionError('toMatchImageSnapshot expects an object', null, toMatchImageSnapshot)
+		return {
+			pass: false,
+			actual,
+			message: () =>
+				`toMatchImageSnapshot() expects the subject to be an element, locator, or result of page.imageSnapshot(), but got: ${actual}`,
+		}
 	}
 	page.screenshot({ element: actual })
 	return {
