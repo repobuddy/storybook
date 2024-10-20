@@ -27,3 +27,16 @@ it('should fail when the subject is the result of page.screenshot()', async () =
 		)
 	}
 })
+
+it('save file under __results__', async () => {
+	const f1 = await page.imageSnapshot()
+
+	expect(f1.path).toMatch(
+		'__screenshots__/to_match_image_snapshot.spec.ts/__results__/save-file-under---results---1.png',
+	)
+
+	const f2 = await page.imageSnapshot()
+	expect(f2.path).toMatch(
+		'__screenshots__/to_match_image_snapshot.spec.ts/__results__/save-file-under---results---2.png',
+	)
+})

@@ -2,8 +2,8 @@ import { setProjectAnnotations } from '@storybook/react'
 import { expect } from '@storybook/test'
 import { page } from '@vitest/browser/context'
 import pixelmatch from 'pixelmatch'
-import { afterEach, beforeAll } from 'vitest'
-import { type TestContext, setupBeforeAll } from '../src/index.js'
+import { afterEach, beforeAll, beforeEach } from 'vitest'
+import { type TestContext, setupBeforeAll, setupBeforeEach } from '../src/index.js'
 import * as projectAnnotations from './preview'
 
 // This is an important step to apply the right configuration when testing your stories.
@@ -15,6 +15,10 @@ beforeAll((ctx) => {
 	project.beforeAll()
 })
 
+beforeEach((ctx) => {
+	setupBeforeEach(ctx)
+})
+
 afterEach<TestContext>(async (ctx) => {
 	// console.info('afterEach: key(ctx)', Object.keys(ctx))
 	// console.info('afterEach: task', ctx.task)
@@ -22,9 +26,9 @@ afterEach<TestContext>(async (ctx) => {
 	if (ctx.story) {
 		// const { tags, parameters, id, globals,  context } = ctx.story
 		// console.log('afterEach', parameters)
-		const image = await page.screenshot({ base64: true })
-		const r = await getDimensionsFromBase64(image.base64)
-		console.info(r)
+		// const image = await page.screenshot({ base64: true })
+		// const r = await getDimensionsFromBase64(image.base64)
+		// console.info(r)
 		// 		const canvas = document.createElement('canvas')
 		// const ctx = canvas.getContext('2d')
 		// console.info(ctx)
@@ -47,20 +51,3 @@ afterEach<TestContext>(async (ctx) => {
 // ctx.putImageData(imageData, 0, 0);
 
 // const img = canvas.toDataURL(); // convert canvas to DataU
-function getDimensionsFromBase64(base64String) {
-	return new Promise((resolve, reject) => {
-		const img = new Image()
-		img.src = `data:image/png;base64,${base64String}`
-
-		img.onload = () => {
-			resolve({
-				width: img.width,
-				height: img.height,
-			})
-		}
-
-		img.onerror = () => {
-			reject(new Error('Failed to load image'))
-		}
-	})
-}

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { expect } from '@storybook/test'
 import { page } from './context/page.js'
 import { defineSnapshotParam } from './snapshot.js'
 import { Button } from './stories/Button.js'
@@ -26,6 +27,8 @@ export const Success: Story = {
 		console.info('play: ctx.globalTypes', ctx.globalTypes)
 		console.info('play: ctx.globals', ctx.globals)
 		// console.info('play: ctx.context', ctx.context)
+		expect(true).toBe(true)
+		await page.imageSnapshot()
 		await page.imageSnapshot()
 	},
 }
@@ -34,12 +37,9 @@ export const Failed: Story = {
 	parameters: defineSnapshotParam({}),
 	args: {
 		primary: true,
-		label: 'Faeailed',
+		label: 'Faleed',
 	},
-	async play(ctx) {
-		console.info('play: ctx.globalTypes', ctx.globalTypes)
-		console.info('play: ctx.globals', ctx.globals)
-		// console.info('play: ctx.context', ctx.context)
-		// await page.imageSnapshot()
+	async play() {
+		await page.screenshot()
 	},
 }

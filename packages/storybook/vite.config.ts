@@ -16,12 +16,14 @@ export default defineProject({
 			headless: true,
 			name: 'chromium',
 			provider: 'playwright',
+			// screenshotFailures: true,
 		},
 		globals: true,
 		include: [
 			// Technically non-storybook tests can be execute in NodeJS.
-			// But we are including them here to cover this scenario that
+			// But we are including them here to cover the scenario that
 			// not all tests are stories.
+			// Also, this is easier for the user to setup.
 			'**/*.spec.ts',
 			'**/*.stories.?(m)[jt]s?(x)',
 		],

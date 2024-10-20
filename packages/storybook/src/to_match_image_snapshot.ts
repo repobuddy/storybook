@@ -32,7 +32,7 @@ export async function toMatchImageSnapshot<T extends MatcherState = MatcherState
 				`\`toMatchImageSnapshot()\` expects the subject to be an element, locator, or result of \`page.imageSnapshot()\`, but got: \`${actual}\``,
 		}
 	}
-	page.screenshot({ element: actual })
+	await page.imageSnapshot({ element: actual })
 	return {
 		pass: true,
 		message: () => '',
