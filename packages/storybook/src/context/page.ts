@@ -37,7 +37,11 @@ export const page = new Proxy<BrowserPage>(
 	} as any,
 	{
 		get(target, prop) {
-			return (target as any)[prop] ?? (ctx?.page as any)[prop]
+			return ((target as any)[prop] ?? ctx?.page)
+				? (ctx?.page as any)[prop]
+				: () => {
+						console.info(`\`page.${prop.toString()}\` does not exist when running in browser`)
+					}
 		},
 	},
 )
