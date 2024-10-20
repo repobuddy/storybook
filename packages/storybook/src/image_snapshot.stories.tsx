@@ -23,12 +23,7 @@ export const Success: Story = {
 		primary: true,
 		label: 'Button',
 	},
-	async play(ctx) {
-		console.info('play: ctx.globalTypes', ctx.globalTypes)
-		console.info('play: ctx.globals', ctx.globals)
-		// console.info('play: ctx.context', ctx.context)
-		expect(true).toBe(true)
-		await page.imageSnapshot()
+	async play() {
 		await page.imageSnapshot()
 	},
 }

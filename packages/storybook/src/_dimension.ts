@@ -1,5 +1,5 @@
 export function getDimensionsFromBase64(base64String: string) {
-	return new Promise((resolve, reject) => {
+	return new Promise<{ width: number; height: number }>((resolve, reject) => {
 		const img = new Image()
 		img.src = `data:image/png;base64,${base64String}`
 

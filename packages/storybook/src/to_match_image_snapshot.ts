@@ -1,6 +1,5 @@
 import type { AsyncExpectationResult, MatcherState } from '@vitest/expect'
-import { imageSnapshotSymbol } from './_symbols'
-import { page } from './context/page'
+import { assertImageSnapshot, isImageSnapshot } from './image_snapshot.js'
 
 declare global {
 	namespace jest {
@@ -16,23 +15,29 @@ export async function toMatchImageSnapshot<T extends MatcherState = MatcherState
 	actual: any,
 ): AsyncExpectationResult {
 	const subject = await actual
-	if (subject.base64 && !subject[imageSnapshotSymbol]) {
-		return {
-			pass: false,
-			actual,
-			message: () =>
-				'`toMatchImageSnapshot()` expects the subject the result of `page.imageSnapshot()`, but seems like you are using `page.screenshot()`?',
+	if (!isImageSnapshot(subject)) {
+		if (subject.path && subject.base64) {
+			return {
+				pass: false,
+				actual,
+				message: () =>
+					'`toMatchImageSnapshot()` expects the subject to be the result of `page.imageSnapshot()`, but seems like you are using `page.screenshot()`?',
+			}
 		}
-	}
-	if (typeof actual !== 'object') {
-		return {
-			pass: false,
-			actual,
-			message: () =>
-				`\`toMatchImageSnapshot()\` expects the subject to be an element, locator, or result of \`page.imageSnapshot()\`, but got: \`${actual}\``,
+		if (typeof actual !== 'object') {
+			return {
+				pass: false,
+				actual,
+				message: () =>
+					`\`toMatchImageSnapshot()\` expects the subject to be an element, locator, or result of \`page.imageSnapshot()\`, but got: \`${actual}\``,
+			}
 		}
+		//await page.imageSnapshot({ element: actual })
 	}
-	await page.imageSnapshot({ element: actual })
+	assertImageSnapshot(subject)
+	// const baseline = await commands.readFile(subject[imageSnapshotSymbol].baselinePath)
+	// console.log('baseline', baseline)
+
 	return {
 		pass: true,
 		message: () => '',

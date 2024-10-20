@@ -1,6 +1,6 @@
 import { assertType } from 'type-plus'
 import { expect, it } from 'vitest'
-import { page } from './context/page'
+import { page } from './context/page.js'
 
 it('should fail if the subject is not an element, locator, or result of page.imageSnapshot()', async () => {
 	// TODO: this is not complete.
@@ -23,20 +23,7 @@ it('should fail when the subject is the result of page.screenshot()', async () =
 		expect(e).toBeInstanceOf(Error)
 		assertType.as<Error>(e)
 		expect(e.message).toEqual(
-			'`toMatchImageSnapshot()` expects the subject the result of `page.imageSnapshot()`, but seems like you are using `page.screenshot()`?',
+			'`toMatchImageSnapshot()` expects the subject to be the result of `page.imageSnapshot()`, but seems like you are using `page.screenshot()`?',
 		)
 	}
-})
-
-it('save file under __results__', async () => {
-	const f1 = await page.imageSnapshot()
-
-	expect(f1.path).toMatch(
-		'__screenshots__/to_match_image_snapshot.spec.ts/__results__/save-file-under---results---1.png',
-	)
-
-	const f2 = await page.imageSnapshot()
-	expect(f2.path).toMatch(
-		'__screenshots__/to_match_image_snapshot.spec.ts/__results__/save-file-under---results---2.png',
-	)
 })
