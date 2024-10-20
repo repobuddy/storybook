@@ -24,7 +24,8 @@ export const Success: Story = {
 		label: 'Button',
 	},
 	async play() {
-		await page.imageSnapshot()
+		const s = await page.imageSnapshot()
+		expect(s).toMatchImageSnapshot()
 	},
 }
 

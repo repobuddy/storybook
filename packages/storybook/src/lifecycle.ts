@@ -1,3 +1,4 @@
+import { expect as storyExpect } from '@storybook/test'
 import { page } from '@vitest/browser/context'
 import type { RunnerTestFile, RunnerTestSuite } from 'vitest'
 import { expect } from 'vitest'
@@ -18,6 +19,8 @@ export function setupBeforeAll(ctx: Readonly<RunnerTestSuite | RunnerTestFile>) 
 	// ctx.meta.snapshot = '1234'
 	page.extend({ imageSnapshot })
 	expect.extend({ toMatchImageSnapshot })
+	// `MatcherState` missing `snapshotState` due to module augmentation not working well with type param.
+	storyExpect.extend({ toMatchImageSnapshot: toMatchImageSnapshot as any })
 }
 
 export function setupBeforeEach(ctx: TaskContext) {

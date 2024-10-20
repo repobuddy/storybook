@@ -1,5 +1,7 @@
+import { commands } from '@vitest/browser/context'
 import type { AsyncExpectationResult, MatcherState } from '@vitest/expect'
-import { assertImageSnapshot, isImageSnapshot } from './image_snapshot.js'
+import { page } from './context/page.js'
+import { assertImageSnapshot, imageSnapshotSymbol, isImageSnapshot } from './image_snapshot.js'
 
 declare global {
 	namespace jest {
@@ -35,11 +37,19 @@ export async function toMatchImageSnapshot<T extends MatcherState = MatcherState
 		//await page.imageSnapshot({ element: actual })
 	}
 	assertImageSnapshot(subject)
-	// const baseline = await commands.readFile(subject[imageSnapshotSymbol].baselinePath)
-	// console.log('baseline', baseline)
+	const baseline = await tryReadFile(subject[imageSnapshotSymbol].baselinePath)
+	if (!baseline) {
+		await page.screenshot({
+			path: subject[imageSnapshotSymbol].baselinePath,
+		})
+	}
 
 	return {
 		pass: true,
 		message: () => '',
 	}
+}
+
+function tryReadFile(path: string) {
+	return new Promise<string>((resolve) => resolve(commands.readFile(path))).catch(() => undefined)
 }
