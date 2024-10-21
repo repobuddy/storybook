@@ -1,9 +1,4 @@
-import { expect as storyExpect } from '@storybook/test'
-import { page } from '@vitest/browser/context'
-import type { RunnerTestFile, RunnerTestSuite } from 'vitest'
-import { expect } from 'vitest'
-import type { TaskContext } from 'vitest'
-import { imageSnapshot, toMatchImageSnapshot } from './index.js'
+import type { RunnerTestFile, RunnerTestSuite, TaskContext } from 'vitest'
 import { state } from './state.js'
 
 export type SetupOptions = {
@@ -11,16 +6,13 @@ export type SetupOptions = {
 }
 
 export function setupBeforeAll(ctx: Readonly<RunnerTestSuite | RunnerTestFile>) {
+	console.debug('setupBeforeAll')
 	// console.info('setup', ctx)
 	state.name = ctx.name
 	state.filepath = ctx.file.filepath
 	// const name = ctx.name
 	// const filepath = ctx.filepath
 	// ctx.meta.snapshot = '1234'
-	page.extend({ imageSnapshot })
-	expect.extend({ toMatchImageSnapshot })
-	// `MatcherState` missing `snapshotState` due to module augmentation not working well with type param.
-	storyExpect.extend({ toMatchImageSnapshot: toMatchImageSnapshot as any })
 }
 
 export function setupBeforeEach(ctx: TaskContext) {

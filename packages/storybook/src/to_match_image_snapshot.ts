@@ -1,6 +1,7 @@
-import { commands } from '@vitest/browser/context'
 import type { AsyncExpectationResult, MatcherState } from '@vitest/expect'
-import { page } from './context/page.js'
+import pixelmatch from 'pixelmatch'
+import { toDataURL, toImageData } from './ _image_data.js'
+import { commands, page } from './context/page.js'
 import { assertImageSnapshot, imageSnapshotSymbol, isImageSnapshot } from './image_snapshot.js'
 
 declare global {
@@ -37,19 +38,49 @@ export async function toMatchImageSnapshot<T extends MatcherState = MatcherState
 		//await page.imageSnapshot({ element: actual })
 	}
 	assertImageSnapshot(subject)
-	const baseline = await tryReadFile(subject[imageSnapshotSymbol].baselinePath)
+	const baseline = await tryReadSnapshot(subject[imageSnapshotSymbol].baselinePath)
 	if (!baseline) {
 		await page.screenshot({
 			path: subject[imageSnapshotSymbol].baselinePath,
 		})
-	}
+	} else {
+		const baselineImage = await toImageData(baseline)
+		// const diff = new PNG({
+		// 	width: baselineImage.width,
+		// 	height: baselineImage.height,
+		// })
+		const diffData = new Uint8Array(baselineImage.width * baselineImage.height * 4)
 
+		pixelmatch(
+			subject[imageSnapshotSymbol].image.data,
+			baselineImage.data,
+			diffData,
+			// diff.data,
+			baselineImage.width,
+			baselineImage.height,
+		)
+		// writeSnapshot(
+		// 	`${subject[imageSnapshotSymbol].diffPath}`,
+		// 	await uint8ArrayToBase64(subject[imageSnapshotSymbol].image.data),
+		// )
+		const diffImage = new ImageData(baselineImage.width, baselineImage.height)
+		diffImage.data.set(baselineImage.data)
+		const diffUrl = (await toDataURL(diffImage)).split(',')[1]
+		// console.info('baseline', baseline)
+		// console.info('diff', diffUrl)
+		writeSnapshot(`${subject[imageSnapshotSymbol].diffPath}`, diffUrl)
+	}
 	return {
 		pass: true,
 		message: () => '',
 	}
 }
 
-function tryReadFile(path: string) {
-	return new Promise<string>((resolve) => resolve(commands.readFile(path))).catch(() => undefined)
+function tryReadSnapshot(path: string) {
+	return new Promise<string>((resolve) => resolve(commands.readFile(path, { encoding: 'base64' }))).catch(
+		() => undefined,
+	)
+}
+function writeSnapshot(path: string, content: string) {
+	return commands.writeFile(path, content, 'base64url')
 }

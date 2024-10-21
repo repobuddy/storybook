@@ -1,7 +1,7 @@
 import type { BrowserPage, Locator } from '@vitest/browser/context'
-import { server } from '@vitest/browser/context'
 import { basename } from 'pathe'
-import { getDimensionsFromBase64 } from './_dimension'
+import { toImageData } from './ _image_data'
+import { server } from './context/page'
 import { state } from './state'
 
 export const imageSnapshotSymbol = Symbol('imageSnapshot')
@@ -19,14 +19,13 @@ export type ImageSnapshotOptions = {
 export type ImageSnapshot = {
 	[imageSnapshotSymbol]: {
 		rootDir: string
-		width: number
-		height: number
 		testfilename: string
 		snapshotFilename: string
 		baselinePath: string
 		resultPath: string
 		diffPath: string
 		base64: string
+		image: ImageData
 	}
 }
 
@@ -54,7 +53,7 @@ export async function imageSnapshot(this: BrowserPage, _options?: ImageSnapshotO
 		base64: true,
 		path: resultPath,
 	})
-	const dimensions = await getDimensionsFromBase64(screenshot.base64)
+	const image = await toImageData(screenshot.base64)
 
 	return {
 		[imageSnapshotSymbol]: {
@@ -65,7 +64,7 @@ export async function imageSnapshot(this: BrowserPage, _options?: ImageSnapshotO
 			resultPath,
 			diffPath,
 			base64: screenshot.base64,
-			...dimensions,
+			image,
 		},
 	}
 }

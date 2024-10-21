@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { expect } from '@storybook/test'
 import { page } from './context/page.js'
-import { defineSnapshotParam } from './snapshot.js'
+import { defineSnapshotParam } from './index.js'
 import { Button } from './stories/Button.js'
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
