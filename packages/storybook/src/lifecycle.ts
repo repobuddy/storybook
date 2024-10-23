@@ -6,13 +6,8 @@ export type SetupOptions = {
 }
 
 export function setupBeforeAll(ctx: Readonly<RunnerTestSuite | RunnerTestFile>) {
-	console.debug('setupBeforeAll')
-	// console.info('setup', ctx)
 	state.name = ctx.name
 	state.filepath = ctx.file.filepath
-	// const name = ctx.name
-	// const filepath = ctx.filepath
-	// ctx.meta.snapshot = '1234'
 }
 
 export function setupBeforeEach(ctx: TaskContext) {

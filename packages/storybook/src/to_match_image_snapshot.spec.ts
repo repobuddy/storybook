@@ -2,6 +2,12 @@ import { assertType } from 'type-plus'
 import { expect, it } from 'vitest'
 import { page } from './context/page.js'
 
+it('should reject if the subject is undefined', async () => {
+	expect(() => expect(undefined).toMatchImageSnapshot()).rejects.toThrowError(
+		'`toMatchImageSnapshot()` expects the subject to be an element, locator, or result of `page.imageSnapshot()`, but got: `undefined`',
+	)
+})
+
 it('should fail if the subject is not an element, locator, or result of page.imageSnapshot()', async () => {
 	// TODO: this is not complete.
 	// need to handle other cases first.

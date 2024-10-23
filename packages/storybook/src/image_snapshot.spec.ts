@@ -1,6 +1,6 @@
 import { expect, it } from 'vitest'
 import { page } from './context/page.js'
-import { imageSnapshotSymbol } from './index.js'
+import { imageSnapshotSymbol } from './image_snapshot.js'
 
 it('save file under __results__', async () => {
 	const f1 = await page.imageSnapshot()

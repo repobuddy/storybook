@@ -19,7 +19,7 @@ export async function toMatchImageSnapshot<T extends MatcherState = MatcherState
 ): AsyncExpectationResult {
 	const subject = await actual
 	if (!isImageSnapshot(subject)) {
-		if (subject.path && subject.base64) {
+		if (subject?.path && subject?.base64) {
 			return {
 				pass: false,
 				actual,
@@ -27,7 +27,8 @@ export async function toMatchImageSnapshot<T extends MatcherState = MatcherState
 					'`toMatchImageSnapshot()` expects the subject to be the result of `page.imageSnapshot()`, but seems like you are using `page.screenshot()`?',
 			}
 		}
-		if (typeof actual !== 'object') {
+
+		if (typeof subject !== 'object') {
 			return {
 				pass: false,
 				actual,

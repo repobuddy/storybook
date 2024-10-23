@@ -1,6 +1,7 @@
 import { setProjectAnnotations } from '@storybook/react'
 import { afterEach, beforeAll, beforeEach, expect } from 'vitest'
-import { type TestContext, setupBeforeAll, setupBeforeEach, toMatchImageSnapshot } from '../src/index.js'
+import type { TestContext } from '../src/index.js'
+import { setupBeforeAll, setupBeforeEach, toMatchImageSnapshot } from '../src/index.js'
 import * as projectAnnotations from './preview'
 
 // This is an important step to apply the right configuration when testing your stories.

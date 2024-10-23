@@ -6,3 +6,6 @@ import { toMatchImageSnapshot } from './to_match_image_snapshot.js'
 page.extend({ imageSnapshot })
 // `MatcherState` missing `snapshotState` due to module augmentation not working well with type param.
 storyExpect.extend({ toMatchImageSnapshot: toMatchImageSnapshot as any })
+
+// make it work with --isolatedModules
+export default {}

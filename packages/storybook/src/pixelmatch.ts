@@ -1,27 +1,3 @@
-import type { SnapshotProjectParam } from './types.js'
-
-export function defineProjectSnapshotParam(snapshot: SnapshotProjectParam) {
-	return { snapshot }
-}
-
-export type SnapshotStoryParam = {
-	/**
-	 * The method by which images are compared.
-	 * `pixelmatch` does a pixel by pixel comparison, whereas `ssim` does a structural similarity comparison.
-	 * @default 'pixelmatch'
-	 */
-	comparisonMethod?: 'pixelmatch' | 'ssim' | undefined
-	/**
-	 * Custom config passed to 'pixelmatch' or 'ssim'
-	 */
-	customDiffConfig?: PixelmatchOptions | undefined
-	failureThreshold?: number | undefined
-	failureThresholdType?: 'percent' | 'pixel' | undefined
-	blur?: number | undefined
-	delay?: number | undefined
-	// x: MatchImageSnapshotOptions
-}
-
 export type PixelmatchOptions = {
 	/**
 	 * Matching threshold, ranges from 0 to 1. Smaller values make the comparison more sensitive.
@@ -63,7 +39,3 @@ export type PixelmatchOptions = {
 	diffMask?: boolean | undefined
 }
 type RGBTuple = [number, number, number]
-
-export function defineSnapshotParam(snapshot: SnapshotStoryParam) {
-	return { snapshot }
-}
