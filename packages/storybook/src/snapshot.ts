@@ -1,4 +1,4 @@
-import type { SnapshotProjectParam } from './types'
+import type { SnapshotProjectParam } from './types.js'
 
 export function defineProjectSnapshotParam(snapshot: SnapshotProjectParam) {
 	return { snapshot }

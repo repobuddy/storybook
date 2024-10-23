@@ -23,7 +23,7 @@
 		"editor.defaultFormatter": "biomejs.biome",
 		"editor.formatOnSave": true
 	},
-	"cSpell.words": ["pathe", "repobuddy", "ssim"],
+	"cSpell.words": ["pathe", "pngjs", "repobuddy", "ssim", "tsbuildinfo", "tsup"],
 	"editor.codeActionsOnSave": {
 		"source.organizeImports.biome": "explicit"
 	}

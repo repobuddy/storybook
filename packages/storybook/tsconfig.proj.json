@@ -1,5 +1,6 @@
 {
 	"compilerOptions": {
+		"composite": true,
 		"target": "ES2022",
 		"lib": ["ES2023"],
 		"module": "ESNext",
@@ -7,10 +8,10 @@
 
 		/* Bundler mode */
 		"moduleResolution": "bundler",
-		"allowImportingTsExtensions": true,
+		// "allowImportingTsExtensions": true,
 		"isolatedModules": true,
 		"moduleDetection": "force",
-		"noEmit": true,
+		// "noEmit": true,
 
 		/* Linting */
 		"strict": true,
@@ -18,5 +19,5 @@
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true
 	},
-	"include": ["vite.config.ts", ".storybook"]
+	"include": ["vitest.config.ts", ".storybook"]
 }

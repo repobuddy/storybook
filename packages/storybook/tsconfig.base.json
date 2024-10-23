@@ -6,10 +6,5 @@
 		"rootDir": "./src",
 		"jsx": "react"
 	},
-	"include": ["src/**/*"],
-	"references": [
-		// { "path": "./tsconfig.cjs.json" },
-		{ "path": "./tsconfig.esm.json" },
-		{ "path": "./tsconfig.proj.json" }
-	]
+	"include": ["src"]
 }

@@ -1,8 +1,8 @@
 import type { BrowserPage, Locator } from '@vitest/browser/context'
 import { basename } from 'pathe'
-import { toImageData } from './ _image_data'
-import { server } from './context/page'
-import { state } from './state'
+import { toImageData } from './_image_data.js'
+import { server } from './context/page.js'
+import { state } from './state.js'
 
 export const imageSnapshotSymbol = Symbol('imageSnapshot')
 
@@ -45,7 +45,7 @@ export async function imageSnapshot(this: BrowserPage, _options?: ImageSnapshotO
 	const rootDir = server.config.root
 	const testfilename = basename(state.filepath)
 	const id = toId(state.task.name)
-	const snapshotFilename = `${id}-${state.snapshot[state.task.name].count++}.png`
+	const snapshotFilename = `${id}-${state.snapshot[state.task.name]!.count++}.png`
 	const baselinePath = `__screenshots__/${testfilename}/${snapshotFilename}`
 	const resultPath = `__screenshots__/${testfilename}/__results__/${snapshotFilename}`
 	const diffPath = `__screenshots__/${testfilename}/__diffs__/${snapshotFilename}`

@@ -1,6 +1,6 @@
 import type { AsyncExpectationResult, MatcherState } from '@vitest/expect'
 import pixelmatch from 'pixelmatch'
-import { toDataURL, toImageData } from './ _image_data.js'
+import { toDataURL, toImageData } from './_image_data.js'
 import { commands, page } from './context/page.js'
 import { assertImageSnapshot, imageSnapshotSymbol, isImageSnapshot } from './image_snapshot.js'
 
@@ -68,7 +68,7 @@ export async function toMatchImageSnapshot<T extends MatcherState = MatcherState
 		const diffUrl = (await toDataURL(diffImage)).split(',')[1]
 		// console.info('baseline', baseline)
 		// console.info('diff', diffUrl)
-		writeSnapshot(`${subject[imageSnapshotSymbol].diffPath}`, diffUrl)
+		writeSnapshot(`${subject[imageSnapshotSymbol].diffPath}`, diffUrl!)
 	}
 	return {
 		pass: true,

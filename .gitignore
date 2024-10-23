@@ -44,3 +44,4 @@ node_modules
 /.turbo
 *.tsbuildinfo
 __screenshots__
+dist/
