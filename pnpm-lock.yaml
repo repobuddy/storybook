@@ -61,7 +61,7 @@ importers:
         version: 5.1.0-rc-fb9a90fa48-20240614(eslint@9.12.0)
       eslint-plugin-react-refresh:
         specifier: ^0.4.12
-        version: 0.4.12(eslint@9.12.0)
+        version: 0.4.19(eslint@9.12.0)
       eslint-plugin-storybook:
         specifier: ^0.9.0
         version: 0.9.0(eslint@9.12.0)(typescript@5.6.3)
@@ -1836,6 +1836,11 @@ packages:
     resolution: {integrity: sha512-9neVjoGv20FwYtCP6CB1dzR1vr57ZDNOXst21wd2xJ/cTlM2xLq0GWVlSNTdMn/4BtP6cHYBMCSp1wFBJ9jBsg==}
     peerDependencies:
       eslint: '>=7'
+
+  eslint-plugin-react-refresh@0.4.19:
+    resolution: {integrity: sha512-eyy8pcr/YxSYjBoqIFSrlbn9i/xvxUFa8CjzAYo9cFjgGXqq1hyjihcpZvxRLalpaWmueWR81xn7vuKmAFijDQ==}
+    peerDependencies:
+      eslint: '>=8.40'
 
   eslint-plugin-storybook@0.9.0:
     resolution: {integrity: sha512-qOT/2vQBo0VqrG/BhZv8IdSsKQiyzJw+2Wqq+WFCiblI/PfxLSrGkF/buiXF+HumwfsCyBdaC94UhqhmYFmAvA==}
@@ -5165,6 +5170,10 @@ snapshots:
       eslint: 9.12.0
 
   eslint-plugin-react-refresh@0.4.12(eslint@9.12.0):
+    dependencies:
+      eslint: 9.12.0
+
+  eslint-plugin-react-refresh@0.4.19(eslint@9.12.0):
     dependencies:
       eslint: 9.12.0
 
