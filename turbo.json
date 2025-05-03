@@ -2,12 +2,12 @@
 	"$schema": "https://turbo.build/schema.json",
 	"ui": "tui",
 	"tasks": {
+		"//#check": {},
 		"build": {
 			"dependsOn": ["^build"],
 			"inputs": ["$TURBO_DEFAULT$", ".env*"],
 			"outputs": ["dist/**", "esm/**", "*.tsbuildinfo"]
 		},
-		"//#check": {},
 		"clean": {
 			"cache": false
 		},
@@ -19,6 +19,11 @@
 		"nuke": {
 			"cache": false,
 			"dependsOn": ["clean"]
+		},
+		"sb:build": {
+			"dependsOn": ["^build"],
+			"inputs": ["$TURBO_DEFAULT$", ".storybook"],
+			"outputs": ["storybook-static/**"]
 		},
 		"test": {
 			"dependsOn": ["^build"],

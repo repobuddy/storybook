@@ -11,14 +11,22 @@
 	},
 	"scripts": {
 		"build": "turbo run build",
+		"build:sb": "turbo run sb:build",
 		"check": "biome check",
 		"check:fix": "biome check --fix",
+		"clean": "turbo clean",
 		"coverage": "vitest run --coverage",
 		"cs": "changeset",
+		"nuke": "turbo nuke && rimraf node_modules",
 		"prepare": "husky",
 		"sb": "pnpm --filter @repobuddy/storybook",
-		"w": "vitest",
-		"verify": "turbo check build coverage"
+		"release": "pnpm build && changeset publish",
+		"test": "vitest run",
+		"v": "turbo check coverage",
+		"verify": "turbo check coverage",
+		"verify:ci": "turbo check coverage --concurrency=1",
+		"version": "changeset version",
+		"w": "vitest"
 	},
 	"dependencies": {
 		"@biomejs/biome": "1.9.4",

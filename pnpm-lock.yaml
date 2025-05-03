@@ -92,6 +92,9 @@ importers:
       react-dom:
         specifier: ^19.1.0
         version: 19.1.0(react@19.1.0)
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       storybook:
         specifier: ^8.6.12
         version: 8.6.12(prettier@3.5.3)

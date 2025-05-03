@@ -1,0 +1,71 @@
+name: update-snapshot
+on:
+  workflow_dispatch:
+    inputs:
+      build-command:
+        description: 'Command to run to build the project'
+        required: true
+        default: 'pnpm build'
+      update-snapshot-command:
+        description: 'Command to run to update the snapshot'
+        required: true
+        default: 'pnpm test -- -- -u'
+jobs:
+  update-snapshot:
+    runs-on: ubuntu-latest
+    env:
+      PLAYWRIGHT_PATH: "~/.cache/ms-playwright"
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: pnpm/action-setup@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Cache Playwright Browsers
+        uses: actions/cache@v4
+        id: cache-playwright
+        with:
+          path: ${{ env.PLAYWRIGHT_PATH }}
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-
+
+      - name: Install playwright browsers
+        run: pnpx playwright install --with-deps chromium
+        if: steps.cache-playwright.outputs.cache-hit != 'true'
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - run: ${{ inputs.build-command }}
+      - run: ${{ inputs.update-snapshot-command }}
+
+      - name: Archive snapshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: snapshots
+          path: |
+            */*/__vis__/__diffs__
+            */*/__vis__/__results__
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "test: update snapshot"
+          token: ${{ secrets.CI_GITHUB_TOKEN }}
+          title: "test: update snapshot"
+          body: "This PR updates the snapshot"
+          branch: vis-bot/update-snapshot/${{ github.head_ref || github.ref_name }}
+          base: ${{ github.base_ref }}
+          labels: "snapshot"
+          draft: false
