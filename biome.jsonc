@@ -7,15 +7,20 @@
 		"useIgnoreFile": true,
 		"defaultBranch": "main"
 	},
-	// "files": {
-	// 	"ignoreUnknown": false,
-	// 	"ignore": []
-	// },
+	"files": {
+		"ignoreUnknown": false,
+		"ignore": ["node_modules", "dist", "build", "coverage", "*.mdx", "*.md", ".vscode"]
+	},
 	"formatter": {
 		"enabled": true,
 		"indentStyle": "tab"
 	},
 	"organizeImports": {
 		"enabled": true
+	},
+	"javascript": {
+		"formatter": {
+			"trailingCommas": "none"
+		}
 	}
 }

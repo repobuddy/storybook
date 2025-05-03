@@ -1,4 +1,0 @@
-{
-	"files": [],
-	"references": [{ "path": "./tsconfig.esm.json" }, { "path": "./tsconfig.proj.json" }]
-}

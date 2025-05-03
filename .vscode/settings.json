@@ -16,15 +16,18 @@
 		"editor.formatOnSave": true
 	},
 	"[typescript]": {
+		"editor.codeActionsOnSave": {
+			"source.organizeImports.biome": "explicit"
+		},
 		"editor.defaultFormatter": "biomejs.biome",
 		"editor.formatOnSave": true
 	},
 	"[typescriptreact]": {
+		"editor.codeActionsOnSave": {
+			"source.organizeImports.biome": "explicit"
+		},
 		"editor.defaultFormatter": "biomejs.biome",
 		"editor.formatOnSave": true
 	},
-	"cSpell.words": ["pathe", "repobuddy", "ssim"],
-	"editor.codeActionsOnSave": {
-		"source.organizeImports.biome": "explicit"
-	}
+	"cSpell.words": ["oklch", "pathe", "repobuddy", "ssim"]
 }

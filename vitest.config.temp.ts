@@ -6,6 +6,6 @@ export default defineConfig({
 			// console.info(this)
 			console.info(path, extension, ...args)
 			return path.replace('__snapshots__', '__snapshots__/custom')
-		},
-	},
+		}
+	}
 })

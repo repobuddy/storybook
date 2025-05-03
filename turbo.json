@@ -1,0 +1,35 @@
+{
+	"$schema": "https://turbo.build/schema.json",
+	"ui": "tui",
+	"tasks": {
+		"build": {
+			"dependsOn": ["^build"],
+			"inputs": ["$TURBO_DEFAULT$", ".env*"],
+			"outputs": ["dist/**", "esm/**", "*.tsbuildinfo"]
+		},
+		"//#check": {},
+		"clean": {
+			"cache": false
+		},
+		"coverage": {
+			"dependsOn": ["^build"],
+			"inputs": ["$TURBO_DEFAULT$", ".storybook", "*.ts"],
+			"outputs": ["coverage/**", "__vis__/**"]
+		},
+		"nuke": {
+			"cache": false,
+			"dependsOn": ["clean"]
+		},
+		"test": {
+			"dependsOn": ["^build"],
+			"inputs": ["$TURBO_DEFAULT$", ".storybook", "*.ts"],
+			"outputs": ["__vis__/**"]
+		},
+		"w": {
+			"dependsOn": ["^build"],
+			"inputs": ["$TURBO_DEFAULT$", ".storybook", "*.ts"],
+			"outputs": ["__vis__/**"],
+			"persistent": true
+		}
+	}
+}

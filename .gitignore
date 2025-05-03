@@ -41,6 +41,10 @@ node_modules
 .idea
 
 # project
-/.turbo
-*.tsbuildinfo
 __screenshots__
+__vis__/**/__diffs__
+__vis__/**/__results__
+/.turbo
+esm
+*.tsbuildinfo
+*storybook.log
