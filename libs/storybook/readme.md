@@ -58,7 +58,7 @@ we provide a different set of badges that uses icons:
 - 📋 To-do items
 - 📝 Code-only stories
 - 🧪 Unit tests
-- 🧱 Integration tests
+- 🔄 Integration tests
 - Version indicators (unchanged)
 
 To use them, add them to your `.storybook/manager.ts`:

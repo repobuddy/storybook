@@ -71,7 +71,7 @@ export const tagBadges: TagBadgeParameters = [
 	{
 		tags: 'integration',
 		badge: {
-			text: '🧱',
+			text: '🔄',
 			bgColor: 'transparent',
 			tooltip: 'Integration Test'
 		}
