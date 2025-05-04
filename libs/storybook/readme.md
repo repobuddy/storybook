@@ -1,10 +1,10 @@
 # @repobuddy/storybook
 
-Your repo buddy for Storybook.
+Your repository buddy for Storybook.
 
 ## Install
 
-```bash
+```sh
 pnpm add -D @repobuddy/storybook
 ```
 
@@ -12,9 +12,10 @@ pnpm add -D @repobuddy/storybook
 
 ### Typed Parameters
 
-Storybook supports some built-in parameters, but the `StoryObj` type does not include them.
+Storybook supports some built-in parameters,
+but the `parameters` props in the `StoryObj` type is typed as `Record<string, any>`.
 
-[`@repobuddy/storybook`] adds these types as well as their corresponding define-functions so that you can use them in your stories.
+[`@repobuddy/storybook`][`@repobuddy/storybook`] adds these types as well as their corresponding define-functions so that you can use them in your stories.
 
 For example:
 
@@ -43,12 +44,25 @@ export const MyStory: StoryObj = {
 }
 ```
 
-### Manager Customizations
+### Brand Title
 
-#### Tag Badges
+[`@repobuddy/storybook`][`@repobuddy/storybook`] also provides a `brandTitle` parameter that allows you to set the brand title of your Storybook.
 
-If you use [`storybook-addon-tag-badges`],
-we provide a different set of badges that uses icons:
+```ts
+import { brandTitle } from '@repobuddy/storybook/manager'
+
+addons.setConfig({
+	brandTitle: brandTitle({
+		title:'My Brand',
+		logo: `<svg.../>`
+	})
+})
+```
+
+### Tag Badges
+
+If you use [`storybook-addon-tag-badges`][`storybook-addon-tag-badges`],
+we provide a different set of badges that uses emojis:
 
 - 🆕 New components/features
 - 🅱️ Beta status
