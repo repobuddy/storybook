@@ -62,3 +62,11 @@ jobs:
     uses: repobuddy/.github/.github/workflows/pnpm-release-changeset.yml@main
     needs: verify
     secrets: inherit
+
+  docgen:
+    permissions:
+      contents: write
+    uses: repobuddy/.github/.github/workflows/pnpm-docs.yml@main
+    needs: release
+    with:
+      publish-dir: ./libs/storybook/storybook-static
