@@ -1,5 +1,15 @@
 # @repobuddy/storybook
 
+## 0.2.0
+
+### Minor Changes
+
+- [`2ab6d48`](https://github.com/repobuddy/storybook/commit/2ab6d4896a547939f3d7eb78d793975bcadc4fec) Thanks [@unional](https://github.com/unional)! - Add `defineDocsParam()`
+
+- [`a01f913`](https://github.com/repobuddy/storybook/commit/a01f913bbd90e4dc485e1f09b5bef31488412d8c) Thanks [@unional](https://github.com/unional)! - Add `defineViewportParam()`
+
+- [`a457c22`](https://github.com/repobuddy/storybook/commit/a457c228fd22627d5433d31e2adf1bc453428c8a) Thanks [@unional](https://github.com/unional)! - Add `brandTitle()`
+
 ## 0.1.0
 
 ### Minor Changes
