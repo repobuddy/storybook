@@ -11,7 +11,7 @@
 	},
 	"scripts": {
 		"build": "turbo run build",
-		"build:sb": "turbo run sb:build",
+		"build:doc": "turbo run sb:build",
 		"check": "biome check",
 		"check:fix": "biome check --fix",
 		"clean": "turbo clean",
