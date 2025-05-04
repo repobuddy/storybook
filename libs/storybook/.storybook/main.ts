@@ -13,7 +13,7 @@ const config: StorybookConfig = {
 		options: {}
 	},
 	managerHead: (head) => `
-		${head}
+		${head ? head.replace(/<link\s+rel=["']icon["'][^>]*>/gi, '') : ''}
 		<link rel="icon" type="image/svg+xml" href="https://avatars.githubusercontent.com/u/97370623?s=400&u=9698dbb5f8f3590a3d7f50e7b5ce6f3db72fcc35&v=4" />
 	`
 }
