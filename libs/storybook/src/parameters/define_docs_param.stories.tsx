@@ -1,0 +1,41 @@
+import type { Meta, StoryObj } from '@storybook/react'
+import { defineDocsParam } from '../index.ts'
+
+const meta = {
+	title: 'Parameters/defineDocsParam',
+	tags: ['autodocs'],
+	parameters: defineDocsParam({
+		description: {
+			component:
+				'`docs.description.component` can be used to describe the component in meta. It has no effect on the stories.'
+		}
+	}),
+	render: () => <div>Hello</div>
+} satisfies Meta
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+/**
+ * Storybook uses JSDoc to generate documentation for the story.
+ */
+export const JSDoc: Story = {}
+
+export const WithStoryDescription: Story = {
+	parameters: defineDocsParam({
+		description: {
+			story: '`docs.description.story` can also be used to describe the story.'
+		}
+	})
+}
+
+/**
+ * `docs.source.code` can be used to define the source code of the story.
+ */
+export const SourceCode: Story = {
+	parameters: defineDocsParam({
+		source: {
+			code: 'Source code'
+		}
+	})
+}
