@@ -1,5 +1,16 @@
 # @repobuddy/storybook
 
+## 0.3.0
+
+### Minor Changes
+
+- [`d39642c`](https://github.com/repobuddy/storybook/commit/d39642c8ad95be9bf62178b1c71af9c987a23764) Thanks [@unional](https://github.com/unional)! - Add `showDocSource` and `defineBackgroundsParam`
+  s
+
+### Patch Changes
+
+- [`ee132b9`](https://github.com/repobuddy/storybook/commit/ee132b9aa6e1c15ccac3680d0348b192147fbc1f) Thanks [@unional](https://github.com/unional)! - Allow free form
+
 ## 0.2.0
 
 ### Minor Changes
