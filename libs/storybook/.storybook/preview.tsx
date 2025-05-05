@@ -1,5 +1,5 @@
-import { defineParameters } from '@repobuddy/storybook'
 import type { Preview } from '@storybook/react'
+import { defineParameters } from '../src/index.ts'
 
 import '../tailwind.css'
 
