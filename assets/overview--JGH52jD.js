@@ -1,4 +1,4 @@
-import{j as o}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import{e as s,f as a}from"./index-D3oDa_fm.js";import"./index-D4lIrffr.js";import"./iframe-CBeoLbDS.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const d=`# @repobuddy/storybook
+import{j as o}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import{b as s,c as a}from"./index-DhzG9hrU.js";import"./index-D4lIrffr.js";import"./index-DxVW5Ymj.js";import"./index-DsJinFGm.js";import"./iframe-DKZPIcoL.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const d=`# @repobuddy/storybook
 
 Your repository buddy for Storybook.
 
@@ -87,4 +87,4 @@ addons.setConfig({ tagBadges })
 [\`@repobuddy/storybook\`]: https://github.com/repobuddy/storybook
 [\`storybook-addon-tag-badges\`]: https://github.com/Sidnioulz/storybook-addon-tag-badges
 `;function e(t){return o.jsxs(o.Fragment,{children:[o.jsx(s,{title:"Overview"}),`
-`,o.jsx(a,{children:d})]})}function g(t={}){const{wrapper:n}={...r(),...t.components};return n?o.jsx(n,{...t,children:o.jsx(e,{...t})}):e()}export{g as default};
+`,o.jsx(a,{children:d})]})}function c(t={}){const{wrapper:n}={...r(),...t.components};return n?o.jsx(n,{...t,children:o.jsx(e,{...t})}):e()}export{c as default};
