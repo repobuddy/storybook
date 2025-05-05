@@ -16,6 +16,7 @@ export interface BackgroundsParam {
 					opacity?: number | undefined
 			  }
 			| undefined
+		[k: string]: unknown
 	}
 }
 export interface GlobalApiBackgroundsParam {
@@ -36,6 +37,7 @@ export interface GlobalApiBackgroundsParam {
 					opacity?: number | undefined
 			  }
 			| undefined
+		[k: string]: unknown
 	}
 }
 

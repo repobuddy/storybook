@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import dedent from 'dedent'
 import { showDocSource } from '../index.ts'
 import { defineDocsParam } from '../index.ts'
 
@@ -21,14 +22,34 @@ type Story = StoryObj<typeof meta>
 /**
  * Storybook uses JSDoc to generate documentation for the story.
  */
-export const JSDoc: Story = {}
-
-export const WithStoryDescription: Story = {
+export const JSDoc: Story = {
 	parameters: defineDocsParam({
-		description: {
-			story: '`docs.description.story` can also be used to describe the story.'
+		source: {
+			code: dedent`
+			/**
+			 * Storybook uses JSDoc to generate documentation for the story.
+			 */
+			export const JSDoc: Story = {}
+			`
 		}
 	})
+}
+
+export const WithStoryDescription: Story = {
+	parameters: {
+		...defineDocsParam({
+			description: {
+				story: '`docs.description.story` can also be used to describe the story.'
+			},
+			source: {
+				code: dedent`defineDocsParam({
+					description: {
+						story: '\`docs.description.story\` can also be used to describe the story.'
+					}
+				})`
+			}
+		})
+	}
 }
 
 /**
@@ -37,7 +58,11 @@ export const WithStoryDescription: Story = {
 export const SourceCode: Story = {
 	parameters: defineDocsParam({
 		source: {
-			code: 'Source code'
+			code: dedent`defineDocsParam({
+				source: {
+					code: 'Source code'
+				}
+			})`
 		}
 	})
 }

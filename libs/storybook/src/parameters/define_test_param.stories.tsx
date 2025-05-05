@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { defineTestParam } from './define_test_param'
+import dedent from 'dedent'
+import { defineDocsParam, defineTestParam, showDocSource } from '../index.ts'
 
 const meta = {
 	title: 'Parameters/defineTestParam',
@@ -11,31 +12,64 @@ const meta = {
 			}
 		}
 	},
-	render: () => <div>Hello</div>
+	decorators: [showDocSource()],
+	render: () => <></>
 } satisfies Meta
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-	parameters: defineTestParam({
-		clearMocks: true,
-		mockReset: true,
-		restoreMocks: true
-	})
+	parameters: {
+		...defineTestParam({
+			clearMocks: true,
+			mockReset: true,
+			restoreMocks: true
+		}),
+		...defineDocsParam({
+			source: {
+				code: dedent`defineTestParam({
+					clearMocks: true,
+					mockReset: true,
+					restoreMocks: true
+				})`
+			}
+		})
+	}
 }
 
 export const WithDangerouslyIgnoreUnhandledErrors: Story = {
-	parameters: defineTestParam({
-		clearMocks: true,
-		mockReset: true,
-		restoreMocks: true,
-		dangerouslyIgnoreUnhandledErrors: true
-	})
+	parameters: {
+		...defineTestParam({
+			clearMocks: true,
+			mockReset: true,
+			restoreMocks: true,
+			dangerouslyIgnoreUnhandledErrors: true
+		}),
+		...defineDocsParam({
+			source: {
+				code: dedent`defineTestParam({
+					clearMocks: true,
+					mockReset: true,
+					restoreMocks: true,
+					dangerouslyIgnoreUnhandledErrors: true
+				})`
+			}
+		})
+	}
 }
 
 export const MinimalConfig: Story = {
-	parameters: defineTestParam({
-		clearMocks: true
-	})
+	parameters: {
+		...defineTestParam({
+			clearMocks: true
+		}),
+		...defineDocsParam({
+			source: {
+				code: dedent`defineTestParam({
+					clearMocks: true
+				})`
+			}
+		})
+	}
 }

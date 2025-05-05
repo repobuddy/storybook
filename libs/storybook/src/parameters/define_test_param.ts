@@ -4,6 +4,7 @@ export interface TestParam {
 		mockReset?: boolean | undefined
 		restoreMocks?: boolean | undefined
 		dangerouslyIgnoreUnhandledErrors?: boolean | undefined
+		[k: string]: unknown
 	}
 }
 

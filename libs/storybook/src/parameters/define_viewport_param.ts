@@ -17,6 +17,7 @@ export interface ViewportParam {
 		 * @deprecated Use `disabled` instead.
 		 */
 		disable?: boolean | undefined
+		[k: string]: unknown
 	}
 }
 

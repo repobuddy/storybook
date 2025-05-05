@@ -3,6 +3,7 @@ export interface ActionsParam {
 		argTypesRegex?: string | undefined
 		disable?: boolean | undefined
 		handles?: string[] | undefined
+		[k: string]: unknown
 	}
 }
 

@@ -3,6 +3,7 @@ type StorySortConfig = {
 	locales?: string
 	method?: 'alphabetical' | 'alphabetical-by-kind' | 'custom'
 	order?: string[]
+	[k: string]: unknown
 }
 
 type Story = {
