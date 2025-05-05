@@ -25,28 +25,6 @@ export const WithLayout: StoryObj = {
 	}
 }
 
-/**
- * Example showing how to use `defineParameters` to configure actions parameters
- */
-export const WithActionsParam: StoryObj = {
-	parameters: {
-		...defineParameters<ActionsParam>({
-			actions: {
-				argTypesRegex: '^on[A-Z].*'
-			}
-		}),
-		...defineDocsParam({
-			source: {
-				code: dedent`defineParameters<ActionsParam>({
-				actions: {
-					argTypesRegex: '^on[A-Z].*'
-				}
-			})`
-			}
-		})
-	}
-}
-
 export const WithBackgroundsParam: StoryObj = {
 	parameters: {
 		...defineParameters({
@@ -59,6 +37,48 @@ export const WithBackgroundsParam: StoryObj = {
 				code: dedent`defineParameters({
 				backgrounds: {
 					default: 'light'
+				}
+			})`
+			}
+		})
+	}
+}
+
+export const WithDocsParam: StoryObj = {
+	parameters: {
+		...defineParameters({
+			docs: {
+				description: {
+					story: 'This is a story'
+				}
+			}
+		}),
+		...defineDocsParam({
+			source: {
+				code: dedent`defineParameters({
+				docs: {
+					description: {
+						story: 'This is a story'
+					}
+				}
+			})`
+			}
+		})
+	}
+}
+
+export const WithViewportParam: StoryObj = {
+	parameters: {
+		...defineParameters({
+			viewport: {
+				defaultViewport: 'tablet1'
+			}
+		}),
+		...defineDocsParam({
+			source: {
+				code: dedent`defineParameters({
+				viewport: {
+					defaultViewport: 'tablet1'
 				}
 			})`
 			}
@@ -86,4 +106,26 @@ export const WithOtherParams: StoryObj = {
 		})
 	},
 	render: () => <div>You can use this to configure parameters that are not defined in the type</div>
+}
+
+/**
+ * Example showing how to use `defineParameters` to configure actions parameters
+ */
+export const WithActionsParam: StoryObj = {
+	parameters: {
+		...defineParameters<ActionsParam>({
+			actions: {
+				argTypesRegex: '^on[A-Z].*'
+			}
+		}),
+		...defineDocsParam({
+			source: {
+				code: dedent`defineParameters<ActionsParam>({
+				actions: {
+					argTypesRegex: '^on[A-Z].*'
+				}
+			})`
+			}
+		})
+	}
 }
