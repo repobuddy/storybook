@@ -5,10 +5,10 @@ export interface BrandTitleOptions {
 	 */
 	title: string
 	/**
-	 * The icon to display in the brand title.
+	 * The logo to display in the brand title.
 	 * It can be a simple string or raw HTML (e.g. `<svg>`).
 	 */
-	icon?: string | undefined
+	logo?: string | undefined
 }
 
 /**
@@ -16,7 +16,7 @@ export interface BrandTitleOptions {
  *
  * @param options - The options for customizing the brand title
  * @param options.title - The title text or HTML to display
- * @param options.icon - Optional icon HTML to display before the title
+ * @param options.logo - Optional logo HTML to display before the title
  * @returns An HTML string containing the brand title element
  *
  * @example
@@ -28,14 +28,14 @@ export interface BrandTitleOptions {
  * addons.setConfig({
  *   brandTitle: brandTitle({
  *     title: 'My Storybook',
- *     icon: '<img src="logo.png" alt="Logo" width="24" height="24">'
+ *     logo: '<img src="logo.png" alt="Logo" width="24" height="24">'
  *   })
  * })
  * ```
  */
 export function brandTitle(options: BrandTitleOptions) {
 	return `<span style="display: flex; align-items: center; gap: 2px;">
-		${options.icon ?? ''}
+		${options.logo ?? ''}
 		${options.title}
 	</span>`
 }

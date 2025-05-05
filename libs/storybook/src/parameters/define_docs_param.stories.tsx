@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { showDocSource } from '../index.ts'
 import { defineDocsParam } from '../index.ts'
 
 const meta = {
@@ -10,7 +11,8 @@ const meta = {
 				'`docs.description.component` can be used to describe the component in meta. It has no effect on the stories.'
 		}
 	}),
-	render: () => <div>Hello</div>
+	decorators: [showDocSource()],
+	render: () => <></>
 } satisfies Meta
 
 export default meta

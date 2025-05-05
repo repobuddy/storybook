@@ -1,58 +1,55 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { defineLayoutParam } from '../index.ts'
 
 export default {
-	title: 'manager/tagBadges',
-	parameters: defineLayoutParam('centered'),
-	tags: ['new', 'version:1.0.0']
+	title: 'manager/tagBadges'
 } satisfies Meta
 
 export const NewBadge: StoryObj = {
 	tags: ['new'],
-	render: () => <div>New</div>
+	render: () => <code>tags: ['new']</code>
 }
 
 export const BetaBadge: StoryObj = {
 	tags: ['beta'],
-	render: () => <div>Beta</div>
+	render: () => <code>tags: ['beta']</code>
 }
 
 export const DeprecatedBadge: StoryObj = {
 	tags: ['deprecated'],
-	render: () => <div>Deprecated</div>
+	render: () => <code>tags: ['deprecated']</code>
 }
 
 export const OutdatedBadge: StoryObj = {
 	tags: ['outdated'],
-	render: () => <div>Outdated</div>
+	render: () => <code>tags: ['outdated']</code>
 }
 
 export const DangerousBadge: StoryObj = {
 	tags: ['danger'],
-	render: () => <div>Dangerous</div>
+	render: () => <code>tags: ['danger']</code>
 }
 
 export const TodoBadge: StoryObj = {
 	tags: ['todo'],
-	render: () => <div>Todo</div>
+	render: () => <code>tags: ['todo']</code>
 }
 
 export const CodeOnlyBadge: StoryObj = {
 	tags: ['code-only'],
-	render: () => <div>Code Only</div>
+	render: () => <code>tags: ['code-only']</code>
 }
 
 export const UnitTestBadge: StoryObj = {
 	tags: ['unit'],
-	render: () => <div>Unit Test</div>
+	render: () => <code>tags: ['unit']</code>
 }
 
 export const IntegrationTestBadge: StoryObj = {
 	tags: ['integration'],
-	render: () => <div>Integration Test</div>
+	render: () => <code>tags: ['integration']</code>
 }
 
 export const VersionBadge: StoryObj = {
 	tags: ['version:1.0.0'],
-	render: () => <div>Version 1.0.0</div>
+	render: () => <code>tags: ['version:1.0.0']</code>
 }

@@ -29,7 +29,7 @@ export interface Viewport {
 	type: 'mobile' | 'tablet' | 'desktop'
 }
 
-export interface ViewportParamV9 {
+export interface GlobalApiViewportParam {
 	viewport: {
 		/**
 		 * @see https://storybook.js.org/docs/essentials/viewport#viewports
@@ -50,6 +50,8 @@ export interface ViewportParamV9 {
 	}
 }
 
-export function defineViewportParam(viewport: ViewportParam['viewport'] | ViewportParamV9['viewport']): ViewportParam {
+export function defineViewportParam(
+	viewport: ViewportParam['viewport'] | GlobalApiViewportParam['viewport']
+): ViewportParam {
 	return { viewport }
 }

@@ -1,4 +1,6 @@
+export * from './decorators/show_doc_source.tsx'
 export * from './parameters/define_actions_param.ts'
+export * from './parameters/define_backgrounds_param.ts'
 export * from './parameters/define_docs_param.ts'
 export * from './parameters/define_layout_param.ts'
 export * from './parameters/define_parameters.ts'

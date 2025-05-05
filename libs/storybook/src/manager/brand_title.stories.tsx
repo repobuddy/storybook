@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { brandTitle } from './brand_title'
+import dedent from 'dedent'
+import { brandTitle } from '../manager.ts'
 
 const meta = {
 	title: 'Manager/brandTitle',
@@ -12,15 +13,13 @@ type Story = StoryObj<typeof meta>
 /**
  * Basic example showing how to create a brand title with just text
  */
-export const TitleString: Story = {
-	name: 'Title String',
+export const SimpleString: Story = {
 	parameters: {
 		docs: {
 			source: {
-				code: `
-brandTitle({
-	title: 'My Storybook'
-})`
+				code: dedent`brandTitle({
+					title: 'My Storybook'
+				})`
 			}
 		}
 	},
@@ -36,15 +35,13 @@ brandTitle({
 	)
 }
 
-export const TitleHtml: Story = {
-	name: 'Title HTML',
+export const InHtml: Story = {
 	parameters: {
 		docs: {
 			source: {
-				code: `
-brandTitle({
-	title: '<span style="color: #ff4785;">My Storybook</span>'
-})`
+				code: dedent`brandTitle({
+					title: '<span style="color: #ff4785;">My Storybook</span>'
+				})`
 			}
 		}
 	},
@@ -60,15 +57,13 @@ brandTitle({
 	)
 }
 
-export const TitleWithEmoji: Story = {
-	name: 'Title with Emoji',
+export const WithEmoji: Story = {
 	parameters: {
 		docs: {
 			source: {
-				code: `
-brandTitle({
-	title: 'My Storybook 🚀'
-})`
+				code: dedent`brandTitle({
+					title: 'My Storybook 🚀'
+				})`
 			}
 		}
 	},
@@ -88,15 +83,13 @@ brandTitle({
  * Example showing how to add an icon to the brand title
  */
 export const WithSvgIcon: Story = {
-	name: 'Title with Icon',
 	parameters: {
 		docs: {
 			source: {
-				code: `
-brandTitle({
-	title: 'My Storybook',
-	icon: '<svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="#ff4785"/></svg>'
-})`
+				code: dedent`brandTitle({
+					title: 'My Storybook',
+					icon: '<svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="#ff4785"/></svg>'
+				})`
 			}
 		}
 	},
@@ -106,7 +99,7 @@ brandTitle({
 			dangerouslySetInnerHTML={{
 				__html: brandTitle({
 					title: 'My Storybook',
-					icon: '<svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="#ff4785"/></svg>'
+					logo: '<svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="#ff4785"/></svg>'
 				})
 			}}
 		/>

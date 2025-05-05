@@ -1,28 +1,89 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { defineParameters } from './define_parameters.ts'
+import dedent from 'dedent'
+import { defineDocsParam, defineParameters, showDocSource } from '../index.ts'
+import type { ActionsParam } from './define_actions_param.ts'
 
 export default {
 	title: 'parameters/defineParameters',
-	tags: ['new']
+	tags: ['new', 'version:1.0.0'],
+	decorators: [showDocSource()],
+	render: () => <></>
 } satisfies Meta
 
 export const WithLayout: StoryObj = {
-	parameters: defineParameters({
-		layout: 'centered'
-	}),
-	render: () => (
-		<div>
-			Story with centered layout using <code>defineParameters</code>
-		</div>
-	)
+	parameters: {
+		...defineParameters({
+			layout: 'centered'
+		}),
+		...defineDocsParam({
+			source: {
+				code: dedent`defineParameters({
+				layout: 'centered'
+			})`
+			}
+		})
+	}
+}
+
+/**
+ * Example showing how to use `defineParameters` to configure actions parameters
+ */
+export const WithActionsParam: StoryObj = {
+	parameters: {
+		...defineParameters<ActionsParam>({
+			actions: {
+				argTypesRegex: '^on[A-Z].*'
+			}
+		}),
+		...defineDocsParam({
+			source: {
+				code: dedent`defineParameters<ActionsParam>({
+				actions: {
+					argTypesRegex: '^on[A-Z].*'
+				}
+			})`
+			}
+		})
+	}
+}
+
+export const WithBackgroundsParam: StoryObj = {
+	parameters: {
+		...defineParameters({
+			backgrounds: {
+				default: 'light'
+			}
+		}),
+		...defineDocsParam({
+			source: {
+				code: dedent`defineParameters({
+				backgrounds: {
+					default: 'light'
+				}
+			})`
+			}
+		})
+	}
 }
 
 export const WithOtherParams: StoryObj = {
-	parameters: defineParameters({
-		layout: 'padded',
-		something: {
-			blah: 'beer'
-		}
-	}),
-	render: () => <div>Story with other parameters not defined in the type</div>
+	parameters: {
+		...defineParameters({
+			layout: 'padded',
+			something: {
+				blah: 'beer'
+			}
+		}),
+		...defineDocsParam({
+			source: {
+				code: dedent`defineParameters({
+				layout: 'padded',
+				something: {
+					blah: 'beer'
+				}
+			})`
+			}
+		})
+	},
+	render: () => <div>You can use this to configure parameters that are not defined in the type</div>
 }
