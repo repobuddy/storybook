@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 0.3.1
+
+### Patch Changes
+
+- [`956f983`](https://github.com/repobuddy/storybook/commit/956f98379086371c0c6f4982e711299302078bc2) Thanks [@unional](https://github.com/unional)! - Add missing `docs` and `viewport` support to `defineParameters()`.
+
 ## 0.3.0
 
 ### Minor Changes
