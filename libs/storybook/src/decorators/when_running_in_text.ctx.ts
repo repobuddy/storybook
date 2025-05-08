@@ -1,4 +1,4 @@
-import { isRunningInTest } from '@repobuddy/vitest'
+import { isRunningInTest } from '@repobuddy/test'
 
 export const ctx = {
 	isRunningInTest

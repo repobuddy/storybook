@@ -56,10 +56,13 @@ importers:
 
   libs/storybook:
     dependencies:
-      '@repobuddy/vitest':
-        specifier: ^1.2.0
-        version: 1.2.0
+      '@repobuddy/test':
+        specifier: ^1.0.0
+        version: 1.0.0
     devDependencies:
+      '@repobuddy/vitest':
+        specifier: ^1.2.1
+        version: 1.2.1
       '@storybook/addon-essentials':
         specifier: ^8.6.12
         version: 8.6.12(@types/react@19.1.2)(storybook@8.6.12(prettier@3.5.3))
@@ -738,8 +741,11 @@ packages:
     peerDependencies:
       '@biomejs/biome': '>= 1.8.0'
 
-  '@repobuddy/vitest@1.2.0':
-    resolution: {integrity: sha512-lYTGbYvNoiIrtf7zgN0wgUuog5vJXp0WEhPRoxQM9weIllFdi/uSQbxLpF20paacrdaz2DnSBQ9eNdjGq2sVxA==}
+  '@repobuddy/test@1.0.0':
+    resolution: {integrity: sha512-sXIAH4qO6qN/cIpYK6ZYcQrfmUT5QrALgd8YZZ7e2KiteaWgkRUv5NP++5AlaS6L7GQ6AYT+QXXlTwl+FPq9og==}
+
+  '@repobuddy/vitest@1.2.1':
+    resolution: {integrity: sha512-T0bS9nXpQxTxxW9toulRL5ZU6fEjuxntRjCzif6u2LgCr2h5aHc4oNtQUNGOKmImcAaMrDgUiL5VxaTKpZYH1A==}
 
   '@rollup/pluginutils@5.1.4':
     resolution: {integrity: sha512-USm05zrsFxYLPdWWq+K3STlWiT/3ELn3RcV5hJMghpeAIhxfsUIg6mt12CBJBInWMV4VneoV7SfGv8xIwo2qNQ==}
@@ -3670,7 +3676,11 @@ snapshots:
     dependencies:
       '@biomejs/biome': 1.9.4
 
-  '@repobuddy/vitest@1.2.0': {}
+  '@repobuddy/test@1.0.0': {}
+
+  '@repobuddy/vitest@1.2.1':
+    dependencies:
+      '@repobuddy/test': 1.0.0
 
   '@rollup/pluginutils@5.1.4(rollup@4.40.1)':
     dependencies:
