@@ -55,10 +55,11 @@ importers:
         version: 3.1.2(@types/node@22.15.3)(@vitest/browser@3.1.2)(jiti@2.4.2)(lightningcss@1.29.2)(msw@2.4.11(typescript@5.8.3))
 
   libs/storybook:
-    devDependencies:
+    dependencies:
       '@repobuddy/vitest':
-        specifier: ^1.0.0
-        version: 1.0.0
+        specifier: ^1.2.0
+        version: 1.2.0
+    devDependencies:
       '@storybook/addon-essentials':
         specifier: ^8.6.12
         version: 8.6.12(@types/react@19.1.2)(storybook@8.6.12(prettier@3.5.3))
@@ -737,8 +738,8 @@ packages:
     peerDependencies:
       '@biomejs/biome': '>= 1.8.0'
 
-  '@repobuddy/vitest@1.0.0':
-    resolution: {integrity: sha512-bVp3EKZ0b0DDb+kOzBNQStIFJUGnnVaLI4WihVxsQYog5pvI9Lky2bUiVtgPCe1FKnSSwEPaVLtpudC680Pj9Q==}
+  '@repobuddy/vitest@1.2.0':
+    resolution: {integrity: sha512-lYTGbYvNoiIrtf7zgN0wgUuog5vJXp0WEhPRoxQM9weIllFdi/uSQbxLpF20paacrdaz2DnSBQ9eNdjGq2sVxA==}
 
   '@rollup/pluginutils@5.1.4':
     resolution: {integrity: sha512-USm05zrsFxYLPdWWq+K3STlWiT/3ELn3RcV5hJMghpeAIhxfsUIg6mt12CBJBInWMV4VneoV7SfGv8xIwo2qNQ==}
@@ -3669,7 +3670,7 @@ snapshots:
     dependencies:
       '@biomejs/biome': 1.9.4
 
-  '@repobuddy/vitest@1.0.0': {}
+  '@repobuddy/vitest@1.2.0': {}
 
   '@rollup/pluginutils@5.1.4(rollup@4.40.1)':
     dependencies:
