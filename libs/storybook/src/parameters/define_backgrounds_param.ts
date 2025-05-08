@@ -41,6 +41,12 @@ export interface GlobalApiBackgroundsParam {
 	}
 }
 
+/**
+ * Defines backgrounds parameters for Storybook stories.
+ *
+ * @param backgrounds - The backgrounds configuration
+ * @returns An object containing the backgrounds parameter configuration
+ */
 export const defineBackgroundsParam = (
 	backgrounds: BackgroundsParam['backgrounds'] | GlobalApiBackgroundsParam['backgrounds']
 ): BackgroundsParam => ({

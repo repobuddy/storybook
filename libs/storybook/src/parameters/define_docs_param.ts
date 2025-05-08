@@ -201,6 +201,33 @@ export interface DocsParam {
 	}
 }
 
+/**
+ * Defines docs parameters for Storybook stories.
+ *
+ * @param docs - Configuration for docs parameters including options for:
+ * - Controls display and sorting
+ * - Story rendering (autoplay, height, inline vs iframe)
+ * - And other docs-related settings
+ * @returns An object containing the docs parameter configuration
+ *
+ * @example
+ * ```ts
+ * import { defineDocsParam } from '@repobuddy/storybook'
+ *
+ * export default {
+ *   parameters: defineDocsParam({
+ *     controls: {
+ *       sort: 'alpha',
+ *       exclude: ['internal*']
+ *     },
+ *     story: {
+ *       inline: true,
+ *       height: '400px'
+ *     }
+ *   })
+ * }
+ * ```
+ */
 export function defineDocsParam(docs: DocsParam['docs']): DocsParam['docs'] {
 	return { docs }
 }

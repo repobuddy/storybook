@@ -51,6 +51,33 @@ export interface GlobalApiViewportParam {
 	}
 }
 
+/**
+ * Defines viewport parameters for Storybook stories.
+ *
+ * @see https://storybook.js.org/docs/api/parameters#viewport
+ *
+ * @param viewport - Configuration for viewport parameters including:
+ * - viewports: Custom viewport definitions
+ * - defaultViewport: The default viewport to use
+ * - defaultOrientation: Default orientation (landscape/portrait)
+ * - disabled: Whether viewport controls are disabled
+ * @returns An object containing the viewport parameter configuration
+ *
+ * @example
+ * ```ts
+ * defineViewportParam({
+ *   viewports: {
+ *     mobile: {
+ *       name: 'Mobile',
+ *       styles: { width: '320px', height: '568px' },
+ *       type: 'mobile'
+ *     }
+ *   },
+ *   defaultViewport: 'mobile',
+ *   defaultOrientation: 'portrait'
+ * })
+ * ```
+ */
 export function defineViewportParam(
 	viewport: ViewportParam['viewport'] | GlobalApiViewportParam['viewport']
 ): ViewportParam {

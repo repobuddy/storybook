@@ -12,9 +12,7 @@ export interface LayoutParam {
  * @example
  * ```ts
  * export const MyStory = {
- *   parameters: {
- *     ...defineLayoutParam('centered')
- *   }
+ *   parameters: defineLayoutParam('centered')
  * }
  * ```
  */
