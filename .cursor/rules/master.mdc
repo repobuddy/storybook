@@ -1,0 +1,33 @@
+---
+description: creating new curser rule
+globs:
+alwaysApply: false
+---
+# Master Rules
+
+This document serves as the central reference for all rules in the project.
+
+## Available Rules
+
+1. [React Guidelines](mdc:.cursor/rules/react-guidelines.mdc)
+   - Provides best practices and patterns for React development
+   - Covers component structure, state management, performance, testing, and more
+
+2. [Cursor Rules](mdc:.cursor/rules/cursor-rules.mdc)
+   - Explains how to add and edit Cursor rules in the project
+   - Contains guidelines for rule file structure and location
+
+## How to Use Rules
+
+1. Each rule file contains specific guidelines for a particular aspect of development
+2. Rules are automatically applied based on their glob patterns
+3. Some rules are always applied (alwaysApply: true)
+4. Rules can be referenced in code reviews and development discussions
+
+## Adding New Rules
+
+When adding new rules:
+1. Create the rule file in `.cursor/rules/` directory
+2. Use the `.mdc` extension
+3. Follow the standard rule file structure
+4. Update this master file to reference the new rule
