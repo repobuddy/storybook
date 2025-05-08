@@ -1,4 +1,4 @@
-import{j as c}from"./jsx-runtime-D_zvdyIk.js";import{d as t}from"./dedent-DVFkJXTl.js";import{s as P,d as s}from"./define_docs_param-DYEy_vX9.js";const J={title:"Parameters/defineDocsParam",tags:["autodocs","new","version:1.0.0"],parameters:s({description:{component:"`docs.description.component` can be used to describe the component in meta. It has no effect on the stories."}}),decorators:[P()],render:()=>c.jsx(c.Fragment,{})},e={parameters:s({source:{code:t`
+import{j as c}from"./jsx-runtime-D_zvdyIk.js";import{d as t}from"./dedent-DVFkJXTl.js";import{s as P}from"./show_doc_source-CWgnZoeJ.js";import{d as s}from"./define_docs_param-lmgaBKCF.js";const j={title:"Parameters/defineDocsParam",tags:["autodocs","new","version:1.0.0"],parameters:s({description:{component:"`docs.description.component` can be used to describe the component in meta. It has no effect on the stories."}}),decorators:[P()],render:()=>c.jsx(c.Fragment,{})},e={parameters:s({source:{code:t`
             /**
              * Storybook uses JSDoc to generate documentation for the story.
              */
@@ -47,4 +47,4 @@ import{j as c}from"./jsx-runtime-D_zvdyIk.js";import{d as t}from"./dedent-DVFkJX
             })\`
     }
   })
-}`,...(D=(f=o.parameters)==null?void 0:f.docs)==null?void 0:D.source},description:{story:"`docs.source.code` can be used to define the source code of the story.",...(b=(h=o.parameters)==null?void 0:h.docs)==null?void 0:b.description}}};const j=["JSDoc","WithStoryDescription","SourceCode"];export{e as JSDoc,o as SourceCode,r as WithStoryDescription,j as __namedExportsOrder,J as default};
+}`,...(D=(f=o.parameters)==null?void 0:f.docs)==null?void 0:D.source},description:{story:"`docs.source.code` can be used to define the source code of the story.",...(b=(h=o.parameters)==null?void 0:h.docs)==null?void 0:b.description}}};const k=["JSDoc","WithStoryDescription","SourceCode"];export{e as JSDoc,o as SourceCode,r as WithStoryDescription,k as __namedExportsOrder,j as default};

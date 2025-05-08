@@ -1,1 +1,0 @@
-import{j as r}from"./jsx-runtime-D_zvdyIk.js";function t(){return(e,{parameters:n})=>{var s,o;return r.jsxs("section",{style:{display:"flex",flexDirection:"column",gap:"1rem"},children:[r.jsx("pre",{children:(o=(s=n.docs)==null?void 0:s.source)==null?void 0:o.code}),r.jsx(e,{})]})}}function i(e){return{docs:e}}export{i as d,t as s};

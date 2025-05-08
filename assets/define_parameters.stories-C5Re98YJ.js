@@ -1,4 +1,4 @@
-import{j as c}from"./jsx-runtime-D_zvdyIk.js";import{d as e}from"./dedent-DVFkJXTl.js";import{s as R,d as r}from"./define_docs_param-DYEy_vX9.js";import{d as a}from"./define_parameters-Dh8E5HRZ.js";const O={title:"parameters/defineParameters",tags:["new","version:1.0.0"],decorators:[R()],render:()=>c.jsx(c.Fragment,{})},s={parameters:{...a({layout:"centered"}),...r({source:{code:e`defineParameters({
+import{j as c}from"./jsx-runtime-D_zvdyIk.js";import{d as e}from"./dedent-DVFkJXTl.js";import{s as R}from"./show_doc_source-CWgnZoeJ.js";import{d as r}from"./define_docs_param-lmgaBKCF.js";import{d as a}from"./define_parameters-Dh8E5HRZ.js";const B={title:"parameters/defineParameters",tags:["new","version:1.0.0"],decorators:[R()],render:()=>c.jsx(c.Fragment,{})},s={parameters:{...a({layout:"centered"}),...r({source:{code:e`defineParameters({
                 layout: 'centered'
             })`}})}},t={parameters:{...a({backgrounds:{default:"light"}}),...r({source:{code:e`defineParameters({
                 backgrounds: {
@@ -128,4 +128,4 @@ import{j as c}from"./jsx-runtime-D_zvdyIk.js";import{d as e}from"./dedent-DVFkJX
       }
     })
   }
-}`,...(S=(T=n.parameters)==null?void 0:T.docs)==null?void 0:S.source},description:{story:"Example showing how to use `defineParameters` to configure actions parameters",...(V=(k=n.parameters)==null?void 0:k.docs)==null?void 0:V.description}}};const B=["WithLayout","WithBackgroundsParam","WithDocsParam","WithViewportParam","WithOtherParams","WithActionsParam"];export{n as WithActionsParam,t as WithBackgroundsParam,o as WithDocsParam,s as WithLayout,i as WithOtherParams,d as WithViewportParam,B as __namedExportsOrder,O as default};
+}`,...(S=(T=n.parameters)==null?void 0:T.docs)==null?void 0:S.source},description:{story:"Example showing how to use `defineParameters` to configure actions parameters",...(V=(k=n.parameters)==null?void 0:k.docs)==null?void 0:V.description}}};const L=["WithLayout","WithBackgroundsParam","WithDocsParam","WithViewportParam","WithOtherParams","WithActionsParam"];export{n as WithActionsParam,t as WithBackgroundsParam,o as WithDocsParam,s as WithLayout,i as WithOtherParams,d as WithViewportParam,L as __namedExportsOrder,B as default};

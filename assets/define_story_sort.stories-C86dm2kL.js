@@ -1,4 +1,4 @@
-import{j as d}from"./jsx-runtime-D_zvdyIk.js";import{d as i}from"./dedent-DVFkJXTl.js";import{s as I,d as n}from"./define_docs_param-DYEy_vX9.js";function s(e){return{storySort:e}}const _={title:"parameters/defineStorySort",tags:["new","version:1.0.0"],decorators:[I()],render:()=>d.jsx(d.Fragment,{})},t={parameters:{...s({method:"alphabetical"}),...n({source:{code:'defineStorySort({ method: "alphabetical" })'}})}},o={parameters:{...s({method:"custom",order:["Introduction","Components","*","Examples"]}),...n({source:{code:i`defineStorySort({
+import{j as d}from"./jsx-runtime-D_zvdyIk.js";import{d as i}from"./dedent-DVFkJXTl.js";import{s as I}from"./show_doc_source-CWgnZoeJ.js";import{d as n}from"./define_docs_param-lmgaBKCF.js";function s(e){return{storySort:e}}const k={title:"parameters/defineStorySort",tags:["new","version:1.0.0"],decorators:[I()],render:()=>d.jsx(d.Fragment,{})},t={parameters:{...s({method:"alphabetical"}),...n({source:{code:'defineStorySort({ method: "alphabetical" })'}})}},o={parameters:{...s({method:"custom",order:["Introduction","Components","*","Examples"]}),...n({source:{code:i`defineStorySort({
                     method: "custom",
                     order: ["Introduction", "Components", "*", "Examples"]
                 })`}})}},r={parameters:{...s({method:"alphabetical-by-kind",locales:"en"}),...n({source:{code:i`defineStorySort({
@@ -69,4 +69,4 @@ import{j as d}from"./jsx-runtime-D_zvdyIk.js";import{d as i}from"./dedent-DVFkJX
       }
     })
   }
-}`,...(x=(g=a.parameters)==null?void 0:g.docs)==null?void 0:x.source}}};const k=["AlphabeticalSort","CustomSort","AlphabeticalByKindSort","CustomSortFunction"];export{r as AlphabeticalByKindSort,t as AlphabeticalSort,o as CustomSort,a as CustomSortFunction,k as __namedExportsOrder,_ as default};
+}`,...(x=(g=a.parameters)==null?void 0:g.docs)==null?void 0:x.source}}};const A=["AlphabeticalSort","CustomSort","AlphabeticalByKindSort","CustomSortFunction"];export{r as AlphabeticalByKindSort,t as AlphabeticalSort,o as CustomSort,a as CustomSortFunction,A as __namedExportsOrder,k as default};
