@@ -1,20 +1,12 @@
+import { configDefaults } from '@repobuddy/vitest/config'
 import { defineConfig } from 'vitest/config'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	optimizeDeps: {
-		include: ['react/jsx-dev-runtime']
-	},
 	test: {
 		coverage: {
-			include: ['src/**/*.{js,mjs,cjs,ts,jsx,tsx,cts,mts}'],
-			exclude: [
-				'**/*.{spec,test,unit,accept,integrate,system,study,perf,stress}.{js,jsx,cjs,mjs,ts,tsx,cts,mts}',
-				'**/*.{spec,test,unit,accept,integrate,system,study,perf,stress}.*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}',
-				'**/*.stories.{js,mjs,jsx,tsx}',
-				'src/manager.tsx',
-				'src/preset.ts'
-			]
+			include: configDefaults.include.source,
+			exclude: [...configDefaults.exclude.test, 'src/manager.tsx', 'src/preset.ts']
 		},
 		workspace: ['vitest.config.browser.ts', 'vitest.config.node.ts']
 	}
