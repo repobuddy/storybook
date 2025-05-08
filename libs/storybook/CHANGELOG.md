@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 0.4.0
+
+### Minor Changes
+
+- [#29](https://github.com/repobuddy/storybook/pull/29) [`2f3d9f9`](https://github.com/repobuddy/storybook/commit/2f3d9f98ce16a53cf41d7c088d861efebe8f2cb1) Thanks [@unional](https://github.com/unional)! - Add `whenRunningInTest()`
+
 ## 0.3.1
 
 ### Patch Changes
