@@ -1,4 +1,5 @@
 export * from './decorators/show_doc_source.tsx'
+export * from './decorators/when_running_in_test.tsx'
 export * from './parameters/define_actions_param.ts'
 export * from './parameters/define_backgrounds_param.ts'
 export * from './parameters/define_docs_param.ts'
