@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 0.5.0
+
+### Minor Changes
+
+- [`9ae11fc`](https://github.com/repobuddy/storybook/commit/9ae11fc35a993f14749e8908e2766c25e098d694) Thanks [@unional](https://github.com/unional)! - Depends on `@repobuddy/test` (instead of `@repobuddy/vitest`) and re-exports it.
+
 ## 0.4.0
 
 ### Minor Changes
