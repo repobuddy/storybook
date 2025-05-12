@@ -1,6 +1,6 @@
 import { themes } from '@storybook/theming'
 import { addons } from 'storybook/internal/manager-api'
-import { brandTitle, tagBadges } from '../src/manager.ts'
+import { brandTitle, tagBadges } from '../src/manager/index.ts'
 
 addons.setConfig({
 	tagBadges,

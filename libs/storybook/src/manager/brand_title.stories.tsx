@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import dedent from 'dedent'
-import { brandTitle } from '../manager.ts'
+import { brandTitle } from './index.ts'
 
 const meta = {
 	title: 'Manager/brandTitle',

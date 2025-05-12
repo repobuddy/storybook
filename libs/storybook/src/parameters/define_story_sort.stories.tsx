@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import dedent from 'dedent'
-import { defineDocsParam, defineStorySort, showDocSource } from '../index.ts'
+import { defineDocsParam, defineStorySort } from '../index.ts'
+import { showDocSource } from '../react/index.ts'
 
 export default {
 	title: 'parameters/defineStorySort',

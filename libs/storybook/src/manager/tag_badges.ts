@@ -44,8 +44,9 @@ export const newBadge = {
 export const betaBadge = {
 	tags: 'beta',
 	badge: {
-		text: '🅱️',
-		bgColor: 'transparent',
+		text: 'β',
+		bgColor: '#E3F2FD',
+		borderColor: '#90CAF9',
 		tooltip: 'Beta'
 	}
 }
