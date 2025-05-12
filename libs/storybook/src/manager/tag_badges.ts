@@ -88,7 +88,14 @@ export const tagBadges: TagBadgeParameters = [
 			tooltip: 'Code Only'
 		}
 	},
-
+	{
+		tags: 'snapshot',
+		badge: {
+			text: '📸',
+			bgColor: 'transparent',
+			tooltip: 'Snapshot Test'
+		}
+	},
 	{
 		tags: 'unit',
 		badge: {
