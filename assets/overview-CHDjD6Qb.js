@@ -1,4 +1,4 @@
-import{j as o}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import{b as s,c as a}from"./index-BRjuprLk.js";import"./index-D4lIrffr.js";import"./index-DFlR6xoS.js";import"./index-DsJinFGm.js";import"./iframe-DKgqYYqk.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const d=`# @repobuddy/storybook
+import{j as o}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import{b as s,c as a}from"./index-AnIkWd_v.js";import"./index-D4lIrffr.js";import"./index-C7DPRRzh.js";import"./index-DsJinFGm.js";import"./iframe-BdIFvgK2.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const d=`# @repobuddy/storybook
 
 Your repository buddy for Storybook.
 
@@ -64,6 +64,7 @@ addons.setConfig({
 If you use [\`storybook-addon-tag-badges\`][\`storybook-addon-tag-badges\`],
 we provide a different set of badges that uses emojis:
 
+- ✏️ Editor - Stories with live editor
 - 🆕 New components/features
 - 🅱️ Beta status
 - 🪦 Deprecated notices
