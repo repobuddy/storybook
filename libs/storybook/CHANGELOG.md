@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 0.7.0
+
+### Minor Changes
+
+- [`87acf67`](https://github.com/repobuddy/storybook/commit/87acf67af7bd37e839b1d0f72a08fb9b98872bfb) Thanks [@unional](https://github.com/unional)! - Add `snapshot` badge
+
 ## 0.6.1
 
 ### Patch Changes
