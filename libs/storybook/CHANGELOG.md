@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 0.6.1
+
+### Patch Changes
+
+- [`5a3eff2`](https://github.com/repobuddy/storybook/commit/5a3eff2e6a7ff87c5aef9b5f2269b2958e7f9e1f) Thanks [@unional](https://github.com/unional)! - Updated docs and limits `editor` tag to story.
+
 ## 0.6.0
 
 ### Minor Changes
