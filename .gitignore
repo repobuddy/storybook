@@ -41,10 +41,10 @@ node_modules
 .idea
 
 # project
-__screenshots__
-__vis__/**/__diffs__
-__vis__/**/__results__
-/.turbo
+**/.turbo
+**/__screenshots__
+**/__vis__/**/__diffs__
+**/__vis__/**/__results__
 esm
 *.tsbuildinfo
 *storybook.log

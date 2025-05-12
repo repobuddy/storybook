@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import dedent from 'dedent'
-import { showDocSource } from '../decorators/show_doc_source.tsx'
+import { showDocSource } from '../react/decorators/show_doc_source.tsx'
 import { defineBackgroundsParam } from './define_backgrounds_param'
 import { defineDocsParam } from './define_docs_param'
 const meta = {

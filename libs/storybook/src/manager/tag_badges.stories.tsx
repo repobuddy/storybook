@@ -88,7 +88,7 @@ export const CodeOnlyBadge: StoryObj = {
 }
 
 export const SnapshotBadge: StoryObj = {
-	tags: ['snapshot'],
+	tags: ['snapshot', '!test'],
 	render: () => (
 		<div>
 			<div>Story with snapshot</div>
