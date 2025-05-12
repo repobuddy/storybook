@@ -20,97 +20,119 @@ const [, , , , , , versionBadge] = defaultConfig
  *
  * Also includes the default version badge from `storybook-addon-tag-badges`.
  */
+export const editorBadge = {
+	tags: 'editor',
+	badge: {
+		text: '✏️',
+		bgColor: 'transparent',
+		tooltip: 'Editor'
+	},
+	display: {
+		sidebar: ['story']
+	}
+}
+
+export const newBadge = {
+	tags: 'new',
+	badge: {
+		text: '🆕',
+		bgColor: 'transparent',
+		tooltip: 'New'
+	}
+}
+
+export const betaBadge = {
+	tags: 'beta',
+	badge: {
+		text: '🅱️',
+		bgColor: 'transparent',
+		tooltip: 'Beta'
+	}
+}
+
+export const deprecatedBadge = {
+	tags: 'deprecated',
+	badge: {
+		text: '🪦',
+		bgColor: 'transparent',
+		tooltip: 'Deprecated'
+	}
+}
+
+export const outdatedBadge = {
+	tags: 'outdated',
+	badge: {
+		text: '⚠️',
+		bgColor: 'transparent',
+		tooltip: 'Outdated'
+	}
+}
+
+export const dangerBadge = {
+	tags: 'danger',
+	badge: {
+		text: '🚨',
+		bgColor: 'transparent',
+		tooltip: 'Dangerous'
+	}
+}
+
+export const todoBadge = {
+	tags: 'todo',
+	badge: {
+		text: '📋',
+		bgColor: 'transparent',
+		tooltip: 'Todo'
+	}
+}
+
+export const codeOnlyBadge = {
+	tags: 'code-only',
+	badge: {
+		text: '📝',
+		bgColor: 'transparent',
+		tooltip: 'Code Only'
+	}
+}
+
+export const snapshotBadge = {
+	tags: 'snapshot',
+	badge: {
+		text: '📸',
+		bgColor: 'transparent',
+		tooltip: 'Snapshot Test'
+	}
+}
+
+export const unitBadge = {
+	tags: 'unit',
+	badge: {
+		text: '🧪',
+		bgColor: 'transparent',
+		tooltip: 'Unit Test'
+	}
+}
+
+export const integrationBadge = {
+	tags: 'integration',
+	badge: {
+		text: '🔄',
+		bgColor: 'transparent',
+		tooltip: 'Integration Test'
+	}
+}
+
 export const tagBadges: TagBadgeParameters = [
-	{
-		tags: 'editor',
-		badge: {
-			text: '✏️',
-			bgColor: 'transparent',
-			tooltip: 'Editor'
-		},
-		display: {
-			sidebar: ['story']
-		}
-	},
-	{
-		tags: 'new',
-		badge: {
-			text: '🆕',
-			bgColor: 'transparent',
-			tooltip: 'New'
-		}
-	},
-	{
-		tags: 'beta',
-		badge: {
-			text: '🅱️',
-			bgColor: 'transparent',
-			tooltip: 'Beta'
-		}
-	},
-	{
-		tags: 'deprecated',
-		badge: {
-			text: '🪦',
-			bgColor: 'transparent',
-			tooltip: 'Deprecated'
-		}
-	},
-	{
-		tags: 'outdated',
-		badge: {
-			text: '⚠️',
-			bgColor: 'transparent',
-			tooltip: 'Outdated'
-		}
-	},
-	{
-		tags: 'danger',
-		badge: {
-			text: '🚨',
-			bgColor: 'transparent',
-			tooltip: 'Dangerous'
-		}
-	},
-	{
-		tags: 'todo',
-		badge: {
-			text: '📋',
-			bgColor: 'transparent',
-			tooltip: 'Todo'
-		}
-	},
-	{
-		tags: 'code-only',
-		badge: {
-			text: '📝',
-			bgColor: 'transparent',
-			tooltip: 'Code Only'
-		}
-	},
-	{
-		tags: 'snapshot',
-		badge: {
-			text: '📸',
-			bgColor: 'transparent',
-			tooltip: 'Snapshot Test'
-		}
-	},
-	{
-		tags: 'unit',
-		badge: {
-			text: '🧪',
-			bgColor: 'transparent',
-			tooltip: 'Unit Test'
-		}
-	},
-	{
-		tags: 'integration',
-		badge: {
-			text: '🔄',
-			bgColor: 'transparent',
-			tooltip: 'Integration Test'
-		}
-	},
+	editorBadge,
+	newBadge,
+	betaBadge,
+	deprecatedBadge,
+	outdatedBadge,
+	dangerBadge,
+	todoBadge,
+	codeOnlyBadge,
+	snapshotBadge,
+	unitBadge,
+	integrationBadge,
 	versionBadge
 ]
