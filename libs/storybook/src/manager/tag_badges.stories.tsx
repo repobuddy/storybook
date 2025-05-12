@@ -4,6 +4,11 @@ export default {
 	title: 'manager/tagBadges'
 } satisfies Meta
 
+export const EditorBadge: StoryObj = {
+	tags: ['editor'],
+	render: () => <code>tags: ['editor']</code>
+}
+
 export const NewBadge: StoryObj = {
 	tags: ['new'],
 	render: () => <code>tags: ['new']</code>

@@ -21,6 +21,14 @@ const [, , , , , , versionBadge] = defaultConfig
  */
 export const tagBadges: TagBadgeParameters = [
 	{
+		tags: 'editor',
+		badge: {
+			text: '✏️',
+			bgColor: 'transparent',
+			tooltip: 'Editor'
+		}
+	},
+	{
 		tags: 'new',
 		badge: {
 			text: '🆕',
