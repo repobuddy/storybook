@@ -21,7 +21,7 @@ export const BasicUsage: StoryObj = {
 	decorators: [
 		whenRunningInTest((Story) => (
 			<div>
-				<div>Decorator attached</div>
+				<div>Decorator will be attached when running in test</div>
 				<Story />
 			</div>
 		))

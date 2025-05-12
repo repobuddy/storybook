@@ -64,6 +64,7 @@ addons.setConfig({
 If you use [`storybook-addon-tag-badges`][`storybook-addon-tag-badges`],
 we provide a different set of badges that uses emojis:
 
+- ✏️ Editor - Stories with live editor
 - 🆕 New components/features
 - 🅱️ Beta status
 - 🪦 Deprecated notices

@@ -7,6 +7,7 @@ const [, , , , , , versionBadge] = defaultConfig
  * Each badge is associated with a specific tag and displays an emoji with a tooltip.
  *
  * The badges help visually identify stories with certain characteristics:
+ * - ✏️ Editor - Stories with live editor
  * - 🆕 New - Recently added stories
  * - 🅱️ Beta - Stories for features in beta
  * - 🪦 Deprecated - Stories for deprecated features
@@ -26,6 +27,9 @@ export const tagBadges: TagBadgeParameters = [
 			text: '✏️',
 			bgColor: 'transparent',
 			tooltip: 'Editor'
+		},
+		display: {
+			sidebar: ['story']
 		}
 	},
 	{
