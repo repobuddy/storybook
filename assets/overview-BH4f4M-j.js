@@ -1,4 +1,4 @@
-import{j as o}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import{b as s,c as a}from"./index-CIFuxZ66.js";import"./index-D4lIrffr.js";import"./index-BhdSJj-m.js";import"./index-DsJinFGm.js";import"./iframe-Fxb1zemG.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const d=`# @repobuddy/storybook
+import{j as o}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import{b as s,c as a}from"./index-UCBtKQRS.js";import"./index-D4lIrffr.js";import"./index-BIQ0zcn2.js";import"./index-DsJinFGm.js";import"./iframe-BsLvJjbk.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const d=`# @repobuddy/storybook
 
 Your repository buddy for Storybook.
 
@@ -72,8 +72,9 @@ we provide a different set of badges that uses emojis:
 - 🚨 Dangerous
 - 📋 To-do items
 - 📝 Code-only stories
+- 📸 Snapshot tests
 - 🧪 Unit tests
-- 🔄 Integration tests
+- 🔗 Integration tests
 - Version indicators (unchanged)
 
 To use them, add them to your \`.storybook/manager.ts\`:

@@ -1,4 +1,4 @@
-import{j as c}from"./jsx-runtime-D_zvdyIk.js";import{d as e}from"./dedent-DVFkJXTl.js";import{s as R}from"./show_doc_source-CWgnZoeJ.js";import{d as r}from"./define_docs_param-lmgaBKCF.js";import{d as a}from"./define_parameters-Dh8E5HRZ.js";const B={title:"parameters/defineParameters",tags:["new","version:1.0.0"],decorators:[R()],render:()=>c.jsx(c.Fragment,{})},s={parameters:{...a({layout:"centered"}),...r({source:{code:e`defineParameters({
+import{j as c}from"./jsx-runtime-D_zvdyIk.js";import{d as e}from"./dedent-DVFkJXTl.js";import{d as r}from"./define_docs_param-lmgaBKCF.js";import{d as a}from"./define_parameters-Dh8E5HRZ.js";import{s as R}from"./show_doc_source-CWgnZoeJ.js";const B={title:"parameters/defineParameters",tags:["new","version:1.0.0"],decorators:[R()],render:()=>c.jsx(c.Fragment,{})},s={parameters:{...a({layout:"centered"}),...r({source:{code:e`defineParameters({
                 layout: 'centered'
             })`}})}},t={parameters:{...a({backgrounds:{default:"light"}}),...r({source:{code:e`defineParameters({
                 backgrounds: {

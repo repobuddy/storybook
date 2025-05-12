@@ -1,4 +1,4 @@
-import{j as i}from"./jsx-runtime-D_zvdyIk.js";import{f as D}from"./index-BW375jh7.js";import{d as a}from"./dedent-DVFkJXTl.js";import{s as Z}from"./show_doc_source-CWgnZoeJ.js";import{d as o}from"./define_docs_param-lmgaBKCF.js";function t(S){return{actions:S}}const W={title:"Parameters/defineActionsParam",tags:["new","version:1.0.0"],decorators:[Z()],args:{onClick:D()},render:()=>i.jsx(i.Fragment,{})},e={parameters:{...t({argTypesRegex:"^on[A-Z].*"}),...o({source:{code:a`defineActionsParam({
+import{j as i}from"./jsx-runtime-D_zvdyIk.js";import{f as D}from"./index-BW375jh7.js";import{d as a}from"./dedent-DVFkJXTl.js";import{d as o}from"./define_docs_param-lmgaBKCF.js";import{s as Z}from"./show_doc_source-CWgnZoeJ.js";function t(S){return{actions:S}}const W={title:"Parameters/defineActionsParam",tags:["new","version:1.0.0"],decorators:[Z()],args:{onClick:D()},render:()=>i.jsx(i.Fragment,{})},e={parameters:{...t({argTypesRegex:"^on[A-Z].*"}),...o({source:{code:a`defineActionsParam({
                     argTypesRegex: '^on[A-Z].*'
                 })`}})}},n={parameters:{...t({disable:!0}),...o({source:{code:a`defineActionsParam({
                     disable: true
