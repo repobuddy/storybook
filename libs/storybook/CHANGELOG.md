@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 0.6.0
+
+### Minor Changes
+
+- [`b1ce406`](https://github.com/repobuddy/storybook/commit/b1ce4062c78d6e3da4398f7dc357eeb7e4d63144) Thanks [@unional](https://github.com/unional)! - Add `editor` badge
+
 ## 0.5.0
 
 ### Minor Changes
