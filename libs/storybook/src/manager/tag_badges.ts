@@ -15,8 +15,9 @@ const [, , , , , , versionBadge] = defaultConfig
  * - 🚨 Danger - Stories demonstrating dangerous patterns
  * - 📋 Todo - Stories marked as todo/incomplete
  * - 📝 Code Only - Stories without visual examples
+ * - 📸 Snapshot - Stories with snapshot tests
  * - 🧪 Unit - Stories with unit tests
- * - 🔄 Integration - Stories with integration tests
+ * - 🔗 Integration - Stories with integration tests
  *
  * Also includes the default version badge from `storybook-addon-tag-badges`.
  */
@@ -44,7 +45,7 @@ export const newBadge = {
 export const betaBadge = {
 	tags: 'beta',
 	badge: {
-		text: 'β',
+		text: '🅱️',
 		bgColor: '#E3F2FD',
 		borderColor: '#90CAF9',
 		tooltip: 'Beta'
@@ -117,7 +118,7 @@ export const unitBadge = {
 export const integrationBadge = {
 	tags: 'integration',
 	badge: {
-		text: '🔄',
+		text: '🔗',
 		bgColor: 'transparent',
 		tooltip: 'Integration Test'
 	}

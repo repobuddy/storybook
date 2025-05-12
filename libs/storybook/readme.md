@@ -72,8 +72,9 @@ we provide a different set of badges that uses emojis:
 - 🚨 Dangerous
 - 📋 To-do items
 - 📝 Code-only stories
+- 📸 Snapshot tests
 - 🧪 Unit tests
-- 🔄 Integration tests
+- 🔗 Integration tests
 - Version indicators (unchanged)
 
 To use them, add them to your `.storybook/manager.ts`:
