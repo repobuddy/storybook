@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 0.8.0
+
+### Minor Changes
+
+- [#38](https://github.com/repobuddy/storybook/pull/38) [`765ef16`](https://github.com/repobuddy/storybook/commit/765ef1692c5c1f7c033ea678ec519d5085eef66b) Thanks [@unional](https://github.com/unional)! - Export individual badges.
+
 ## 0.7.0
 
 ### Minor Changes
