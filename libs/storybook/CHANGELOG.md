@@ -1,5 +1,17 @@
 # @repobuddy/storybook
 
+## 0.9.0
+
+### Minor Changes
+
+- [#42](https://github.com/repobuddy/storybook/pull/42) [`a1fc0e4`](https://github.com/repobuddy/storybook/commit/a1fc0e42a65e5f2fcaed2f3413259812fc17badb) Thanks [@unional](https://github.com/unional)! - Export decorators in `@repobuddy/storybook/react` instead of `@repobuddy/storybook`.
+
+  `@repobuddy/storybook` should not depend on ReactJS.
+
+### Patch Changes
+
+- [#42](https://github.com/repobuddy/storybook/pull/42) [`5433517`](https://github.com/repobuddy/storybook/commit/5433517d6e91e2fe5711dd25a280e15247db04a1) Thanks [@unional](https://github.com/unional)! - Update integration badge.
+
 ## 0.8.0
 
 ### Minor Changes
