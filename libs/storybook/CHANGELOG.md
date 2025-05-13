@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 0.9.1
+
+### Patch Changes
+
+- [`2e5b345`](https://github.com/repobuddy/storybook/commit/2e5b34566273dec30bb448ee5ce2612949978c95) Thanks [@unional](https://github.com/unional)! - Narrow `snapshot` and `editor` display application.
+
 ## 0.9.0
 
 ### Minor Changes
