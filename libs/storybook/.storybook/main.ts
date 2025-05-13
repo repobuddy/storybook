@@ -6,7 +6,8 @@ export default {
 		'@storybook/addon-essentials',
 		'@storybook/addon-storysource',
 		'@storybook/experimental-addon-test',
-		'storybook-addon-tag-badges'
+		'storybook-addon-tag-badges',
+		'storybook-dark-mode'
 	],
 	framework: {
 		name: '@storybook/react-vite',

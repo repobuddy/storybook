@@ -26,6 +26,7 @@ export const editorBadge = {
 	badge: {
 		text: '✏️',
 		bgColor: 'transparent',
+		borderColor: 'transparent',
 		tooltip: 'Editor'
 	},
 	display: {
@@ -39,6 +40,7 @@ export const newBadge = {
 	badge: {
 		text: '🆕',
 		bgColor: 'transparent',
+		borderColor: 'transparent',
 		tooltip: 'New'
 	}
 }
@@ -47,8 +49,8 @@ export const betaBadge = {
 	tags: 'beta',
 	badge: {
 		text: '🅱️',
-		bgColor: '#E3F2FD',
-		borderColor: '#90CAF9',
+		bgColor: 'transparent',
+		borderColor: 'transparent',
 		tooltip: 'Beta'
 	}
 }
@@ -58,6 +60,7 @@ export const deprecatedBadge = {
 	badge: {
 		text: '🪦',
 		bgColor: 'transparent',
+		borderColor: 'transparent',
 		tooltip: 'Deprecated'
 	}
 }
@@ -67,6 +70,7 @@ export const outdatedBadge = {
 	badge: {
 		text: '⚠️',
 		bgColor: 'transparent',
+		borderColor: 'transparent',
 		tooltip: 'Outdated'
 	}
 }
@@ -76,6 +80,7 @@ export const dangerBadge = {
 	badge: {
 		text: '🚨',
 		bgColor: 'transparent',
+		borderColor: 'transparent',
 		tooltip: 'Dangerous'
 	}
 }
@@ -85,6 +90,7 @@ export const todoBadge = {
 	badge: {
 		text: '📋',
 		bgColor: 'transparent',
+		borderColor: 'transparent',
 		tooltip: 'Todo'
 	}
 }
@@ -94,6 +100,7 @@ export const codeOnlyBadge = {
 	badge: {
 		text: '📝',
 		bgColor: 'transparent',
+		borderColor: 'transparent',
 		tooltip: 'Code Only'
 	}
 }
@@ -103,6 +110,7 @@ export const snapshotBadge = {
 	badge: {
 		text: '📸',
 		bgColor: 'transparent',
+		borderColor: 'transparent',
 		tooltip: 'Snapshot Test'
 	},
 	display: {
@@ -116,6 +124,7 @@ export const unitBadge = {
 	badge: {
 		text: '🧪',
 		bgColor: 'transparent',
+		borderColor: 'transparent',
 		tooltip: 'Unit Test'
 	}
 }
@@ -125,6 +134,7 @@ export const integrationBadge = {
 	badge: {
 		text: '🔗',
 		bgColor: 'transparent',
+		borderColor: 'transparent',
 		tooltip: 'Integration Test'
 	}
 }
