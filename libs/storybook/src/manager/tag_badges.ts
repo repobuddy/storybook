@@ -29,7 +29,8 @@ export const editorBadge = {
 		tooltip: 'Editor'
 	},
 	display: {
-		sidebar: ['story']
+		sidebar: ['group', 'component', 'story'],
+		toolbar: ['group', 'component', 'story']
 	}
 }
 
@@ -103,6 +104,10 @@ export const snapshotBadge = {
 		text: '📸',
 		bgColor: 'transparent',
 		tooltip: 'Snapshot Test'
+	},
+	display: {
+		sidebar: ['story'],
+		toolbar: ['story']
 	}
 }
 
