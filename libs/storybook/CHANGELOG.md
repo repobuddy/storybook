@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 0.9.2
+
+### Patch Changes
+
+- [`0163a5c`](https://github.com/repobuddy/storybook/commit/0163a5ceb8bcbdbedf700430b60e52374d99e7a3) - Make emoji badges border transparent.
+
 ## 0.9.1
 
 ### Patch Changes
