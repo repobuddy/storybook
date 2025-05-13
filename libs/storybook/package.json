@@ -46,7 +46,7 @@
 		"@repobuddy/test": "^1.0.0"
 	},
 	"devDependencies": {
-		"@repobuddy/vitest": "^1.2.1",
+		"@repobuddy/vitest": "^1.2.2",
 		"@storybook/addon-essentials": "^8.6.12",
 		"@storybook/addon-storysource": "^8.6.12",
 		"@storybook/blocks": "^8.6.12",
