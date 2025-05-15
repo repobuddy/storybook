@@ -30,8 +30,8 @@ export const editorBadge = {
 		tooltip: 'Editor'
 	},
 	display: {
-		sidebar: ['group', 'component', 'story'],
-		toolbar: ['group', 'component', 'story']
+		sidebar: ['story'],
+		toolbar: ['story']
 	}
 }
 
@@ -140,13 +140,13 @@ export const integrationBadge = {
 }
 
 export const tagBadges: TagBadgeParameters = [
-	editorBadge,
 	newBadge,
 	betaBadge,
 	deprecatedBadge,
 	outdatedBadge,
 	dangerBadge,
 	todoBadge,
+	editorBadge,
 	codeOnlyBadge,
 	snapshotBadge,
 	unitBadge,
