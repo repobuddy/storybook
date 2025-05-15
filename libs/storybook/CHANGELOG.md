@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 0.9.4
+
+### Patch Changes
+
+- [`414b5d6`](https://github.com/repobuddy/storybook/commit/414b5d64857dd0522dbd034db6917629d3fe1ef3) - Adjusts badge priority.
+
 ## 0.9.3
 
 ### Patch Changes
