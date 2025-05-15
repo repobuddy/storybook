@@ -1,5 +1,12 @@
 # @repobuddy/storybook
 
+## 0.9.3
+
+### Patch Changes
+
+- [`b046c09`](https://github.com/repobuddy/storybook/commit/b046c09f749d449c13e9a1491af905a48294f8a4) - Further limits the scope of the `editorBadge` to only show in story.
+  Also lowers the priority of the `editorBadge`.
+
 ## 0.9.2
 
 ### Patch Changes
