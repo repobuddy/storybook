@@ -140,16 +140,16 @@ export const integrationBadge = {
 }
 
 export const tagBadges: TagBadgeParameters = [
+	editorBadge,
+	unitBadge,
+	integrationBadge,
 	newBadge,
 	betaBadge,
 	deprecatedBadge,
 	outdatedBadge,
 	dangerBadge,
 	todoBadge,
-	editorBadge,
 	codeOnlyBadge,
 	snapshotBadge,
-	unitBadge,
-	integrationBadge,
 	versionBadge
 ]
