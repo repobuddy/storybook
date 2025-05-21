@@ -5,8 +5,19 @@ import { showDocSource } from '../react/index.ts'
 
 export default {
 	title: 'parameters/defineParameters',
-	tags: ['new', 'version:1.0.0'],
+	tags: ['new', 'version:1.0.0', 'autodocs'],
 	decorators: [showDocSource()],
+	parameters: defineParameters({
+		docs: {
+			description: {
+				component: [
+					'`defineParameters` is used to define parameters for a story or component.',
+					'Note that it does not work in `preview.ts`, which requires the parameters to be inlined.',
+					'In that case, use the `satisfies StorybookBuiltInParams` instead.'
+				].join('\n')
+			}
+		}
+	}),
 	render: () => <></>
 } satisfies Meta
 
