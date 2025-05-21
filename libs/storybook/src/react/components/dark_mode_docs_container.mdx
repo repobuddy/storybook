@@ -1,0 +1,33 @@
+import { Meta } from '@storybook/blocks'
+
+# `createDarkModeDocsContainer`
+
+<Meta title="storybook-dark-mode/createDarkModeDocsContainer" />
+
+Creates a `DocsContainer` for `storybook` that works with `storybook-dark-mode`.
+
+## Usage
+
+It can be called with no arguments to use the default themes from `@storybook/theming`.
+
+```tsx
+// .storybook/preview.tsx
+import { createDarkModeDocsContainer } from '@repobuddy/storybook/react'
+
+export const preview: Preview = {
+	parameters: {
+		docs: {
+			container: createDarkModeDocsContainer()
+		}
+	}
+}
+```
+
+It can also be called with a custom themes.
+
+```tsx
+container: createDarkModeDocsContainer({
+	light: customThemes.light,
+	dark: customThemes.dark
+})
+```
