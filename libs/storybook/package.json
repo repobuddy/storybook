@@ -76,10 +76,22 @@
 		"vitest": "^3.1.2"
 	},
 	"peerDependencies": {
-		"storybook-addon-tag-badges": ">= 1.4.0"
+		"@storybook/blocks": ">= 8.6.12",
+		"@storybook/theming": ">= 8.6.12",
+		"storybook-addon-tag-badges": ">= 1.4.0",
+		"storybook-dark-mode": ">= 4.0.2"
 	},
 	"peerDependenciesMeta": {
+		"@storybook/blocks": {
+			"optional": true
+		},
+		"@storybook/theming": {
+			"optional": true
+		},
 		"storybook-addon-tag-badges": {
+			"optional": true
+		},
+		"storybook-dark-mode": {
 			"optional": true
 		}
 	}
