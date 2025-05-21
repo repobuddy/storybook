@@ -74,5 +74,13 @@
 		"tailwindcss": "^4.1.5",
 		"vite": "^6.3.4",
 		"vitest": "^3.1.2"
+	},
+	"peerDependencies": {
+		"storybook-addon-tag-badges": ">= 1.4.0"
+	},
+	"peerDependenciesMeta": {
+		"storybook-addon-tag-badges": {
+			"optional": true
+		}
 	}
 }
