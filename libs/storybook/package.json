@@ -23,10 +23,6 @@
 			"types": "./esm/manager/index.d.ts",
 			"default": "./esm/manager/index.js"
 		},
-		"./react": {
-			"types": "./esm/react/index.d.ts",
-			"default": "./esm/react/index.js"
-		},
 		"./testing": {
 			"types": "./esm/testing.d.ts",
 			"default": "./esm/testing.js"

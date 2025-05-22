@@ -1,5 +1,6 @@
 import { themes } from '@storybook/theming'
 import { addons } from 'storybook/internal/manager-api'
+// @ts-ignore
 import { brandTitle, tagBadges } from '../src/manager/index.ts'
 
 addons.setConfig({

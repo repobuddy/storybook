@@ -3,6 +3,10 @@
 		"biomejs.biome",
 		"editorconfig.editorconfig",
 		"streetsidesoftware.code-spell-checker",
-		"neo-ltex.ltex"
+		"neo-ltex.ltex",
+		"bradlc.vscode-tailwindcss",
+		"yzhang.markdown-all-in-one",
+		"davidanson.vscode-markdownlint",
+		"unifiedjs.vscode-mdx"
 	]
 }

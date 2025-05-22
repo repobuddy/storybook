@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import dedent from 'dedent'
-import { type ActionsParam, defineDocsParam, defineParameters } from '../index.ts'
-import { showDocSource } from '../react/index.ts'
+import { type ActionsParam, defineDocsParam, defineParameters, showDocSource } from '../index.ts'
 
 export default {
 	title: 'parameters/defineParameters',

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { defineLayoutParam } from './define_layout_param.ts'
+import { defineLayoutParam } from '../index.ts'
 
 export default {
 	title: 'parameters/defineLayoutParam',
