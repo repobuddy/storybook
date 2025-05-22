@@ -1,7 +1,7 @@
 import { isRunningInTest } from '@repobuddy/vitest'
 import type { Meta, StoryObj } from '@storybook/react'
 import { expect } from '@storybook/test'
-import { showDocSource, whenRunningInTest } from '../index.ts'
+import { showDocSource, whenRunningInTest } from '../react/index.ts'
 import { ctx } from './when_running_in_text.ctx.ts'
 
 export default {

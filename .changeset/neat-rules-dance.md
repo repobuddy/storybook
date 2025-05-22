@@ -2,4 +2,4 @@
 "@repobuddy/storybook": minor
 ---
 
-Add `DarkModeDocsContainer`
+Add `createDarkModeDocsContainer`, `defineDarkModeParam`.
