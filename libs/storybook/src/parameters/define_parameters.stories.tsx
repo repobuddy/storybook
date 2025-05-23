@@ -4,7 +4,7 @@ import { type ActionsParam, defineDocsParam, defineParameters, showDocSource } f
 
 export default {
 	title: 'parameters/defineParameters',
-	tags: ['new', 'version:1.0.0', 'autodocs'],
+	tags: ['new', 'version:1.0', 'autodocs'],
 	decorators: [showDocSource()],
 	parameters: defineParameters({
 		docs: {

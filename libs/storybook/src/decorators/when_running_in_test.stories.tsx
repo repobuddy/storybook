@@ -1,12 +1,12 @@
 import { isRunningInTest } from '@repobuddy/vitest'
 import type { Meta, StoryObj } from '@storybook/react'
 import { expect } from '@storybook/test'
-import { showDocSource, whenRunningInTest } from '../react/index.ts'
+import { showDocSource, whenRunningInTest } from '../index.ts'
 import { ctx } from './when_running_in_text.ctx.ts'
 
 export default {
 	title: 'testing/whenRunningInTest',
-	tags: ['new', 'version:1.0.0'],
+	tags: ['new', 'version:1.0'],
 	beforeEach: () => {
 		ctx.isRunningInTest = () => true
 	},

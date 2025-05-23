@@ -4,7 +4,7 @@ import { defineDocsParam, showDocSource } from '../index.ts'
 
 const meta = {
 	title: 'Parameters/defineDocsParam',
-	tags: ['autodocs', 'new', 'version:1.0.0'],
+	tags: ['autodocs', 'new', 'version:1.0'],
 	parameters: defineDocsParam({
 		description: {
 			component:
