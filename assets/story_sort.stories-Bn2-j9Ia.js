@@ -1,4 +1,4 @@
-import{j as c}from"./jsx-runtime-D_zvdyIk.js";import{d as s}from"./dedent-DVFkJXTl.js";import{s as g}from"./show_doc_source-CWgnZoeJ.js";import{d as a}from"./define_docs_param-lmgaBKCF.js";import{d as I}from"./define_parameters-Dh8E5HRZ.js";import"./index-DsR4G5ps.js";import"./index-D4lIrffr.js";import"./index-DGfY4z2V.js";import"./index-CcVp9PAx.js";import"./index-DsJinFGm.js";import"./iframe-CuJswpXI.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const R={title:"parameters/StorySortParam",tags:["new","version:1.0","autodocs"],decorators:[g()],parameters:I({docs:{description:{component:"`StorySortParam` is used to define how stories should be sorted in the navigation sidebar. It is used in `preview.ts`."}}}),render:()=>c.jsx(c.Fragment,{})},o={parameters:{options:{options:{storySort:{method:"alphabetical"}}},...a({source:{code:s`{
+import{j as c}from"./jsx-runtime-D_zvdyIk.js";import{d as s}from"./dedent-DVFkJXTl.js";import{s as g}from"./show_doc_source-CWgnZoeJ.js";import{d as a}from"./define_docs_param-lmgaBKCF.js";import{d as I}from"./define_parameters-Dh8E5HRZ.js";const A={title:"parameters/StorySortParam",tags:["new","version:1.0","autodocs"],decorators:[g()],parameters:I({docs:{description:{component:"`StorySortParam` is used to define how stories should be sorted in the navigation sidebar. It is used in `preview.ts`."}}}),render:()=>c.jsx(c.Fragment,{})},o={parameters:{options:{options:{storySort:{method:"alphabetical"}}},...a({source:{code:s`{
                     options: {
                         storySort: { method: "alphabetical" }
                     } satisfies StorySortParam
@@ -103,4 +103,4 @@ import{j as c}from"./jsx-runtime-D_zvdyIk.js";import{d as s}from"./dedent-DVFkJX
       }
     })
   }
-}`,...(C=(P=e.parameters)==null?void 0:P.docs)==null?void 0:C.source}}};const q=["AlphabeticalSort","CustomSort","AlphabeticalByKindSort","CustomSortFunction"];export{r as AlphabeticalByKindSort,o as AlphabeticalSort,t as CustomSort,e as CustomSortFunction,q as __namedExportsOrder,R as default};
+}`,...(C=(P=e.parameters)==null?void 0:P.docs)==null?void 0:C.source}}};const _=["AlphabeticalSort","CustomSort","AlphabeticalByKindSort","CustomSortFunction"];export{r as AlphabeticalByKindSort,o as AlphabeticalSort,t as CustomSort,e as CustomSortFunction,_ as __namedExportsOrder,A as default};

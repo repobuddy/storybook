@@ -1,4 +1,4 @@
-import{j as o}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import{M as s,c as a}from"./index-DsR4G5ps.js";import"./index-D4lIrffr.js";import"./index-CcVp9PAx.js";import"./index-DsJinFGm.js";import"./iframe-CuJswpXI.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const d=`# @repobuddy/storybook
+import{j as o}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as e}from"./index-B8rYRX2K.js";import{M as s,c as a}from"./index-CLh8vdhB.js";import"./index-D4lIrffr.js";import"./index-CEu5j4DU.js";import"./index-DsJinFGm.js";import"./iframe-DXO1Gm5c.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const d=`# @repobuddy/storybook
 
 Your repository buddy for Storybook.
 
@@ -86,7 +86,47 @@ import { addons } from '@storybook/manager-api'
 addons.setConfig({ tagBadges })
 \`\`\`
 
+### \`storybook-dark-mode\` support
+
+[\`@repobuddy/storybook\`][\`@repobuddy/storybook\`] provides a few utilities to work with \`storybook-dark-mode\`.
+
+\`\`\`ts
+// .storybook/preview.tsx
+import { defineDarkModeParam, withStoryRoot, createDarkModeDocsContainer } from '@repobuddy/storybook/storybook-dark-mode'
+
+export const preview: Preview = {
+  parameters: {
+    docs: {
+      container: createDarkModeDocsContainer()
+    },
+		darkMode: defineDarkModeParam({
+			classTarget: 'html',
+			darkClass: 'dark',
+			stylePreview: true
+		})
+  },
+	decorators: [withStoryRoot({
+		classTarget: 'html',
+		dark: {
+			className: 'dark:bg-black dark:text-white'
+		}
+	})]
+}
+\`\`\`
+
+#### \`withStoryRoot\`
+
+The \`withStoryRoot\` decorator allows you to use \`storybook-dark-mode\` to change the background color of the story.
+
+\`\`\`ts
+import { withStoryRoot } from '@repobuddy/storybook/storybook-dark-mode'
+
+export const MyStory: StoryObj = {
+  decorators: [withStoryRoot()]
+}
+\`\`\`
+
 [\`@repobuddy/storybook\`]: https://github.com/repobuddy/storybook
 [\`storybook-addon-tag-badges\`]: https://github.com/Sidnioulz/storybook-addon-tag-badges
-`;function e(t){return o.jsxs(o.Fragment,{children:[o.jsx(s,{title:"Overview"}),`
-`,o.jsx(a,{children:d})]})}function c(t={}){const{wrapper:n}={...r(),...t.components};return n?o.jsx(n,{...t,children:o.jsx(e,{...t})}):e()}export{c as default};
+`;function r(t){return o.jsxs(o.Fragment,{children:[o.jsx(s,{title:"Overview"}),`
+`,o.jsx(a,{children:d})]})}function h(t={}){const{wrapper:n}={...e(),...t.components};return n?o.jsx(n,{...t,children:o.jsx(r,{...t})}):r()}export{h as default};

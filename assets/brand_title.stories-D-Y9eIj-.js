@@ -1,4 +1,4 @@
-import{j as s}from"./jsx-runtime-D_zvdyIk.js";import{d as a}from"./dedent-DVFkJXTl.js";import"./index-D4lIrffr.js";import{v as l,G as L}from"./index-CcVp9PAx.js";import"./index-DsJinFGm.js";import"./iframe-CuJswpXI.js";function d(e){return`<span style="display: flex; align-items: center; gap: 2px;">
+import{j as s}from"./jsx-runtime-D_zvdyIk.js";import{d as a}from"./dedent-DVFkJXTl.js";import"./index-D4lIrffr.js";import{v as l,G as L}from"./index-CEu5j4DU.js";import"./index-DsJinFGm.js";import"./iframe-DXO1Gm5c.js";function d(e){return`<span style="display: flex; align-items: center; gap: 2px;">
 		${e.logo??""}
 		${e.title}
 	</span>`}l(L)`
