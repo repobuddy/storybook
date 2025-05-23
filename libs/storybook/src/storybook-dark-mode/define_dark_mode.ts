@@ -1,4 +1,5 @@
 import type { CSSProperties } from '@just-web/css'
+import type { ThemeVars } from 'storybook/internal/theming'
 
 /**
  * Configuration parameters for `storybook-dark-mode`.
@@ -24,6 +25,10 @@ export interface DarkModeParam {
 	 * This only works when using `withStoryRoot`.
 	 */
 	lightStyle?: CSSProperties | undefined
+	/** Dark theme variables */
+	dark?: ThemeVars
+	/** Light theme variables */
+	light?: ThemeVars
 	/** Element to apply theme classes to ('html' or 'body') */
 	classTarget?: 'html' | 'body' | undefined
 	/** Whether to apply theme styles to preview iframe */
