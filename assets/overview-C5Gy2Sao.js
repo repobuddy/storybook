@@ -1,4 +1,4 @@
-import{j as t}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import{M as a,e as s}from"./index-DJ2nEbuA.js";import"./index-D4lIrffr.js";import"./iframe-CMwUQRJx.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const d=`# @repobuddy/storybook
+import{j as t}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import{M as a,e as s}from"./index-CVxveG77.js";import"./index-D4lIrffr.js";import"./iframe-BLRipPEc.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const d=`# @repobuddy/storybook
 
 Your repository buddy for Storybook.
 
