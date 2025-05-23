@@ -23,7 +23,7 @@ For example:
 import { defineLayoutParam } from '@repobuddy/storybook'
 
 export const MyStory: StoryObj = {
-  parameters: defineLayoutParam('fullscreen')
+	parameters: defineLayoutParam('fullscreen')
 }
 ```
 
@@ -34,13 +34,13 @@ and also allow you to specify additional parameter types.
 import { defineParameters, type ActionsParam } from '@repobuddy/storybook'
 
 export const MyStory: StoryObj = {
-  parameters: defineParameters<ActionsParam>({
-    layout: 'fullscreen',
-    // this is typed
-    actions: {
-      disable: true
-    }
-  })
+	parameters: defineParameters<ActionsParam>({
+		layout: 'fullscreen',
+		// this is typed
+		actions: {
+			disable: true
+		}
+	})
 }
 ```
 
@@ -92,19 +92,23 @@ addons.setConfig({ tagBadges })
 
 ```ts
 // .storybook/preview.tsx
-import { defineDarkModeParam, withStoryRoot, createDarkModeDocsContainer } from '@repobuddy/storybook/storybook-dark-mode'
+import {
+	createDarkModeDocsContainer,
+	defineDarkModeParam,
+	withStoryRoot
+} from '@repobuddy/storybook/storybook-dark-mode'
 
 export const preview: Preview = {
-  parameters: {
-    docs: {
-      container: createDarkModeDocsContainer()
-    },
+	parameters: {
+		docs: {
+		container: createDarkModeDocsContainer()
+		},
 		darkMode: defineDarkModeParam({
 			classTarget: 'html',
 			darkClass: 'dark',
 			stylePreview: true
 		})
-  },
+	},
 	decorators: [withStoryRoot({
 		classTarget: 'html',
 		dark: {
@@ -122,7 +126,7 @@ The `withStoryRoot` decorator allows you to use `storybook-dark-mode` to change 
 import { withStoryRoot } from '@repobuddy/storybook/storybook-dark-mode'
 
 export const MyStory: StoryObj = {
-  decorators: [withStoryRoot()]
+	decorators: [withStoryRoot()]
 }
 ```
 
