@@ -92,12 +92,12 @@ export interface DocsParam {
 					/**
 					 * `docs.description.story` can be used to describe the story in doc.
 					 */
-					story?: string | undefined
+					story?: string | JSX.Element | undefined
 					/**
 					 * `docs.description.component` can be used to describe the component in meta.
 					 * It has no effect on the stories.
 					 */
-					component?: string | undefined
+					component?: string | JSX.Element | undefined
 			  }
 			| undefined
 		source?: SourceProps | undefined
