@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 0.11.2
+
+### Patch Changes
+
+- [`4165d96`](https://github.com/repobuddy/storybook/commit/4165d96095cd295a2f45172de55953c51f670196) Thanks [@unional](https://github.com/unional)! - Support multiple class names in `bodyClass` (i.e.: `bodyClass: 'class1 class2'`).
+
 ## 0.11.1
 
 ### Patch Changes
