@@ -58,7 +58,7 @@ export function withDarkMode(
 function addClass(target: HTMLElement, className: string | string[] | undefined) {
 	if (!className) return
 	if (typeof className === 'string') {
-		target.classList.add(className)
+		target.classList.add(...className.split(' '))
 	} else if (Array.isArray(className)) {
 		target.classList.add(...className)
 	}
@@ -67,7 +67,7 @@ function addClass(target: HTMLElement, className: string | string[] | undefined)
 function removeClass(target: HTMLElement, className: string | string[] | undefined) {
 	if (!className) return
 	if (typeof className === 'string') {
-		target.classList.remove(className)
+		target.classList.remove(...className.split(' '))
 	} else if (Array.isArray(className)) {
 		target.classList.remove(...className)
 	}

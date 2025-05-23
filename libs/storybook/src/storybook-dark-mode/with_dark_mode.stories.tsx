@@ -70,7 +70,7 @@ export const BodyClass: Story = {
 	tags: ['props'],
 	decorators: [
 		withDarkMode({
-			bodyClass: ['bg-red-800', 'font-extralight', 'dark:bg-green-800', 'dark:font-extrabold']
+			bodyClass: 'bg-red-800 font-extralight dark:bg-green-800 dark:font-extrabold'
 		})
 	],
 	render: () => {
