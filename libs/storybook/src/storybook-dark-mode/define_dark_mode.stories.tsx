@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import dedent from 'dedent'
-import { showDocSource } from '../decorators/show_doc_source.tsx'
-import { defineDocsParam } from '../parameters/define_docs_param.ts'
-import { defineDarkModeParam } from './define_dark_mode.ts'
+import { defineDocsParam, showDocSource } from '../index.ts'
+import { defineDarkModeParam } from './index.ts'
 
 const meta = {
 	title: 'storybook-dark-mode/defineDarkModeParam',

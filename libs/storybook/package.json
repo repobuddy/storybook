@@ -23,6 +23,10 @@
 			"types": "./esm/manager/index.d.ts",
 			"default": "./esm/manager/index.js"
 		},
+		"./storybook-dark-mode": {
+			"types": "./esm/storybook-dark-mode/index.d.ts",
+			"default": "./esm/storybook-dark-mode/index.js"
+		},
 		"./testing": {
 			"types": "./esm/testing.d.ts",
 			"default": "./esm/testing.js"

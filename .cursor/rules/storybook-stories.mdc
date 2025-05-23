@@ -75,7 +75,8 @@ This document outlines the standards and best practices for creating Storybook s
 		 experimental_afterEach: ...
 	 }
 	 ```
-2. Use the render function to emphasize the testing subject.
+2. When import code in story file, import from the main export such as `./index.ts`.
+3. Use the render function to emphasize the testing subject.
    For example, when creating a story to test the `onChange` handler of the `RadioGroup` component:
 	 ```tsx
 	 // ✅ Good example

@@ -86,5 +86,45 @@ import { addons } from '@storybook/manager-api'
 addons.setConfig({ tagBadges })
 ```
 
+### `storybook-dark-mode` support
+
+[`@repobuddy/storybook`][`@repobuddy/storybook`] provides a few utilities to work with `storybook-dark-mode`.
+
+```ts
+// .storybook/preview.tsx
+import { defineDarkModeParam, withStoryRoot, createDarkModeDocsContainer } from '@repobuddy/storybook/storybook-dark-mode'
+
+export const preview: Preview = {
+  parameters: {
+    docs: {
+      container: createDarkModeDocsContainer()
+    },
+		darkMode: defineDarkModeParam({
+			classTarget: 'html',
+			darkClass: 'dark',
+			stylePreview: true
+		})
+  },
+	decorators: [withStoryRoot({
+		classTarget: 'html',
+		dark: {
+			className: 'dark:bg-black dark:text-white'
+		}
+	})]
+}
+```
+
+#### `withStoryRoot`
+
+The `withStoryRoot` decorator allows you to use `storybook-dark-mode` to change the background color of the story.
+
+```ts
+import { withStoryRoot } from '@repobuddy/storybook/storybook-dark-mode'
+
+export const MyStory: StoryObj = {
+  decorators: [withStoryRoot()]
+}
+```
+
 [`@repobuddy/storybook`]: https://github.com/repobuddy/storybook
 [`storybook-addon-tag-badges`]: https://github.com/Sidnioulz/storybook-addon-tag-badges
