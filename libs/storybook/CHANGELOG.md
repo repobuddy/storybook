@@ -1,5 +1,22 @@
 # @repobuddy/storybook
 
+## 0.10.0
+
+### Minor Changes
+
+- [#58](https://github.com/repobuddy/storybook/pull/58) [`3574cf5`](https://github.com/repobuddy/storybook/commit/3574cf57d44d005dd8302796dd9d5582a4d43b8f) Thanks [@unional](https://github.com/unional)! - Update `defineParameters` story to mention it cannot be used in `preview.ts`.
+  Fix `storySort` to `options.storySort`.
+
+  Remove `defineStorySort` as it cannot be used in `preview.ts`.
+
+- [#58](https://github.com/repobuddy/storybook/pull/58) [`0c08476`](https://github.com/repobuddy/storybook/commit/0c0847643da6c1c03ce3021fdd4a50bf8af64dc2) Thanks [@unional](https://github.com/unional)! - Add `createDarkModeDocsContainer`, `defineDarkModeParam`.
+
+- [#58](https://github.com/repobuddy/storybook/pull/58) [`3d73eaa`](https://github.com/repobuddy/storybook/commit/3d73eaac2e58d61e384dac845a164573cb9877e8) Thanks [@unional](https://github.com/unional)! - Add `withStoryRoot()`
+
+### Patch Changes
+
+- [#58](https://github.com/repobuddy/storybook/pull/58) [`6e96de2`](https://github.com/repobuddy/storybook/commit/6e96de253ad67e083efad09896cf879c4ea3c18f) Thanks [@unional](https://github.com/unional)! - Add `storybook-addon-tag-badges` as optional peer dependency.
+
 ## 0.9.4
 
 ### Patch Changes
