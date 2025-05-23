@@ -15,7 +15,7 @@ This document outlines the standards and best practices for creating Storybook s
 
    const meta: Meta<typeof YourComponent> {
 		 title: 'components/YourComponent',
-		 tags: ['version:1.0.0'],
+		 tags: ['new', 'version:1.0'],
      component: YourComponent,
      // Add parameters if needed
    } satisfies Meta
@@ -32,14 +32,15 @@ This document outlines the standards and best practices for creating Storybook s
 ## Story Organization
 
 1. Story files should:
-   - Be placed next to the component file
+   - Be placed next to the source file
    - Use the `.stories.tsx` extension
-   - Follow the naming pattern: `component-name.stories.tsx` or `component-name.some-props.stories.tsx`
+   - Follow the naming pattern: `source_name.stories.tsx`
+   - When testing a specific prop, name the story a `source_name.the_prop.stories.tsx`
 2. Do not create shared demo component for utility function.
 3. Story naming conventions:
    - Default/primary story should be named `BasicUsage`
    - Additional stories should be named descriptively: `WithError`, `Loading`, etc.
-   - Use `name` property if the story is about a particular props or value that the PascalCase story name is confusing
+   - Use `name` property if the story is about a particular props or value:
 	 ```ts
 	 export const Red100: Story = {
 		name: 'red-100'
@@ -57,7 +58,6 @@ This document outlines the standards and best practices for creating Storybook s
 		})
 	 }
 	 ```
-
 
 ## Story Implementation Patterns
 
@@ -230,3 +230,4 @@ export const Disabled: Story = {
 5. Follow the project's component guidelines
 
 Remember to follow these guidelines when creating new Storybook stories.
+When you use this rule file, let me know this rule file is being used in the chat by mentioning the rule filename.
