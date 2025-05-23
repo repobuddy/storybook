@@ -21,10 +21,12 @@ import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode'
  * ```
  */
 export function createDarkModeDocsContainer(
-	customThemes: {
-		light: ThemeVars
-		dark: ThemeVars
-	} = themes
+	customThemes?:
+		| {
+				light?: ThemeVars | undefined
+				dark?: ThemeVars | undefined
+		  }
+		| undefined
 ) {
 	return function DarkModeDocsContainer(props: PropsWithChildren<{ context: DocsContextProps }>) {
 		const [isDark, setDark] = useState(true)
@@ -35,7 +37,10 @@ export function createDarkModeDocsContainer(
 			return () => props.context.channel.removeListener(DARK_MODE_EVENT_NAME, setDark)
 		}, [props.context.channel])
 		return (
-			<DocsContainer {...props} theme={isDark ? customThemes.dark : customThemes.light}>
+			<DocsContainer
+				{...props}
+				theme={isDark ? (customThemes?.dark ?? themes.dark) : (customThemes?.light ?? themes.light)}
+			>
 				{props.children}
 			</DocsContainer>
 		)
