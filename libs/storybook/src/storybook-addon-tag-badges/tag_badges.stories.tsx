@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 export default {
-	title: 'manager/tagBadges'
+	title: 'storybook-addon-tag-badges/tagBadges'
 } satisfies Meta
 
 export const EditorBadge: StoryObj = {

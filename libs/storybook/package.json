@@ -23,6 +23,10 @@
 			"types": "./esm/manager/index.d.ts",
 			"default": "./esm/manager/index.js"
 		},
+		"./storybook-addon-tag-badges": {
+			"types": "./esm/storybook-addon-tag-badges/index.d.ts",
+			"default": "./esm/storybook-addon-tag-badges/index.js"
+		},
 		"./storybook-dark-mode": {
 			"types": "./esm/storybook-dark-mode/index.d.ts",
 			"default": "./esm/storybook-dark-mode/index.js"
