@@ -1,4 +1,4 @@
-import{j as t}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as e}from"./index-B8rYRX2K.js";import{M as s,c as a}from"./index-DNhEaIJ6.js";import"./index-D4lIrffr.js";import"./index-c2WKaA8W.js";import"./index-DsJinFGm.js";import"./iframe-DUTi1tHh.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const d=`# @repobuddy/storybook
+import{j as t}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import{M as a,e as s}from"./index-DJ2nEbuA.js";import"./index-D4lIrffr.js";import"./iframe-CMwUQRJx.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const d=`# @repobuddy/storybook
 
 Your repository buddy for Storybook.
 
@@ -59,7 +59,7 @@ addons.setConfig({
 })
 \`\`\`
 
-### Tag Badges
+### \`storybook-addon-tag-badges\`
 
 If you use [\`storybook-addon-tag-badges\`][\`storybook-addon-tag-badges\`],
 we provide a different set of badges that uses emojis:
@@ -80,15 +80,24 @@ we provide a different set of badges that uses emojis:
 To use them, add them to your \`.storybook/manager.ts\`:
 
 \`\`\`ts
-import { tagBadges } from '@repobuddy/storybook/manager'
+import { tagBadges } from '@repobuddy/storybook/storybook-addon-tag-badges'
 import { addons } from '@storybook/manager-api'
 
 addons.setConfig({ tagBadges })
 \`\`\`
 
-### \`storybook-dark-mode\` support
+You can also import only the one you need:
 
-[\`@repobuddy/storybook\`][\`@repobuddy/storybook\`] provides a few utilities to work with \`storybook-dark-mode\`.
+\`\`\`ts
+import { newBadge } from '@repobuddy/storybook/storybook-addon-tag-badges'
+import { defaultConfig } from 'storybook-addon-tag-badges'
+
+addons.setConfig({ tagBadges: [newBadge, ...defaultConfig] })
+\`\`\`
+
+### \`storybook-dark-mode\`
+
+[\`@repobuddy/storybook\`][\`@repobuddy/storybook\`] provides a few utilities to work with [\`storybook-dark-mode\`][\`storybook-dark-mode\`].
 
 \`\`\`ts
 // .storybook/preview.tsx
@@ -118,19 +127,8 @@ export const preview: Preview = {
 }
 \`\`\`
 
-#### \`withStoryRoot\`
-
-The \`withStoryRoot\` decorator allows you to use \`storybook-dark-mode\` to change the background color of the story.
-
-\`\`\`ts
-import { withStoryRoot } from '@repobuddy/storybook/storybook-dark-mode'
-
-export const MyStory: StoryObj = {
-	decorators: [withStoryRoot()]
-}
-\`\`\`
-
 [\`@repobuddy/storybook\`]: https://github.com/repobuddy/storybook
 [\`storybook-addon-tag-badges\`]: https://github.com/Sidnioulz/storybook-addon-tag-badges
-`;function r(o){return t.jsxs(t.Fragment,{children:[t.jsx(s,{title:"Overview"}),`
-`,t.jsx(a,{children:d})]})}function h(o={}){const{wrapper:n}={...e(),...o.components};return n?t.jsx(n,{...o,children:t.jsx(r,{...o})}):r()}export{h as default};
+[\`storybook-dark-mode\`]: https://github.com/hipstersmoothie/storybook-dark-mode
+`;function e(o){return t.jsxs(t.Fragment,{children:[t.jsx(a,{title:"Overview"}),`
+`,t.jsx(s,{children:d})]})}function g(o={}){const{wrapper:n}={...r(),...o.components};return n?t.jsx(n,{...o,children:t.jsx(e,{...o})}):e()}export{g as default};
