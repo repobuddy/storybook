@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 0.11.1
+
+### Patch Changes
+
+- [`2f6dd3c`](https://github.com/repobuddy/storybook/commit/2f6dd3c5b60c953fed60f6f1a2ff6163c19ff705) Thanks [@unional](https://github.com/unional)! - Add `dark` and `light` back to `DarkModeParam`.
+
 ## 0.11.0
 
 ### Minor Changes
