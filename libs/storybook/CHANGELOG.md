@@ -1,5 +1,23 @@
 # @repobuddy/storybook
 
+## 0.11.0
+
+### Minor Changes
+
+- [`9e79310`](https://github.com/repobuddy/storybook/commit/9e79310daa04df40675d31d5425eace793f8323b) Thanks [@unional](https://github.com/unional)! - Add `propsBadge` to `tagBadges`.
+  Rename `withStoryRoot` to `withDarMode`.
+  Add `bodyClass` and `bodyStyle` to `withDarkMode`
+  Use `darkMode` parameter in `withDarkMode`
+  Add `darkStyle` and `lightStyle` to `DarkModeParam`
+
+- [`0603417`](https://github.com/repobuddy/storybook/commit/0603417863f23c8317e62880dc5adefb6322ae82) Thanks [@unional](https://github.com/unional)! - Move `storybook-addon-tag-badges` export into `@repobuddy/storybook/storybook-addon-tag-badges` (breaking).
+
+- [`415df7d`](https://github.com/repobuddy/storybook/commit/415df7df64cab8d95f7bc420b1379373d9ba927a) Thanks [@unional](https://github.com/unional)! - Hide `snapshot`, `unit`, and `integration` badges in the sidebar.
+
+### Patch Changes
+
+- [`b8a2fa6`](https://github.com/repobuddy/storybook/commit/b8a2fa632ce87c14903089c1a3a1c3f993db94e7) Thanks [@unional](https://github.com/unional)! - `createDarkModeDocsContainer` can specify only one theme.
+
 ## 0.10.0
 
 ### Minor Changes
