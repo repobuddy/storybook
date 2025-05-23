@@ -1,7 +1,7 @@
 import type { Preview } from '@storybook/react'
 // @ts-ignore
 import type { StorybookBuiltInParams } from '../src/index.ts'
-import { createDarkModeDocsContainer, defineDarkModeParam } from '../src/index.ts'
+import { createDarkModeDocsContainer, defineDarkModeParam, withStoryRoot } from '../src/index.ts'
 
 import '../tailwind.css'
 
@@ -29,10 +29,12 @@ const preview: Preview = {
 		})
 	} satisfies StorybookBuiltInParams,
 	decorators: [
-		(Story) => {
-			document.documentElement.classList.add('dark:bg-black', 'dark:text-white')
-			return <Story />
-		}
+		withStoryRoot({
+			classTarget: 'html',
+			dark: {
+				className: 'dark:bg-black dark:text-white'
+			}
+		})
 	]
 }
 

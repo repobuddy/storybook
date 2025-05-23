@@ -4,7 +4,7 @@ import { defineDocsParam, defineTestParam, showDocSource } from '../index.ts'
 
 const meta = {
 	title: 'Parameters/defineTestParam',
-	tags: ['new', 'version:1.0.0'],
+	tags: ['new', 'version:1.0'],
 	parameters: {
 		docs: {
 			description: {

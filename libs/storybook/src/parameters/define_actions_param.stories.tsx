@@ -5,7 +5,7 @@ import { defineActionsParam, defineDocsParam, showDocSource } from '../index.ts'
 
 const meta: Meta = {
 	title: 'Parameters/defineActionsParam',
-	tags: ['new', 'version:1.0.0'],
+	tags: ['new', 'version:1.0'],
 	decorators: [showDocSource()],
 	args: {
 		onClick: fn()

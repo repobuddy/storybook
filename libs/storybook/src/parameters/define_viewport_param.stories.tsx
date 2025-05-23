@@ -4,7 +4,7 @@ import { defineDocsParam, defineViewportParam, showDocSource } from '../index.ts
 
 const meta = {
 	title: 'Parameters/defineViewportParam',
-	tags: ['new', 'version:1.0.0', 'autodocs'],
+	tags: ['new', 'version:1.0', 'autodocs'],
 	decorators: [showDocSource()],
 	render: () => <></>
 } satisfies Meta

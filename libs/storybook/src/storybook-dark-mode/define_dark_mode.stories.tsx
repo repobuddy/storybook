@@ -6,7 +6,7 @@ import { defineDarkModeParam } from './define_dark_mode.ts'
 
 const meta = {
 	title: 'storybook-dark-mode/defineDarkModeParam',
-	tags: ['new', 'version:1.0.0', 'autodocs'],
+	tags: ['new', 'version:1.0', 'autodocs'],
 	decorators: [showDocSource()],
 	render: () => <></>
 } satisfies Meta

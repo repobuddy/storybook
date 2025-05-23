@@ -43,6 +43,7 @@
 		"w": "vitest"
 	},
 	"dependencies": {
+		"@just-web/css": "^0.4.0",
 		"@repobuddy/test": "^1.0.0"
 	},
 	"devDependencies": {

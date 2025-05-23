@@ -4,7 +4,7 @@ import { brandTitle } from './index.ts'
 
 const meta = {
 	title: 'Manager/brandTitle',
-	tags: ['new', 'version:1.0.0', 'autodocs']
+	tags: ['new', 'version:1.0', 'autodocs']
 } satisfies Meta
 
 export default meta

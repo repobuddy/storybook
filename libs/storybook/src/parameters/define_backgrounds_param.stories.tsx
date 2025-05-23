@@ -4,7 +4,7 @@ import { defineBackgroundsParam, defineDocsParam, showDocSource } from '../index
 
 const meta = {
 	title: 'Parameters/defineBackgroundsParam',
-	tags: ['new', 'version:1.0.0'],
+	tags: ['new', 'version:1.0'],
 	decorators: [showDocSource()],
 	render: () => <></>
 } satisfies Meta
