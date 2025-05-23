@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { useEffect } from 'react'
-import { withStoryRoot } from '../index.ts'
+import { withStoryRoot } from './index.ts'
 
 const meta = {
 	title: 'storybook-dark-mode/withStoryRoot',
