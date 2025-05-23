@@ -1,4 +1,4 @@
-import{j as s}from"./jsx-runtime-D_zvdyIk.js";import{d as a}from"./dedent-DVFkJXTl.js";import"./index-D4lIrffr.js";import{v as l,C as L}from"./index-BIQ0zcn2.js";import"./index-DsJinFGm.js";import"./iframe-BsLvJjbk.js";function d(e){return`<span style="display: flex; align-items: center; gap: 2px;">
+import{j as s}from"./jsx-runtime-D_zvdyIk.js";import{d as a}from"./dedent-DVFkJXTl.js";import"./index-D4lIrffr.js";import{v as l,G as L}from"./index-CcVp9PAx.js";import"./index-DsJinFGm.js";import"./iframe-CuJswpXI.js";function d(e){return`<span style="display: flex; align-items: center; gap: 2px;">
 		${e.logo??""}
 		${e.title}
 	</span>`}l(L)`
@@ -8,7 +8,7 @@ import{j as s}from"./jsx-runtime-D_zvdyIk.js";import{d as a}from"./dedent-DVFkJX
   flex: 1;
   justify-content: space-between;
   margin-right: 32px;
-`;const z={title:"Manager/brandTitle",tags:["new","version:1.0.0","autodocs"]},o={parameters:{docs:{source:{code:a`brandTitle({
+`;const z={title:"Manager/brandTitle",tags:["new","version:1.0","autodocs"]},o={parameters:{docs:{source:{code:a`brandTitle({
                     title: 'My Storybook'
                 })`}}},render:()=>s.jsx("div",{dangerouslySetInnerHTML:{__html:d({title:"My Storybook"})}})},n={parameters:{docs:{source:{code:a`brandTitle({
                     title: '<span style="color: #ff4785;">My Storybook</span>'
@@ -87,4 +87,4 @@ import{j as s}from"./jsx-runtime-D_zvdyIk.js";import{d as a}from"./dedent-DVFkJX
       logo: '<svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="#ff4785"/></svg>'
     })
   }} />
-}`,...(w=(_=t.parameters)==null?void 0:_.docs)==null?void 0:w.source},description:{story:"Example showing how to add an icon to the brand title",...(I=(H=t.parameters)==null?void 0:H.docs)==null?void 0:I.description}}};const R=["SimpleString","InHtml","WithEmoji","WithSvgIcon"];export{n as InHtml,o as SimpleString,i as WithEmoji,t as WithSvgIcon,R as __namedExportsOrder,z as default};
+}`,...(w=(_=t.parameters)==null?void 0:_.docs)==null?void 0:w.source},description:{story:"Example showing how to add an icon to the brand title",...(I=(H=t.parameters)==null?void 0:H.docs)==null?void 0:I.description}}};const G=["SimpleString","InHtml","WithEmoji","WithSvgIcon"];export{n as InHtml,o as SimpleString,i as WithEmoji,t as WithSvgIcon,G as __namedExportsOrder,z as default};
