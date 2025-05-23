@@ -104,7 +104,7 @@ addons.setConfig({ tagBadges: [newBadge, ...defaultConfig] })
 import {
 	createDarkModeDocsContainer,
 	defineDarkModeParam,
-	withStoryRoot
+	withDarkMode
 } from '@repobuddy/storybook/storybook-dark-mode'
 
 export const preview: Preview = {
@@ -118,11 +118,8 @@ export const preview: Preview = {
 			stylePreview: true
 		})
 	},
-	decorators: [withStoryRoot({
-		classTarget: 'html',
-		dark: {
-			className: 'dark:bg-black dark:text-white'
-		}
+	decorators: [withDarkMode({
+		bodyClass: 'dark:bg-black dark:text-white'
 	})]
 }
 ```

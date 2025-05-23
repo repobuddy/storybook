@@ -57,6 +57,16 @@ export const betaBadge: TagBadgeParameter = {
 	}
 }
 
+export const propsBadge: TagBadgeParameter = {
+	tags: 'props',
+	badge: {
+		text: '🔧',
+		bgColor: 'transparent',
+		borderColor: 'transparent',
+		tooltip: 'Props'
+	}
+}
+
 export const deprecatedBadge: TagBadgeParameter = {
 	tags: 'deprecated',
 	badge: {
@@ -156,6 +166,7 @@ export const tagBadges: TagBadgeParameters = [
 	deprecatedBadge,
 	outdatedBadge,
 	dangerBadge,
+	propsBadge,
 	todoBadge,
 	codeOnlyBadge,
 	snapshotBadge,
