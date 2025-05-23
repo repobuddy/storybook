@@ -1,4 +1,4 @@
-import{j as t}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import{M as a,e as s}from"./index-CVxveG77.js";import"./index-D4lIrffr.js";import"./iframe-BLRipPEc.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const d=`# @repobuddy/storybook
+import{j as o}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import{M as a,e as s}from"./index-GrlDceoJ.js";import"./index-D4lIrffr.js";import"./iframe-D1Zr9wyf.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const d=`# @repobuddy/storybook
 
 Your repository buddy for Storybook.
 
@@ -104,7 +104,7 @@ addons.setConfig({ tagBadges: [newBadge, ...defaultConfig] })
 import {
 	createDarkModeDocsContainer,
 	defineDarkModeParam,
-	withStoryRoot
+	withDarkMode
 } from '@repobuddy/storybook/storybook-dark-mode'
 
 export const preview: Preview = {
@@ -118,11 +118,8 @@ export const preview: Preview = {
 			stylePreview: true
 		})
 	},
-	decorators: [withStoryRoot({
-		classTarget: 'html',
-		dark: {
-			className: 'dark:bg-black dark:text-white'
-		}
+	decorators: [withDarkMode({
+		bodyClass: 'dark:bg-black dark:text-white'
 	})]
 }
 \`\`\`
@@ -130,5 +127,5 @@ export const preview: Preview = {
 [\`@repobuddy/storybook\`]: https://github.com/repobuddy/storybook
 [\`storybook-addon-tag-badges\`]: https://github.com/Sidnioulz/storybook-addon-tag-badges
 [\`storybook-dark-mode\`]: https://github.com/hipstersmoothie/storybook-dark-mode
-`;function e(o){return t.jsxs(t.Fragment,{children:[t.jsx(a,{title:"Overview"}),`
-`,t.jsx(s,{children:d})]})}function g(o={}){const{wrapper:n}={...r(),...o.components};return n?t.jsx(n,{...o,children:t.jsx(e,{...o})}):e()}export{g as default};
+`;function e(t){return o.jsxs(o.Fragment,{children:[o.jsx(a,{title:"Overview"}),`
+`,o.jsx(s,{children:d})]})}function g(t={}){const{wrapper:n}={...r(),...t.components};return n?o.jsx(n,{...t,children:o.jsx(e,{...t})}):e()}export{g as default};
