@@ -1,4 +1,4 @@
-import{j as o}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as e}from"./index-B8rYRX2K.js";import{M as s,c as a}from"./index-CLh8vdhB.js";import"./index-D4lIrffr.js";import"./index-CEu5j4DU.js";import"./index-DsJinFGm.js";import"./iframe-DXO1Gm5c.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const d=`# @repobuddy/storybook
+import{j as t}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as e}from"./index-B8rYRX2K.js";import{M as s,c as a}from"./index-DNhEaIJ6.js";import"./index-D4lIrffr.js";import"./index-c2WKaA8W.js";import"./index-DsJinFGm.js";import"./iframe-DUTi1tHh.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const d=`# @repobuddy/storybook
 
 Your repository buddy for Storybook.
 
@@ -23,7 +23,7 @@ For example:
 import { defineLayoutParam } from '@repobuddy/storybook'
 
 export const MyStory: StoryObj = {
-  parameters: defineLayoutParam('fullscreen')
+	parameters: defineLayoutParam('fullscreen')
 }
 \`\`\`
 
@@ -34,13 +34,13 @@ and also allow you to specify additional parameter types.
 import { defineParameters, type ActionsParam } from '@repobuddy/storybook'
 
 export const MyStory: StoryObj = {
-  parameters: defineParameters<ActionsParam>({
-    layout: 'fullscreen',
-    // this is typed
-    actions: {
-      disable: true
-    }
-  })
+	parameters: defineParameters<ActionsParam>({
+		layout: 'fullscreen',
+		// this is typed
+		actions: {
+			disable: true
+		}
+	})
 }
 \`\`\`
 
@@ -92,19 +92,23 @@ addons.setConfig({ tagBadges })
 
 \`\`\`ts
 // .storybook/preview.tsx
-import { defineDarkModeParam, withStoryRoot, createDarkModeDocsContainer } from '@repobuddy/storybook/storybook-dark-mode'
+import {
+	createDarkModeDocsContainer,
+	defineDarkModeParam,
+	withStoryRoot
+} from '@repobuddy/storybook/storybook-dark-mode'
 
 export const preview: Preview = {
-  parameters: {
-    docs: {
-      container: createDarkModeDocsContainer()
-    },
+	parameters: {
+		docs: {
+		container: createDarkModeDocsContainer()
+		},
 		darkMode: defineDarkModeParam({
 			classTarget: 'html',
 			darkClass: 'dark',
 			stylePreview: true
 		})
-  },
+	},
 	decorators: [withStoryRoot({
 		classTarget: 'html',
 		dark: {
@@ -122,11 +126,11 @@ The \`withStoryRoot\` decorator allows you to use \`storybook-dark-mode\` to cha
 import { withStoryRoot } from '@repobuddy/storybook/storybook-dark-mode'
 
 export const MyStory: StoryObj = {
-  decorators: [withStoryRoot()]
+	decorators: [withStoryRoot()]
 }
 \`\`\`
 
 [\`@repobuddy/storybook\`]: https://github.com/repobuddy/storybook
 [\`storybook-addon-tag-badges\`]: https://github.com/Sidnioulz/storybook-addon-tag-badges
-`;function r(t){return o.jsxs(o.Fragment,{children:[o.jsx(s,{title:"Overview"}),`
-`,o.jsx(a,{children:d})]})}function h(t={}){const{wrapper:n}={...e(),...t.components};return n?o.jsx(n,{...t,children:o.jsx(r,{...t})}):r()}export{h as default};
+`;function r(o){return t.jsxs(t.Fragment,{children:[t.jsx(s,{title:"Overview"}),`
+`,t.jsx(a,{children:d})]})}function h(o={}){const{wrapper:n}={...e(),...o.components};return n?t.jsx(n,{...o,children:t.jsx(r,{...o})}):r()}export{h as default};
