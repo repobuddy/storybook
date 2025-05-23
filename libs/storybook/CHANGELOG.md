@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 0.11.3
+
+### Patch Changes
+
+- [`92c7ecd`](https://github.com/repobuddy/storybook/commit/92c7ecdf113fcb963d7f403500a5d4c22c613fa3) Thanks [@unional](https://github.com/unional)! - Allow `story` and `component` to be `JSX.Element` in `docs.description`.
+
 ## 0.11.2
 
 ### Patch Changes
