@@ -2,6 +2,8 @@ import { type TagBadgeParameters, defaultConfig } from 'storybook-addon-tag-badg
 
 const [, , , , , , versionBadge] = defaultConfig
 
+type TagBadgeParameter = TagBadgeParameters[0]
+
 /**
  * Configuration for story tag badges that appear in the Storybook sidebar.
  * Each badge is associated with a specific tag and displays an emoji with a tooltip.
@@ -21,7 +23,7 @@ const [, , , , , , versionBadge] = defaultConfig
  *
  * Also includes the default version badge from `storybook-addon-tag-badges`.
  */
-export const editorBadge = {
+export const editorBadge: TagBadgeParameter = {
 	tags: 'editor',
 	badge: {
 		text: '✏️',
@@ -35,7 +37,7 @@ export const editorBadge = {
 	}
 }
 
-export const newBadge = {
+export const newBadge: TagBadgeParameter = {
 	tags: 'new',
 	badge: {
 		text: '🆕',
@@ -45,7 +47,7 @@ export const newBadge = {
 	}
 }
 
-export const betaBadge = {
+export const betaBadge: TagBadgeParameter = {
 	tags: 'beta',
 	badge: {
 		text: '🅱️',
@@ -55,7 +57,7 @@ export const betaBadge = {
 	}
 }
 
-export const deprecatedBadge = {
+export const deprecatedBadge: TagBadgeParameter = {
 	tags: 'deprecated',
 	badge: {
 		text: '🪦',
@@ -65,7 +67,7 @@ export const deprecatedBadge = {
 	}
 }
 
-export const outdatedBadge = {
+export const outdatedBadge: TagBadgeParameter = {
 	tags: 'outdated',
 	badge: {
 		text: '⚠️',
@@ -75,7 +77,7 @@ export const outdatedBadge = {
 	}
 }
 
-export const dangerBadge = {
+export const dangerBadge: TagBadgeParameter = {
 	tags: 'danger',
 	badge: {
 		text: '🚨',
@@ -85,7 +87,7 @@ export const dangerBadge = {
 	}
 }
 
-export const todoBadge = {
+export const todoBadge: TagBadgeParameter = {
 	tags: 'todo',
 	badge: {
 		text: '📋',
@@ -95,7 +97,7 @@ export const todoBadge = {
 	}
 }
 
-export const codeOnlyBadge = {
+export const codeOnlyBadge: TagBadgeParameter = {
 	tags: 'code-only',
 	badge: {
 		text: '📝',
@@ -105,7 +107,7 @@ export const codeOnlyBadge = {
 	}
 }
 
-export const snapshotBadge = {
+export const snapshotBadge: TagBadgeParameter = {
 	tags: 'snapshot',
 	badge: {
 		text: '📸',
@@ -114,28 +116,34 @@ export const snapshotBadge = {
 		tooltip: 'Snapshot Test'
 	},
 	display: {
-		sidebar: ['story'],
+		sidebar: false,
 		toolbar: ['story']
 	}
 }
 
-export const unitBadge = {
+export const unitBadge: TagBadgeParameter = {
 	tags: 'unit',
 	badge: {
 		text: '🧪',
 		bgColor: 'transparent',
 		borderColor: 'transparent',
 		tooltip: 'Unit Test'
+	},
+	display: {
+		sidebar: false
 	}
 }
 
-export const integrationBadge = {
+export const integrationBadge: TagBadgeParameter = {
 	tags: 'integration',
 	badge: {
 		text: '🔗',
 		bgColor: 'transparent',
 		borderColor: 'transparent',
 		tooltip: 'Integration Test'
+	},
+	display: {
+		sidebar: false
 	}
 }
 
