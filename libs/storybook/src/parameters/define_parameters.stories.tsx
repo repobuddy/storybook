@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import dedent from 'dedent'
-import { type ActionsParam, defineDocsParam, defineParameters, showDocSource } from '../index.ts'
+import { type ActionsParam, defineParameters, showDocSource } from '../index.ts'
 
 export default {
 	title: 'parameters/defineParameters',
@@ -21,28 +21,24 @@ export default {
 } satisfies Meta
 
 export const WithLayout: StoryObj = {
-	parameters: {
-		...defineParameters({
-			layout: 'centered'
-		}),
-		...defineDocsParam({
+	parameters: defineParameters({
+		layout: 'centered',
+		docs: {
 			source: {
 				code: dedent`defineParameters({
 				layout: 'centered'
 			})`
 			}
-		})
-	}
+		}
+	})
 }
 
 export const WithBackgroundsParam: StoryObj = {
-	parameters: {
-		...defineParameters({
-			backgrounds: {
-				default: 'light'
-			}
-		}),
-		...defineDocsParam({
+	parameters: defineParameters({
+		backgrounds: {
+			default: 'light'
+		},
+		docs: {
 			source: {
 				code: dedent`defineParameters({
 				backgrounds: {
@@ -50,20 +46,16 @@ export const WithBackgroundsParam: StoryObj = {
 				}
 			})`
 			}
-		})
-	}
+		}
+	})
 }
 
 export const WithDocsParam: StoryObj = {
-	parameters: {
-		...defineParameters({
-			docs: {
-				description: {
-					story: 'This is a story'
-				}
-			}
-		}),
-		...defineDocsParam({
+	parameters: defineParameters({
+		docs: {
+			description: {
+				story: 'This is a story'
+			},
 			source: {
 				code: dedent`defineParameters({
 				docs: {
@@ -73,18 +65,16 @@ export const WithDocsParam: StoryObj = {
 				}
 			})`
 			}
-		})
-	}
+		}
+	})
 }
 
 export const WithViewportParam: StoryObj = {
-	parameters: {
-		...defineParameters({
-			viewport: {
-				defaultViewport: 'tablet1'
-			}
-		}),
-		...defineDocsParam({
+	parameters: defineParameters({
+		viewport: {
+			defaultViewport: 'tablet1'
+		},
+		docs: {
 			source: {
 				code: dedent`defineParameters({
 				viewport: {
@@ -92,29 +82,25 @@ export const WithViewportParam: StoryObj = {
 				}
 			})`
 			}
-		})
-	}
+		}
+	})
 }
 
 export const WithOtherParams: StoryObj = {
-	parameters: {
-		...defineParameters({
-			layout: 'padded',
-			something: {
-				blah: 'beer'
-			}
-		}),
-		...defineDocsParam({
+	parameters: defineParameters({
+		something: {
+			blah: 'beer'
+		},
+		docs: {
 			source: {
 				code: dedent`defineParameters({
-				layout: 'padded',
 				something: {
 					blah: 'beer'
 				}
 			})`
 			}
-		})
-	},
+		}
+	}),
 	render: () => <div>You can use this to configure parameters that are not defined in the type</div>
 }
 
@@ -122,20 +108,35 @@ export const WithOtherParams: StoryObj = {
  * Example showing how to use `defineParameters` to configure actions parameters
  */
 export const WithActionsParam: StoryObj = {
-	parameters: {
-		...defineParameters<ActionsParam>({
+	parameters: defineParameters<ActionsParam>(
+		{
 			actions: {
 				argTypesRegex: '^on[A-Z].*'
 			}
-		}),
-		...defineDocsParam({
-			source: {
-				code: dedent`defineParameters<ActionsParam>({
+		},
+		{
+			docs: {
+				source: {
+					code: dedent`defineParameters<ActionsParam>({
 				actions: {
 					argTypesRegex: '^on[A-Z].*'
 				}
 			})`
+				}
 			}
-		})
-	}
+		}
+	)
+}
+
+export const ComposingParameters: StoryObj = {
+	parameters: defineParameters(
+		{
+			layout: 'centered'
+		},
+		{
+			docs: {
+				source: { code: dedent`defineParameters({ layout: 'centered' })` }
+			}
+		}
+	)
 }

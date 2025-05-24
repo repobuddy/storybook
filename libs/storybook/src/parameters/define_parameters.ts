@@ -40,6 +40,9 @@ export type StorybookBuiltInParams = Partial<BackgroundsParam | GlobalApiBackgro
  * }
  * ```
  */
-export function defineParameters<P extends Record<string, any>>(parameters: P & StorybookBuiltInParams) {
-	return parameters
+export function defineParameters<P extends Record<string, any>>(
+	param: P & StorybookBuiltInParams,
+	...rest: Array<StorybookBuiltInParams>
+) {
+	return rest.reduce((acc, param) => Object.assign(acc, param), param)
 }
