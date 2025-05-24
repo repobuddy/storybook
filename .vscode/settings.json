@@ -30,6 +30,8 @@
 		"editor.formatOnSave": true
 	},
 	"cSpell.words": [
+		"biomejs",
+		"esbuild",
 		"jsxdev",
 		"oklch",
 		"pathe",
