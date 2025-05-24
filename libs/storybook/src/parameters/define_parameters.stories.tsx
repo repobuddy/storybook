@@ -135,7 +135,13 @@ export const ComposingParameters: StoryObj = {
 		},
 		{
 			docs: {
-				source: { code: dedent`defineParameters({ layout: 'centered' })` }
+				description: { story: 'This is a story' },
+				source: {
+					code: dedent`defineParameters(
+					{ layout: 'centered' },
+					{ docs: { description: { story: 'This is a story' } } }
+				)`
+				}
 			}
 		}
 	)
