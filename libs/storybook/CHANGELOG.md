@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 0.12.0
+
+### Minor Changes
+
+- [`d4d8127`](https://github.com/repobuddy/storybook/commit/d4d8127352b4d627b3327d6571d6b8957783a1c1) Thanks [@unional](https://github.com/unional)! - Add compose params support for `defineParameters()`.
+
 ## 0.11.3
 
 ### Patch Changes
