@@ -57,8 +57,8 @@ importers:
   libs/storybook:
     dependencies:
       '@just-web/css':
-        specifier: ^0.4.0
-        version: 0.4.0
+        specifier: ^0.5.0
+        version: 0.5.0
       '@repobuddy/test':
         specifier: ^1.0.0
         version: 1.0.0
@@ -716,8 +716,8 @@ packages:
     resolution: {integrity: sha512-F2VBt7W/mwqEU4bL0RnHNZmC/OxzNx9cOYxHqnXX3MP6ruYvZUZAW9imgN9+h/uBT/oP8Gh888J2OZSbjSeWcg==}
     engines: {node: '>=18'}
 
-  '@inquirer/figures@1.0.11':
-    resolution: {integrity: sha512-eOg92lvrn/aRUqbxRyvpEWnrvRuTYRifixHkYVpJiygTgVSBIHDqLh0SrMQXkafvULg3ck11V7xvR+zcgvpHFw==}
+  '@inquirer/figures@1.0.12':
+    resolution: {integrity: sha512-MJttijd8rMFcKJC8NYmprWr6hD3r9Gd9qUC0XwPNwoEPWSMVJwA2MlXxF+nhZZNMY+HXsWa+o7KY2emWYIn0jQ==}
     engines: {node: '>=18'}
 
   '@inquirer/type@1.5.5':
@@ -767,8 +767,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@just-web/css@0.4.0':
-    resolution: {integrity: sha512-CDG/ycc1ETJuzb1HgFMJNqPZeMoGzAQ6QxcDP6FChD5RhZBAoocVfHuR7XSK4vIcSKKdhpC3FoKNPFfIDdC+UQ==}
+  '@just-web/css@0.5.0':
+    resolution: {integrity: sha512-M5giESPgTPrf/agtSGaBm7gAvMb4KYQUln84BbV9Fxw6dx0q05igsKu1uF65XbPjqIowD0zTm0q05+8xY9jmbQ==}
 
   '@manypkg/find-root@1.1.0':
     resolution: {integrity: sha512-mki5uBvhHzO8kYYix/WRy2WX8S3B5wdVSc9D6KcU5lQNglP2yt58/VfLuAK49glRXChosY8ap2oJ1qgma3GUVA==}
@@ -3766,7 +3766,7 @@ snapshots:
 
   '@inquirer/core@9.2.1':
     dependencies:
-      '@inquirer/figures': 1.0.11
+      '@inquirer/figures': 1.0.12
       '@inquirer/type': 2.0.0
       '@types/mute-stream': 0.0.4
       '@types/node': 22.15.21
@@ -3780,7 +3780,7 @@ snapshots:
       yoctocolors-cjs: 2.1.2
     optional: true
 
-  '@inquirer/figures@1.0.11':
+  '@inquirer/figures@1.0.12':
     optional: true
 
   '@inquirer/type@1.5.5':
@@ -3834,7 +3834,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@just-web/css@0.4.0':
+  '@just-web/css@0.5.0':
     dependencies:
       csstype: 3.1.3
       type-plus: 8.0.0-beta.7
