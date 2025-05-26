@@ -122,7 +122,7 @@ importers:
         version: 1.4.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@8.6.14(prettier@3.5.3))
       storybook-addon-vis:
         specifier: ^1.0.0
-        version: 1.0.0(@types/pixelmatch@5.2.6)(@vitest/browser@3.1.4)(storybook@8.6.14(prettier@3.5.3))(vitest@3.1.4)
+        version: 1.0.1(@types/pixelmatch@5.2.6)(@vitest/browser@3.1.4)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@8.6.14(prettier@3.5.3))(vitest@3.1.4)
       storybook-dark-mode:
         specifier: ^4.0.2
         version: 4.0.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@8.6.14(prettier@3.5.3))
@@ -2783,8 +2783,8 @@ packages:
     peerDependencies:
       storybook: ^8.4.0
 
-  storybook-addon-vis@1.0.0:
-    resolution: {integrity: sha512-6gIQR9H8VXnrCPg053X7EJtUWQ6BEjpfCL39pmlssTpksTo89gGibzU8B3LNLmsqsKyVrzoL+bSVZ38PqV2y8w==}
+  storybook-addon-vis@1.0.1:
+    resolution: {integrity: sha512-aNToAGdanBKO2+joPClMsIOL0VQqETSJfES6grqAGkanJgLJh/c1tUirgQoDd55+5hdp9cRBKwzK3IJ/FFX/mQ==}
     peerDependencies:
       '@types/pixelmatch': ^5.2.6
       '@vitest/browser': ^2 || ^3
@@ -3067,8 +3067,8 @@ packages:
       yaml:
         optional: true
 
-  vitest-plugin-vis@3.0.0:
-    resolution: {integrity: sha512-QqzPK3fU37jib3d4lsDanpGdn/J8wXvf3qF5cdteulv0yovlisfE1Ko+kuFV07LgzSj2YEEAs9Gas1EuhL8b3g==}
+  vitest-plugin-vis@3.0.1:
+    resolution: {integrity: sha512-BhJD3YsJGoFw7mFQ6kItDLhVW/9CJhA4/yR+o2OJrf9Z6Es1wZJw1aHm+Bs2l4TfeOFQ/0+dh0qgbx3zNiBN7w==}
     peerDependencies:
       '@vitest/browser': ^2 || ^3
       vitest: ^2 || ^3
@@ -5805,8 +5805,9 @@ snapshots:
       - react
       - react-dom
 
-  storybook-addon-vis@1.0.0(@types/pixelmatch@5.2.6)(@vitest/browser@3.1.4)(storybook@8.6.14(prettier@3.5.3))(vitest@3.1.4):
+  storybook-addon-vis@1.0.1(@types/pixelmatch@5.2.6)(@vitest/browser@3.1.4)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@8.6.14(prettier@3.5.3))(vitest@3.1.4):
     dependencies:
+      '@storybook/icons': 1.4.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@types/pixelmatch': 5.2.6
       '@vitest/browser': 3.1.4(msw@2.4.11(typescript@5.8.3))(playwright@1.52.0)(vite@6.3.5(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1))(vitest@3.1.4)
       glob: 11.0.2
@@ -5816,9 +5817,11 @@ snapshots:
       storybook: 8.6.14(prettier@3.5.3)
       type-plus: 8.0.0-beta.7
       vitest: 3.1.4(@types/node@22.15.21)(@vitest/browser@3.1.4)(jiti@2.4.2)(lightningcss@1.30.1)(msw@2.4.11(typescript@5.8.3))
-      vitest-plugin-vis: 3.0.0(@vitest/browser@3.1.4)(vitest@3.1.4)
+      vitest-plugin-vis: 3.0.1(@vitest/browser@3.1.4)(vitest@3.1.4)
     transitivePeerDependencies:
       - babel-plugin-macros
+      - react
+      - react-dom
 
   storybook-dark-mode@4.0.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@8.6.14(prettier@3.5.3)):
     dependencies:
@@ -6079,7 +6082,7 @@ snapshots:
       jiti: 2.4.2
       lightningcss: 1.30.1
 
-  vitest-plugin-vis@3.0.0(@vitest/browser@3.1.4)(vitest@3.1.4):
+  vitest-plugin-vis@3.0.1(@vitest/browser@3.1.4)(vitest@3.1.4):
     dependencies:
       '@vitest/browser': 3.1.4(msw@2.4.11(typescript@5.8.3))(playwright@1.52.0)(vite@6.3.5(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1))(vitest@3.1.4)
       dedent: 1.6.0
