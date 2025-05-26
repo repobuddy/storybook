@@ -1,4 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import dedent from 'dedent'
+import { showDocSource } from '../decorators/show_doc_source'
+import { defineDocsParam } from '../parameters/define_docs_param'
 
 export default {
 	title: 'storybook-addon-tag-badges/tagBadges'
@@ -85,6 +88,34 @@ export const CodeOnlyBadge: StoryObj = {
 			<code>tags: ['code-only']</code>
 		</div>
 	)
+}
+
+export const InternalBadge: StoryObj = {
+	tags: ['internal'],
+	parameters: defineDocsParam({
+		source: {
+			code: dedent`
+			// Use this badge to hide stories from the sidebar during production build
+			export const YourStory = {
+				tags: ['internal'],
+			}
+
+			// To set this up, you need to add the following to your .storybook/main.ts file:
+			export default {
+				tags: {
+					internal: {
+						excludeFromSidebar: process.env.NODE_ENV === 'production'
+					}
+				}
+			}
+
+			// And build your storybook with the following command:
+			NODE_ENV=production storybook build
+			`
+		}
+	}),
+	decorators: [showDocSource()],
+	render: () => <></>
 }
 
 export const SnapshotBadge: StoryObj = {

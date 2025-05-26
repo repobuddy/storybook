@@ -45,6 +45,7 @@ node_modules
 **/__screenshots__
 **/__vis__/**/__diffs__
 **/__vis__/**/__results__
+**/storybook-static
 esm
 *.tsbuildinfo
 *storybook.log
