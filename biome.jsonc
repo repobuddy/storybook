@@ -15,9 +15,6 @@
 		"enabled": true,
 		"indentStyle": "tab"
 	},
-	"organizeImports": {
-		"enabled": true
-	},
 	"javascript": {
 		"formatter": {
 			"trailingCommas": "none"
