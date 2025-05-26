@@ -74,7 +74,7 @@
 		"rimraf": "^6.0.1",
 		"storybook": "^8.6.12",
 		"storybook-addon-tag-badges": "^1.4.0",
-		"storybook-addon-vis": "^0.19.4",
+		"storybook-addon-vis": "^1.0.0",
 		"storybook-dark-mode": "^4.0.2",
 		"tailwindcss": "^4.1.5",
 		"vite": "^6.3.4",
