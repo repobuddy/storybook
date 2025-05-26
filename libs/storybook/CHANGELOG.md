@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 0.13.0
+
+### Minor Changes
+
+- [#69](https://github.com/repobuddy/storybook/pull/69) [`4686b79`](https://github.com/repobuddy/storybook/commit/4686b79085d2fc3f140fdf40529738cbfa3393f7) Thanks [@unional](https://github.com/unional)! - Add `internal` tag to hide stories from the sidebar during production build.
+
 ## 0.12.0
 
 ### Minor Changes
