@@ -1,4 +1,4 @@
-import{j as o}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import{M as a,e as s}from"./index-B07XdvhV.js";import"./index-D4lIrffr.js";import"./iframe-enlL_wr7.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const d=`# @repobuddy/storybook
+import{j as o}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import{M as a,e as s}from"./index-DLYFHR-w.js";import"./index-D4lIrffr.js";import"./iframe-C70Hxnwd.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const d=`# @repobuddy/storybook
 
 Your repository buddy for Storybook.
 
@@ -64,17 +64,18 @@ addons.setConfig({
 If you use [\`storybook-addon-tag-badges\`][\`storybook-addon-tag-badges\`],
 we provide a different set of badges that uses emojis:
 
-- ✏️ Editor - Stories with live editor
-- 🆕 New components/features
-- 🅱️ Beta status
-- 🪦 Deprecated notices
-- ⚠️ Outdated warnings
-- 🚨 Dangerous
-- 📋 To-do items
-- 📝 Code-only stories
-- 📸 Snapshot tests
-- 🧪 Unit tests
-- 🔗 Integration tests
+- ✏️ \`editor\` - Live Editor Stories (with [\`storybook-addon-code-editor\`][\`storybook-addon-code-editor\`])
+- 🆕 \`new\` - New components/features
+- 🅱️ \`beta\` - Beta status
+- 🪦 \`deprecated\` - Deprecated notices
+- ⚠️ \`outdated\` - Outdated warnings
+- 🚨 \`danger\` - Dangerous
+- 📋 \`todo\` - To-do items
+- 📝 \`code-only\` - Code-only stories
+- 🔒 \`internal\` - Internal stories (when set up, hidden from the sidebar in public Storybook)
+- 📸 \`snapshot\` - Snapshot tests
+- 🧪 \`unit\` - Unit tests
+- 🔗 \`integration\` - Integration tests
 - Version indicators (unchanged)
 
 To use them, add them to your \`.storybook/manager.ts\`:
@@ -127,5 +128,6 @@ export const preview: Preview = {
 [\`@repobuddy/storybook\`]: https://github.com/repobuddy/storybook
 [\`storybook-addon-tag-badges\`]: https://github.com/Sidnioulz/storybook-addon-tag-badges
 [\`storybook-dark-mode\`]: https://github.com/hipstersmoothie/storybook-dark-mode
+[\`storybook-addon-code-editor\`]: https://github.com/storybookjs/storybook/tree/main/addons/code/code-editor
 `;function e(t){return o.jsxs(o.Fragment,{children:[o.jsx(a,{title:"Overview"}),`
-`,o.jsx(s,{children:d})]})}function g(t={}){const{wrapper:n}={...r(),...t.components};return n?o.jsx(n,{...t,children:o.jsx(e,{...t})}):e()}export{g as default};
+`,o.jsx(s,{children:d})]})}function c(t={}){const{wrapper:n}={...r(),...t.components};return n?o.jsx(n,{...t,children:o.jsx(e,{...t})}):e()}export{c as default};
