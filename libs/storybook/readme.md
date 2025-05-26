@@ -64,17 +64,18 @@ addons.setConfig({
 If you use [`storybook-addon-tag-badges`][`storybook-addon-tag-badges`],
 we provide a different set of badges that uses emojis:
 
-- ✏️ Editor - Stories with live editor
-- 🆕 New components/features
-- 🅱️ Beta status
-- 🪦 Deprecated notices
-- ⚠️ Outdated warnings
-- 🚨 Dangerous
-- 📋 To-do items
-- 📝 Code-only stories
-- 📸 Snapshot tests
-- 🧪 Unit tests
-- 🔗 Integration tests
+- ✏️ `editor` - Live Editor Stories (with [`storybook-addon-code-editor`][`storybook-addon-code-editor`])
+- 🆕 `new` - New components/features
+- 🅱️ `beta` - Beta status
+- 🪦 `deprecated` - Deprecated notices
+- ⚠️ `outdated` - Outdated warnings
+- 🚨 `danger` - Dangerous
+- 📋 `todo` - To-do items
+- 📝 `code-only` - Code-only stories
+- 🔒 `internal` - Internal stories (when set up, hidden from the sidebar in public Storybook)
+- 📸 `snapshot` - Snapshot tests
+- 🧪 `unit` - Unit tests
+- 🔗 `integration` - Integration tests
 - Version indicators (unchanged)
 
 To use them, add them to your `.storybook/manager.ts`:
@@ -127,3 +128,4 @@ export const preview: Preview = {
 [`@repobuddy/storybook`]: https://github.com/repobuddy/storybook
 [`storybook-addon-tag-badges`]: https://github.com/Sidnioulz/storybook-addon-tag-badges
 [`storybook-dark-mode`]: https://github.com/hipstersmoothie/storybook-dark-mode
+[`storybook-addon-code-editor`]: https://github.com/storybookjs/storybook/tree/main/addons/code/code-editor
