@@ -157,6 +157,16 @@ export const integrationBadge: TagBadgeParameter = {
 	}
 }
 
+export const internalBadge: TagBadgeParameter = {
+	tags: 'internal',
+	badge: {
+		text: '🔒',
+		bgColor: 'transparent',
+		borderColor: 'transparent',
+		tooltip: 'Internal'
+	}
+}
+
 export const tagBadges: TagBadgeParameters = [
 	editorBadge,
 	unitBadge,
@@ -169,6 +179,7 @@ export const tagBadges: TagBadgeParameters = [
 	propsBadge,
 	todoBadge,
 	codeOnlyBadge,
+	internalBadge,
 	snapshotBadge,
 	versionBadge
 ]
