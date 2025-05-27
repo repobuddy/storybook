@@ -111,7 +111,7 @@ import {
 export const preview: Preview = {
 	parameters: {
 		docs: {
-		container: createDarkModeDocsContainer()
+			container: createDarkModeDocsContainer()
 		},
 		darkMode: defineDarkModeParam({
 			classTarget: 'html',
