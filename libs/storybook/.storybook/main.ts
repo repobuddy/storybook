@@ -14,7 +14,7 @@ export default {
 		options: {}
 	},
 	tags: {
-		internal: {
+		'internal-sp': {
 			excludeFromSidebar: process.env.NODE_ENV === 'production'
 		}
 	}
