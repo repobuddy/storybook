@@ -91,7 +91,7 @@ export const CodeOnlyBadge: StoryObj = {
 }
 
 export const InternalBadge: StoryObj = {
-	tags: ['internal', 'internal-sp'],
+	tags: ['internal'],
 	parameters: defineDocsParam({
 		source: {
 			code: dedent`
