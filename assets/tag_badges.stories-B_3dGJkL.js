@@ -1,4 +1,4 @@
-import{j as e}from"./jsx-runtime-D_zvdyIk.js";import{d as $}from"./dedent-DVFkJXTl.js";import{s as ee}from"./show_doc_source-CWgnZoeJ.js";import{d as re}from"./define_docs_param-lmgaBKCF.js";const de={title:"storybook-addon-tag-badges/tagBadges"},r={tags:["editor"],render:()=>e.jsxs("div",{children:[e.jsx("div",{children:"Story with live editor"}),e.jsx("code",{children:"tags: ['editor']"})]})},o={tags:["new"],render:()=>e.jsxs("div",{children:[e.jsx("div",{children:"Recently added components or props/features"}),e.jsx("code",{children:"tags: ['new']"})]})},t={tags:["beta"],render:()=>e.jsxs("div",{children:[e.jsx("div",{children:"Warn that a component or prop is not stable yet"}),e.jsx("code",{children:"tags: ['beta']"})]})},n={tags:["deprecated"],render:()=>e.jsxs("div",{children:[e.jsx("div",{children:"Components or props that should be avoided in new code"}),e.jsx("code",{children:"tags: ['deprecated']"})]})},s={tags:["outdated"],render:()=>e.jsxs("div",{children:[e.jsx("div",{children:"Components with design changes that weren't yet implemented, which can incur extra development costs to your users"}),e.jsx("code",{children:"tags: ['outdated']"})]})},d={tags:["danger"],render:()=>e.jsxs("div",{children:[e.jsx("div",{children:"Components that require particular attention when configuring them (e.g. for with security concerns)"}),e.jsx("code",{children:"tags: ['danger']"})]})},a={tags:["todo"],render:()=>e.jsxs("div",{children:[e.jsx("div",{children:"Todo story"}),e.jsx("code",{children:"tags: ['todo']"})]})},i={tags:["code-only"],render:()=>e.jsxs("div",{children:[e.jsx("div",{children:"Components that only exist in code, and not in design"}),e.jsx("code",{children:"tags: ['code-only']"})]})},c={tags:["internal"],parameters:re({source:{code:$`
+import{j as e}from"./jsx-runtime-D_zvdyIk.js";import{d as $}from"./dedent-DVFkJXTl.js";import{s as ee}from"./show_doc_source-CWgnZoeJ.js";import{d as re}from"./define_docs_param-lmgaBKCF.js";const de={title:"storybook-addon-tag-badges/tagBadges"},r={tags:["editor"],render:()=>e.jsxs("div",{children:[e.jsx("div",{children:"Story with live editor"}),e.jsx("code",{children:"tags: ['editor']"})]})},o={tags:["new"],render:()=>e.jsxs("div",{children:[e.jsx("div",{children:"Recently added components or props/features"}),e.jsx("code",{children:"tags: ['new']"})]})},t={tags:["beta"],render:()=>e.jsxs("div",{children:[e.jsx("div",{children:"Warn that a component or prop is not stable yet"}),e.jsx("code",{children:"tags: ['beta']"})]})},n={tags:["deprecated"],render:()=>e.jsxs("div",{children:[e.jsx("div",{children:"Components or props that should be avoided in new code"}),e.jsx("code",{children:"tags: ['deprecated']"})]})},s={tags:["outdated"],render:()=>e.jsxs("div",{children:[e.jsx("div",{children:"Components with design changes that weren't yet implemented, which can incur extra development costs to your users"}),e.jsx("code",{children:"tags: ['outdated']"})]})},d={tags:["danger"],render:()=>e.jsxs("div",{children:[e.jsx("div",{children:"Components that require particular attention when configuring them (e.g. for with security concerns)"}),e.jsx("code",{children:"tags: ['danger']"})]})},a={tags:["todo"],render:()=>e.jsxs("div",{children:[e.jsx("div",{children:"Todo story"}),e.jsx("code",{children:"tags: ['todo']"})]})},i={tags:["code-only"],render:()=>e.jsxs("div",{children:[e.jsx("div",{children:"Components that only exist in code, and not in design"}),e.jsx("code",{children:"tags: ['code-only']"})]})},c={tags:["internal","internal-sp"],parameters:re({source:{code:$`
             // Use this badge to hide stories from the sidebar during production build
             export const YourStory = {
                 tags: ['internal'],
@@ -15,7 +15,7 @@ import{j as e}from"./jsx-runtime-D_zvdyIk.js";import{d as $}from"./dedent-DVFkJX
 
             // And build your storybook with the following command:
             NODE_ENV=production storybook build
-            `}}),decorators:[ee()],render:()=>e.jsx(e.Fragment,{})},g={tags:["snapshot","!test"],render:()=>e.jsxs("div",{children:[e.jsx("div",{children:"Story with snapshot"}),e.jsx("code",{children:"tags: ['snapshot']"})]})},p={tags:["unit"],render:()=>e.jsxs("div",{children:[e.jsx("div",{children:"Unit test story"}),e.jsx("code",{children:"tags: ['unit']"})]})},u={tags:["integration"],render:()=>e.jsxs("div",{children:[e.jsx("div",{children:"Integration test story"}),e.jsx("code",{children:"tags: ['integration']"})]})},l={tags:["version:1.0"],render:()=>e.jsxs("div",{children:[e.jsx("div",{children:"Version tag is used to indicate when the component/feature/property becomes available."}),e.jsx("code",{children:"tags: ['version:1.0']"})]})};var m,h,v;r.parameters={...r.parameters,docs:{...(m=r.parameters)==null?void 0:m.docs,source:{originalSource:`{
+            `}}),decorators:[ee()],render:()=>e.jsx(e.Fragment,{})},g={tags:["snapshot","!test"],render:()=>e.jsxs("div",{children:[e.jsx("div",{children:"Story with snapshot"}),e.jsx("code",{children:"tags: ['snapshot']"})]})},p={tags:["unit"],render:()=>e.jsxs("div",{children:[e.jsx("div",{children:"Unit test story"}),e.jsx("code",{children:"tags: ['unit']"})]})},l={tags:["integration"],render:()=>e.jsxs("div",{children:[e.jsx("div",{children:"Integration test story"}),e.jsx("code",{children:"tags: ['integration']"})]})},u={tags:["version:1.0"],render:()=>e.jsxs("div",{children:[e.jsx("div",{children:"Version tag is used to indicate when the component/feature/property becomes available."}),e.jsx("code",{children:"tags: ['version:1.0']"})]})};var m,h,v;r.parameters={...r.parameters,docs:{...(m=r.parameters)==null?void 0:m.docs,source:{originalSource:`{
   tags: ['editor'],
   render: () => <div>
             <div>Story with live editor</div>
@@ -67,7 +67,7 @@ import{j as e}from"./jsx-runtime-D_zvdyIk.js";import{d as $}from"./dedent-DVFkJX
             <code>tags: ['code-only']</code>
         </div>
 }`,...(R=(F=i.parameters)==null?void 0:F.docs)==null?void 0:R.source}}};var q,A,P;c.parameters={...c.parameters,docs:{...(q=c.parameters)==null?void 0:q.docs,source:{originalSource:`{
-  tags: ['internal'],
+  tags: ['internal', 'internal-sp'],
   parameters: defineDocsParam({
     source: {
       code: dedent\`
@@ -104,16 +104,16 @@ import{j as e}from"./jsx-runtime-D_zvdyIk.js";import{d as $}from"./dedent-DVFkJX
             <div>Unit test story</div>
             <code>tags: ['unit']</code>
         </div>
-}`,...(J=(H=p.parameters)==null?void 0:H.docs)==null?void 0:J.source}}};var K,L,M;u.parameters={...u.parameters,docs:{...(K=u.parameters)==null?void 0:K.docs,source:{originalSource:`{
+}`,...(J=(H=p.parameters)==null?void 0:H.docs)==null?void 0:J.source}}};var K,L,M;l.parameters={...l.parameters,docs:{...(K=l.parameters)==null?void 0:K.docs,source:{originalSource:`{
   tags: ['integration'],
   render: () => <div>
             <div>Integration test story</div>
             <code>tags: ['integration']</code>
         </div>
-}`,...(M=(L=u.parameters)==null?void 0:L.docs)==null?void 0:M.source}}};var Q,X,Z;l.parameters={...l.parameters,docs:{...(Q=l.parameters)==null?void 0:Q.docs,source:{originalSource:`{
+}`,...(M=(L=l.parameters)==null?void 0:L.docs)==null?void 0:M.source}}};var Q,X,Z;u.parameters={...u.parameters,docs:{...(Q=u.parameters)==null?void 0:Q.docs,source:{originalSource:`{
   tags: ['version:1.0'],
   render: () => <div>
             <div>Version tag is used to indicate when the component/feature/property becomes available.</div>
             <code>tags: ['version:1.0']</code>
         </div>
-}`,...(Z=(X=l.parameters)==null?void 0:X.docs)==null?void 0:Z.source}}};const ae=["EditorBadge","NewBadge","BetaBadge","DeprecatedBadge","OutdatedBadge","DangerousBadge","TodoBadge","CodeOnlyBadge","InternalBadge","SnapshotBadge","UnitTestBadge","IntegrationTestBadge","VersionBadge"];export{t as BetaBadge,i as CodeOnlyBadge,d as DangerousBadge,n as DeprecatedBadge,r as EditorBadge,u as IntegrationTestBadge,c as InternalBadge,o as NewBadge,s as OutdatedBadge,g as SnapshotBadge,a as TodoBadge,p as UnitTestBadge,l as VersionBadge,ae as __namedExportsOrder,de as default};
+}`,...(Z=(X=u.parameters)==null?void 0:X.docs)==null?void 0:Z.source}}};const ae=["EditorBadge","NewBadge","BetaBadge","DeprecatedBadge","OutdatedBadge","DangerousBadge","TodoBadge","CodeOnlyBadge","InternalBadge","SnapshotBadge","UnitTestBadge","IntegrationTestBadge","VersionBadge"];export{t as BetaBadge,i as CodeOnlyBadge,d as DangerousBadge,n as DeprecatedBadge,r as EditorBadge,l as IntegrationTestBadge,c as InternalBadge,o as NewBadge,s as OutdatedBadge,g as SnapshotBadge,a as TodoBadge,p as UnitTestBadge,u as VersionBadge,ae as __namedExportsOrder,de as default};
