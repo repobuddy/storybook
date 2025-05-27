@@ -67,5 +67,6 @@ jobs:
       contents: write
     uses: repobuddy/.github/.github/workflows/pnpm-docs.yml@main
     needs: release
+    if: needs.release.outputs.published == 'true'
     with:
       publish-dir: ./libs/storybook/storybook-static
