@@ -13,7 +13,6 @@ export default {
 		name: '@storybook/react-vite',
 		options: {}
 	},
-
 	tags: {
 		'internal-sp': {
 			excludeFromSidebar: process.env.NODE_ENV === 'production'
