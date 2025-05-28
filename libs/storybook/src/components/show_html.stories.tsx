@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { defineDocsParam, ShowHtml } from '../index.ts'
 
 const meta: Meta<typeof ShowHtml> = {
-	title: 'testing/ShowHtml',
+	title: 'components/ShowHtml',
 	tags: ['new', 'version:1.0', 'autodocs'],
 	component: ShowHtml,
 	parameters: defineDocsParam({
