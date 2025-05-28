@@ -7,6 +7,16 @@ export type ShowHtmlProps = ClassNameProps &
 		selector?: string | undefined
 		config?: UserConfig | undefined
 	}
+
+/**
+ * A component that displays the HTML of a subject element.
+ * Uses `htmlfy` internally to format and prettify the HTML output.
+ *
+ * @param selector - CSS selector to find the subject element. Defaults to '[data-testid="subject"]'
+ * @param config - Configuration options passed to htmlfy's prettify function
+ * @param props - Additional props (className, style) passed to the pre element
+ * @returns A pre element containing the formatted HTML
+ */
 export function ShowHtml({ selector = '[data-testid="subject"]', config, ...props }: ShowHtmlProps) {
 	const [html, setHtml] = useState('')
 	useEffect(() => {
