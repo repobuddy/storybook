@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { defineDocsParam, ShowHtml } from '../../index.ts'
+import { defineDocsParam, ShowHtml } from '../index.ts'
 
 const meta: Meta<typeof ShowHtml> = {
 	title: 'testing/ShowHtml',
