@@ -1,4 +1,4 @@
-import{j as o}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import{M as a,e as s}from"./index-DLYFHR-w.js";import"./index-D4lIrffr.js";import"./iframe-C70Hxnwd.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const d=`# @repobuddy/storybook
+import{j as o}from"./jsx-runtime-D_zvdyIk.js";import{useMDXComponents as r}from"./index-B8rYRX2K.js";import{M as a,e as s}from"./index-BA4An3yo.js";import"./index-D4lIrffr.js";import"./iframe-DbJaLCQR.js";import"./index-DsJinFGm.js";import"./index-CXQShRbs.js";import"./index-DrFu-skq.js";const d=`# @repobuddy/storybook
 
 Your repository buddy for Storybook.
 
@@ -111,7 +111,7 @@ import {
 export const preview: Preview = {
 	parameters: {
 		docs: {
-		container: createDarkModeDocsContainer()
+			container: createDarkModeDocsContainer()
 		},
 		darkMode: defineDarkModeParam({
 			classTarget: 'html',

@@ -1,4 +1,4 @@
-import{j as c}from"./jsx-runtime-D_zvdyIk.js";import{d as s}from"./dedent-DVFkJXTl.js";import{s as g}from"./show_doc_source-CWgnZoeJ.js";import{d as a}from"./define_docs_param-lmgaBKCF.js";import{d as I}from"./define_parameters-BUOuTmGI.js";const A={title:"parameters/StorySortParam",tags:["new","version:1.0","autodocs"],decorators:[g()],parameters:I({docs:{description:{component:"`StorySortParam` is used to define how stories should be sorted in the navigation sidebar. It is used in `preview.ts`."}}}),render:()=>c.jsx(c.Fragment,{})},o={parameters:{options:{options:{storySort:{method:"alphabetical"}}},...a({source:{code:s`{
+import{j as c}from"./jsx-runtime-D_zvdyIk.js";import{d as s}from"./dedent-DVFkJXTl.js";import"./show_html-C2QZHDjw.js";import{s as g}from"./show_doc_source-CWgnZoeJ.js";import{d as a}from"./define_docs_param-lmgaBKCF.js";import{d as I}from"./define_parameters-BUOuTmGI.js";import"./index-D4lIrffr.js";const j={title:"parameters/StorySortParam",tags:["new","version:1.0","autodocs"],decorators:[g()],parameters:I({docs:{description:{component:"`StorySortParam` is used to define how stories should be sorted in the navigation sidebar. It is used in `preview.ts`."}}}),render:()=>c.jsx(c.Fragment,{})},o={parameters:{options:{options:{storySort:{method:"alphabetical"}}},...a({source:{code:s`{
                     options: {
                         storySort: { method: "alphabetical" }
                     } satisfies StorySortParam
@@ -103,4 +103,4 @@ import{j as c}from"./jsx-runtime-D_zvdyIk.js";import{d as s}from"./dedent-DVFkJX
       }
     })
   }
-}`,...(C=(P=e.parameters)==null?void 0:P.docs)==null?void 0:C.source}}};const _=["AlphabeticalSort","CustomSort","AlphabeticalByKindSort","CustomSortFunction"];export{r as AlphabeticalByKindSort,o as AlphabeticalSort,t as CustomSort,e as CustomSortFunction,_ as __namedExportsOrder,A as default};
+}`,...(C=(P=e.parameters)==null?void 0:P.docs)==null?void 0:C.source}}};const v=["AlphabeticalSort","CustomSort","AlphabeticalByKindSort","CustomSortFunction"];export{r as AlphabeticalByKindSort,o as AlphabeticalSort,t as CustomSort,e as CustomSortFunction,v as __namedExportsOrder,j as default};

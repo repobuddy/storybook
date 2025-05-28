@@ -1,10 +1,10 @@
-import{j as i}from"./jsx-runtime-D_zvdyIk.js";import{f as D}from"./index-CB-nUy61.js";import{d as a}from"./dedent-DVFkJXTl.js";import{s as Z}from"./show_doc_source-CWgnZoeJ.js";import{d as o}from"./define_docs_param-lmgaBKCF.js";function t(S){return{actions:S}}const W={title:"Parameters/defineActionsParam",tags:["new","version:1.0"],decorators:[Z()],args:{onClick:D()},render:()=>i.jsx(i.Fragment,{})},e={parameters:{...t({argTypesRegex:"^on[A-Z].*"}),...o({source:{code:a`defineActionsParam({
+import{j as i}from"./jsx-runtime-D_zvdyIk.js";import{f as D}from"./index-CB-nUy61.js";import{d as o}from"./dedent-DVFkJXTl.js";import"./show_html-C2QZHDjw.js";import{s as Z}from"./show_doc_source-CWgnZoeJ.js";import{d as a}from"./define_docs_param-lmgaBKCF.js";import"./index-D4lIrffr.js";function t(S){return{actions:S}}const B={title:"Parameters/defineActionsParam",tags:["new","version:1.0"],decorators:[Z()],args:{onClick:D()},render:()=>i.jsx(i.Fragment,{})},e={parameters:{...t({argTypesRegex:"^on[A-Z].*"}),...a({source:{code:o`defineActionsParam({
                     argTypesRegex: '^on[A-Z].*'
-                })`}})}},n={parameters:{...t({disable:!0}),...o({source:{code:a`defineActionsParam({
+                })`}})}},n={parameters:{...t({disable:!0}),...a({source:{code:o`defineActionsParam({
                     disable: true
-                })`}})}},s={parameters:{...t({handles:["onClick","onMouseOver","onSubmit"]}),...o({source:{code:a`defineActionsParam({
+                })`}})}},s={parameters:{...t({handles:["onClick","onMouseOver","onSubmit"]}),...a({source:{code:o`defineActionsParam({
                     handles: ['onClick', 'onMouseOver', 'onSubmit']
-                })`}})}},r={parameters:{...t({argTypesRegex:"^on[A-Z].*",handles:["customEvent","anotherEvent"],disable:!1}),...o({source:{code:a`defineActionsParam({
+                })`}})}},r={parameters:{...t({argTypesRegex:"^on[A-Z].*",handles:["customEvent","anotherEvent"],disable:!1}),...a({source:{code:o`defineActionsParam({
                 argTypesRegex: '^on[A-Z].*',
                 handles: ['customEvent', 'anotherEvent'],
                 disable: false
@@ -64,4 +64,4 @@ import{j as i}from"./jsx-runtime-D_zvdyIk.js";import{f as D}from"./index-CB-nUy6
       }
     })
   }
-}`,...(T=(R=r.parameters)==null?void 0:R.docs)==null?void 0:T.source},description:{story:"Example showing combined configuration options",...(C=(w=r.parameters)==null?void 0:w.docs)==null?void 0:C.description}}};const _=["WithArgTypesRegex","DisabledActions","ExplicitHandles","CombinedConfig"];export{r as CombinedConfig,n as DisabledActions,s as ExplicitHandles,e as WithArgTypesRegex,_ as __namedExportsOrder,W as default};
+}`,...(T=(R=r.parameters)==null?void 0:R.docs)==null?void 0:T.source},description:{story:"Example showing combined configuration options",...(C=(w=r.parameters)==null?void 0:w.docs)==null?void 0:C.description}}};const F=["WithArgTypesRegex","DisabledActions","ExplicitHandles","CombinedConfig"];export{r as CombinedConfig,n as DisabledActions,s as ExplicitHandles,e as WithArgTypesRegex,F as __namedExportsOrder,B as default};
