@@ -74,7 +74,7 @@
 		"react-dom": "^19.1.0",
 		"rimraf": "^6.0.1",
 		"storybook": "^8.6.12",
-		"storybook-addon-tag-badges": "^1.4.0",
+		"storybook-addon-tag-badges": "^2.0.0",
 		"storybook-addon-vis": "^1.0.0",
 		"storybook-dark-mode": "^4.0.2",
 		"tailwindcss": "^4.1.5",
