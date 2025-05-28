@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 0.14.0
+
+### Minor Changes
+
+- [#74](https://github.com/repobuddy/storybook/pull/74) [`a807ba3`](https://github.com/repobuddy/storybook/commit/a807ba345a3083933ae19791739e151440fd44df) Thanks [@unional](https://github.com/unional)! - Add `ShowHtml` component.
+
 ## 0.13.0
 
 ### Minor Changes
