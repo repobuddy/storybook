@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 0.15.0
+
+### Minor Changes
+
+- [`7f414f9`](https://github.com/repobuddy/storybook/commit/7f414f9cdf3a8b4b4e0597f01e946fdb1f4c79ee) Thanks [@unional](https://github.com/unional)! - Add `keyboardBadge`
+
 ## 0.14.0
 
 ### Minor Changes
