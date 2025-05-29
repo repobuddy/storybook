@@ -157,6 +157,16 @@ export const integrationBadge: TagBadgeParameter = {
 	}
 }
 
+export const keyboardBadge: TagBadgeParameter = {
+	tags: 'keyboard',
+	badge: {
+		text: '⌨️',
+		bgColor: 'transparent',
+		borderColor: 'transparent',
+		tooltip: 'Keyboard Interaction'
+	}
+}
+
 export const internalBadge: TagBadgeParameter = {
 	tags: 'internal',
 	badge: {
@@ -171,6 +181,7 @@ export const tagBadges: TagBadgeParameters = [
 	editorBadge,
 	unitBadge,
 	integrationBadge,
+	keyboardBadge,
 	newBadge,
 	betaBadge,
 	deprecatedBadge,

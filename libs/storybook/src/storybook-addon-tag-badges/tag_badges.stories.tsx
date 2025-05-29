@@ -128,6 +128,16 @@ export const SnapshotBadge: StoryObj = {
 	)
 }
 
+export const KeyboardBadge: StoryObj = {
+	tags: ['keyboard'],
+	render: () => (
+		<div>
+			<div>Story with keyboard interactions</div>
+			<code>tags: ['keyboard']</code>
+		</div>
+	)
+}
+
 export const UnitTestBadge: StoryObj = {
 	tags: ['unit'],
 	render: () => (
