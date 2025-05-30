@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 0.16.1
+
+### Patch Changes
+
+- [`df010be`](https://github.com/repobuddy/storybook/commit/df010be29ff132f150b85fb8b7e4b0ec4b3625bd) Thanks [@unional](https://github.com/unional)! - Move `TagNames` out to its own type
+
 ## 0.16.0
 
 ### Minor Changes
