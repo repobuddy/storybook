@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 0.16.0
+
+### Minor Changes
+
+- [#79](https://github.com/repobuddy/storybook/pull/79) [`bb439b6`](https://github.com/repobuddy/storybook/commit/bb439b6a57687861fd86d8c4256938c882fb6a7b) Thanks [@unional](https://github.com/unional)! - Add augmented `StoryObj` withe better `tags` support.
+
 ## 0.15.0
 
 ### Minor Changes
