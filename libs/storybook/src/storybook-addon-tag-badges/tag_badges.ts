@@ -5,6 +5,25 @@ const [, , , , , , versionBadge] = defaultConfig
 type TagBadgeParameter = TagBadgeParameters[0]
 
 /**
+ * Type representing the names of predefined tags used in Storybook stories.
+ */
+export type TagNames =
+	| 'editor'
+	| 'new'
+	| 'beta'
+	| 'props'
+	| 'deprecated'
+	| 'outdated'
+	| 'danger'
+	| 'todo'
+	| 'code-only'
+	| 'snapshot'
+	| 'unit'
+	| 'integration'
+	| 'keyboard'
+	| 'internal'
+
+/**
  * Configuration for story tag badges that appear in the Storybook sidebar.
  * Each badge is associated with a specific tag and displays an emoji with a tooltip.
  *
