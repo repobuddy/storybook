@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../storybook-dark-mode"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"tailwind.css": "tailwindcss"
+		},
+		"tailwindCSS.experimental.configFile": {
+			"./libs/storybook/tailwind.css": "./libs/storybook/src/**"
+		}
+	}
+}
