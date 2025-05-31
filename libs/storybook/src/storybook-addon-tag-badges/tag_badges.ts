@@ -46,13 +46,17 @@ export const editorBadge: TagBadgeParameter = {
 	tags: 'editor',
 	badge: {
 		text: '✏️',
-		bgColor: 'transparent',
-		borderColor: 'transparent',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
 		tooltip: 'Editor'
 	},
 	display: {
-		sidebar: ['story'],
-		toolbar: ['story']
+		sidebar: {
+			type: 'story',
+			skipInherited: false
+		}
 	}
 }
 
@@ -60,8 +64,10 @@ export const newBadge: TagBadgeParameter = {
 	tags: 'new',
 	badge: {
 		text: '🆕',
-		bgColor: 'transparent',
-		borderColor: 'transparent',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
 		tooltip: 'New'
 	}
 }
@@ -70,8 +76,10 @@ export const betaBadge: TagBadgeParameter = {
 	tags: 'beta',
 	badge: {
 		text: '🅱️',
-		bgColor: 'transparent',
-		borderColor: 'transparent',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
 		tooltip: 'Beta'
 	}
 }
@@ -80,8 +88,10 @@ export const propsBadge: TagBadgeParameter = {
 	tags: 'props',
 	badge: {
 		text: '🔧',
-		bgColor: 'transparent',
-		borderColor: 'transparent',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
 		tooltip: 'Props'
 	}
 }
@@ -90,8 +100,10 @@ export const deprecatedBadge: TagBadgeParameter = {
 	tags: 'deprecated',
 	badge: {
 		text: '🪦',
-		bgColor: 'transparent',
-		borderColor: 'transparent',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
 		tooltip: 'Deprecated'
 	}
 }
@@ -100,8 +112,10 @@ export const outdatedBadge: TagBadgeParameter = {
 	tags: 'outdated',
 	badge: {
 		text: '⚠️',
-		bgColor: 'transparent',
-		borderColor: 'transparent',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
 		tooltip: 'Outdated'
 	}
 }
@@ -110,8 +124,10 @@ export const dangerBadge: TagBadgeParameter = {
 	tags: 'danger',
 	badge: {
 		text: '🚨',
-		bgColor: 'transparent',
-		borderColor: 'transparent',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
 		tooltip: 'Dangerous'
 	}
 }
@@ -120,8 +136,10 @@ export const todoBadge: TagBadgeParameter = {
 	tags: 'todo',
 	badge: {
 		text: '📋',
-		bgColor: 'transparent',
-		borderColor: 'transparent',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
 		tooltip: 'Todo'
 	}
 }
@@ -130,8 +148,10 @@ export const codeOnlyBadge: TagBadgeParameter = {
 	tags: 'code-only',
 	badge: {
 		text: '📝',
-		bgColor: 'transparent',
-		borderColor: 'transparent',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
 		tooltip: 'Code Only'
 	}
 }
@@ -140,8 +160,10 @@ export const snapshotBadge: TagBadgeParameter = {
 	tags: 'snapshot',
 	badge: {
 		text: '📸',
-		bgColor: 'transparent',
-		borderColor: 'transparent',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
 		tooltip: 'Snapshot Test'
 	},
 	display: {
@@ -154,8 +176,10 @@ export const unitBadge: TagBadgeParameter = {
 	tags: 'unit',
 	badge: {
 		text: '🧪',
-		bgColor: 'transparent',
-		borderColor: 'transparent',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
 		tooltip: 'Unit Test'
 	},
 	display: {
@@ -167,8 +191,10 @@ export const integrationBadge: TagBadgeParameter = {
 	tags: 'integration',
 	badge: {
 		text: '🔗',
-		bgColor: 'transparent',
-		borderColor: 'transparent',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
 		tooltip: 'Integration Test'
 	},
 	display: {
@@ -180,8 +206,10 @@ export const keyboardBadge: TagBadgeParameter = {
 	tags: 'keyboard',
 	badge: {
 		text: '⌨️',
-		bgColor: 'transparent',
-		borderColor: 'transparent',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
 		tooltip: 'Keyboard Interaction'
 	}
 }
@@ -190,8 +218,10 @@ export const internalBadge: TagBadgeParameter = {
 	tags: 'internal',
 	badge: {
 		text: '🔒',
-		bgColor: 'transparent',
-		borderColor: 'transparent',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
 		tooltip: 'Internal'
 	}
 }

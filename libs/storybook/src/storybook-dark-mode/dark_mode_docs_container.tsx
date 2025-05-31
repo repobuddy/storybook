@@ -1,7 +1,7 @@
-import { DocsContainer, type DocsContextProps } from '@storybook/blocks'
-import { type ThemeVars, themes } from '@storybook/theming'
+import { DocsContainer, type DocsContextProps } from '@storybook/addon-docs/blocks'
 import { type PropsWithChildren, useEffect, useState } from 'react'
 import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode'
+import { type ThemeVars, themes } from 'storybook/theming'
 
 /**
  * Creates a `DocsContainer` for `storybook` that works with `storybook-dark-mode`.

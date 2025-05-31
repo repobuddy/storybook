@@ -1,4 +1,4 @@
-import type { Decorator, StrictArgs } from '@storybook/react'
+import type { Decorator, StrictArgs } from '@storybook/react-vite'
 import { ctx } from './when_running_in_text.ctx.ts'
 
 /**

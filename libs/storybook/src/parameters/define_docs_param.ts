@@ -1,4 +1,4 @@
-import type { StoryContext } from '@storybook/react'
+import type { StoryContext } from '@storybook/react-vite'
 
 declare global {
 	namespace JSX {

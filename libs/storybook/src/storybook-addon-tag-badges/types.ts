@@ -1,4 +1,4 @@
-import type { Args, Meta as M, StoryObj as SBO } from '@storybook/react'
+import type { Args, Meta as M, StoryObj as SBO } from '@storybook/react-vite'
 import type { TagNames } from './tag_badges.ts'
 
 export type Meta<TCmpOrArgs = Args> = Omit<M<TCmpOrArgs>, 'tags'> & {

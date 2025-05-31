@@ -23,7 +23,7 @@ export interface BrandTitleOptions {
  *
  * ```ts
  * import { brandTitle } from '@repobuddy/storybook'
- * import { addons } from '@storybook/manager-api'
+ * import { addons } from 'storybook/manager-api'
  *
  * addons.setConfig({
  *   brandTitle: brandTitle({
