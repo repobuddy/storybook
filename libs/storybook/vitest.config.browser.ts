@@ -14,7 +14,7 @@ export default defineProject({
 			'@storybook/addon-docs/blocks',
 			'storybook/theming',
 			'react',
-			'storybook-dark-mode',
+			'storybook-dark-mode2',
 			'@just-web/css'
 		]
 	},

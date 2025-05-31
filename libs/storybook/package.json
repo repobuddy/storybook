@@ -72,6 +72,7 @@
 		"storybook": "^9.0.1",
 		"storybook-addon-tag-badges": "^2.0.0",
 		"storybook-addon-vis": "^1.1.0",
+		"storybook-dark-mode2": "^5.0.1",
 		"tailwindcss": "^4.1.5",
 		"vite": "^6.3.4",
 		"vitest": "^3.1.2"
@@ -81,6 +82,9 @@
 	},
 	"peerDependenciesMeta": {
 		"storybook-addon-tag-badges": {
+			"optional": true
+		},
+		"storybook-dark-mode2": {
 			"optional": true
 		}
 	}

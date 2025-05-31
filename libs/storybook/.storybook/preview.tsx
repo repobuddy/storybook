@@ -1,22 +1,26 @@
-import { withThemeByClassName } from '@storybook/addon-themes'
 import type { Preview } from '@storybook/react-vite'
 
 // @ts-ignore
 import { defineDocsParam } from '../src/index.ts'
+// @ts-ignore
+import { createDarkModeDocsContainer, defineDarkModeParam, withDarkMode } from '../src/storybook-dark-mode/index.ts'
 
 import '../tailwind.css'
 
 const preview: Preview = {
-	parameters: defineDocsParam({
-		codePanel: true
-	}),
+	parameters: {
+		...defineDocsParam({
+			codePanel: true,
+			container: createDarkModeDocsContainer()
+		}),
+		...defineDarkModeParam({
+			current: 'dark',
+			stylePreview: true
+		})
+	},
 	decorators: [
-		withThemeByClassName({
-			themes: {
-				light: '',
-				dark: 'dark dark:bg-black bg-white text-white dark:text-white'
-			},
-			defaultTheme: 'dark'
+		withDarkMode({
+			bodyClass: 'text-black bg-white dark:text-white dark:bg-black'
 		})
 	]
 }

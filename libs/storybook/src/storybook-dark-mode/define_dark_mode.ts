@@ -2,7 +2,7 @@ import type { CSSProperties } from '@just-web/css'
 import type { ThemeVars } from 'storybook/internal/theming'
 
 /**
- * Configuration parameters for `storybook-dark-mode`.
+ * Configuration parameters for `storybook-dark-mode2`.
  */
 export interface DarkModeParam {
 	/** The current theme ('dark' or 'light') */
@@ -36,7 +36,7 @@ export interface DarkModeParam {
 }
 
 /**
- * Defines `storybook-dark-mode` parameters for Storybook stories.
+ * Defines `storybook-dark-mode2` parameters for Storybook stories.
  *
  * @see https://storybook.js.org/addons/@storybook/addon-themes#dark-mode
  * @returns An object containing the dark mode parameter configuration
