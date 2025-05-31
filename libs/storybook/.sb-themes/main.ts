@@ -5,12 +5,12 @@ import { dirname, join } from 'node:path'
 const require = createRequire(import.meta.url)
 
 export default {
-	stories: ['../src/**/*.mdx', '../src/**/*.stories.tsx'],
+	stories: ['../src/!(storybook-dark-mode)/**/*.mdx', '../src/!(storybook-dark-mode)/**/*.stories.tsx'],
 	addons: [
 		getAbsolutePath('@storybook/addon-vitest'),
 		getAbsolutePath('storybook-addon-tag-badges'),
 		getAbsolutePath('@storybook/addon-docs'),
-		getAbsolutePath('storybook-dark-mode2')
+		getAbsolutePath('@storybook/addon-themes')
 	],
 	framework: {
 		name: getAbsolutePath('@storybook/react-vite'),
