@@ -100,6 +100,12 @@ export interface DocsParam {
 					component?: string | JSX.Element | undefined
 			  }
 			| undefined
+		/**
+		 * Determines whether to show the code panel.
+		 *
+		 * @see https://storybook.js.org/docs/writing-docs/code-panel
+		 */
+		codePanel?: boolean | undefined
 		source?: SourceProps | undefined
 		canvas?:
 			| {
