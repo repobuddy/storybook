@@ -19,8 +19,8 @@
 		"cs": "changeset",
 		"nuke": "turbo nuke && rimraf node_modules",
 		"prepare": "husky",
-		"sb": "pnpm --filter @repobuddy/storybook",
 		"release": "pnpm build && changeset publish",
+		"sb": "pnpm --filter @repobuddy/storybook",
 		"test": "vitest run",
 		"v": "turbo check coverage",
 		"verify": "turbo check coverage",
@@ -41,6 +41,7 @@
 		"husky": "^9.1.7",
 		"pathe": "^2.0.3",
 		"playwright": "latest",
+		"rimraf": "^6.0.1",
 		"turbo": "^2.4.4",
 		"typescript": "^5.8.3",
 		"vitest": "^3.1.2"

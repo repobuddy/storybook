@@ -44,6 +44,9 @@ importers:
       playwright:
         specifier: latest
         version: 1.52.0
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.0.1
       turbo:
         specifier: ^2.4.4
         version: 2.5.3
