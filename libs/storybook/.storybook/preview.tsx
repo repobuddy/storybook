@@ -1,14 +1,15 @@
 import { withThemeByClassName } from '@storybook/addon-themes'
-import { definePreview } from '@storybook/react-vite'
+import type { Preview } from '@storybook/react-vite'
+
+// @ts-ignore
+import { defineDocsParam } from '../src/index.ts'
 
 import '../tailwind.css'
 
-const preview = definePreview({
-	parameters: {
-		docs: {
-			codePanel: true
-		}
-	},
+const preview: Preview = {
+	parameters: defineDocsParam({
+		codePanel: true
+	}),
 	decorators: [
 		withThemeByClassName({
 			themes: {
@@ -18,6 +19,6 @@ const preview = definePreview({
 			defaultTheme: 'dark'
 		})
 	]
-})
+}
 
 export default preview
