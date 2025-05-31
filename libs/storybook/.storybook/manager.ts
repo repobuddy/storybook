@@ -1,5 +1,5 @@
-import { themes } from 'storybook/theming'
 import { addons } from 'storybook/internal/manager-api'
+import { themes } from 'storybook/theming'
 // @ts-ignore
 import { brandTitle } from '../src/manager/index.ts'
 // @ts-ignore
