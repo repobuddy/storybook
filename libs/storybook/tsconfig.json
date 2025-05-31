@@ -17,6 +17,7 @@
 		"verbatimModuleSyntax": true
 	},
 	"include": ["src"],
+	"exclude": ["src/storybook-dark-mode"],
 	"references": [
 		{
 			"path": "./tsconfig.proj.json"

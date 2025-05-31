@@ -1,39 +1,23 @@
-import type { Preview } from '@storybook/react'
-// @ts-ignore
-import type { StorybookBuiltInParams } from '../src/index.ts'
-// @ts-ignore
-import { createDarkModeDocsContainer, defineDarkModeParam, withDarkMode } from '../src/storybook-dark-mode/index.ts'
+import { withThemeByClassName } from '@storybook/addon-themes'
+import { definePreview } from '@storybook/react-vite'
 
 import '../tailwind.css'
 
-const preview: Preview = {
+const preview = definePreview({
 	parameters: {
-		controls: {
-			matchers: {
-				color: /(background|color)$/i,
-				date: /Date$/i
-			}
-		},
 		docs: {
-			container: createDarkModeDocsContainer()
-		},
-		backgrounds: {
-			disable: true
-		},
-		options: {
-			storySort: {
-				method: 'alphabetical',
-				order: ['decorators', 'parameters', 'manager', 'testing', '*']
-			}
-		},
-		...defineDarkModeParam({
-			classTarget: 'html',
-			darkClass: ['dark', 'bg-black', 'text-white'],
-			lightClass: ['bg-white', 'text-black'],
-			stylePreview: true
-		}),
-		decorators: [withDarkMode()]
-	} satisfies StorybookBuiltInParams
-}
+			codePanel: true
+		}
+	},
+	decorators: [
+		withThemeByClassName({
+			themes: {
+				light: '',
+				dark: 'dark dark:bg-black bg-white text-white dark:text-white'
+			},
+			defaultTheme: 'dark'
+		})
+	]
+})
 
 export default preview

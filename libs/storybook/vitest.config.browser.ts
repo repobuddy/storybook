@@ -1,5 +1,5 @@
 import { browserTestPreset } from '@repobuddy/vitest/config'
-import { storybookTest } from '@storybook/experimental-addon-test/vitest-plugin'
+import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
 import { join } from 'node:path'
 import { storybookVis } from 'storybook-addon-vis/vitest-plugin'
 import { defineProject } from 'vitest/config'
@@ -9,10 +9,10 @@ export default defineProject({
 	optimizeDeps: {
 		include: [
 			'react/jsx-dev-runtime',
-			'@storybook/react',
+			'@storybook/react-vite',
 			'storybook-addon-vis/vitest-setup',
-			'@storybook/blocks',
-			'@storybook/theming',
+			'@storybook/addon-docs/blocks',
+			'storybook/theming',
 			'react',
 			'storybook-dark-mode',
 			'@just-web/css'

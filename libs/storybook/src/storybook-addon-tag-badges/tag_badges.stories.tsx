@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
 import { showDocSource } from '../decorators/show_doc_source'
 import { defineDocsParam } from '../parameters/define_docs_param'

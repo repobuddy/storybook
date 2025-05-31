@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { defineDocsParam, ShowHtml } from '../index.ts'
 
 const meta: Meta<typeof ShowHtml> = {
