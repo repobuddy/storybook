@@ -2,6 +2,12 @@
 
 Your repository buddy for Storybook.
 
+> [!NOTE]
+>
+> This package supports Storybook 9.x from version `1.0.0`.
+>
+> For Storybook 8.x, please use `0.x` version.
+
 ## Install
 
 ```sh
