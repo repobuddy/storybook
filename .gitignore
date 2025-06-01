@@ -43,6 +43,7 @@ node_modules
 # project
 **/.turbo
 **/__screenshots__
+**/__vis__/local
 **/__vis__/**/__diffs__
 **/__vis__/**/__results__
 **/storybook-static
