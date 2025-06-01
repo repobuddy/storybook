@@ -1,5 +1,23 @@
 # @repobuddy/storybook
 
+## 1.0.0
+
+### Major Changes
+
+- [`ccf3f20`](https://github.com/repobuddy/storybook/commit/ccf3f2063c74c71f15c9654d42c9fab5df8f64cc) Thanks [@unional](https://github.com/unional)! - Bump major version for Storybook 9 support.
+
+  This allows `0.x` to continue adding features and with potential breaking changes.
+
+### Minor Changes
+
+- [#84](https://github.com/repobuddy/storybook/pull/84) [`94bb608`](https://github.com/repobuddy/storybook/commit/94bb60805f78b4211bc7ae0d04acdfbd4b041ef6) Thanks [@unional](https://github.com/unional)! - Replace `storybook-dark-mode` with `storybook-dark-mode2` which supports Storybook 9.
+
+- [#84](https://github.com/repobuddy/storybook/pull/84) [`b429dfc`](https://github.com/repobuddy/storybook/commit/b429dfcc6cd97ed06052b8c1b62f8c8c9ad03fb4) Thanks [@unional](https://github.com/unional)! - Add `codePanel` to `defineDocsParam`
+
+### Patch Changes
+
+- [`4d91d37`](https://github.com/repobuddy/storybook/commit/4d91d37d95356f907a80a39756f9edbb149fccbb) Thanks [@unional](https://github.com/unional)! - Add missing augmented `Meta` type.
+
 ## 0.16.1
 
 ### Patch Changes
