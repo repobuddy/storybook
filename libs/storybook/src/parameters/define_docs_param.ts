@@ -25,6 +25,9 @@ export interface SourceProps {
 	 * Specifies whether decorators should be excluded from the source code.
 	 *
 	 * @see https://storybook.js.org/docs/api/doc-blocks/doc-block-source#excludedecorators
+	 *
+	 * Note: Has no effect in React.
+	 * @see https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#parameter-docssourceexcludedecorators-has-no-effect-in-react
 	 */
 	excludeDecorators?: boolean | undefined
 	/**
