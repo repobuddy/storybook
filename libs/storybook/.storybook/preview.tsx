@@ -16,7 +16,13 @@ const preview: Preview = {
 		...defineDarkModeParam({
 			current: 'dark',
 			stylePreview: true
-		})
+		}),
+		options: {
+			storySort: {
+				method: 'alphabetical',
+				order: ['decorators', 'parameters', 'manager', 'testing', '*']
+			}
+		}
 	},
 	decorators: [
 		withDarkMode({
