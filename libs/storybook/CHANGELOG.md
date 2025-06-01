@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 0.16.2
+
+### Patch Changes
+
+- [`4d91d37`](https://github.com/repobuddy/storybook/commit/4d91d37d95356f907a80a39756f9edbb149fccbb) Thanks [@unional](https://github.com/unional)! - Add missing augmented `Meta` type.
+
 ## 0.16.1
 
 ### Patch Changes
