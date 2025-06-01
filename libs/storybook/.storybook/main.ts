@@ -10,7 +10,8 @@ export default {
 		getAbsolutePath('@storybook/addon-vitest'),
 		getAbsolutePath('storybook-addon-tag-badges'),
 		getAbsolutePath('@storybook/addon-docs'),
-		getAbsolutePath('storybook-dark-mode2')
+		getAbsolutePath('storybook-dark-mode2'),
+		getAbsolutePath('storybook-addon-vis')
 	],
 	framework: {
 		name: getAbsolutePath('@storybook/react-vite'),
