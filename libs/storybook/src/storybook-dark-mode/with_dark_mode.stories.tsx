@@ -23,8 +23,7 @@ export const WithClassName: Story = {
 	render: () => {
 		useEffect(
 			() => () => {
-				document.documentElement.classList.remove('bg-green-800', 'font-extrabold')
-				document.documentElement.classList.remove('bg-red-800', 'font-extralight')
+				document.documentElement.classList.remove('bg-green-800', 'bg-red-800', 'font-extrabold', 'font-extralight')
 			},
 			[]
 		)
