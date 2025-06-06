@@ -1,4 +1,4 @@
-import{j as n}from"./iframe-7Yb0LowJ.js";import{d as s}from"./dedent-DVFkJXTl.js";function i(a){return`<span style="display: flex; align-items: center; gap: 2px;">
+import{j as n}from"./iframe-DaILpW6B.js";import{d as s}from"./dedent-DVFkJXTl.js";function i(a){return`<span style="display: flex; align-items: center; gap: 2px;">
 		${a.logo??""}
 		${a.title}
 	</span>`}const I={title:"Manager/brandTitle",tags:["new","version:1.0","autodocs"]},e={parameters:{docs:{source:{code:s`brandTitle({

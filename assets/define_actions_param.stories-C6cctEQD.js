@@ -1,4 +1,4 @@
-import{j as i,d as r}from"./iframe-7Yb0LowJ.js";import{d as o}from"./dedent-DVFkJXTl.js";import{s as D}from"./show_doc_source-Ca9dZB63.js";function t(C){return{actions:C}}const{fn:O}=__STORYBOOK_MODULE_TEST__,M={title:"Parameters/defineActionsParam",tags:["new","version:1.0"],decorators:[D()],args:{onClick:O()},render:()=>i.jsx(i.Fragment,{})},e={parameters:{...t({argTypesRegex:"^on[A-Z].*"}),...r({source:{code:o`defineActionsParam({
+import{j as i,d as r}from"./iframe-DaILpW6B.js";import{d as o}from"./dedent-DVFkJXTl.js";import{s as D}from"./show_doc_source-Bjzrey6r.js";function t(C){return{actions:C}}const{fn:O}=__STORYBOOK_MODULE_TEST__,M={title:"Parameters/defineActionsParam",tags:["new","version:1.0"],decorators:[D()],args:{onClick:O()},render:()=>i.jsx(i.Fragment,{})},e={parameters:{...t({argTypesRegex:"^on[A-Z].*"}),...r({source:{code:o`defineActionsParam({
                     argTypesRegex: '^on[A-Z].*'
                 })`}})}},n={parameters:{...t({disable:!0}),...r({source:{code:o`defineActionsParam({
                     disable: true

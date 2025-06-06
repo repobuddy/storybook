@@ -1,4 +1,4 @@
-import{j as n,d as m}from"./iframe-7Yb0LowJ.js";import{d as i}from"./dedent-DVFkJXTl.js";import{s as g}from"./show_doc_source-Ca9dZB63.js";const u=l=>({backgrounds:l}),h={title:"Parameters/defineBackgroundsParam",tags:["new","version:1.0"],decorators:[g()],render:()=>n.jsx(n.Fragment,{})},e={parameters:{...u({default:"light"}),...m({source:{code:i`defineBackgroundParam({
+import{j as n,d as m}from"./iframe-DaILpW6B.js";import{d as i}from"./dedent-DVFkJXTl.js";import{s as g}from"./show_doc_source-Bjzrey6r.js";const u=l=>({backgrounds:l}),h={title:"Parameters/defineBackgroundsParam",tags:["new","version:1.0"],decorators:[g()],render:()=>n.jsx(n.Fragment,{})},e={parameters:{...u({default:"light"}),...m({source:{code:i`defineBackgroundParam({
                     default: 'light'
                 })`}})}},a={parameters:{...u({options:[{name:"light",value:"light"},{name:"dark",value:"dark"}]}),...m({source:{code:i`defineBackgroundsParam({
                     options: [
