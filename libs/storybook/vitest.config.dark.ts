@@ -9,7 +9,11 @@ export default defineProject({
 	plugins: [
 		tailwindcss(),
 		storybookTest({ configDir: join(import.meta.dirname, '.storybook') }),
-		storybookVis(),
+		storybookVis({
+			snapshotRootDir({ ci, platform }) {
+				return ci ? `__vis__/${platform}/dark` : '__vis__/local/dark'
+			}
+		}),
 		browserTestPreset()
 	],
 	optimizeDeps: {
@@ -25,7 +29,7 @@ export default defineProject({
 		]
 	},
 	test: {
-		name: 'sb:browser',
-		setupFiles: ['.storybook/vitest.setup.ts']
+		name: 'sb:dark',
+		setupFiles: ['.storybook/vitest.setup.dark.ts']
 	}
 })

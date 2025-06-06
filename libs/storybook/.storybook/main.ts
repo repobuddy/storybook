@@ -1,6 +1,7 @@
 import type { StorybookConfig } from '@storybook/react-vite'
 import { createRequire } from 'node:module'
 import { dirname, join } from 'node:path'
+import { defineStorybookVisOptions } from 'storybook-addon-vis'
 
 const require = createRequire(import.meta.url)
 
@@ -11,7 +12,28 @@ export default {
 		getAbsolutePath('storybook-addon-tag-badges'),
 		getAbsolutePath('@storybook/addon-docs'),
 		getAbsolutePath('storybook-dark-mode2'),
-		getAbsolutePath('storybook-addon-vis')
+		{
+			name: getAbsolutePath('storybook-addon-vis'),
+			options: defineStorybookVisOptions({
+				visProjects: [
+					{
+						snapshotRootDir({ ci, platform }) {
+							return ci ? `__vis__/${platform}/dark` : '__vis__/local/dark'
+						}
+					},
+					{
+						snapshotRootDir({ ci, platform }) {
+							return ci ? `__vis__/${platform}/light` : '__vis__/local/light'
+						}
+					},
+					{
+						snapshotRootDir({ ci, platform }) {
+							return ci ? `__vis__/${platform}/theme` : '__vis__/local/theme'
+						}
+					}
+				]
+			})
+		}
 	],
 	framework: {
 		name: getAbsolutePath('@storybook/react-vite'),

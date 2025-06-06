@@ -8,6 +8,6 @@ export default defineConfig({
 			include: configDefaults.include.source,
 			exclude: [...configDefaults.exclude.test, 'src/manager.tsx', 'src/preset.ts']
 		},
-		workspace: ['vitest.config.browser.ts', 'vitest.config.node.ts']
+		projects: ['vitest.config.*.ts']
 	}
 })

@@ -8,6 +8,7 @@ import { createDarkModeDocsContainer, defineDarkModeParam, withDarkMode } from '
 import '../tailwind.css'
 
 const preview: Preview = {
+	tags: ['snapshot'],
 	parameters: {
 		...defineDocsParam({
 			codePanel: true,
