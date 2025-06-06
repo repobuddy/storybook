@@ -1,5 +1,15 @@
 # @repobuddy/storybook
 
+## 1.0.1
+
+### Patch Changes
+
+- [`ba1279d`](https://github.com/repobuddy/storybook/commit/ba1279d45c9640a76a42ab5868aba53a986ba7b1) Thanks [@unional](https://github.com/unional)! - Remove class manipulation for dark mode in `withDarkMode()`.
+  It interferes with the class manipulation during `beforeEach` in `vitest.setup.ts`.
+
+  Technically style manipulation has the same problem.
+  Will address that in `storybook-dark-mode2` or in a future PR.
+
 ## 1.0.0
 
 ### Major Changes
