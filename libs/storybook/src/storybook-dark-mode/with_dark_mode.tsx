@@ -35,13 +35,9 @@ export function withDarkMode(
 		const dark = useDarkMode()
 		const target = darkMode.classTarget === 'html' ? document.documentElement : document.body
 		if (dark) {
-			removeClass(target, darkMode.lightClass)
-			addClass(target, darkMode.darkClass)
 			removeStyle(target, darkMode.lightStyle)
 			addStyle(target, darkMode.darkStyle)
 		} else {
-			removeClass(target, darkMode.darkClass)
-			addClass(target, darkMode.lightClass)
 			removeStyle(target, darkMode.darkStyle)
 			addStyle(target, darkMode.lightStyle)
 		}
@@ -61,15 +57,6 @@ function addClass(target: HTMLElement, className: string | string[] | undefined)
 		target.classList.add(...className.split(' '))
 	} else if (Array.isArray(className)) {
 		target.classList.add(...className)
-	}
-}
-
-function removeClass(target: HTMLElement, className: string | string[] | undefined) {
-	if (!className) return
-	if (typeof className === 'string') {
-		target.classList.remove(...className.split(' '))
-	} else if (Array.isArray(className)) {
-		target.classList.remove(...className)
 	}
 }
 
