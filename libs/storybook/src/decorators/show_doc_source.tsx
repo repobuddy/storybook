@@ -1,80 +1,51 @@
-import { useEffect } from 'react'
-import Highlight from 'react-highlight'
+import { useEffect, useState } from 'react'
+import { SyntaxHighlighter } from 'storybook/internal/components'
 import type { Args, DecoratorFunction, Renderer } from 'storybook/internal/csf'
+import { convert, ThemeProvider, themes } from 'storybook/internal/theming'
+import { addons } from 'storybook/preview-api'
 
-let currentTheme: { key: string; element: HTMLElement | undefined }
+const channel = addons.getChannel()
 
 /**
  * A decorator that shows the source code of a story above the rendered story.
  * The source code is taken from the story's `parameters.docs.source.code`.
  */
-export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Args>({
-	theme,
-	language = 'tsx'
-}: {
-	theme?: { href: string } | { style: string }
-	/**
-	 * The highlight.js class name of the language to use for the code block.
-	 * @default 'tsx'
-	 *
-	 * @see https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md
-	 */
-	language?: string | undefined
-} = {}): DecoratorFunction<TRenderer, TArgs> {
+export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Args>(): DecoratorFunction<
+	TRenderer,
+	TArgs
+> {
 	return (
 		Story,
 		{
 			parameters: {
-				docs: { source }
+				docs: {
+					source: { code, language }
+				},
+				darkMode
 			}
 		}
 	) => {
-		useEffect(() => {
-			const [themeName, style] = resolveTheme(theme)
-			if (currentTheme?.key !== themeName && currentTheme?.element) {
-				currentTheme.element.remove()
-			}
+		const [isDark, setIsDark] = useState((darkMode?.stylePreview && darkMode?.current === 'dark') ?? false)
 
-			if (currentTheme?.key !== themeName) {
-				const element =
-					themeName !== undefined ? (!style ? injectThemeLink(themeName) : injectThemeStyle(style)) : undefined
-				currentTheme = { key: themeName, element }
-			}
-		}, [theme])
+		useEffect(() => {
+			channel.on('DARK_MODE', setIsDark)
+
+			return () => channel.off('DARK_MODE', setIsDark)
+		}, [])
+
 		return (
-			<section
-				style={{
-					display: 'flex',
-					flexDirection: 'column',
-					gap: '1rem'
-				}}
-			>
-				<Highlight className={source.language ?? language}>{source.code}</Highlight>
-				<Story />
-			</section>
+			<ThemeProvider theme={convert(isDark ? themes.dark : themes.light)}>
+				<section
+					style={{
+						display: 'flex',
+						flexDirection: 'column',
+						gap: '1rem'
+					}}
+				>
+					<SyntaxHighlighter language={language}>{code}</SyntaxHighlighter>
+					<Story />
+				</section>
+			</ThemeProvider>
 		)
 	}
-}
-
-function resolveTheme(theme?: { href: string } | { style: string }) {
-	if (!theme) return []
-	if ('href' in theme) return [theme.href]
-	if ('style' in theme) return [theme.style, theme.style]
-
-	return []
-}
-
-function injectThemeLink(href: string) {
-	const link = document.createElement('link')
-	link.rel = 'stylesheet'
-	link.href = href
-	document.head.appendChild(link)
-	return link
-}
-
-function injectThemeStyle(style: string) {
-	const styleElement = document.createElement('style')
-	styleElement.textContent = style
-	document.head.appendChild(styleElement)
-	return styleElement
 }
