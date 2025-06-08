@@ -68,9 +68,6 @@ importers:
       htmlfy:
         specifier: ^0.7.5
         version: 0.7.5
-      react-highlight:
-        specifier: ^0.15.0
-        version: 0.15.0
     devDependencies:
       '@repobuddy/vitest':
         specifier: ^1.2.2
@@ -93,9 +90,6 @@ importers:
       '@tailwindcss/vite':
         specifier: ^4.1.5
         version: 4.1.8(vite@6.3.5(@types/node@22.15.30)(jiti@2.4.2)(lightningcss@1.30.1))
-      '@types/react-highlight':
-        specifier: ^0.12.8
-        version: 0.12.8
       '@vitest/browser':
         specifier: ^3.1.2
         version: 3.2.2(msw@2.4.11(typescript@5.8.3))(playwright@1.52.0)(vite@6.3.5(@types/node@22.15.30)(jiti@2.4.2)(lightningcss@1.30.1))(vitest@3.2.2)
@@ -105,9 +99,6 @@ importers:
       dedent:
         specifier: ^1.6.0
         version: 1.6.0
-      highlight.js:
-        specifier: ^11.11.1
-        version: 11.11.1
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1102,9 +1093,6 @@ packages:
   '@types/node@22.15.30':
     resolution: {integrity: sha512-6Q7lr06bEHdlfplU6YRbgG1SFBdlsfNC4/lX+SkhiTs0cpJkOElmWls8PxDFv4yY/xKb8Y6SO0OmSX4wgqTZbA==}
 
-  '@types/react-highlight@0.12.8':
-    resolution: {integrity: sha512-V7O7zwXUw8WSPd//YUO8sz489J/EeobJljASGhP0rClrvq+1Y1qWEpToGu+Pp7YuChxhAXSgkLkrOYpZX5A62g==}
-
   '@types/react@19.1.6':
     resolution: {integrity: sha512-JeG0rEWak0N6Itr6QUx+X60uQmN+5t3j9r/OVDtWzFXKaj6kD1BwJzOksD0FF6iWxZlbE1kB0q9vtnU2ekqa1Q==}
 
@@ -1659,13 +1647,6 @@ packages:
 
   headers-polyfill@4.0.3:
     resolution: {integrity: sha512-IScLbePpkvO846sIwOtOTDjutRMWdXdJmXdMvk6gCBHxFO8d+QKOQedyZSxFTTFYRSmlgSTDtXqqq4pcenBXLQ==}
-
-  highlight.js@10.7.3:
-    resolution: {integrity: sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A==}
-
-  highlight.js@11.11.1:
-    resolution: {integrity: sha512-Xwwo44whKBVCYoliBQwaPvtd/2tYFkRQtXDWj1nackaV2JPXx3L0+Jvd8/qCJ2p+ML0/XVkJ2q+Mr+UVdpJK5w==}
-    engines: {node: '>=12.0.0'}
 
   html-escaper@2.0.2:
     resolution: {integrity: sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg==}
@@ -2253,9 +2234,6 @@ packages:
     resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==}
     peerDependencies:
       react: ^18.3.1
-
-  react-highlight@0.15.0:
-    resolution: {integrity: sha512-5uV/b/N4Z421GSVVe05fz+OfTsJtFzx/fJBdafZyw4LS70XjIZwgEx3Lrkfc01W/RzZ2Dtfb0DApoaJFAIKBtA==}
 
   react-is@17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
@@ -3823,10 +3801,6 @@ snapshots:
     dependencies:
       undici-types: 6.21.0
 
-  '@types/react-highlight@0.12.8':
-    dependencies:
-      '@types/react': 19.1.6
-
   '@types/react@19.1.6':
     dependencies:
       csstype: 3.1.3
@@ -4388,10 +4362,6 @@ snapshots:
   headers-polyfill@4.0.3:
     optional: true
 
-  highlight.js@10.7.3: {}
-
-  highlight.js@11.11.1: {}
-
   html-escaper@2.0.2: {}
 
   htmlfy@0.7.5: {}
@@ -4882,10 +4852,6 @@ snapshots:
       loose-envify: 1.4.0
       react: 18.3.1
       scheduler: 0.23.2
-
-  react-highlight@0.15.0:
-    dependencies:
-      highlight.js: 10.7.3
 
   react-is@17.0.2: {}
 

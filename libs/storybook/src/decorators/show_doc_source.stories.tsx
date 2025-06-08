@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
 // @ts-ignore
-import customStyle from 'highlight.js/styles/rainbow.css?raw'
 import { defineDocsParam } from '../parameters/define_docs_param'
 import { showDocSource } from './show_doc_source'
 
@@ -46,7 +45,7 @@ export const ShowSourceOnly: Story = {
 	render: () => <></>
 }
 
-export const WithLanguageInParameters: Story = {
+export const WithLanguage: Story = {
 	parameters: defineDocsParam({
 		source: {
 			code: dedent`
@@ -55,73 +54,6 @@ export const WithLanguageInParameters: Story = {
 			language: 'html'
 		}
 	}),
-	decorators: [
-		showDocSource({
-			theme: {
-				href: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/arta.min.css'
-			}
-		})
-	],
-	render: () => <></>
-}
-
-export const WithCustomThemeHref: Story = {
-	name: 'theme.href',
-	tags: ['props'],
-	decorators: [
-		showDocSource({
-			theme: {
-				href: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/arta.min.css'
-			}
-		})
-	],
-	parameters: {
-		docs: {
-			source: {
-				code: `() => <DemoComponent text="Hello World" />`
-			}
-		}
-	},
-	render: () => <></>
-}
-
-export const WithCustomThemeStyle: Story = {
-	name: 'theme.style',
-	tags: ['props'],
-	parameters: {
-		docs: {
-			source: {
-				code: `() => <DemoComponent text="Hello World" />`
-			}
-		}
-	},
-	decorators: [showDocSource({ theme: { style: customStyle } })],
-	render: () => <></>
-}
-
-export const WithLanguage: Story = {
-	name: 'language',
-	tags: ['props'],
-	parameters: defineDocsParam({
-		source: {
-			code: dedent`
-				package main
-
-				import "fmt"
-
-				func main() {
-					fmt.Println("Hello, World!")
-				}
-				`
-		}
-	}),
-	decorators: [
-		showDocSource({
-			language: 'go',
-			theme: {
-				href: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/arta.min.css'
-			}
-		})
-	],
+	decorators: [showDocSource()],
 	render: () => <></>
 }
