@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
 // @ts-ignore
+import { themes } from 'storybook/internal/theming'
 import { defineDocsParam } from '../parameters/define_docs_param'
 import { showDocSource } from './show_doc_source'
 
@@ -53,6 +54,20 @@ export const WithLanguage: Story = {
 				`,
 			language: 'html'
 		}
+	}),
+	decorators: [showDocSource()],
+	render: () => <></>
+}
+
+export const WithDocsTheme: Story = {
+	parameters: defineDocsParam({
+		source: {
+			code: dedent`
+				<div>Hello, World!</div>
+				`,
+			language: 'html'
+		},
+		theme: themes.dark
 	}),
 	decorators: [showDocSource()],
 	render: () => <></>

@@ -20,7 +20,10 @@ const preview: Preview = {
 			},
 			defaultTheme: 'dark'
 		})
-	]
+	],
+	initialGlobals: {
+		theme: 'dark'
+	}
 }
 
 export default preview
