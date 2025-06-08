@@ -118,8 +118,8 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1(@storybook/addon-vitest@9.0.5(@vitest/browser@3.2.2)(@vitest/runner@3.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.0.5(@testing-library/dom@10.4.0)(prettier@3.5.3))(vitest@3.2.2))(@vitest/browser@3.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.0.5(@testing-library/dom@10.4.0)(prettier@3.5.3))(vitest@3.2.2)
       storybook-dark-mode2:
-        specifier: ^5.0.2
-        version: 5.0.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.0.5(@testing-library/dom@10.4.0)(prettier@3.5.3))
+        specifier: ^5.1.0
+        version: 5.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.0.5(@testing-library/dom@10.4.0)(prettier@3.5.3))
       tailwindcss:
         specifier: ^4.1.5
         version: 4.1.8
@@ -1099,8 +1099,8 @@ packages:
   '@types/resolve@1.20.6':
     resolution: {integrity: sha512-A4STmOXPhMUtHH+S6ymgE2GiBSMqf4oTvcQZMcHzokuTLVYzXTB8ttjcgxOVaAp2lGwEdzZ0J+cRbbeevQj1UQ==}
 
-  '@types/statuses@2.0.5':
-    resolution: {integrity: sha512-jmIUGWrAiwu3dZpxntxieC+1n/5c3mjrImkmOSQ2NC5uP6cYO4aAZDdSmRcI5C1oiTmqlZGHC+/NmJrKogbP5A==}
+  '@types/statuses@2.0.6':
+    resolution: {integrity: sha512-xMAgYwceFhRA2zY+XbEA7mxYbA093wdiW8Vu6gZPGWy9cmOyU9XesH1tNcEWsKFd5Vzrqx5T3D38PWx1FIIXkA==}
 
   '@types/tough-cookie@4.0.5':
     resolution: {integrity: sha512-/Ad8+nIOV7Rl++6f1BdKxFSMgmoqEoYbHRpPcx3JEfv8VRsQe9Z4mCXeJBzxs7mbHY/XOZZuXlRNfhpVPbs6ZA==}
@@ -2360,8 +2360,8 @@ packages:
   stackback@0.0.2:
     resolution: {integrity: sha512-1XMJE5fQo1jGH6Y/7ebnwPOBEkIEnT4QF32d5R1+VXdXveM0IBMJt8zfaxX1P3QhVwrYe+576+jkANtSS2mBbw==}
 
-  statuses@2.0.1:
-    resolution: {integrity: sha512-RwNA9Z/7PrK06rYLIzFMlaF+l73iwpzsqRIFgbMLbTcLD6cOao82TaWefPXQvB2fOC4AjuYSEndS7N/mTCbkdQ==}
+  statuses@2.0.2:
+    resolution: {integrity: sha512-DvEy55V3DB7uknRo+4iOGT5fP1slR8wQohVdknigZPMpMstaKJQWhwiYBACJE3Ul2pTnATihhBYnRhZQHGBiRw==}
     engines: {node: '>= 0.8'}
 
   std-env@3.9.0:
@@ -2381,8 +2381,8 @@ packages:
       storybook: ^9.0.0
       vitest: ^2 || ^3
 
-  storybook-dark-mode2@5.0.3:
-    resolution: {integrity: sha512-Fi4grNupeMRBgh9k6aCizdqQzeQWgBBmcXfHZq5+ghDGFpeG1Z2MNX8xPoUXfbYYfGFNEhy+VaORBbfFEpOPJA==}
+  storybook-dark-mode2@5.1.0:
+    resolution: {integrity: sha512-WiFjJOcg1P3amnqXn511vY/T5QSSbx0rh6htIXJSDSnlCzQnrNoJ12FBWHo9rx0Jna9flFGJ0vGZcQrNfmD1EA==}
     peerDependencies:
       storybook: ^9.0.0
 
@@ -2917,7 +2917,7 @@ snapshots:
 
   '@bundled-es-modules/statuses@1.0.1':
     dependencies:
-      statuses: 2.0.1
+      statuses: 2.0.2
     optional: true
 
   '@bundled-es-modules/tough-cookie@0.1.6':
@@ -3807,7 +3807,7 @@ snapshots:
 
   '@types/resolve@1.20.6': {}
 
-  '@types/statuses@2.0.5':
+  '@types/statuses@2.0.6':
     optional: true
 
   '@types/tough-cookie@4.0.5':
@@ -4653,7 +4653,7 @@ snapshots:
       '@mswjs/interceptors': 0.35.9
       '@open-draft/until': 2.1.0
       '@types/cookie': 0.6.0
-      '@types/statuses': 2.0.5
+      '@types/statuses': 2.0.6
       chalk: 4.1.2
       graphql: 16.11.0
       headers-polyfill: 4.0.3
@@ -4980,7 +4980,7 @@ snapshots:
 
   stackback@0.0.2: {}
 
-  statuses@2.0.1:
+  statuses@2.0.2:
     optional: true
 
   std-env@3.9.0: {}
@@ -5011,7 +5011,7 @@ snapshots:
       - react
       - react-dom
 
-  storybook-dark-mode2@5.0.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.0.5(@testing-library/dom@10.4.0)(prettier@3.5.3)):
+  storybook-dark-mode2@5.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.0.5(@testing-library/dom@10.4.0)(prettier@3.5.3)):
     dependencies:
       '@storybook/icons': 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       fast-deep-equal: 3.1.3

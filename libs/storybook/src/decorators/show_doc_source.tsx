@@ -19,7 +19,8 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 		{
 			parameters: {
 				docs: {
-					source: { code, language }
+					source: { code, language },
+					theme
 				},
 				darkMode
 			}
@@ -34,7 +35,7 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 		}, [])
 
 		return (
-			<ThemeProvider theme={convert(isDark ? themes.dark : themes.light)}>
+			<ThemeProvider theme={convert(theme ?? (isDark ? themes.dark : themes.light))}>
 				<section
 					style={{
 						display: 'flex',
