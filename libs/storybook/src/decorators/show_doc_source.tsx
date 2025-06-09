@@ -15,7 +15,10 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 	TArgs
 > {
 	return (Story, { parameters: { docs, darkMode } }) => {
-		const [isDark, setIsDark] = useState((darkMode?.stylePreview && darkMode?.current === 'dark') ?? false)
+		// This is a workaround to get the current dark mode from `storybook-dark-mode2` without referencing it.
+		const storedItem = window.localStorage.getItem('sb-addon-themes-3')
+		const current = typeof storedItem === 'string' ? JSON.parse(storedItem).current : darkMode?.current
+		const [isDark, setIsDark] = useState((darkMode?.stylePreview && current === 'dark') ?? false)
 
 		useEffect(() => {
 			channel.on('DARK_MODE', setIsDark)
