@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 1.1.0
+
+### Minor Changes
+
+- [#100](https://github.com/repobuddy/storybook/pull/100) [`d48b633`](https://github.com/repobuddy/storybook/commit/d48b63307b639e34c29587203e05e99d1ad3a1a4) Thanks [@unional](https://github.com/unional)! - Add `ExtendMeta` and `ExtendStoryObj`.
+
 ## 1.0.1
 
 ### Patch Changes
