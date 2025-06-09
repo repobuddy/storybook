@@ -45,5 +45,6 @@
 	},
 	"tailwindCSS.experimental.configFile": {
 		"./libs/storybook/tailwind.css": "./libs/storybook/src/**"
-	}
+	},
+	"typescript.tsdk": "node_modules/typescript/lib"
 }

@@ -14,18 +14,7 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 	TRenderer,
 	TArgs
 > {
-	return (
-		Story,
-		{
-			parameters: {
-				docs: {
-					source: { code, language },
-					theme
-				},
-				darkMode
-			}
-		}
-	) => {
+	return (Story, { parameters: { docs, darkMode } }) => {
 		const [isDark, setIsDark] = useState((darkMode?.stylePreview && darkMode?.current === 'dark') ?? false)
 
 		useEffect(() => {
@@ -35,7 +24,7 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 		}, [])
 
 		return (
-			<ThemeProvider theme={convert(theme ?? (isDark ? themes.dark : themes.light))}>
+			<ThemeProvider theme={convert(docs?.theme ?? (isDark ? themes.dark : themes.light))}>
 				<section
 					style={{
 						display: 'flex',
@@ -43,7 +32,7 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 						gap: '1rem'
 					}}
 				>
-					<SyntaxHighlighter language={language}>{code}</SyntaxHighlighter>
+					<SyntaxHighlighter language={docs?.source?.language}>{docs?.source?.code}</SyntaxHighlighter>
 					<Story />
 				</section>
 			</ThemeProvider>

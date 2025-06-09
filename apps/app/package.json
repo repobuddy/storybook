@@ -1,0 +1,35 @@
+{
+	"name": "app",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "tsc -b && vite build",
+		"build-storybook": "storybook build",
+		"dev": "vite",
+		"lint": "eslint .",
+		"preview": "vite preview",
+		"sb": "storybook dev -p 6006"
+	},
+	"dependencies": {
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1"
+	},
+	"devDependencies": {
+		"@repobuddy/storybook": "workspace:*",
+		"@storybook/addon-a11y": "^9.0.6",
+		"@storybook/addon-docs": "^9.0.6",
+		"@storybook/addon-vitest": "^9.0.6",
+		"@storybook/react-vite": "^9.0.6",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"@vitejs/plugin-react": "^4.4.1",
+		"@vitest/browser": "^3.2.2",
+		"@vitest/coverage-v8": "^3.2.2",
+		"storybook": "^9.0.6",
+		"storybook-dark-mode2": "^5.2.1",
+		"typescript": "~5.8.3",
+		"vite": "^6.3.5",
+		"vitest": "^3.2.2"
+	}
+}
