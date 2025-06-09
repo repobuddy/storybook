@@ -10,6 +10,7 @@
 		"url": "https://github.com/unional"
 	},
 	"scripts": {
+		"app": "pnpm --filter ./apps/app",
 		"build": "turbo run build",
 		"build:doc": "turbo run sb:build",
 		"check": "biome check",

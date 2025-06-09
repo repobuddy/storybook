@@ -1,3 +1,4 @@
+// import { withThemeByClassName } from '#repobuddy/storybook/themes'
 import type { Preview } from '@storybook/react-vite'
 
 // @ts-ignore
@@ -29,6 +30,13 @@ const preview: Preview = {
 		withDarkMode({
 			bodyClass: 'text-black bg-white dark:text-white dark:bg-black'
 		})
+		// withThemeByClassName({
+		// 	themes: {
+		// 		light: 'light',
+		// 		dark: 'dark'
+		// 	},
+		// 	defaultTheme: 'light'
+		// })
 	]
 }
 
