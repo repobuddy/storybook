@@ -64,7 +64,7 @@
 		"w": "vitest"
 	},
 	"dependencies": {
-		"@just-web/css": "^0.5.0",
+		"@just-web/css": "^0.6.1",
 		"@repobuddy/test": "^1.0.0",
 		"@storybook/icons": "^1.4.0",
 		"htmlfy": "^0.7.5"
