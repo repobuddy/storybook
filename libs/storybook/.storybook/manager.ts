@@ -1,12 +1,15 @@
 import { addons } from 'storybook/internal/manager-api'
 import { themes } from 'storybook/theming'
 // @ts-ignore
+import { colorThemeVariants } from '#repobuddy/storybook/variants/manager'
+// @ts-ignore
 import { brandTitle } from '../src/manager/index.ts'
 // @ts-ignore
 import { tagBadges } from '../src/storybook-addon-tag-badges/index.ts'
 
 addons.setConfig({
 	tagBadges,
+	variants: [colorThemeVariants],
 	theme: {
 		...themes.dark,
 		brandTitle: brandTitle({

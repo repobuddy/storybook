@@ -37,7 +37,8 @@ const preview: Preview = {
 		// 	},
 		// 	defaultTheme: 'light'
 		// })
-	]
+	],
+	initialGlobals: {}
 }
 
 export default preview
