@@ -1,8 +1,9 @@
 import { isRunningInTest } from '@repobuddy/vitest'
+import React from 'react'
 import { expect } from 'storybook/test'
-import { showDocSource, whenRunningInTest } from '../../index.ts'
-import type { Meta, StoryObj } from '../../storybook-addon-tag-badges/types.ts'
-import { ctx } from './when_running_in_text.ctx.ts'
+import { showDocSource, whenRunningInTest } from '../../index.js'
+import type { Meta, StoryObj } from '../../storybook-addon-tag-badges/types.js'
+import { ctx } from './when_running_in_text.ctx.js'
 
 export default {
 	title: 'testing/whenRunningInTest',

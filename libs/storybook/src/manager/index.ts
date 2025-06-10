@@ -1,1 +1,1 @@
-export * from './brand_title.ts'
+export * from './brand_title.js'

@@ -1,2 +1,2 @@
-export * from './tag_badges.ts'
-export type * from './types.ts'
+export * from './tag_badges.js'
+export type * from './types.js'

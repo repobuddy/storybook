@@ -1,5 +1,5 @@
 import { DocsContainer, type DocsContextProps } from '@storybook/addon-docs/blocks'
-import { type PropsWithChildren, useEffect, useState } from 'react'
+import React, { type PropsWithChildren, useEffect, useState } from 'react'
 import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode2'
 import { type ThemeVars, themes } from 'storybook/theming'
 

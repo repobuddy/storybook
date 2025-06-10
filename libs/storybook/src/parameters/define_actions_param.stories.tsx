@@ -1,11 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { fn } from 'storybook/test'
+import type { Meta, StoryObj } from '#repobuddy/storybook/internal'
 import dedent from 'dedent'
-import { defineActionsParam, defineDocsParam, showDocSource } from '../index.ts'
+import React from 'react'
+import { fn } from 'storybook/test'
+import { defineActionsParam, defineDocsParam, showDocSource } from '../index.js'
 
 const meta: Meta = {
 	title: 'Parameters/defineActionsParam',
-	tags: ['new', 'version:1.0'],
+	tags: ['new', 'version:1.0', 'code-only'],
 	decorators: [showDocSource()],
 	args: {
 		onClick: fn()

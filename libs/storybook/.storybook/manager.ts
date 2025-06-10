@@ -1,11 +1,11 @@
 import { addons } from 'storybook/internal/manager-api'
 import { themes } from 'storybook/theming'
-// @ts-ignore
+// // @ts-ignore
 import { colorThemeVariants } from '../src/variants'
-// @ts-ignore
-import { brandTitle } from '../src/manager/index.ts'
-// @ts-ignore
-import { tagBadges } from '../src/storybook-addon-tag-badges/index.ts'
+// // @ts-ignore
+import { brandTitle } from '../src/manager/index'
+// // @ts-ignore
+import { tagBadges } from '../src/storybook-addon-tag-badges/index'
 
 addons.setConfig({
 	tagBadges,
