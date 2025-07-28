@@ -10,6 +10,7 @@ This rule governs how to handle commit message generation and change summarizati
 ## When to Generate Commit Messages
 
 Generate a commit message when:
+- When you summarize your changes
 - The conversation is ending
 - The user asks for a commit message to copy
 - Multiple files were created, modified, or deleted during the session
