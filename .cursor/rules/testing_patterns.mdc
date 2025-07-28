@@ -1,6 +1,10 @@
 ---
-description:
+description: Apply when writing unit tests, integration tests, Storybook stories, or test configurations to ensure consistent testing patterns and coverage strategies
 globs:
+  - "**/*.{test,spec}.{ts,tsx}"
+  - "**/*.stories.{ts,tsx}"
+  - "**/vitest.config.{ts,js}"
+  - "**/test/**/*"
 alwaysApply: false
 ---
 # Testing Patterns and Best Practices
@@ -20,10 +24,10 @@ This repository uses Vitest for unit testing and Storybook for component testing
 ```
 src/
 ├── components/
-│   ├── ComponentName/
-│   │   ├── ComponentName.tsx
-│   │   ├── ComponentName.stories.tsx
-│   │   ├── ComponentName.test.tsx
+│   ├── component_name/
+│   │   ├── component_name.tsx
+│   │   ├── component_name.stories.tsx
+│   │   ├── component_name.test.tsx
 │   │   └── index.ts
 │   └── utils/
 │       ├── utils.ts
@@ -55,10 +59,11 @@ export default defineProject({
 ## Unit Testing Patterns
 
 ### Component Testing
-```typescript
+
+```tsx
 import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
-import { ComponentName } from './ComponentName'
+import { ComponentName } from './component_name.js'
 
 describe('ComponentName', () => {
   it('renders with default props', () => {
@@ -83,10 +88,11 @@ describe('ComponentName', () => {
 ```
 
 ### Hook Testing
-```typescript
+
+```tsx
 import { renderHook, act } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
-import { useCustomHook } from './useCustomHook'
+import { useCustomHook } from './use_custom_hook.js'
 
 describe('useCustomHook', () => {
   it('initializes with default value', () => {
@@ -107,9 +113,10 @@ describe('useCustomHook', () => {
 ```
 
 ### Utility Function Testing
-```typescript
+
+```ts
 import { describe, it, expect } from 'vitest'
-import { formatDate, validateEmail } from './utils'
+import { formatDate, validateEmail } from './utils.js'
 
 describe('formatDate', () => {
   it('formats date correctly', () => {
@@ -139,11 +146,11 @@ describe('validateEmail', () => {
 ## Storybook Testing
 
 ### Story Structure
-```typescript
+
+```tsx
 import type { Meta, StoryObj } from '#repobuddy/storybook/internal'
-import { expect } from '@storybook/jest'
-import { userEvent } from '@storybook/testing-library'
-import { ComponentName } from './ComponentName'
+import { expect, userEvent } from 'storybook/test'
+import { ComponentName } from './component_name.js'
 
 const meta = {
   title: 'components/ComponentName',
@@ -178,7 +185,8 @@ export const WithInteraction: Story = {
 ```
 
 ### Visual Testing
-```typescript
+
+```tsx
 // Stories for visual regression testing
 export const AllVariants: Story = {
   render: () => (
@@ -195,7 +203,8 @@ export const AllVariants: Story = {
 ```
 
 ### Accessibility Testing
-```typescript
+
+```tsx
 export const AccessibilityTest: Story = {
   args: {
     title: 'Accessible Button'
@@ -226,11 +235,11 @@ export const AccessibilityTest: Story = {
 ## Test Utilities
 
 ### Custom Render Function
-```typescript
-// test-utils.tsx
-import { render, type RenderOptions } from '@testing-library/react'
-import { ThemeProvider } from 'storybook/theming'
-import { themes } from 'storybook/theming'
+
+```tsx
+// test_utils.tsx
+import { render, type RenderOptions } from 'vitest-browser-react'
+import { themes, ThemeProvider } from 'storybook/theming'
 
 interface CustomRenderOptions extends Omit<RenderOptions, 'wrapper'> {
   theme?: 'light' | 'dark'
@@ -253,7 +262,8 @@ export function customRender(
 ```
 
 ### Mock Utilities
-```typescript
+
+```ts
 // mocks.ts
 import { vi } from 'vitest'
 
@@ -282,7 +292,8 @@ beforeEach(() => {
 ## Coverage Configuration
 
 ### Coverage Setup
-```typescript
+
+```ts
 // vitest.config.ts
 export default defineProject({
   test: {
@@ -307,6 +318,7 @@ export default defineProject({
 ```
 
 ### Coverage Reports
+
 - **HTML Reports**: Generated in `coverage/` directory
 - **CI Integration**: Coverage reports in CI/CD pipelines
 - **Threshold Enforcement**: Fail builds if coverage drops below thresholds
@@ -314,30 +326,35 @@ export default defineProject({
 ## Best Practices
 
 ### Test Organization
+
 1. **Arrange-Act-Assert**: Structure tests with clear sections
 2. **Descriptive Names**: Use clear, descriptive test names
 3. **Single Responsibility**: Each test should test one thing
 4. **Setup/Teardown**: Use beforeEach/afterEach for common setup
 
 ### Test Data
+
 1. **Factories**: Use factory functions for test data
 2. **Fixtures**: Store complex test data in fixture files
 3. **Randomization**: Use deterministic random data for edge cases
 4. **Realistic Data**: Use realistic data that matches production
 
 ### Performance
+
 1. **Fast Tests**: Keep tests fast and focused
 2. **Parallel Execution**: Use Vitest's parallel test execution
 3. **Mocking**: Mock external dependencies and APIs
 4. **Cleanup**: Properly clean up after tests
 
 ### Maintenance
+
 1. **DRY Principle**: Avoid test code duplication
 2. **Shared Utilities**: Create reusable test utilities
 3. **Consistent Patterns**: Use consistent testing patterns across the codebase
 4. **Documentation**: Document complex test scenarios
 
 ### Storybook Integration
+
 1. **Component Stories**: Every component should have stories
 2. **Interaction Testing**: Use play functions for interaction testing
 3. **Visual Regression**: Use visual testing for UI consistency
