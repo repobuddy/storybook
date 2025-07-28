@@ -1,11 +1,22 @@
 ---
-description: writing markdown content
+description: >
+  Use this rule whenever creating or editing any markdown (.md, .mdx) file—including documentation, READMEs, component and API docs, and Storybook docs—to ensure consistency, accessibility, and compliance with project markdown standards.
 globs:
 alwaysApply: false
 ---
 # Markdown Content Guidelines
 
 This rule provides comprehensive guidelines for writing markdown content that follows best practices and passes markdown linting in this project.
+
+**When to use this rule:**
+- Writing or editing README files
+- Creating component documentation
+- Writing API documentation
+- Writing any documentation in .md or .mdx files
+- Writing cursor rules
+- Contributing to project documentation
+- Creating Storybook documentation
+- Writing commit messages (see also commit_messages.mdc rule)
 
 ## Quick Reference
 
