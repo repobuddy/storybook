@@ -1,5 +1,5 @@
 ---
-description:
+description: Apply when writing, reviewing, or refactoring code to ensure consistent formatting, proper error handling, performance optimization, and maintainable code patterns. Use for all TypeScript/React development, code reviews, and when establishing new code patterns.
 globs:
 alwaysApply: false
 ---
@@ -10,57 +10,38 @@ This repository uses Biome for linting and formatting with strict quality standa
 ## Biome Configuration
 
 ### Base Configuration
-```jsonc
-{
-  "$schema": "https://biomejs.dev/schemas/1.9.3/schema.json",
-  "extends": ["@repobuddy/biome/recommended"],
-  "vcs": {
-    "enabled": true,
-    "clientKind": "git",
-    "useIgnoreFile": true,
-    "defaultBranch": "main"
-  },
-  "files": {
-    "ignoreUnknown": false,
-    "ignore": ["node_modules", "dist", "build", "coverage", "*.mdx", "*.md", ".vscode"]
-  },
-  "formatter": {
-    "enabled": true,
-    "indentStyle": "tab"
-  },
-  "javascript": {
-    "formatter": {
-      "trailingCommas": "none"
-    }
-  }
-}
-```
+
+The Biome configuration is defined in [biome.jsonc](mdc:biome.jsonc) and extends the `@repobuddy/biome/recommended` preset. Key settings include:
+
+- **Indentation**: Tabs (not spaces) - configured in `formatter.indentStyle`
+- **Trailing Commas**: None for JavaScript/TypeScript - configured in `javascript.formatter.trailingCommas`
+- **File Ignore Patterns**: Defined in `files.ignore` array
+- **VCS Integration**: Git integration enabled with `defaultBranch: "main"`
 
 ### VSCode Integration
-```json
-{
-  "[typescript]": {
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": "explicit"
-    },
-    "editor.defaultFormatter": "biomejs.biome",
-    "editor.formatOnSave": true
-  },
-  "[typescriptreact]": {
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": "explicit"
-    },
-    "editor.defaultFormatter": "biomejs.biome",
-    "editor.formatOnSave": true
-  }
-}
-```
+
+VSCode settings are configured in [.vscode/settings.json](mdc:.vscode/settings.json) and include:
+
+- **Default Formatter**: Biome for TypeScript/TSX files
+- **Format on Save**: Enabled for all supported file types
+- **Import Organization**: Automatic import organization on save
+- **TypeScript SDK**: Uses workspace TypeScript version
+
+### Package Dependencies
+
+Key quality tools are defined in [package.json](mdc:package.json):
+
+- **@biomejs/biome**: `1.9.4` - Linting and formatting
+- **@repobuddy/biome**: `1.7.1` - Extended Biome configuration
+- **typescript**: `^5.8.3` - Type checking
+- **vitest**: `^3.1.2` - Testing framework
 
 ## Code Formatting
 
 ### Indentation and Spacing
+
 ```typescript
-// Use tabs for indentation (not spaces)
+// Use tabs for indentation (configured in biome.jsonc formatter.indentStyle)
 export function ComponentName() {
 	const [state, setState] = useState('')
 
@@ -77,7 +58,7 @@ export function ComponentName() {
 	)
 }
 
-// No trailing commas in JavaScript/TypeScript
+// No trailing commas in JavaScript/TypeScript (configured in biome.jsonc javascript.formatter.trailingCommas)
 const config = {
 	api: 'https://api.example.com',
 	timeout: 5000
@@ -93,6 +74,7 @@ const longArray = [
 ```
 
 ### Import Organization
+
 ```typescript
 // External dependencies first
 import React from 'react'
@@ -112,6 +94,7 @@ import type { ComponentProps } from 'react'
 ## Naming Conventions
 
 ### Variables and Functions
+
 ```typescript
 // Use camelCase for variables and functions
 const userName = 'John'
@@ -130,6 +113,7 @@ const MAX_RETRY_ATTEMPTS = 3
 ```
 
 ### File Naming
+
 ```typescript
 // Use kebab-case for file names
 // user-profile.tsx
@@ -149,6 +133,7 @@ const MAX_RETRY_ATTEMPTS = 3
 ## Code Organization
 
 ### File Structure
+
 ```typescript
 // 1. Imports (external, internal, relative)
 import React from 'react'
@@ -191,6 +176,7 @@ export type { ComponentProps }
 ```
 
 ### Component Organization
+
 ```typescript
 // Single responsibility principle
 export function UserCard({ user }: UserCardProps) {
@@ -230,6 +216,7 @@ function UserActions({ user }: { user: User }) {
 ## Error Handling
 
 ### Try-Catch Patterns
+
 ```typescript
 // Proper error handling
 async function fetchData() {
@@ -271,6 +258,7 @@ class ErrorBoundary extends React.Component {
 ```
 
 ### Null Safety
+
 ```typescript
 // Use optional chaining
 const userName = user?.profile?.name ?? 'Anonymous'
@@ -296,6 +284,7 @@ function isUser(obj: unknown): obj is User {
 ## Performance Patterns
 
 ### React Optimization
+
 ```typescript
 // Use React.memo for expensive components
 export const ExpensiveComponent = React.memo(function ExpensiveComponent({ data }) {
@@ -329,6 +318,7 @@ export function DataComponent({ items }) {
 ```
 
 ### Bundle Optimization
+
 ```typescript
 // Lazy loading for code splitting
 const LazyComponent = lazy(() => import('./LazyComponent'))
@@ -347,7 +337,17 @@ export { ComponentB } from './ComponentB'
 
 ## Testing Patterns
 
+### Test Configuration
+
+Testing is configured using Vitest with configurations defined in:
+- [libs/storybook/vitest.config.ts](mdc:libs/storybook/vitest.config.ts) - Main test configuration
+- [libs/storybook/vitest.config.node.ts](mdc:libs/storybook/vitest.config.node.ts) - Node.js tests
+- [libs/storybook/vitest.config.light.ts](mdc:libs/storybook/vitest.config.light.ts) - Light theme tests
+- [libs/storybook/vitest.config.dark.ts](mdc:libs/storybook/vitest.config.dark.ts) - Dark theme tests
+- [libs/storybook/vitest.config.theme.ts](mdc:libs/storybook/vitest.config.theme.ts) - Theme variant tests
+
 ### Test Organization
+
 ```typescript
 // Arrange-Act-Assert pattern
 describe('ComponentName', () => {
@@ -377,6 +377,7 @@ describe('ComponentName', () => {
 ```
 
 ### Mock Patterns
+
 ```typescript
 // Proper mocking
 vi.mock('./api', () => ({
@@ -393,9 +394,53 @@ afterEach(() => {
 })
 ```
 
+## TypeScript Configuration
+
+### Compiler Settings
+
+TypeScript configuration is defined in [libs/storybook/tsconfig.json](mdc:libs/storybook/tsconfig.json) with strict settings:
+
+- **strict**: `true` - Enables all strict type checking options
+- **isolatedModules**: `true` - Ensures each file can be safely transpiled
+- **verbatimModuleSyntax**: `true` - Enforces explicit import/export syntax
+- **target**: `ES2020` - Modern JavaScript features
+- **moduleResolution**: `bundler` - Optimized for bundlers like Vite
+
+### Type Safety Patterns
+
+```typescript
+// Use proper type annotations
+interface User {
+	id: string
+	name: string
+	email: string
+}
+
+// Generic types for reusable components
+interface ListProps<T> {
+	items: T[]
+	renderItem: (item: T) => React.ReactNode
+}
+
+export function List<T>({ items, renderItem }: ListProps<T>) {
+	return (
+		<ul>
+			{items.map((item, index) => (
+				<li key={index}>{renderItem(item)}</li>
+			))}
+		</ul>
+	)
+}
+
+// Utility types for common patterns
+type Optional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>
+type Required<T, K extends keyof T> = T & Required<Pick<T, K>>
+```
+
 ## Documentation
 
 ### JSDoc Comments
+
 ```typescript
 /**
  * Fetches user data from the API
@@ -423,6 +468,7 @@ export function UserProfile({ user, onEdit }: UserProfileProps) {
 ```
 
 ### Inline Comments
+
 ```typescript
 // Use comments to explain "why", not "what"
 // This timeout prevents rapid-fire API calls during user typing
@@ -437,30 +483,65 @@ setLoading(true)
 // TODO: Optimize re-renders with React.memo
 ```
 
+## Build and Development Tools
+
+### Package Management
+
+The project uses pnpm as the package manager, configured in [package.json](mdc:package.json) with `"packageManager": "pnpm@10.11.1"`.
+
+### Build System
+
+Turbo is used for build orchestration with configuration in [turbo.json](mdc:turbo.json).
+
+### Workspace Configuration
+
+Monorepo workspace is configured in [pnpm-workspace.yaml](mdc:pnpm-workspace.yaml).
+
 ## Best Practices
 
 ### Code Quality
+
 1. **Single Responsibility**: Each function/component should do one thing
 2. **DRY Principle**: Don't repeat yourself - extract common patterns
 3. **KISS Principle**: Keep it simple, stupid - avoid over-engineering
 4. **Consistent Patterns**: Use consistent patterns across the codebase
 
 ### Performance
+
 1. **Lazy Loading**: Load code and data only when needed
 2. **Memoization**: Cache expensive calculations and component renders
 3. **Bundle Size**: Keep bundle size small with tree-shaking
 4. **Network Requests**: Minimize and optimize API calls
 
 ### Maintainability
+
 1. **Clear Naming**: Use descriptive names for variables, functions, and files
 2. **Proper Structure**: Organize code logically and consistently
 3. **Documentation**: Document complex logic and APIs
 4. **Testing**: Write comprehensive tests for all functionality
 
 ### Security
+
 1. **Input Validation**: Validate all user inputs
 2. **XSS Prevention**: Sanitize user-generated content
 3. **Secure Dependencies**: Keep dependencies updated
 4. **Error Handling**: Don't expose sensitive information in errors
+
+## Configuration References
+
+### Primary Configuration Files
+
+- [biome.jsonc](mdc:biome.jsonc) - Linting and formatting rules
+- [.vscode/settings.json](mdc:.vscode/settings.json) - Editor configuration
+- [package.json](mdc:package.json) - Dependencies and scripts
+- [libs/storybook/tsconfig.json](mdc:libs/storybook/tsconfig.json) - TypeScript configuration
+- [libs/storybook/vitest.config.ts](mdc:libs/storybook/vitest.config.ts) - Test configuration
+
+### Related Rules
+
+- [Monorepo Best Practices](mdc:.cursor/rules/monorepo_best_practices.mdc) - Workspace organization
+- [TypeScript Patterns](mdc:.cursor/rules/typescript_patterns.mdc) - TypeScript-specific patterns
+- [Testing Patterns](mdc:.cursor/rules/testing_patterns.mdc) - Testing strategies
+- [CI/CD Patterns](mdc:.cursor/rules/ci_cd_patterns.mdc) - Build and deployment
 
 When you use this rule file, let me know this rule file is being used in the chat by mentioning the rule filename.
