@@ -1,0 +1,149 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# React Component Specification Guide
+
+## Component Structure
+- Components should be created in the appropriate feature or shared directory under `libs/`
+- Each component should have its own directory with the following structure:
+  ```
+  component_name/
+  ├── component_name.tsx
+  ├── component_name.stories.tsx
+  └── index.ts
+  ```
+
+## Component File Template
+```tsx
+import React from 'react'
+import type { Meta, StoryObj } from '#repobuddy/storybook/internal'
+
+interface ComponentNameProps {
+  // Define your props here
+}
+
+export function ComponentName(props: ComponentNameProps) {
+  return (
+    // Your component JSX
+  )
+}
+
+export default ComponentName
+```
+
+## Storybook Integration
+- Every component must have a corresponding stories file
+- Stories serve as both documentation and tests
+- Use the following template for stories:
+```tsx
+import { expect } from '@storybook/jest'
+import { userEvent } from '@storybook/testing-library'
+
+const meta = {
+  title: 'components/ComponentName',
+  tags: ['autodocs'],
+  component: ComponentName,
+  decorators: [
+    (Story) => (
+      <div className="h-screen bg-white dark:text-white dark:bg-black">
+        <Story />
+      </div>
+    )
+  ]
+} satisfies Meta<typeof ComponentName>
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
+  args: {
+    // Default props
+  },
+  play: async ({ canvasElement, canvas }) => {
+    // Example interaction test
+    const button = canvas.getByRole('button')
+    await userEvent.click(button)
+
+    // Assert the expected outcome
+    await expect(canvas.getByText('Clicked!')).toBeInTheDocument()
+  }
+}
+
+// Test cases should be written as stories
+export const WithErrorState: Story = {
+  args: {
+    // Props that trigger error state
+  },
+  play: async ({ canvas }) => {
+    // Test error state behavior
+    await expect(canvas.getByText('Error message')).toBeInTheDocument()
+  }
+}
+
+export const WithLoadingState: Story = {
+  args: {
+    // Props that trigger loading state
+  },
+  play: async ({ canvas }) => {
+    // Test loading state behavior
+    await expect(canvas.getByRole('status')).toHaveTextContent('Loading...')
+  }
+}
+```
+
+## Best Practices
+1. **TypeScript Usage**
+   - Always use TypeScript for component props
+   - Export prop interfaces for reuse
+   - Use proper type annotations for all variables and functions
+
+2. **Styling**
+   - Use Tailwind CSS for styling
+   - Support both light and dark themes
+   - Use semantic class names
+
+3. **Testing**
+   - Write all tests as Storybook stories
+   - Use the `play` method to test component interactions
+   - Test all user interactions (clicks, inputs, hovers, etc.)
+   - Test component state changes and side effects
+   - Test accessibility through interactions
+   - Create stories for different states (loading, error, success)
+   - Create stories for edge cases and variations
+   - Test both light and dark theme variants
+   - Include accessibility tests using Storybook's accessibility addon
+
+4. **Documentation**
+   - Include JSDoc comments for component and prop documentation
+   - Add story descriptions using the `parameters.docs.description.story` property
+   - Document any special usage patterns or requirements
+
+5. **Theme Support**
+   - Always implement dark mode support
+   - Use the `ThemeProvider` from `storybook/theming` when needed
+   - Test components in both light and dark themes
+
+## Example Implementation
+See [show_story_description.stories.tsx](mdc:libs/storybook/src/decorators/show_story_description.stories.tsx) for a complete example of a well-structured component with stories.
+
+## Accessibility
+- Use semantic HTML elements
+- Include proper ARIA attributes
+- Ensure keyboard navigation support
+- Test with screen readers using Storybook's accessibility addon
+- Test keyboard interactions using the `play` method
+
+## Performance
+- Use React.memo for pure components
+- Implement proper cleanup in useEffect hooks
+- Avoid unnecessary re-renders
+- Use proper dependency arrays in hooks
+
+## Error Handling
+- Implement proper error boundaries
+- Handle loading states
+- Provide fallback UI for error states
+- Validate props using TypeScript
+- Test error states and recovery using the `play` method
