@@ -7,9 +7,31 @@ alwaysApply: false
 
 This rule provides comprehensive guidelines for writing markdown content that follows best practices and passes markdown linting in this project.
 
+## Quick Reference
+
+### Essential Rules
+
+- ✅ Use proper heading hierarchy (H1 → H2 → H3 → H4)
+- ✅ Always specify language for code blocks
+- ✅ Include alt text for images
+- ✅ Use descriptive link text
+- ✅ Leave blank lines around headings and lists
+- ✅ Prefer shorter language identifiers (`ts` not `typescript`)
+
+### Common Language Identifiers
+
+- `tsx` - TypeScript React components
+- `ts` - TypeScript files
+- `js` - JavaScript files
+- `sh` - Shell commands
+- `jsonc` - JSON with comments
+- `md` - Markdown content
+- `css` - CSS stylesheets
+- `html` - HTML markup
+
 ## Markdown Linting Configuration
 
-The project uses markdownlint with the following configuration:
+The project uses markdownlint with relaxed settings:
 
 - **Line length**: Disabled (no strict character limits)
 - **Inline HTML**: Allowed (can use HTML when needed)
@@ -18,17 +40,19 @@ The project uses markdownlint with the following configuration:
 
 Reference: [.markdownlint-cli2.jsonc](mdc:.markdownlint-cli2.jsonc)
 
-## General Markdown Best Practices
+## Core Markdown Elements
 
 ### Headings
 
-- Use `#` for main title (H1)
+**Rules:**
+- Use `#` for main title (H1) - only one per document
 - Use `##` for section headings (H2)
 - Use `###` for subsection headings (H3)
 - Use `####` for sub-subsection headings (H4)
 - Avoid using more than 4 levels of headings
 - Leave one blank line before and after headings
 
+**Example:**
 ```md
 # Main Title
 
@@ -41,89 +65,115 @@ Reference: [.markdownlint-cli2.jsonc](mdc:.markdownlint-cli2.jsonc)
 
 ### Text Formatting
 
-- Use **bold** for emphasis: `**text**`
-- Use *italic* for secondary emphasis: `*text*`
-- Use `code` for inline code: `` `code` ``
-- Use ~~strikethrough~~ for deprecated content: `~~text~~`
+**Common patterns:**
+
+- **Bold** for emphasis: `**text**`
+- *Italic* for secondary emphasis: `*text*`
+- `Inline code` for code snippets: `` `code` ``
+- ~~Strikethrough~~ for deprecated content: `~~text~~`
+- `**Bold with *italic* inside**` for combined emphasis
 
 ### Lists
 
-- Use `-` for unordered lists
-- Use `1.` for ordered lists
-- Indent sub-items with 2 spaces
-- Leave blank line before and after lists
-
+**Unordered lists:**
 ```md
 - First item
 - Second item
-  - Sub-item
+  - Sub-item (indent with 2 spaces)
   - Another sub-item
 - Third item
+```
 
+**Ordered lists:**
+```md
 1. First step
 2. Second step
-   1. Sub-step
+   1. Sub-step (indent with 3 spaces)
    2. Another sub-step
 3. Third step
 ```
 
+**Rules:**
+- Use `-` for unordered lists
+- Use `1.` for ordered lists (numbers auto-increment)
+- Indent sub-items with 2 spaces
+- Leave blank line before and after lists
+
 ### Links
 
+**Best practices:**
 - Use descriptive link text
 - Include title attribute for accessibility when helpful
 - Use relative paths for internal links
 
+**Examples:**
 ```md
-[Descriptive Link Text](mdc:https:/example.com "Optional title")
-[Internal Link](mdc:../relative/path.md)
+[Visit our documentation](mdc:https:/example.com/docs "Documentation site")
+[Component API](mdc:api.md)
+[Back to top](mdc:#quick-reference)
 ```
 
 ### Images
 
+**Rules:**
 - Always include alt text for accessibility
 - Use descriptive alt text
 - Include title attribute when helpful
 
+**Example:**
 ```md
-![Descriptive alt text](mdc:image.png "Optional title")
+![Component screenshot showing the button in action](mdc:button-example.png "Button component example")
 ```
 
 ### Code Blocks
 
+**Rules:**
 - Always specify the language for syntax highlighting
 - Use triple backticks with language identifier
 - Indent code blocks properly
-- Prefer shorter language identifiers for consistency
+- Prefer shorter language identifiers
 
+**Examples:**
 ```tsx
-export const Component = () => {
-  return <div>Hello World</div>
+export const Button = ({ children, onClick }: ButtonProps) => {
+  return (
+    <button onClick={onClick} className="btn">
+      {children}
+    </button>
+  )
 }
 ```
 
 ```sh
-npm install package-name
+npm install @storybook/react
+npm run storybook
 ```
 
 ```ts
-function example() {
-  return 'hello world'
+interface ButtonProps {
+  children: React.ReactNode
+  onClick?: () => void
 }
 ```
 
 ```jsonc
 {
-  "name": "example",
-  "version": "1.0.0"
+  "name": "storybook-addon",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc"
+  }
 }
 ```
 
 ### Blockquotes
 
+**Rules:**
 - Use `>` for blockquotes
 - Can be nested with multiple `>`
 - Leave blank line before and after
 
+**Example:**
 ```md
 > This is a blockquote
 >
@@ -134,22 +184,27 @@ function example() {
 
 ### Tables
 
+**Rules:**
 - Use proper table formatting with headers
 - Align columns appropriately
 - Keep tables simple and readable
 
+**Example:**
 ```md
-| Header 1 | Header 2 | Header 3 |
-|----------|----------|----------|
-| Cell 1   | Cell 2   | Cell 3   |
-| Cell 4   | Cell 5   | Cell 6   |
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| children | ReactNode | - | Button content |
+| onClick | () => void | - | Click handler |
+| disabled | boolean | false | Disabled state |
 ```
 
 ### Horizontal Rules
 
+**Rules:**
 - Use `---` for horizontal rules
 - Leave blank lines before and after
 
+**Example:**
 ```md
 Content above
 
@@ -162,114 +217,218 @@ Content below
 
 ### Component Documentation
 
-- Use proper heading hierarchy
-- Include usage examples with code blocks
-- Document props and their types
-- Include accessibility considerations
+**Structure:**
 
-### API Documentation
+Here's an example of how to structure component documentation:
 
-- Use consistent formatting for parameters
-- Include type information
-- Provide usage examples
-- Document return values
-
-### Changelog Entries
-
-- Follow the existing changelog format
-- Use appropriate change types (feat, fix, docs, etc.)
-- Include breaking change notes when applicable
-- Reference issues and PRs when relevant
-
-## Common Patterns
-
-### Component Example
-
+**Component Header:**
 ```md
 ## ComponentName
 
-A brief description of what the component does.
+Brief description of what the component does.
+```
 
-### Usage
-
-\`\`\`tsx
-import { ComponentName } from '@panwds/react-ui'
+**Usage Section:**
+```tsx
+import { ComponentName } from '@storybook/addon'
 
 function Example() {
   return <ComponentName prop="value" />
 }
-\`\`\`
+```
 
-### Props
+**Props Table:**
+```md
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| prop | string | - | Description of the prop |
+```
 
-| Prop | Type   | Default | Description             |
-| ---- | ------ | ------- | ----------------------- |
-| prop | string | -       | Description of the prop |
-
+**Accessibility Section:**
+```md
 ### Accessibility
 
 - Describe accessibility features
 - Mention ARIA attributes if used
 - Note keyboard navigation support
-
-```md
-# (Accessibility example here if needed)
 ```
 
-### API Reference
+### API Documentation
 
+**Structure:**
+
+**Function Header:**
+```md
 ## functionName(param1, param2)
 
 Description of what the function does.
+```
 
+**Parameters Section:**
+```md
 ### Parameters
 
 - `param1` (string): Description of parameter
 - `param2` (number): Description of parameter
+```
 
+**Returns Section:**
+```md
 ### Returns
 
 - `Promise<Result>`: Description of return value
+```
 
-### Example
-
+**Example Section:**
 ```ts
 const result = await functionName('value', 42)
 ```
 
-## Common Language Identifiers
+### Changelog Entries
 
-Prefer shorter versions for consistency:
+**Format:**
+```md
+## [1.2.0] - 2024-01-15
 
-- `sh` for shell commands (preferred over `bash`)
-- `tsx` for TypeScript React components
-- `ts` for TypeScript files (preferred over `typescript`)
-- `js` for JavaScript files (preferred over `javascript`)
-- `jsonc` for JSON data (preferred over `json` to allow comments)
-- `md` for markdown content (preferred over `markdown`)
-- `css` for CSS stylesheets
-- `html` for HTML markup
+### Added
+- New feature description (#123)
+
+### Changed
+- Updated existing feature (#124)
+
+### Fixed
+- Bug fix description (#125)
+
+### Breaking Changes
+- Breaking change description (#126)
+```
+
+## Common Patterns
+
+### Component Example Template
+
+Here's a complete example of component documentation:
+
+**Component Header:**
+```md
+## Button
+
+A customizable button component with various styles and states.
+```
+
+**Usage Section:**
+```tsx
+import { Button } from './Button'
+
+function Example() {
+  return (
+    <Button variant="primary" onClick={() => alert('Clicked!')}>
+      Click me
+    </Button>
+  )
+}
+```
+
+**Props Table:**
+```md
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| children | ReactNode | - | Button content |
+| variant | 'primary' \| 'secondary' | 'primary' | Button style variant |
+| disabled | boolean | false | Disabled state |
+| onClick | () => void | - | Click handler |
+```
+
+**Accessibility Section:**
+```md
+### Accessibility
+
+- Supports keyboard navigation (Enter/Space)
+- Includes proper ARIA attributes
+- High contrast ratio for all variants
+```
+
+### API Reference Template
+
+Here's a complete example of API documentation:
+
+**Function Header:**
+```md
+## createStory(config)
+
+Creates a Storybook story with the specified configuration.
+```
+
+**Parameters Section:**
+```md
+### Parameters
+
+- `config` (StoryConfig): Story configuration object
+  - `component` (Component): React component to render
+  - `args` (object): Default props for the component
+  - `parameters` (object): Storybook parameters
+```
+
+**Returns Section:**
+```md
+### Returns
+
+- `StoryObj`: Configured story object
+```
+
+**Example Section:**
+```ts
+import { createStory } from './utils'
+
+export const Primary = createStory({
+  component: Button,
+  args: { variant: 'primary', children: 'Button' }
+})
+```
 
 ## Quality Checklist
 
 Before submitting markdown content, ensure:
 
-- [ ] All headings follow proper hierarchy
-- [ ] Code blocks have language identifiers
-- [ ] Links have descriptive text
-- [ ] Images have alt text
-- [ ] Lists are properly formatted
-- [ ] Tables are aligned correctly
-- [ ] No broken links
-- [ ] Consistent formatting throughout
+- [ ] All headings follow proper hierarchy (H1 → H2 → H3 → H4)
+- [ ] Code blocks have appropriate language identifiers
+- [ ] Links have descriptive text (not "click here")
+- [ ] Images have meaningful alt text
+- [ ] Lists are properly formatted with correct indentation
+- [ ] Tables are aligned and readable
+- [ ] No broken links or references
+- [ ] Consistent formatting throughout the document
 - [ ] Proper use of emphasis and code formatting
 - [ ] Accessibility considerations addressed
 - [ ] Using shortest appropriate language identifiers
+- [ ] Blank lines around headings, lists, and code blocks
+
+## Troubleshooting Common Issues
+
+### Broken Links
+- Use relative paths for internal links: `./file.md` not `/file.md`
+- Check that referenced files exist
+- Use `#heading-id` for internal page links
+
+### Code Block Issues
+- Ensure language identifier is specified
+- Check that code is properly indented
+- Use appropriate language for syntax highlighting
+
+### Table Formatting
+- Ensure header row is properly formatted
+- Align separator row (`|------|`)
+- Keep cell content concise
+
+### Heading Hierarchy
+- Don't skip heading levels (H1 → H3 is invalid)
+- Use H1 only once per document
+- Keep hierarchy logical and meaningful
 
 ## Integration with Other Rules
 
 This rule works in conjunction with:
 
-- [Code Block Formatting](mdc:.cursor/rules/coding_standards_code_block_formatting.mdc) - For consistent code block formatting
-- [File Naming Conventions](mdc:.cursor/rules/file_naming_conventions.mdc) - For consistent file naming
-- [Release Notes Guidelines](mdc:.cursor/rules/release_notes_guidelines.mdc) - For changelog formatting
+- [Code Quality](mdc:.cursor/rules/code_quality.mdc) - For code formatting standards
+- [Naming Conventions](mdc:.cursor/rules/naming_conventions.mdc) - For file naming consistency
+- [Commit Messages](mdc:.cursor/rules/commit_messages.mdc) - For commit message formatting
