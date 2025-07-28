@@ -1,5 +1,5 @@
 ---
-description:
+description: Apply when writing, reviewing, or refactoring TypeScript code to ensure consistent typing patterns, proper import/export syntax, React component structure, and type-safe development practices. Use for all TypeScript/React development, code reviews, and when establishing new code patterns.
 globs:
 alwaysApply: false
 ---
@@ -64,6 +64,20 @@ type DeepPartial<T> = {
 
 ## Import/Export Patterns
 
+### Verbatim Module Syntax
+
+The project uses `verbatimModuleSyntax: true` in the TypeScript configuration, which enforces explicit import/export syntax. This setting requires:
+
+- **File extensions**: Always include file extensions in import paths
+- **Explicit imports**: Use `import type` for type-only imports
+- **No barrel exports**: Import directly from source files, not from index files
+
+**Why this matters:**
+- Ensures consistent module resolution across different bundlers
+- Prevents accidental runtime imports of type-only modules
+- Improves tree-shaking and bundle optimization
+- Enforces explicit dependency declarations
+
 ### Named Exports
 
 ```ts
@@ -83,28 +97,37 @@ export type { ComponentNameProps } from './component_name.js'
 ### Import Organization
 
 ```ts
-// External dependencies first
-import React from 'react'
+// All imports except CSS (alphabetical)
 import type { Meta, StoryObj } from '@storybook/react'
-
-// Internal workspace dependencies
 import { ComponentName } from '@repobuddy/storybook'
-
-// Relative imports last
-import './component_name.css'
+import type { ComponentProps } from '@repobuddy/storybook'
+import React from 'react'
+import { vi } from 'vitest'
+import type { ParentType } from '../../types/parent.js'
+import { helper } from '../utils/helper.js'
 import type { LocalType } from './types.js'
+
+// CSS imports (alphabetical)
+import './component_name.css'
 ```
 
-### Type-Only Imports
+### Import Guidelines
 
 ```ts
-// Use type-only imports for types
-import type { ComponentProps } from 'react'
-import type { StoryObj } from '@storybook/react'
+// ✅ Correct: Direct import with extension
+import { ShowHtml } from './components/show_html.js'
 
-// Separate type and value imports
-import { useState } from 'react'
-import type { Dispatch, SetStateAction } from 'react'
+// ✅ Correct: Type-only import
+import type { ShowHtmlProps } from './components/show_html.js'
+
+// ❌ Wrong: Missing file extension
+import { ShowHtml } from './components/show_html'
+
+// ❌ Wrong: Barrel export import
+import { ShowHtml } from './components'
+
+// ❌ Wrong: Mixed type and value import
+import { ShowHtml, type ShowHtmlProps } from './components/show_html.js'
 ```
 
 ## React Patterns
@@ -153,6 +176,32 @@ interface UseApiReturn<T> {
 	error: Error | null
 	refetch: () => Promise<void>
 }
+
+// Implementation example
+function useApi<T>(url: string): UseApiReturn<T> {
+	const [data, setData] = useState<T | null>(null)
+	const [loading, setLoading] = useState(true)
+	const [error, setError] = useState<Error | null>(null)
+
+	const fetchData = useCallback(async () => {
+		try {
+			setLoading(true)
+			const response = await fetch(url)
+			const result = await response.json()
+			setData(result)
+		} catch (err) {
+			setError(err as Error)
+		} finally {
+			setLoading(false)
+		}
+	}, [url])
+
+	useEffect(() => {
+		fetchData()
+	}, [fetchData])
+
+	return { data, loading, error, refetch: fetchData }
+}
 ```
 
 ### Event Handlers
@@ -173,6 +222,36 @@ const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 	event.preventDefault()
 	// form submission logic
+}
+
+// Keyboard events
+const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+	if (event.key === 'Enter') {
+		// handle enter key
+	}
+}
+
+// Drag events
+const handleDragStart = (event: React.DragEvent<HTMLDivElement>) => {
+	event.dataTransfer.setData('text/plain', event.currentTarget.id)
+}
+
+// Form events with proper typing
+const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+	event.preventDefault()
+	const formData = new FormData(event.currentTarget)
+	// form submission logic
+}
+
+// Change events for different input types
+const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+	const { name, value, type, checked } = event.target
+	// handle different input types
+}
+
+const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+	const { value } = event.target
+	// handle select change
 }
 ```
 
@@ -256,38 +335,23 @@ const firstItem = items?.[0]?.title
 const result = api?.fetchData?.() ?? null
 ```
 
-## Configuration Files
+## TypeScript Configuration
 
-### TypeScript Config
+### Key Settings
 
-The main TypeScript configuration is defined in [libs/storybook/tsconfig.json](mdc:libs/storybook/tsconfig.json) with strict settings:
-
-```jsonc
-{
-	"compilerOptions": {
-		"composite": true,
-		"isolatedModules": true,
-		"jsx": "react",
-		"lib": ["ESNext", "DOM.Iterable", "DOM"],
-		"module": "ESNext",
-		"moduleResolution": "bundler",
-		"outDir": "esm",
-		"skipLibCheck": true,
-		"strict": true,
-		"target": "ES2020",
-		"verbatimModuleSyntax": true
-	},
-	"include": ["src", "types", ".storybook"]
-}
-```
-
-Key configuration options:
+The project uses strict TypeScript settings defined in [libs/storybook/tsconfig.json](mdc:libs/storybook/tsconfig.json):
 
 - **strict**: `true` - Enables all strict type checking options
-- **isolatedModules**: `true` - Ensures each file can be safely transpiled
-- **verbatimModuleSyntax**: `true` - Enforces explicit import/export syntax
+- **verbatimModuleSyntax**: `true` - **Critical**: Requires file extensions and explicit imports
+- **isolatedModules**: `true` - Ensures files can be safely transpiled
 - **target**: `ES2020` - Modern JavaScript features
-- **moduleResolution**: `bundler` - Optimized for bundlers like Vite
+- **moduleResolution**: `bundler` - Optimized for Vite
+
+### Why These Settings Matter
+
+- **verbatimModuleSyntax**: Prevents accidental runtime imports of type-only modules
+- **strict**: Catches type errors early and enforces best practices
+- **isolatedModules**: Ensures compatibility with bundlers and build tools
 
 ### Vite Config
 
@@ -299,6 +363,173 @@ import { defineConfig } from 'vite'
 export default defineConfig({
 	// typed configuration
 } satisfies UserConfig)
+```
+
+## Common Pitfalls and Solutions
+
+### Avoid Type Assertions
+
+```typescript
+// ❌ Bad: Unsafe type assertion
+const data = response as UserData
+
+// ✅ Good: Type guard or proper typing
+function isUserData(obj: unknown): obj is UserData {
+	return obj && typeof obj === 'object' && 'id' in obj
+}
+
+const data = isUserData(response) ? response : null
+```
+
+### Proper Generic Constraints
+
+```typescript
+// ❌ Bad: Too permissive
+function processData<T>(data: T) {
+	return data.toString() // Error: T might not have toString
+}
+
+// ✅ Good: Proper constraints
+function processData<T extends { toString(): string }>(data: T) {
+	return data.toString()
+}
+```
+
+### Handling Optional Properties
+
+```typescript
+// ❌ Bad: Unsafe property access
+const name = user.profile.name // Error if profile is undefined
+
+// ✅ Good: Safe property access
+const name = user.profile?.name ?? 'Anonymous'
+```
+
+### Proper Array Type Definitions
+
+```typescript
+// ❌ Bad: Implicit any[]
+const items = [] // Type is any[]
+
+// ✅ Good: Explicit typing
+const items: string[] = []
+const items = [] as string[]
+const items: Array<string> = []
+```
+
+## Testing with TypeScript
+
+### Mock Types
+
+```typescript
+// Type your mocks properly
+const mockApi = {
+	fetchUser: vi.fn<[string], Promise<User>>(),
+	updateUser: vi.fn<[string, Partial<User>], Promise<User>>()
+} as const
+
+// Type test utilities
+interface TestUtils {
+	render: (component: React.ReactElement) => RenderResult
+	waitFor: (callback: () => void) => Promise<void>
+}
+
+const createTestUtils = (): TestUtils => ({
+	render: (component) => render(component),
+	waitFor: (callback) => waitFor(callback)
+})
+```
+
+### Type-Safe Test Data
+
+```typescript
+// Create type-safe test data
+const createMockUser = (overrides?: Partial<User>): User => ({
+	id: 'test-id',
+	name: 'Test User',
+	email: 'test@example.com',
+	...overrides
+})
+
+// Use in tests
+const user = createMockUser({ name: 'Custom Name' })
+```
+
+## Type Safety Patterns
+
+```typescript
+// Use proper type annotations
+interface User {
+	id: string
+	name: string
+	email: string
+}
+
+// Generic types for reusable components
+interface ListProps<T> {
+	items: T[]
+	renderItem: (item: T) => React.ReactNode
+}
+
+export function List<T>({ items, renderItem }: ListProps<T>) {
+	return (
+		<ul>
+			{items.map((item, index) => (
+				<li key={index}>{renderItem(item)}</li>
+			))}
+		</ul>
+	)
+}
+
+// Utility types for common patterns
+type Optional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>
+type Required<T, K extends keyof T> = T & Required<Pick<T, K>>
+```
+
+## Documentation
+
+### JSDoc Comments
+
+```typescript
+/**
+ * Fetches user data from the API
+ * @param userId - The unique identifier of the user
+ * @param options - Optional configuration for the request
+ * @returns Promise resolving to user data
+ * @throws {Error} When the API request fails
+ */
+async function fetchUserData(
+	userId: string,
+	options?: RequestOptions
+): Promise<UserData> {
+	// Implementation
+}
+
+/**
+ * User profile component that displays user information
+ * @param props - Component props
+ * @param props.user - User data to display
+ * @param props.onEdit - Callback when edit button is clicked
+ */
+export function UserProfile({ user, onEdit }: UserProfileProps) {
+	// Implementation
+}
+```
+
+### Inline Comments
+
+```typescript
+// Use comments to explain "why", not "what"
+// This timeout prevents rapid-fire API calls during user typing
+const DEBOUNCE_TIMEOUT = 300
+
+// Bad: This sets the state to true
+// Good: Enable loading state while API call is in progress
+setLoading(true)
+
+// Use TODO comments for future improvements
+// TODO: Add error boundary for better error handling
+// TODO: Optimize re-renders with React.memo
 ```
 
 ## Best Practices
