@@ -1,3 +1,4 @@
+import type { CSSProperties } from '@just-web/css'
 import type { ReactNode } from 'react'
 
 export type VariantConfigOptions = {
@@ -17,6 +18,18 @@ export type VariantConfigOptions = {
 	 */
 	current?: string | undefined
 }
+
+export type Variants = Record<
+	string,
+	| string
+	| {
+			icon?: ReactNode | undefined
+			label?: string | undefined
+			style?: CSSProperties | undefined
+			title?: string | undefined
+			value: string
+	  }
+>
 
 export type ClassNameStrategy = {
 	type: 'className'
