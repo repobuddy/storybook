@@ -9,7 +9,8 @@
 		"dev": "vite",
 		"lint": "eslint .",
 		"preview": "vite preview",
-		"sb": "storybook dev -p 6006"
+		"sb": "storybook dev -p 6006",
+		"test": "vitest run"
 	},
 	"dependencies": {
 		"react": "^18.3.1",
@@ -17,6 +18,7 @@
 	},
 	"devDependencies": {
 		"@repobuddy/storybook": "workspace:*",
+		"@repobuddy/vitest": "^1.2.2",
 		"@storybook/addon-a11y": "^9.0.6",
 		"@storybook/addon-docs": "^9.0.6",
 		"@storybook/addon-vitest": "^9.0.6",
@@ -27,6 +29,7 @@
 		"@vitest/browser": "^3.2.2",
 		"@vitest/coverage-v8": "^3.2.2",
 		"storybook": "^9.0.6",
+		"storybook-addon-vis": "^2.1.1",
 		"storybook-dark-mode2": "^5.2.1",
 		"typescript": "~5.8.3",
 		"vite": "^6.3.5",
