@@ -7,11 +7,11 @@ alwaysApply: false
 
 How to add and manage cursor rules in the project.
 
-When you use this rule, let me know this rule file is being used in the chat by mentioning the filename.
+When you use this rule, let me know this rule file is being used by mentioning the filename.
 
-## Directory Structure
+## File Organization
 
-Always place rule files under `PROJECT_ROOT/.cursor/rules/`:
+All rule files must be placed directly under `PROJECT_ROOT/.cursor/rules/`:
 
 ```
 .cursor/rules/
@@ -22,22 +22,26 @@ Always place rule files under `PROJECT_ROOT/.cursor/rules/`:
 └── master.mdc          # Central index of all rules
 ```
 
+Rules are organized logically through tags and cross-references in the master index, not through directory structure.
+
 ## Naming Conventions
 
 1. **File Names**:
    - Use snake_case for filenames
    - Always use `.mdc` extension
    - Make names descriptive of the rule's purpose
+   - Include relevant prefixes for related rules (e.g., `react_*`, `storybook_*`)
 
 ## Rule File Structure
 
 All rule files should follow this structure:
 
-```markdown
+```md
 ---
 description: Clear, one-line description of what the rule enforces
 globs: path/to/files/*.ext, other/path/**/*
 alwaysApply: boolean
+tags: ["category1", "category2"]  # Used for logical organization
 ---
 
 ## Rule Title
@@ -53,7 +57,7 @@ Main content explaining the rule with markdown formatting.
 
 - Use language-specific code blocks
 
-```typescript
+```ts
 // ✅ DO: Show good examples
 const goodExample = true;
 
@@ -67,12 +71,17 @@ When adding new rules:
 
 1. **Create the Rule File**: Follow the standard rule file structure
 
-2. **Update Master Index**: Add the new rule to [master.mdc](mdc:.cursor/rules/master.mdc) with proper categorization
+2. **Update Master Index**: Add the new rule to [master.mdc](mdc:.cursor/rules/master.mdc) with:
+   - Appropriate tags for categorization
+   - Clear description of the rule's purpose
+   - Links to related rules
+   - Usage examples or contexts
 
 3. **Set Rule Properties**:
    - Default rule type to "Agent Requested"
    - Add clear description of the rule's purpose
    - Include appropriate glob patterns if needed
+   - Add relevant tags for categorization
    - Add the phrase "mention this rule is being used"
 
 ## Best Practices
@@ -82,9 +91,10 @@ When adding new rules:
 3. **Cross-Reference**: Link to related rules using `mdc:` syntax
 4. **Regular Updates**: Keep rules current with project evolution
 5. **Clear Documentation**: Write rules that are easy to understand and follow
+6. **Logical Organization**: Use tags and cross-references for organization, not directories
+7. **Consistent Naming**: Use clear, descriptive filenames with appropriate prefixes
 
 ## File Location Rules
 
-- **Never** place rule files in the project root
-- **Never** place rule files outside `.cursor/rules/`
 - **Always** update the master index when adding new rules
+- **Always** include appropriate tags for logical organization
