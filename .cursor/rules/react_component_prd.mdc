@@ -1,5 +1,5 @@
 ---
-description:
+description: creating prd for react component
 globs:
 alwaysApply: false
 ---
@@ -7,6 +7,9 @@ alwaysApply: false
 
 ## Overview
 This guide outlines the essential elements to include when creating a Product Requirements Document (PRD) for React components. A well-structured PRD ensures clear communication between stakeholders and developers, leading to successful component implementation.
+
+For implementation details, refer to the [React Component Specification](mdc:.cursor/rules/development/react_component_spec.mdc).
+For Storybook documentation requirements, see [Storybook Stories](mdc:.cursor/rules/development/storybook_stories.mdc).
 
 ## PRD Structure
 

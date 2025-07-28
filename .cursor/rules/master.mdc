@@ -1,51 +1,64 @@
 ---
-description:
+description: Central reference for all cursor rules in the project
 globs:
 alwaysApply: true
 ---
----
-description: Central reference for all cursor rules in the project
-alwaysApply: false
----
-
 # Master Rules
 
 This document serves as the central reference for all rules in the project.
 
 ## Available Rules by Category
 
-### Development Standards (`development/`)
+### Planning
 
-#### [React Component Specification](mdc:.cursor/rules/development/react_component_spec.mdc)
+#### [React Component PRD](mdc:.cursor/rules/react_component_prd.mdc)
+- **Purpose**: Guidelines for creating Product Requirements Documents (PRD) for React components
+- **Scope**: Component planning, requirements gathering, and documentation standards
+- **Includes**: PRD structure, best practices, and template
+- **Applied to**: New component development and major component updates
+
+### Development Standards
+
+#### [React Component Specification](mdc:.cursor/rules/react_component_spec.mdc)
 - **Purpose**: Comprehensive guide for creating React components following project standards
 - **Scope**: Component structure, TypeScript usage, styling, testing, and accessibility
 - **Includes**: Storybook integration and best practices
 - **Applied to**: `libs/**/*.tsx`, `apps/**/*.tsx`
 
-#### [Storybook Stories](mdc:.cursor/rules/development/storybook_stories.mdc)
+#### [Storybook Stories](mdc:.cursor/rules/storybook_stories.mdc)
 - **Purpose**: Standards and best practices for writing Storybook stories
 - **Scope**: Component Story Format (CSF), organization, and testing patterns
 - **Includes**: Naming conventions and implementation guidelines
 - **Applied to**: `**/*.stories.tsx`, `**/*.stories.ts`
 
-#### [Component Specification Template](mdc:.cursor/rules/development/component_spec_template.mdc)
-- **Purpose**: Structured template for specifying React components before implementation
-- **Scope**: Checklist-based approach to component planning
-- **Usage**: Use this template before implementing complex components
-- **Ensures**: Comprehensive feature coverage and testing requirements
+### Meta Documentation
 
-### Meta Documentation (`meta/`)
-
-#### [Cursor Rules Management](mdc:.cursor/rules/meta/cursor_rules.mdc)
+#### [Cursor Rules Management](mdc:.cursor/rules/cursor_rules.mdc)
 - **Purpose**: Guidelines for managing cursor rules in the project
 - **Scope**: Rule file structure, location, naming conventions, and organization
 - **Includes**: Template for creating new rule files and best practices
 
-#### [Self-Improving Rules](mdc:.cursor/rules/meta/self_improvement.mdc)
+#### [Self-Improving Rules](mdc:.cursor/rules/self_improvement.mdc)
 - **Purpose**: Guidelines for continuously improving and maintaining the rules system
 - **Scope**: Rule review cycles, maintenance, and quality metrics
 - **Includes**: Improvement processes, feedback collection, and rule retirement
 - **Applied to**: All rule files in the `.cursor/rules/` directory
+
+### Templates
+
+#### [Component Specification Template](mdc:.cursor/rules/component_spec_template.mdc)
+- **Purpose**: Template for creating new component specifications
+- **Scope**: Component planning and documentation
+- **Includes**: Standard structure and required sections
+- **Applied to**: New component development
+
+### Workflows
+
+#### [Development Workflow](mdc:.cursor/rules/dev_workflow.mdc)
+- **Purpose**: Guide for using Taskmaster to manage task-driven development workflows
+- **Scope**: Development process, task management, and team collaboration
+- **Includes**: Workflow patterns, best practices, and tool usage
+- **Applied to**: All development activities
 
 ## How to Use Rules
 
@@ -54,9 +67,6 @@ Rules are automatically applied based on their `globs` patterns and relevance to
 
 ### Manual Reference
 Rules can be referenced during development and code reviews using the `mdc:` syntax.
-
-### Template Usage
-Use specification templates before implementing new features to ensure comprehensive planning.
 
 ### Cross-References
 Rules reference each other to provide comprehensive guidance across related areas.
@@ -72,7 +82,7 @@ Rules reference each other to provide comprehensive guidance across related area
 
 ### For Developers
 1. **Read Before Implementing**: Always review relevant rules before starting new work
-2. **Follow Templates**: Use specification templates for complex components
+2. **Follow Standards**: Use component specifications for React components
 3. **Validate with Stories**: Ensure all components have comprehensive Storybook stories
 4. **Maintain Consistency**: All rules work together to maintain consistent code quality
 
@@ -86,8 +96,8 @@ Rules reference each other to provide comprehensive guidance across related area
 
 When adding new rules:
 
-1. **Choose Category**: Determine the appropriate directory (`development/`, `templates/`, `meta/`)
-2. **Create Rule File**: Follow the standard structure defined in [Cursor Rules Management](mdc:.cursor/rules/meta/cursor_rules.mdc)
+1. **Choose Category**: Determine the appropriate directory (`development/`, `templates/`, `meta/`, `planning/`, `workflows/`)
+2. **Create Rule File**: Follow the standard structure defined in [Cursor Rules Management](mdc:.cursor/rules/cursor_rules.mdc)
 3. **Update This Index**: Add the new rule to the appropriate category in this file
 4. **Test Integration**: Ensure the rule works well with existing rules
 
@@ -102,11 +112,21 @@ Structured templates for planning and implementing new features. These help ensu
 ### **Meta Documentation**
 Documentation about the rules system itself. These rules help maintain and evolve the cursor rules structure.
 
+### **Planning**
+Guidelines and templates for planning new features and components. These ensure thorough requirements gathering and documentation.
+
+### **Workflows**
+Process guides and best practices for development workflows. These help maintain consistent and efficient development practices.
+
 ## Quick Reference
 
-- **React Components**: Use [React Component Specification](mdc:.cursor/rules/development/react_component_spec.mdc)
-- **Storybook Stories**: Follow [Storybook Stories](mdc:.cursor/rules/development/storybook_stories.mdc)
-- **Planning Components**: Start with [Component Specification Template](mdc:.cursor/rules/development/component_spec_template.mdc)
-- **Managing Rules**: Reference [Cursor Rules Management](mdc:.cursor/rules/meta/cursor_rules.mdc)
+- **Component Planning**: Start with [React Component PRD](mdc:.cursor/rules/react_component_prd.mdc)
+- **React Components**: Use [React Component Specification](mdc:.cursor/rules/react_component_spec.mdc)
+- **Storybook Stories**: Follow [Storybook Stories](mdc:.cursor/rules/storybook_stories.mdc)
+- **Managing Rules**: Reference [Cursor Rules Management](mdc:.cursor/rules/cursor_rules.mdc)
+- **Development Process**: Follow [Development Workflow](mdc:.cursor/rules/dev_workflow.mdc)
 
 This organized structure ensures that all rules are discoverable, maintainable, and work together to provide comprehensive guidance for the project.
+
+When you use a rule file in your reasoning, mention its name.
+

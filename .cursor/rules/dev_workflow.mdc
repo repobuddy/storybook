@@ -5,9 +5,12 @@ alwaysApply: true
 ---
 # Development Workflow
 
-
-
 This guide outlines the standard process for using Taskmaster to manage software development projects. It is written as a set of instructions for you, the AI agent.
+
+For component development guidelines, refer to:
+- [React Component PRD](mdc:.cursor/rules/planning/react_component_prd.mdc) for planning
+- [React Component Specification](mdc:.cursor/rules/development/react_component_spec.mdc) for implementation
+- [Storybook Stories](mdc:.cursor/rules/development/storybook_stories.mdc) for documentation
 
 - **Your Default Stance**: For most projects, the user can work directly within the `master` task context. Your initial actions should operate on this default context unless a clear pattern for multi-context work emerges.
 - **Your Goal**: Your role is to elevate the user's workflow by intelligently introducing advanced features like **Tagged Task Lists** when you detect the appropriate context. Do not force tags on the user; suggest them as a helpful solution to a specific need.

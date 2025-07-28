@@ -5,7 +5,7 @@ alwaysApply: false
 ---
 # Writing Storybook Stories
 
-This document outlines the standards and best practices for creating Storybook stories in our project.
+This document outlines the standards and best practices for creating Storybook stories in our project. It complements the [React Component Specification](mdc:.cursor/rules/development/react_component_spec.mdc) and [React Component PRD](mdc:.cursor/rules/planning/react_component_prd.mdc) guidelines.
 
 ## Basic Story Structure
 
