@@ -1,6 +1,6 @@
 import { it } from 'vitest'
-import type { ShowHtml } from '../components/show_html'
-import type { Meta, StoryObj } from './types'
+import type { ShowHtml } from '../components/show_html.js'
+import type { Meta, StoryObj } from './types.js'
 
 it('improves StoryObj[tags]', () => {
 	const _predefinedTags: StoryObj = {

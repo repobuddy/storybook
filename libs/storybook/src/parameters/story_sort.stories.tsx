@@ -1,6 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '#repobuddy/storybook/internal'
 import dedent from 'dedent'
-import { type StorySortParam, defineDocsParam, defineParameters, showDocSource } from '../index.ts'
+import React from 'react'
+import { type StorySortParam, defineDocsParam, defineParameters, showDocSource } from '../index.js'
 
 export default {
 	title: 'parameters/StorySortParam',

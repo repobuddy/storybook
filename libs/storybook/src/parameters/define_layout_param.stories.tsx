@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { defineLayoutParam } from '../index.ts'
+import type { Meta, StoryObj } from '#repobuddy/storybook/internal'
+import React from 'react'
+import { defineLayoutParam } from '../index.js'
 
 export default {
 	title: 'parameters/defineLayoutParam',

@@ -1,6 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '#repobuddy/storybook/internal'
 import dedent from 'dedent'
-import { defineDocsParam, showDocSource } from '../index.ts'
+import React from 'react'
+import { defineDocsParam, showDocSource } from '../index.js'
 
 const meta = {
 	title: 'Parameters/defineDocsParam',
