@@ -1,6 +1,5 @@
 ---
-description: >
-  Use this rule whenever creating or editing any markdown (.md, .mdx) file—including documentation, READMEs, component and API docs, and Storybook docs—to ensure consistency, accessibility, and compliance with project markdown standards.
+description: Use this rule whenever creating or editing any markdown (.md, .mdx) file—including documentation, READMEs, component and API docs, and Storybook docs—to ensure consistency, accessibility, and compliance with project markdown standards.
 globs:
 alwaysApply: false
 ---
@@ -32,10 +31,10 @@ This rule provides comprehensive guidelines for writing markdown content that fo
 
 ### 📋 Quick Decision Tree
 
-**Writing a component doc?** → Use [Component Documentation Template](#component-documentation-template)
-**Writing API docs?** → Use [API Documentation Template](#api-documentation-template)
-**Writing a README?** → Use [README Structure](#readme-structure)
-**Writing a changelog?** → Use [Changelog Format](#changelog-entries)
+**Writing a component doc?** → Use [Component Documentation Template](mdc:#component-documentation-template)
+**Writing API docs?** → Use [API Documentation Template](mdc:#api-documentation-template)
+**Writing a README?** → Use [README Structure](mdc:#readme-structure)
+**Writing a changelog?** → Use [Changelog Format](mdc:#changelog-entries)
 
 ## Do's and Don'ts
 
