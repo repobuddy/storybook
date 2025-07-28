@@ -38,7 +38,9 @@
 		"pathe",
 		"pnpx",
 		"repobuddy",
-		"ssim"
+		"ssim",
+		"Vite",
+		"vitest"
 	],
 	"files.associations": {
 		"tailwind.css": "tailwindcss"
