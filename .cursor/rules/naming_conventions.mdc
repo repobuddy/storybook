@@ -1,232 +1,197 @@
 ---
 description:
 globs:
-alwaysApply: false
+alwaysApply: true
 ---
 # File and Folder Naming Conventions
 
 This rule defines the standard naming conventions for files and folders in this Storybook repository.
 
+## Core Principle
+
+**Use `snake_case` for all file and folder names** - This provides consistency across the entire codebase.
+
 ## Directory Structure
 
 ### Root Level Directories
-- **`apps/`**: Contains application packages in the monorepo
-- **`libs/`**: Contains library packages in the monorepo
+
+- **`apps/`**: Application packages in the monorepo
+- **`libs/`**: Library packages in the monorepo
 - **`.cursor/`**: Cursor IDE configuration and rules
-- **`.github/`**: GitHub-specific configuration (workflows, templates)
+- **`.github/`**: GitHub-specific configuration
 - **`.husky/`**: Git hooks configuration
 - **`.changeset/`**: Changeset configuration for versioning
 - **`.vscode/`**: VS Code workspace configuration
-- **`.turbo/`**: Turbo build system cache and configuration
+- **`.turbo/`**: Turbo build system cache
 
-### Application Structure (`apps/`)
-```
-apps/
-├── app/                    # Main application package
-│   ├── src/
-│   │   ├── stories/        # Storybook stories for the app
-│   │   ├── assets/         # Static assets
-│   │   └── [component].tsx # React components
-│   ├── public/             # Public static files
-│   └── package.json        # Package configuration
-```
+### Standard Package Structure
 
-### Library Structure (`libs/`)
 ```
-libs/
-├── storybook/              # Storybook library package
-│   ├── src/
-│   │   ├── components/     # Reusable components
-│   │   ├── decorators/     # Storybook decorators
-│   │   ├── parameters/     # Storybook parameters
-│   │   ├── variants/       # Component variants
-│   │   ├── testing/        # Testing utilities
-│   │   ├── manager/        # Storybook manager
-│   │   └── internal/       # Internal utilities
-│   ├── types/              # TypeScript type definitions
-│   └── package.json        # Package configuration
+package/
+├── src/
+│   ├── components/     # Reusable components
+│   ├── decorators/     # Storybook decorators
+│   ├── parameters/     # Storybook parameters
+│   ├── variants/       # Component variants
+│   ├── testing/        # Testing utilities
+│   ├── manager/        # Storybook manager
+│   └── internal/       # Internal utilities
+├── types/              # TypeScript type definitions
+└── package.json        # Package configuration
 ```
 
-## File Naming Conventions
+## File Naming Rules
 
-### React Components
-- **Component files**: Use `PascalCase` for component names
-  - ✅ `Button.tsx`, `Header.tsx`, `ShowHtml.tsx`
-  - ❌ `button.tsx`, `header.tsx`, `show-html.tsx`
+### All Files Use `snake_case`
 
-### Storybook Files
-- **Story files**: Use `PascalCase` with `.stories.tsx` or `.stories.ts` extension
-  - ✅ `Button.stories.tsx`, `Header.stories.ts`, `ShowHtml.stories.tsx`
-  - ❌ `button.stories.tsx`, `Button.stories.js`
+- **React Components**: `button.tsx`, `show_html.tsx`
+- **Storybook Stories**: `button.stories.tsx`, `show_html.stories.tsx`
+- **TypeScript Files**: `types.ts`, `helpers.ts`, `constants.ts`
+- **Configuration**: `build_config.ts`, `vite_config.ts`, `vitest_config.ts`
+- **CSS Files**: `button.css`, `app.css`, `index.css`
+- **Documentation**: `readme.md`, `overview.mdx`, `configure.mdx`
+- **Context Files**: `variant_bar.ctx.ts`, `when_running_in_text.ctx.ts`
 
-### TypeScript Files
-- **Type definitions**: Use `camelCase` for utility files, `PascalCase` for component types
-  - ✅ `types.ts`, `helpers.ts`, `constants.ts`
-  - ✅ `Button.tsx` (component), `ShowHtml.tsx` (component)
-  - ❌ `Types.ts`, `HELPERS.ts`
+### File Extensions
 
-### Configuration Files
-- **Build configs**: Use `kebab-case` with descriptive names
-  - ✅ `build.config.ts`, `vite.config.ts`, `vitest.config.ts`
-  - ✅ `biome.jsonc`, `turbo.json`, `tsconfig.json`
-  - ❌ `buildConfig.ts`, `viteConfig.ts`
+- **React components**: `.tsx` for JSX, `.ts` for non-JSX
+- **Stories**: `.stories.tsx`
+- **Context files**: `.ctx.ts`
+- **Configuration**: `.ts` for TypeScript configs, `.json`/`.jsonc` for JSON
+- **Documentation**: `.md` for general docs, `.mdx` for Storybook docs
 
-### CSS Files
-- **Style files**: Use `camelCase` for component-specific styles
-  - ✅ `button.css`, `header.css`, `page.css`
-  - ✅ `App.css`, `index.css` (global styles)
-  - ❌ `Button.css`, `HEADER.css`
+## Folder Naming Rules
 
-### Documentation Files
-- **Markdown files**: Use `camelCase` for general docs, `PascalCase` for component docs
-  - ✅ `readme.md`, `overview.mdx`, `Configure.mdx`
-  - ✅ `storybook_addon.md`, `CHANGELOG.md`
-  - ❌ `README.md`, `overview.MD`
+### All Folders Use `snake_case`
 
-### Context Files
-- **Context files**: Use `camelCase` with `.ctx.ts` extension
-  - ✅ `variant_bar.ctx.ts`, `when_running_in_text.ctx.ts`
-  - ❌ `variant-bar.ctx.ts`, `VariantBar.ctx.ts`
-
-## Folder Naming Conventions
-
-### Component Directories
-- **Component folders**: Use `kebab-case` for multi-word names
-  - ✅ `storybook-addon-tag-badges/`, `storybook-dark-mode/`
-  - ✅ `class-name-switcher/`, `variant-bar/`
-  - ❌ `storybookAddonTagBadges/`, `StorybookDarkMode/`
-
-### Feature Directories
-- **Feature folders**: Use `camelCase` for simple names, `kebab-case` for complex names
-  - ✅ `components/`, `decorators/`, `parameters/`
-  - ✅ `storybook-addon-tag-badges/`, `storybook-dark-mode/`
-  - ❌ `Components/`, `STORYBOOK-ADDON-TAG-BADGES/`
-
-### Utility Directories
-- **Utility folders**: Use `camelCase`
-  - ✅ `helpers/`, `utils/`, `types/`, `internal/`
-  - ❌ `Helpers/`, `UTILS/`
+- **Standard folders**: `components/`, `decorators/`, `parameters/`, `helpers/`, `utils/`, `types/`, `internal/`
+- **Variant folders**: `color_theme_variants/`, `size_variants/`
+- **Testing folders**: `testing/`, `when_running_in_test/`
 
 ## Special Cases
 
 ### Storybook Addon Directories
-- **Addon folders**: Use `storybook-addon-` prefix with `kebab-case`
-  - ✅ `storybook-addon-tag-badges/`, `storybook-dark-mode/`
-  - ❌ `storybookAddonTagBadges/`, `storybook_addon_tag_badges/`
 
-### Variant System
-- **Variant folders**: Use `kebab-case` for variant names
-  - ✅ `color-theme-variants/`, `size-variants/`
-  - ❌ `colorThemeVariants/`, `ColorThemeVariants/`
+Storybook addon directories use a specific prefix pattern for consistency with the Storybook ecosystem:
 
-### Testing Directories
-- **Test folders**: Use `camelCase` with descriptive names
-  - ✅ `testing/`, `when_running_in_test/`
-  - ❌ `Testing/`, `when-running-in-test/`
+- **Pattern**: `storybook_addon_[name]/`
+- **Examples**: `storybook_addon_tag_badges/`, `storybook_addon_dark_mode/`
+- **Reason**: Follows Storybook's official addon naming convention
 
-## File Extensions
+### Legacy kebab-case Files
 
-### TypeScript/JavaScript
-- **React components**: `.tsx` for JSX, `.ts` for non-JSX
-- **Stories**: `.stories.tsx` or `.stories.ts`
-- **Context files**: `.ctx.ts`
-- **Type definitions**: `.ts`
-- **Configuration**: `.ts` for TypeScript configs
+Some existing files and folders may use `kebab-case` due to historical reasons or external dependencies:
 
-### Styling
-- **CSS files**: `.css`
-- **Tailwind**: Use `.css` with Tailwind directives
+- **When to keep**: Existing files that work correctly and don't need refactoring
+- **When to change**: New files or during active refactoring
+- **Examples**: `storybook-addon-tag-badges/` (existing), `class-name-switcher/` (existing)
 
-### Documentation
-- **Markdown**: `.md` for general docs, `.mdx` for Storybook docs
-- **Component docs**: `.mdx` for Storybook documentation
+### Index Files
 
-### Configuration
-- **JSON**: `.json` for standard configs, `.jsonc` for comments
-- **TypeScript**: `.ts` for build configs
+- **Use**: `index.ts` for package entry points only
+- **Reason**: Standard convention for module entry points
+- **Examples**: `src/index.ts`, `package/index.ts`
+- **Note**: Barrel exports (re-exporting from directories) are not allowed
+
+### Configuration Files
+
+Some configuration files follow external tool conventions:
+
+- **JSON configs**: `biome.jsonc`, `turbo.json`, `tsconfig.json` (keep as-is)
+- **Build configs**: `vite.config.ts`, `vitest.config.ts` (can use kebab-case if preferred)
+- **Reason**: Maintains compatibility with external tools and ecosystems
 
 ## Import/Export Conventions
 
-### Index Files
-- **Main exports**: Use `index.ts` for package entry points
-- **Barrel exports**: Use `index.ts` for re-exporting from directories
-
 ### Named Exports
-- **Components**: Use `PascalCase` for component exports
+
+- **Components**: Use `PascalCase` for component exports (file names remain `snake_case`)
 - **Utilities**: Use `camelCase` for function/utility exports
 - **Types**: Use `PascalCase` for type exports
+
+### Import Guidelines
+
+- **Direct imports**: Import directly from source files, not from index files
+- **File extensions**: Always include file extensions in import paths (required by `verbatimModuleSyntax`)
+- **No barrel exports**: Do not create index files that re-export from directories
+- **Examples**:
+  ```ts
+  // ✅ Correct: Direct import with extension
+  import { ShowHtml } from './components/show_html.js'
+
+  // ❌ Wrong: Missing file extension
+  import { ShowHtml } from './components/show_html'
+
+  // ❌ Wrong: Barrel export import
+  import { ShowHtml } from './components'
+  ```
 
 ## Examples
 
 ### Good Examples
-```typescript
-// Component file
-// libs/storybook/src/components/ShowHtml.tsx
+
+```tsx
+// File: libs/storybook/src/components/show_html.tsx
 export const ShowHtml: React.FC<ShowHtmlProps> = ({ element, options }) => {
   // Component implementation
-};
+}
+```
 
-// Story file
-// libs/storybook/src/components/ShowHtml.stories.tsx
+```tsx
+// File: libs/storybook/src/components/show_html.stories.tsx
 export default {
   title: 'Components/ShowHtml',
   component: ShowHtml,
-} as Meta;
+} as Meta
+```
 
-// Utility file
-// libs/storybook/src/variants/helpers.ts
+```ts
+// File: libs/storybook/src/variants/helpers.ts
 export const createVariantConfig = (config: VariantConfig) => {
   // Helper implementation
-};
+}
+```
 
-// Type definitions
-// libs/storybook/src/types.ts
+```ts
+// File: libs/storybook/src/types.ts
 export interface ShowHtmlProps {
-  element: HTMLElement;
-  options?: HtmlfyOptions;
+  element: HTMLElement
+  options?: HtmlfyOptions
 }
 ```
 
 ### Bad Examples
-```typescript
-// ❌ Wrong naming
-// libs/storybook/src/components/show-html.tsx
-export const showHtml: React.FC<showHtmlProps> = ({ element, options }) => {
-  // Component implementation
-};
 
-// ❌ Wrong story naming
-// libs/storybook/src/components/ShowHtml.stories.js
-export default {
-  title: 'Components/ShowHtml',
-  component: ShowHtml,
-};
+```md
+# ❌ Wrong file naming
+libs/storybook/src/components/ShowHtml.tsx
+libs/storybook/src/components/show-html.tsx
 
-// ❌ Wrong utility naming
-// libs/storybook/src/variants/Helpers.ts
-export const CreateVariantConfig = (config: VariantConfig) => {
-  // Helper implementation
-};
+# ❌ Wrong folder naming
+libs/storybook/src/storybook-addon-tag-badges/
+libs/storybook/src/StorybookAddonTagBadges/
+
+# ❌ Wrong story naming
+libs/storybook/src/components/show_html.stories.js
 ```
 
 ## Enforcement
 
-### Linting Rules
-- Use Biome for consistent formatting and naming
-- Configure ESLint rules for naming conventions
-- Use TypeScript strict mode for type safety
+### Tools
 
-### Git Hooks
-- Use Husky to enforce naming conventions on commit
-- Configure pre-commit hooks to check file naming
+- **Biome**: Consistent formatting and naming
+- **TypeScript**: Strict mode for type safety
+- **Git Hooks**: Pre-commit checks for naming conventions
 
 ### IDE Configuration
+
 - Configure VS Code/Cursor to show naming violations
 - Use workspace settings for consistent formatting
 
 ## Migration Guidelines
 
 ### When Renaming Files
+
 1. Update all import statements
 2. Update Storybook story references
 3. Update documentation links
@@ -234,10 +199,11 @@ export const CreateVariantConfig = (config: VariantConfig) => {
 5. Commit changes with descriptive message
 
 ### When Adding New Files
-1. Follow the established naming patterns
+
+1. Use `snake_case` for file and folder names
 2. Use appropriate file extensions
 3. Place files in correct directories
-4. Update index files for exports
+4. Import directly from source files
 5. Add appropriate stories for components
 
 ## Related Rules

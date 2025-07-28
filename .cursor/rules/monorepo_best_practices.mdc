@@ -1,7 +1,7 @@
 ---
 description:
 globs:
-alwaysApply: false
+alwaysApply: true
 ---
 # Monorepo Best Practices
 
@@ -10,12 +10,14 @@ This repository is a Storybook-focused monorepo using pnpm workspaces and Turbo.
 ## Repository Structure
 
 ### Workspace Organization
+
 - **Root**: Contains shared configuration, CI/CD, and workspace management
 - **`apps/`**: Contains applications (e.g., `app/` for demo/storybook app)
 - **`libs/`**: Contains shared libraries (e.g., `storybook/` for the main library)
 - **`tools/`**: Contains development tools and utilities
 
 ### Key Configuration Files
+
 - [pnpm-workspace.yaml](mdc:pnpm-workspace.yaml) - Defines workspace packages
 - [turbo.json](mdc:turbo.json) - Build system configuration
 - [biome.jsonc](mdc:biome.jsonc) - Linting and formatting
@@ -24,19 +26,22 @@ This repository is a Storybook-focused monorepo using pnpm workspaces and Turbo.
 ## Package Management
 
 ### Workspace Dependencies
+
 - Use `workspace:*` for internal dependencies between packages
 - Example: `"@repobuddy/storybook": "workspace:*"`
 
 ### Scripts
+
 - Root scripts use `turbo run` for cross-package operations
 - Package-specific scripts use `pnpm --filter <package-name>`
 - Common commands:
   - `pnpm build` - Build all packages
   - `pnpm test` - Run tests across all packages
-  - `pnpm sb` - Run Storybook for the main library
+  - `pnpm sb` - Run commands for the main library
   - `pnpm app` - Run commands for the demo app
 
 ### Package.json Patterns
+
 ```json
 {
   "name": "@repobuddy/package-name",
@@ -59,12 +64,14 @@ This repository is a Storybook-focused monorepo using pnpm workspaces and Turbo.
 ## Build System (Turbo)
 
 ### Task Configuration
+
 - Tasks are defined in [turbo.json](mdc:turbo.json)
 - Use `dependsOn` for build dependencies
 - Define `inputs` and `outputs` for caching
 - Use `persistent: true` for watch tasks
 
 ### Common Tasks
+
 - `build` - Build packages with dependencies
 - `test` - Run tests with coverage
 - `coverage` - Generate coverage reports
@@ -74,6 +81,7 @@ This repository is a Storybook-focused monorepo using pnpm workspaces and Turbo.
 ## Development Workflow
 
 ### Adding New Packages
+
 1. Create directory in `apps/` or `libs/`
 2. Initialize package.json with proper name and exports
 3. Add to [pnpm-workspace.yaml](mdc:pnpm-workspace.yaml) if needed
@@ -81,33 +89,38 @@ This repository is a Storybook-focused monorepo using pnpm workspaces and Turbo.
 5. Add to Turbo workspace configuration
 
 ### Cross-Package Development
+
 - Use workspace dependencies for internal packages
 - Import using package names: `import { Component } from '@repobuddy/storybook'`
 - Use relative imports for internal package files
 - Configure TypeScript project references for proper builds
 
 ### Testing Strategy
+
 - Each package has its own test configuration
 - Use Vitest for unit and integration tests
 - Storybook stories serve as component tests
-- Visual regression testing with storybook-addon-vis
+- Visual regression testing with `storybook-addon-vis`
 - Coverage reports aggregated at root level
 
 ## Code Quality
 
 ### Linting and Formatting
+
 - Biome for linting and formatting (see [biome.jsonc](mdc:biome.jsonc))
 - Tab indentation (not spaces)
 - No trailing commas in JavaScript/TypeScript
 - Consistent import organization
 
 ### TypeScript Configuration
+
 - Strict TypeScript settings
 - Project references for proper dependency management
 - Shared types in dedicated packages
 - Proper export/import typing
 
 ### Git Workflow
+
 - Conventional commits with commitlint
 - Husky pre-commit hooks
 - Changesets for versioning and releases
@@ -116,12 +129,14 @@ This repository is a Storybook-focused monorepo using pnpm workspaces and Turbo.
 ## Storybook Integration
 
 ### Package Structure
+
 - Each package can have its own `.storybook/` configuration
 - Shared Storybook addons in the main library
 - Visual testing with multiple theme configurations
 - Accessibility testing integrated
 
 ### Story Organization
+
 - Stories co-located with components
 - Use `.stories.tsx` extension
 - Follow naming conventions from [Storybook Stories](mdc:.cursor/rules/storybook_stories.mdc)
@@ -130,12 +145,14 @@ This repository is a Storybook-focused monorepo using pnpm workspaces and Turbo.
 ## Performance Considerations
 
 ### Build Optimization
+
 - Turbo caching for faster builds
 - Selective builds based on changes
 - Proper dependency management
 - Tree-shaking friendly exports
 
 ### Development Experience
+
 - Hot module replacement in development
 - Fast test execution with Vitest
 - Parallel task execution
