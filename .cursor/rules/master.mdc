@@ -31,6 +31,48 @@ This document serves as the central reference for all rules in the project.
 - **Includes**: Naming conventions and implementation guidelines
 - **Applied to**: `**/*.stories.tsx`, `**/*.stories.ts`
 
+#### [TypeScript Patterns](mdc:.cursor/rules/typescript_patterns.mdc)
+- **Purpose**: TypeScript best practices and patterns for type-safe development
+- **Scope**: Type definitions, import/export patterns, React integration
+- **Includes**: Component props, generics, utility types, Storybook integration
+- **Applied to**: `**/*.{ts,tsx}`
+
+#### [Code Quality](mdc:.cursor/rules/code_quality.mdc)
+- **Purpose**: Code quality standards using Biome and project conventions
+- **Scope**: Formatting, naming conventions, error handling, performance
+- **Includes**: Biome configuration, code organization, documentation
+- **Applied to**: `**/*.{ts,tsx,js,jsx,json}`
+
+### Testing & Quality Assurance
+
+#### [Testing Patterns](mdc:.cursor/rules/testing_patterns.mdc)
+- **Purpose**: Comprehensive testing strategies using Vitest and Storybook
+- **Scope**: Unit testing, integration testing, visual regression testing
+- **Includes**: Test organization, Storybook testing, coverage configuration
+- **Applied to**: `**/*.{test,spec,stories}.{ts,tsx}`
+
+### Styling & UI
+
+#### [Styling Patterns](mdc:.cursor/rules/styling_patterns.mdc)
+- **Purpose**: Tailwind CSS patterns and theme support best practices
+- **Scope**: Component styling, responsive design, accessibility
+- **Includes**: Theme support, responsive design, animation patterns
+- **Applied to**: `**/*.{ts,tsx,css}`
+
+### Infrastructure & DevOps
+
+#### [Monorepo Best Practices](mdc:.cursor/rules/monorepo_best_practices.mdc)
+- **Purpose**: Guidelines for working with the pnpm workspace and Turbo build system
+- **Scope**: Package management, workspace organization, build optimization
+- **Includes**: Workspace dependencies, Turbo tasks, cross-package development
+- **Applied to**: All files in the repository
+
+#### [CI/CD Patterns](mdc:.cursor/rules/ci_cd_patterns.mdc)
+- **Purpose**: GitHub Actions workflows and deployment best practices
+- **Scope**: Continuous integration, automated testing, release management
+- **Includes**: Workflow organization, caching strategies, error handling
+- **Applied to**: `.github/workflows/*.yml`, `**/package.json`
+
 ### Documentation & Communication
 
 #### [Markdown Guidelines](mdc:.cursor/rules/markdown_guidelines.mdc)
@@ -86,16 +128,59 @@ This document serves as the central reference for all rules in the project.
 - **Includes**: Workflow patterns, best practices, and tool usage
 - **Applied to**: All development activities
 
+## Technology Stack
+
+This repository uses a modern, well-integrated technology stack:
+
+### Core Technologies
+- **TypeScript**: Strict typing and modern JavaScript features
+- **React**: Component-based UI development
+- **Vite**: Fast build tool and development server
+- **Tailwind CSS**: Utility-first CSS framework
+- **Vitest**: Fast unit testing framework
+
+### Build and Development Tools
+- **pnpm**: Fast, disk space efficient package manager
+- **Turbo**: High-performance build system for monorepos
+- **Biome**: Fast linter and formatter
+- **Storybook**: Component development and documentation
+
+### Testing and Quality
+- **Storybook**: Component testing and visual regression
+- **Playwright**: End-to-end testing
+- **Visual Regression**: Automated visual testing
+- **Accessibility Testing**: Automated a11y validation
+
+### CI/CD and Deployment
+- **GitHub Actions**: Automated workflows
+- **Changesets**: Version management and releases
+- **GitHub Pages**: Documentation deployment
+- **Conventional Commits**: Standardized commit messages
+
 ## How to Use Rules
 
 ### Automatic Application
-Rules are automatically applied based on their `globs` patterns and relevance to the current context.
+All rules are automatically applied based on their `globs` patterns when you work on files in the repository. The rules provide:
+
+1. **Code Completion**: Intelligent suggestions based on project patterns
+2. **Error Prevention**: Catch common mistakes before they happen
+3. **Consistency**: Ensure all code follows the same patterns
+4. **Best Practices**: Enforce proven development practices
 
 ### Manual Reference
 Rules can be referenced during development and code reviews using the `mdc:` syntax.
 
 ### Cross-References
 Rules reference each other to provide comprehensive guidance across related areas.
+
+### Rule Interactions
+The rules work together to provide comprehensive guidance:
+
+- **Planning**: Start with [React Component PRD](mdc:.cursor/rules/react_component_prd.mdc) for new components
+- **Development**: Use [React Component Specification](mdc:.cursor/rules/react_component_spec.mdc) and [TypeScript Patterns](mdc:.cursor/rules/typescript_patterns.mdc) for implementation
+- **Testing**: Follow [Testing Patterns](mdc:.cursor/rules/testing_patterns.mdc) and [Storybook Stories](mdc:.cursor/rules/storybook_stories.mdc) for comprehensive testing
+- **Quality**: Ensure [Code Quality](mdc:.cursor/rules/code_quality.mdc) standards are met
+- **Deployment**: Use [CI/CD Patterns](mdc:.cursor/rules/ci_cd_patterns.mdc) for reliable deployment
 
 ## Rule Development Workflow
 
@@ -106,6 +191,20 @@ Rules reference each other to provide comprehensive guidance across related area
 
 ## Best Practices
 
+### Development Workflow
+1. **Plan**: Use PRD templates for new features
+2. **Implement**: Follow component specifications and TypeScript patterns
+3. **Test**: Write comprehensive tests using Vitest and Storybook
+4. **Document**: Create clear documentation and examples
+5. **Deploy**: Use automated CI/CD pipelines
+
+### Code Quality Standards
+1. **Type Safety**: Use TypeScript strictly with proper typing
+2. **Consistency**: Follow established patterns and conventions
+3. **Performance**: Optimize for bundle size and runtime performance
+4. **Accessibility**: Ensure all components are accessible
+5. **Testing**: Maintain high test coverage with multiple testing strategies
+
 ### For Developers
 1. **Read Before Implementing**: Always review relevant rules before starting new work
 2. **Follow Standards**: Use component specifications for React components
@@ -113,6 +212,12 @@ Rules reference each other to provide comprehensive guidance across related area
 4. **Maintain Consistency**: All rules work together to maintain consistent code quality
 5. **Document Changes**: Follow markdown guidelines for all documentation
 6. **Commit Properly**: Use conventional commit format for all changes
+
+### Team Collaboration
+1. **Code Reviews**: Use established patterns for consistent reviews
+2. **Documentation**: Keep documentation up to date with code changes
+3. **Automation**: Leverage CI/CD for reliable deployments
+4. **Standards**: Follow established coding standards and conventions
 
 ### For Rule Management
 1. **Organized Structure**: Keep rules organized in appropriate categories
@@ -138,6 +243,15 @@ Guidelines and templates for planning new features and components. These ensure 
 ### **Development Standards**
 Core guidelines for writing, structuring, and testing code. These rules ensure consistency and quality across the codebase.
 
+### **Testing & Quality Assurance**
+Comprehensive testing strategies and quality assurance practices. These ensure reliable and maintainable code.
+
+### **Styling & UI**
+Guidelines for styling, theming, and user interface development. These ensure consistent and accessible user experiences.
+
+### **Infrastructure & DevOps**
+Guidelines for build systems, deployment, and development infrastructure. These ensure efficient and reliable development workflows.
+
 ### **Documentation & Communication**
 Standards for writing documentation, commit messages, and communication patterns. These ensure clear and consistent project communication.
 
@@ -154,6 +268,12 @@ Process guides and best practices for development workflows. These help maintain
 
 - **Component Planning**: Start with [React Component PRD](mdc:.cursor/rules/react_component_prd.mdc)
 - **React Components**: Use [React Component Specification](mdc:.cursor/rules/react_component_spec.mdc)
+- **TypeScript**: Follow [TypeScript Patterns](mdc:.cursor/rules/typescript_patterns.mdc)
+- **Testing**: Use [Testing Patterns](mdc:.cursor/rules/testing_patterns.mdc)
+- **Styling**: Follow [Styling Patterns](mdc:.cursor/rules/styling_patterns.mdc)
+- **Code Quality**: Ensure [Code Quality](mdc:.cursor/rules/code_quality.mdc) standards
+- **Monorepo**: Follow [Monorepo Best Practices](mdc:.cursor/rules/monorepo_best_practices.mdc)
+- **CI/CD**: Use [CI/CD Patterns](mdc:.cursor/rules/ci_cd_patterns.mdc)
 - **Storybook Stories**: Follow [Storybook Stories](mdc:.cursor/rules/storybook_stories.mdc)
 - **Documentation**: Follow [Markdown Guidelines](mdc:.cursor/rules/markdown_guidelines.mdc)
 - **Commits**: Use [Commit Messages](mdc:.cursor/rules/commit_messages.mdc) format

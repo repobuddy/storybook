@@ -1,0 +1,360 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# CI/CD Patterns and Best Practices
+
+This repository uses GitHub Actions for continuous integration and deployment. Follow these patterns for reliable and efficient CI/CD pipelines.
+
+## Workflow Structure
+
+### Workflow Organization
+```
+.github/workflows/
+├── pull-request.yml      # PR validation
+├── release.yml           # Release automation
+├── update-snapshot.yml   # Visual regression updates
+└── github-page.yml       # Documentation deployment
+```
+
+### Common Workflow Pattern
+```yaml
+name: workflow-name
+on:
+  # Trigger events
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  verify:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [20, 22]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install
+      - name: Run verification
+        run: pnpm verify:ci
+```
+
+## Pull Request Workflow
+
+### Validation Process
+```yaml
+name: pull-request
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches-ignore:
+      - 'changeset-release/*'
+      - 'vis-bot/update-snapshot/*'
+
+jobs:
+  verify:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [20, 22]
+    runs-on: ${{ matrix.os }}
+    env:
+      PLAYWRIGHT_PATH: ${{ matrix.os == 'windows-latest' && 'C:\\Users\\runneradmin\\AppData\\Local\\ms-playwright' || '~/.cache/ms-playwright' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: pnpm
+
+      # Cache Playwright browsers
+      - name: Cache Playwright Browsers
+        uses: actions/cache@v4
+        id: cache-playwright
+        with:
+          path: ${{ env.PLAYWRIGHT_PATH }}
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-
+
+      - name: Install playwright browsers
+        if: steps.cache-playwright.outputs.cache-hit != 'true'
+        run: pnpx playwright install --with-deps chromium firefox
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Verify
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: pnpm verify:ci
+
+      # Archive snapshots on failure
+      - name: Archive snapshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: snapshots
+          path: |
+            */*/__vis__/__diffs__
+            */*/__vis__/__results__
+```
+
+## Release Workflow
+
+### Automated Release Process
+```yaml
+name: release
+on:
+  push:
+    branches: [main]
+
+jobs:
+  verify:
+    # Same verification as PR workflow
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [20, 22]
+    runs-on: ${{ matrix.os }}
+    env:
+      PLAYWRIGHT_PATH: ${{ matrix.os == 'windows-latest' && 'C:\\Users\\runneradmin\\AppData\\Local\\ms-playwright' || '~/.cache/ms-playwright' }}
+    steps:
+      # ... same steps as PR workflow
+      - name: Verify
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: pnpm verify:ci
+
+  release:
+    uses: repobuddy/.github/.github/workflows/pnpm-release-changeset.yml@main
+    needs: verify
+    secrets: inherit
+
+  docgen:
+    permissions:
+      contents: write
+    uses: repobuddy/.github/.github/workflows/pnpm-docs.yml@main
+    needs: release
+    if: needs.release.outputs.published == 'true'
+    with:
+      publish-dir: ./libs/storybook/storybook-static
+```
+
+## Visual Regression Testing
+
+### Snapshot Update Workflow
+```yaml
+name: update-snapshot
+on:
+  workflow_dispatch:
+    inputs:
+      build-command:
+        description: 'Command to run to build the project'
+        required: true
+        default: 'pnpm build'
+      update-snapshot-command:
+        description: 'Command to run to update the snapshot'
+        required: true
+        default: 'pnpm test -- -- -u'
+
+jobs:
+  update-snapshot:
+    runs-on: ubuntu-latest
+    env:
+      PLAYWRIGHT_PATH: "~/.cache/ms-playwright"
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Cache Playwright Browsers
+        uses: actions/cache@v4
+        id: cache-playwright
+        with:
+          path: ${{ env.PLAYWRIGHT_PATH }}
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-
+
+      - name: Install playwright browsers
+        run: pnpx playwright install --with-deps chromium
+        if: steps.cache-playwright.outputs.cache-hit != 'true'
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - run: ${{ inputs.build-command }}
+      - run: ${{ inputs.update-snapshot-command }}
+```
+
+## Documentation Deployment
+
+### GitHub Pages Workflow
+```yaml
+name: github-page
+on:
+  workflow_dispatch:
+
+jobs:
+  docgen:
+    permissions:
+      contents: write
+    uses: repobuddy/.github/.github/workflows/pnpm-docs.yml@main
+    with:
+      publish-dir: ./libs/storybook/storybook-static
+```
+
+## Package.json Scripts
+
+### CI/CD Scripts
+```json
+{
+  "scripts": {
+    "build": "turbo run build",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage",
+    "verify": "turbo check coverage",
+    "verify:ci": "turbo check coverage --concurrency=1",
+    "release": "pnpm build && changeset publish",
+    "version": "changeset version"
+  }
+}
+```
+
+## Caching Strategies
+
+### Dependency Caching
+```yaml
+- uses: pnpm/action-setup@v4
+- name: Setup Node.js
+  uses: actions/setup-node@v4
+  with:
+    node-version: ${{ matrix.node-version }}
+    cache: pnpm  # Automatically caches node_modules
+```
+
+### Browser Caching
+```yaml
+- name: Cache Playwright Browsers
+  uses: actions/cache@v4
+  id: cache-playwright
+  with:
+    path: ${{ env.PLAYWRIGHT_PATH }}
+    key: ${{ runner.os }}-playwright-${{ hashFiles('**/pnpm-lock.yaml') }}
+    restore-keys: |
+      ${{ runner.os }}-playwright-
+```
+
+### Build Caching
+```yaml
+- name: Cache Turbo
+  uses: actions/cache@v4
+  with:
+    path: .turbo
+    key: ${{ runner.os }}-turbo-${{ hashFiles('**/pnpm-lock.yaml') }}
+    restore-keys: |
+      ${{ runner.os }}-turbo-
+```
+
+## Error Handling
+
+### Retry Logic
+```yaml
+- name: Verify
+  uses: nick-fields/retry@v3
+  with:
+    timeout_minutes: 10
+    max_attempts: 3
+    command: pnpm verify:ci
+```
+
+### Artifact Collection
+```yaml
+- name: Archive snapshots
+  if: failure()
+  uses: actions/upload-artifact@v4
+  with:
+    name: snapshots
+    path: |
+      */*/__vis__/__diffs__
+      */*/__vis__/__results__
+```
+
+## Security Practices
+
+### Permission Management
+```yaml
+permissions:
+  contents: write      # For pushing to repository
+  pull-requests: write # For commenting on PRs
+  actions: read        # For reusable workflows
+```
+
+### Secret Management
+```yaml
+jobs:
+  release:
+    uses: repobuddy/.github/.github/workflows/pnpm-release-changeset.yml@main
+    needs: verify
+    secrets: inherit  # Inherit secrets from parent workflow
+```
+
+## Best Practices
+
+### Workflow Design
+1. **Separation of Concerns**: Separate verification, release, and deployment
+2. **Matrix Testing**: Test across multiple Node.js versions and OS
+3. **Caching**: Cache dependencies, browsers, and build artifacts
+4. **Retry Logic**: Implement retry mechanisms for flaky tests
+5. **Artifact Collection**: Collect artifacts on failure for debugging
+
+### Performance Optimization
+1. **Parallel Jobs**: Run independent jobs in parallel
+2. **Selective Testing**: Only run tests for changed packages
+3. **Efficient Caching**: Cache at the right level (dependencies vs build)
+4. **Resource Management**: Use appropriate runner sizes
+
+### Reliability
+1. **Idempotency**: Ensure workflows can be re-run safely
+2. **Error Handling**: Proper error handling and artifact collection
+3. **Timeout Management**: Set appropriate timeouts for long-running tasks
+4. **Dependency Management**: Pin action versions for stability
+
+### Security
+1. **Minimal Permissions**: Use least privilege principle
+2. **Secret Management**: Never expose secrets in logs
+3. **Dependency Scanning**: Regularly update dependencies
+4. **Code Signing**: Sign releases when possible
+
+### Monitoring
+1. **Status Checks**: Require status checks before merging
+2. **Branch Protection**: Protect main branch with required reviews
+3. **Automated Testing**: Run tests on all PRs
+4. **Visual Regression**: Automated visual testing
+
+When you use this rule file, let me know this rule file is being used in the chat by mentioning the rule filename.
