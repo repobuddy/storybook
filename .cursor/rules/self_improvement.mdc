@@ -1,7 +1,8 @@
 ---
-description:
-globs:
-alwaysApply: false
+description: Comprehensive guidance for AI agents on automatic cursor rule management
+globs: **/*
+alwaysApply: true
+tags: ["meta", "ai-agent", "rule-management"]
 ---
 # Self-Improving Cursor Rules
 
