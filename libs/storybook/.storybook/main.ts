@@ -33,8 +33,8 @@ export default {
 					}
 				]
 			})
-		}
-		// '#repobuddy/storybook/variants'
+		},
+		'#repobuddy/storybook/variants'
 	],
 	framework: {
 		name: getAbsolutePath('@storybook/react-vite'),
