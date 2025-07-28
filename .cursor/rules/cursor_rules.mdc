@@ -1,5 +1,5 @@
 ---
-description: How to add or edit Cursor rules in our project
+description:
 globs:
 alwaysApply: false
 ---
@@ -11,14 +11,14 @@ How to add new cursor rules to the project
 
   ```
   .cursor/rules/
-  ├── your-rule-name.mdc
-  ├── another-rule.mdc
+  ├── your_rule_name.mdc
+  ├── another_rule.mdc
   └── ...
   ```
 
 2. Follow the naming convention:
 
-  - Use kebab-case for filenames
+  - Use snake_case for filenames
   - Always use .mdc extension
   - Make names descriptive of the rule's purpose
 
@@ -28,7 +28,7 @@ How to add new cursor rules to the project
   PROJECT_ROOT/
   ├── .cursor/
   │   └── rules/
-  │       ├── your-rule-name.mdc
+  │       ├── your_rule_name.mdc
   │       └── ...
   └── ...
   ```
@@ -41,7 +41,6 @@ How to add new cursor rules to the project
 
 5. Cursor rules have the following structure:
 
-````
 ---
 description: Short description of the rule's purpose
 globs: optional/path/pattern/**/*
@@ -70,7 +69,6 @@ function badExample() {
   // Implementation not following guidelines
 }
 ```
-````
 
 6. Default rule type to `Agent Requested` and add the rule purpose to the `description`.
 
