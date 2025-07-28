@@ -41,6 +41,12 @@ This document serves as the central reference for all rules in the project.
 - **Scope**: Rule file structure, location, naming conventions, and organization
 - **Includes**: Template for creating new rule files and best practices
 
+#### [Self-Improving Rules](mdc:.cursor/rules/meta/self_improvement.mdc)
+- **Purpose**: Guidelines for continuously improving and maintaining the rules system
+- **Scope**: Rule review cycles, maintenance, and quality metrics
+- **Includes**: Improvement processes, feedback collection, and rule retirement
+- **Applied to**: All rule files in the `.cursor/rules/` directory
+
 ## How to Use Rules
 
 ### Automatic Application

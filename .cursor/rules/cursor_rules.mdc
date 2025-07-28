@@ -7,6 +7,8 @@ alwaysApply: false
 
 How to add and manage cursor rules in the project.
 
+When you use this rule, let me know this rule file is being used in the chat by mentioning the filename.
+
 ## Directory Structure
 
 Always place rule files in the organized structure under `PROJECT_ROOT/.cursor/rules/`:
@@ -110,5 +112,3 @@ Documentation about the rules system itself, including this file.
 - **Never** place rule files outside `.cursor/rules/`
 - **Always** use the organized directory structure
 - **Always** update the master index when adding new rules
-
-When you use this rule file, let me know this rule file is being used in the chat by mentioning the rule filename.
