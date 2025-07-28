@@ -30,7 +30,7 @@
 		"@vitest/coverage-v8": "^3.2.2",
 		"storybook": "^9.0.6",
 		"storybook-addon-vis": "^2.1.1",
-		"storybook-dark-mode2": "^5.2.1",
+		"storybook-dark-mode2": "^5.2.2",
 		"typescript": "~5.8.3",
 		"vite": "^6.3.5",
 		"vitest": "^3.2.2"
