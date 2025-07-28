@@ -16,10 +16,10 @@ This repository uses TypeScript extensively with strict settings. Follow these p
 interface ComponentNameProps {
 	// Required props
 	title: string
-	// Optional props with default values
-	variant?: 'primary' | 'secondary'
-	// Event handlers
-	onClick?: () => void
+	// Optional props with explicit undefined
+	variant?: 'primary' | 'secondary' | undefined
+	// Event handlers with explicit undefined
+	onClick?: (() => void) | undefined
 	// Complex types
 	data: Array<{ id: string; name: string }>
 }
@@ -42,7 +42,7 @@ interface ListProps<T> {
 interface ApiResponse<T extends Record<string, unknown>> {
 	data: T
 	status: 'success' | 'error'
-	message?: string
+	message?: string | undefined
 }
 ```
 
@@ -55,10 +55,10 @@ type RequiredProps<T> = Required<T>
 type PickProps<T, K extends keyof T> = Pick<T, K>
 type OmitProps<T, K extends keyof T> = Omit<T, K>
 
-// Custom utility types
+// Custom utility types with explicit undefined
 type WithOptional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>
 type DeepPartial<T> = {
-	[P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P]
+	[P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> | undefined : T[P] | undefined
 }
 ```
 
@@ -343,6 +343,7 @@ The project uses strict TypeScript settings defined in [libs/storybook/tsconfig.
 
 - **strict**: `true` - Enables all strict type checking options
 - **verbatimModuleSyntax**: `true` - **Critical**: Requires file extensions and explicit imports
+- **explicitOptionalType**: `true` - **Critical**: Requires explicit `| undefined` for optional types
 - **isolatedModules**: `true` - Ensures files can be safely transpiled
 - **target**: `ES2020` - Modern JavaScript features
 - **moduleResolution**: `bundler` - Optimized for Vite
@@ -350,8 +351,49 @@ The project uses strict TypeScript settings defined in [libs/storybook/tsconfig.
 ### Why These Settings Matter
 
 - **verbatimModuleSyntax**: Prevents accidental runtime imports of type-only modules
+- **explicitOptionalType**: Makes optional types explicit with `| undefined`, improving type clarity
 - **strict**: Catches type errors early and enforces best practices
 - **isolatedModules**: Ensures compatibility with bundlers and build tools
+
+### Explicit Optional Types
+
+With `explicitOptionalType: true`, TypeScript requires explicit `| undefined` for optional properties:
+
+```ts
+// ✅ Correct: Explicit undefined for optional properties
+interface User {
+	id: string
+	name: string
+	email?: string | undefined
+	profile?: UserProfile | undefined
+}
+
+// ✅ Correct: Function parameters with explicit undefined
+function updateUser(
+	id: string,
+	name?: string | undefined,
+	email?: string | undefined
+) {
+	// Implementation
+}
+
+// ✅ Correct: Return types with explicit undefined
+function findUser(id: string): User | undefined {
+	// Implementation
+}
+
+// ❌ Wrong: Implicit optional types (will cause errors with explicitOptionalType)
+interface User {
+	id: string
+	name: string
+	email?: string // Error: must be string | undefined
+}
+
+// ❌ Wrong: Function parameters without explicit undefined
+function updateUser(id: string, name?: string) {
+	// Error: must be string | undefined
+}
+```
 
 ### Vite Config
 
@@ -401,8 +443,9 @@ function processData<T extends { toString(): string }>(data: T) {
 // ❌ Bad: Unsafe property access
 const name = user.profile.name // Error if profile is undefined
 
-// ✅ Good: Safe property access
+// ✅ Good: Safe property access with explicit undefined handling
 const name = user.profile?.name ?? 'Anonymous'
+const profile = user.profile || null
 ```
 
 ### Proper Array Type Definitions
@@ -417,15 +460,50 @@ const items = [] as string[]
 const items: Array<string> = []
 ```
 
+### Explicit Optional Types in Practice
+
+```typescript
+// ✅ Good: Explicit undefined for all optional properties
+interface ComponentProps {
+	title: string
+	subtitle?: string | undefined
+	onClick?: (() => void) | undefined
+	children?: React.ReactNode | undefined
+	data?: Array<{ id: string; name: string }> | undefined
+}
+
+// ✅ Good: Function signatures with explicit undefined
+function handleUserAction(
+	userId: string,
+	action?: 'edit' | 'delete' | undefined,
+	callback?: (() => void) | undefined
+): Promise<void> {
+	// Implementation
+}
+
+// ✅ Good: Return types with explicit undefined
+function getUserById(id: string): User | undefined {
+	// Implementation
+}
+
+// ✅ Good: Union types with explicit undefined
+type Status = 'loading' | 'success' | 'error' | undefined
+type ApiResponse<T> = {
+	data: T
+	status: Status
+	message?: string | undefined
+}
+```
+
 ## Testing with TypeScript
 
 ### Mock Types
 
 ```typescript
-// Type your mocks properly
+// Type your mocks properly with explicit undefined
 const mockApi = {
-	fetchUser: vi.fn<[string], Promise<User>>(),
-	updateUser: vi.fn<[string, Partial<User>], Promise<User>>()
+	fetchUser: vi.fn<[string], Promise<User | undefined>>(),
+	updateUser: vi.fn<[string, Partial<User> | undefined], Promise<User>>()
 } as const
 
 // Type test utilities
@@ -443,8 +521,8 @@ const createTestUtils = (): TestUtils => ({
 ### Type-Safe Test Data
 
 ```typescript
-// Create type-safe test data
-const createMockUser = (overrides?: Partial<User>): User => ({
+// Create type-safe test data with explicit undefined
+const createMockUser = (overrides?: Partial<User> | undefined): User => ({
 	id: 'test-id',
 	name: 'Test User',
 	email: 'test@example.com',
@@ -458,30 +536,33 @@ const user = createMockUser({ name: 'Custom Name' })
 ## Type Safety Patterns
 
 ```typescript
-// Use proper type annotations
+// Use proper type annotations with explicit undefined
 interface User {
 	id: string
 	name: string
-	email: string
+	email?: string | undefined
 }
 
 // Generic types for reusable components
 interface ListProps<T> {
 	items: T[]
 	renderItem: (item: T) => React.ReactNode
+	onItemClick?: ((item: T) => void) | undefined
 }
 
-export function List<T>({ items, renderItem }: ListProps<T>) {
+export function List<T>({ items, renderItem, onItemClick }: ListProps<T>) {
 	return (
 		<ul>
 			{items.map((item, index) => (
-				<li key={index}>{renderItem(item)}</li>
+				<li key={index} onClick={() => onItemClick?.(item)}>
+					{renderItem(item)}
+				</li>
 			))}
 		</ul>
 	)
 }
 
-// Utility types for common patterns
+// Utility types for common patterns with explicit undefined
 type Optional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>
 type Required<T, K extends keyof T> = T & Required<Pick<T, K>>
 ```
@@ -495,13 +576,13 @@ type Required<T, K extends keyof T> = T & Required<Pick<T, K>>
  * Fetches user data from the API
  * @param userId - The unique identifier of the user
  * @param options - Optional configuration for the request
- * @returns Promise resolving to user data
+ * @returns Promise resolving to user data or undefined
  * @throws {Error} When the API request fails
  */
 async function fetchUserData(
 	userId: string,
-	options?: RequestOptions
-): Promise<UserData> {
+	options?: RequestOptions | undefined
+): Promise<UserData | undefined> {
 	// Implementation
 }
 
@@ -541,6 +622,7 @@ setLoading(true)
 3. **Prefer interfaces over types**: Better for object shapes
 4. **Use const assertions**: `as const` for literal types
 5. **Leverage discriminated unions**: For complex state management
+6. **Use explicit undefined**: Always include `| undefined` for optional types
 
 ### Performance
 
