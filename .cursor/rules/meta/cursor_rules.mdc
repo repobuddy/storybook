@@ -1,0 +1,116 @@
+---
+description: When creating or updating cursor rules
+globs:
+alwaysApply: false
+---
+# Cursor Rules Management
+
+How to add and manage cursor rules in the project.
+
+## Directory Structure
+
+Always place rule files in the organized structure under `PROJECT_ROOT/.cursor/rules/`:
+
+```
+.cursor/rules/
+├── development/          # Development standards and guidelines
+│   ├── react_component_spec.mdc
+│   └── storybook_stories.mdc
+├── templates/           # Project templates and boilerplates
+│   └── component_spec_template.mdc
+├── meta/               # Meta documentation about the rules system
+│   └── cursor_rules.mdc
+└── master.mdc          # Central index of all rules
+```
+
+## Naming Conventions
+
+1. **File Names**:
+   - Use snake_case for filenames
+   - Always use `.mdc` extension
+   - Make names descriptive of the rule's purpose
+
+2. **Directory Names**:
+   - Use lowercase with underscores if needed
+   - Keep names short but descriptive
+   - Group related rules together
+
+## Rule File Structure
+
+All rule files should follow this structure:
+
+```markdown
+---
+description: Short description of the rule's purpose
+globs: ["optional/path/pattern/**/*"]
+alwaysApply: false
+---
+
+# Rule Title
+
+Main content explaining the rule with markdown formatting.
+
+1. Step-by-step instructions
+2. Code examples
+3. Guidelines
+4. Add this instruction: "When you use this rule file, let me know this rule file is being used in the chat by mentioning the rule filename."
+
+Example:
+
+```typescript
+// ✅ Good example
+function goodExample() {
+  // Implementation following guidelines
+}
+
+// ❌ Bad example
+function badExample() {
+  // Implementation not following guidelines
+}
+```
+
+## Adding New Rules
+
+When adding new rules:
+
+1. **Choose the Right Category**: Place the rule in the appropriate directory
+   - `development/` - Development standards and guidelines
+   - `templates/` - Project templates and boilerplates
+   - `meta/` - Meta documentation about the rules system
+
+2. **Create the Rule File**: Follow the standard rule file structure
+
+3. **Update Master Index**: Add the new rule to [master.mdc](mdc:.cursor/rules/master.mdc) with proper categorization
+
+4. **Set Rule Properties**:
+   - Default rule type to "Agent Requested"
+   - Add clear description of the rule's purpose
+   - Include appropriate glob patterns if needed
+
+## Rule Categories
+
+### Development Standards (`development/`)
+Rules that define how code should be written, structured, and tested.
+
+### Project Templates (`templates/`)
+Templates and boilerplates for creating new components, features, or documentation.
+
+### Meta Documentation (`meta/`)
+Documentation about the rules system itself, including this file.
+
+## Best Practices
+
+1. **Keep Rules Focused**: Each rule should have a single, clear purpose
+2. **Use Examples**: Include both good and bad examples
+3. **Cross-Reference**: Link to related rules using `mdc:` syntax
+4. **Regular Updates**: Keep rules current with project evolution
+5. **Clear Documentation**: Write rules that are easy to understand and follow
+
+## File Location Rules
+
+- **Never** place rule files in the project root
+- **Never** place rule files outside `.cursor/rules/`
+- **Always** use the organized directory structure
+- **Always** update the master index when adding new rules
+
+When you use this rule file, let me know this rule file is being used in the chat by mentioning the rule filename.

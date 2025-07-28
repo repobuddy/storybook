@@ -1,33 +1,106 @@
 ---
-description: creating new curser rule
+description:
 globs:
+alwaysApply: true
+---
+---
+description: Central reference for all cursor rules in the project
 alwaysApply: false
 ---
+
 # Master Rules
 
 This document serves as the central reference for all rules in the project.
 
-## Available Rules
+## Available Rules by Category
 
-1. [React Guidelines](mdc:.cursor/rules/react-guidelines.mdc)
-   - Provides best practices and patterns for React development
-   - Covers component structure, state management, performance, testing, and more
+### Development Standards (`development/`)
 
-2. [Cursor Rules](mdc:.cursor/rules/cursor-rules.mdc)
-   - Explains how to add and edit Cursor rules in the project
-   - Contains guidelines for rule file structure and location
+#### [React Component Specification](mdc:.cursor/rules/development/react_component_spec.mdc)
+- **Purpose**: Comprehensive guide for creating React components following project standards
+- **Scope**: Component structure, TypeScript usage, styling, testing, and accessibility
+- **Includes**: Storybook integration and best practices
+- **Applied to**: `libs/**/*.tsx`, `apps/**/*.tsx`
+
+#### [Storybook Stories](mdc:.cursor/rules/development/storybook_stories.mdc)
+- **Purpose**: Standards and best practices for writing Storybook stories
+- **Scope**: Component Story Format (CSF), organization, and testing patterns
+- **Includes**: Naming conventions and implementation guidelines
+- **Applied to**: `**/*.stories.tsx`, `**/*.stories.ts`
+
+#### [Component Specification Template](mdc:.cursor/rules/development/component_spec_template.mdc)
+- **Purpose**: Structured template for specifying React components before implementation
+- **Scope**: Checklist-based approach to component planning
+- **Usage**: Use this template before implementing complex components
+- **Ensures**: Comprehensive feature coverage and testing requirements
+
+### Meta Documentation (`meta/`)
+
+#### [Cursor Rules Management](mdc:.cursor/rules/meta/cursor_rules.mdc)
+- **Purpose**: Guidelines for managing cursor rules in the project
+- **Scope**: Rule file structure, location, naming conventions, and organization
+- **Includes**: Template for creating new rule files and best practices
 
 ## How to Use Rules
 
-1. Each rule file contains specific guidelines for a particular aspect of development
-2. Rules are automatically applied based on their glob patterns
-3. Some rules are always applied (alwaysApply: true)
-4. Rules can be referenced in code reviews and development discussions
+### Automatic Application
+Rules are automatically applied based on their `globs` patterns and relevance to the current context.
+
+### Manual Reference
+Rules can be referenced during development and code reviews using the `mdc:` syntax.
+
+### Template Usage
+Use specification templates before implementing new features to ensure comprehensive planning.
+
+### Cross-References
+Rules reference each other to provide comprehensive guidance across related areas.
+
+## Rule Development Workflow
+
+1. **Planning**: Use templates from `templates/` directory for complex features
+2. **Implementation**: Follow standards from `development/` directory
+3. **Documentation**: Ensure all components have proper Storybook stories
+4. **Maintenance**: Update rules as patterns evolve
+
+## Best Practices
+
+### For Developers
+1. **Read Before Implementing**: Always review relevant rules before starting new work
+2. **Follow Templates**: Use specification templates for complex components
+3. **Validate with Stories**: Ensure all components have comprehensive Storybook stories
+4. **Maintain Consistency**: All rules work together to maintain consistent code quality
+
+### For Rule Management
+1. **Organized Structure**: Keep rules organized in appropriate categories
+2. **Clear Documentation**: Write rules that are easy to understand and follow
+3. **Regular Updates**: Keep rules current with project evolution
+4. **Cross-Reference**: Link related rules to provide comprehensive guidance
 
 ## Adding New Rules
 
 When adding new rules:
-1. Create the rule file in `.cursor/rules/` directory
-2. Use the `.mdc` extension
-3. Follow the standard rule file structure
-4. Update this master file to reference the new rule
+
+1. **Choose Category**: Determine the appropriate directory (`development/`, `templates/`, `meta/`)
+2. **Create Rule File**: Follow the standard structure defined in [Cursor Rules Management](mdc:.cursor/rules/meta/cursor_rules.mdc)
+3. **Update This Index**: Add the new rule to the appropriate category in this file
+4. **Test Integration**: Ensure the rule works well with existing rules
+
+## Rule Categories Explained
+
+### **Development Standards**
+Core guidelines for writing, structuring, and testing code. These rules ensure consistency and quality across the codebase.
+
+### **Project Templates**
+Structured templates for planning and implementing new features. These help ensure comprehensive coverage of requirements.
+
+### **Meta Documentation**
+Documentation about the rules system itself. These rules help maintain and evolve the cursor rules structure.
+
+## Quick Reference
+
+- **React Components**: Use [React Component Specification](mdc:.cursor/rules/development/react_component_spec.mdc)
+- **Storybook Stories**: Follow [Storybook Stories](mdc:.cursor/rules/development/storybook_stories.mdc)
+- **Planning Components**: Start with [Component Specification Template](mdc:.cursor/rules/development/component_spec_template.mdc)
+- **Managing Rules**: Reference [Cursor Rules Management](mdc:.cursor/rules/meta/cursor_rules.mdc)
+
+This organized structure ensures that all rules are discoverable, maintainable, and work together to provide comprehensive guidance for the project.
