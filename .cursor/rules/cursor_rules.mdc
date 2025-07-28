@@ -53,6 +53,16 @@ Main content explaining the rule with markdown formatting.
 3. Guidelines
 4. Add this instruction: "When you use this rule file, let me know this rule file is being used in the chat."
 
+## Front Matter
+
+The front matter section contains metadata about the rule:
+
+- **description**: Clear, one-line description of what the rule enforces
+  - **Important**: Must be a single line. Do not use multiline descriptions as they may cause parsing issues.
+- **globs**: File patterns where the rule applies (e.g., `path/to/files/*.ext, other/path/**/*`)
+- **alwaysApply**: Boolean indicating if the rule should always be applied
+- **tags**: Array of categories for logical organization (e.g., `["category1", "category2"]`)
+
 ## Code Examples
 
 - Use language-specific code blocks
