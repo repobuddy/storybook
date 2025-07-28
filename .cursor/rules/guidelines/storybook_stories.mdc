@@ -5,7 +5,7 @@ alwaysApply: false
 ---
 # Writing Storybook Stories
 
-This document outlines the standards and best practices for creating Storybook stories in our project. It complements the [React Component Specification](mdc:.cursor/rules/development/react_component_spec.mdc) and [React Component PRD](mdc:.cursor/rules/planning/react_component_prd.mdc) guidelines.
+This document outlines the standards and best practices for creating Storybook stories in our project. It complements the [React Component Specification](mdc:.cursor/rules/commands/react_component_spec.mdc) and [React Component PRD](mdc:.cursor/rules/commands/react_component_prd.mdc) guidelines.
 
 ## Quick Start Guide
 
@@ -336,10 +336,10 @@ Before submitting a story, ensure:
 
 This rule works in conjunction with:
 
-- [React Component Specification](mdc:.cursor/rules/development/react_component_spec.mdc) - For component development standards
-- [TypeScript Patterns](mdc:.cursor/rules/typescript_patterns.mdc) - For TypeScript best practices
-- [Naming Conventions](mdc:.cursor/rules/naming_conventions.mdc) - For file naming consistency
-- [Testing Patterns](mdc:.cursor/rules/testing_patterns.mdc) - For testing strategies
+- [React Component Specification](mdc:.cursor/rules/commands/react_component_spec.mdc) - For component development standards
+- [TypeScript Patterns](mdc:.cursor/rules/guidelines/typescript_patterns.mdc) - For TypeScript best practices
+- [Naming Conventions](mdc:.cursor/rules/guidelines/naming_conventions.mdc) - For file naming consistency
+- [Testing Patterns](mdc:.cursor/rules/guidelines/testing_patterns.mdc) - For testing strategies
 
 Remember to follow these guidelines when creating new Storybook stories.
 

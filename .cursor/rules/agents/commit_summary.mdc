@@ -1,0 +1,48 @@
+---
+description: This rule ensures a commit message is generated when you summarize code changes.
+alwaysApply: true
+---
+
+# Commit Summary Instructions
+
+This rule ensures a commit message is generated when you summarize code changes.
+
+## When to Apply This Rule
+
+- When you summarize your changes
+- When code changes were made
+- The conversation is ending
+
+## Required Rules
+
+The AI agent should read and follow these rules along with the subject rule:
+
+- **[generate_commit_message.mdc](mdc:.cursor/rules/commands/generate_commit_message.mdc)**: For commit message format and conventions that must be followed
+
+## Commit Message Generation Process
+
+Follow [generate_commit_message.mdc](mdc:.cursor/rules/commands/generate_commit_message.mdc) to generate the commit message.
+
+## Response Format
+
+When generating a commit message, place the commit message within a text code block:
+
+```text
+[generated commit message]
+```
+
+## Examples
+
+For reference, see these specific examples:
+
+- **Component Creation**: [component_creation.md](mdc:.cursor/examples/commit_message/component_creation.md) - Shows feature addition with detailed body
+- **Bug Fix**: [bug_fix.md](mdc:.cursor/examples/commit_message/bug_fix.md) - Shows fix type with bullet points in body
+- **Documentation Update**: [doc_update.md](mdc:.cursor/examples/commit_message/doc_update.md) - Shows docs type with multiple changes
+
+## Enforcement
+
+**This rule is MANDATORY - no exceptions.** If you forget to apply this rule:
+
+1. The user may point out the oversight
+2. You must immediately generate the commit message
+3. Acknowledge the rule was missed and explain why it should have been applied

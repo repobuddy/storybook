@@ -1,0 +1,131 @@
+---
+description: Guidelines for continuously improving Cursor rules based on emerging code patterns and best practices.
+globs: **/*
+alwaysApply: true
+---
+
+# Self-Improving Rules
+
+Guidelines for continuously improving Cursor rules based on emerging code patterns and best practices.
+
+## Required Rules
+
+The AI agent should read and follow these rules along with the subject rule:
+
+- **[Cursor Rules Management](mdc:.cursor/rules/agents/cursor_rules.mdc)**: For proper rule formatting and structure that must be followed.
+- **[Markdown Guidelines](mdc:.cursor/rules/guidelines/markdown.mdc)**: For consistent markdown formatting standards.
+
+## Quick Reference
+
+- **Triggers**: New patterns, repeated implementations, common errors, new libraries
+- **Analysis**: Compare with existing rules, identify standardization needs
+- **Updates**: Add rules for 3+ file usage, modify for better examples
+- **Quality**: Actionable, specific, up-to-date references
+- **Maintenance**: Monitor reviews, track questions, update after refactors
+
+## Table of Contents
+
+- [Self-Improving Rules](#self-improving-rules)
+  - [Required Rules](#required-rules)
+  - [Quick Reference](#quick-reference)
+  - [Table of Contents](#table-of-contents)
+  - [Rule Improvement Triggers](#rule-improvement-triggers)
+  - [Analysis Process](#analysis-process)
+  - [Rule Updates](#rule-updates)
+    - [Add New Rules When](#add-new-rules-when)
+    - [Modify Existing Rules When](#modify-existing-rules-when)
+  - [Example Pattern Recognition](#example-pattern-recognition)
+  - [Rule Quality Checks](#rule-quality-checks)
+  - [Continuous Improvement](#continuous-improvement)
+  - [Rule Deprecation](#rule-deprecation)
+  - [Documentation Updates](#documentation-updates)
+
+## Rule Improvement Triggers
+
+Look for these patterns to identify when rules need improvement:
+
+- New code patterns not covered by existing rules
+- Repeated similar implementations across files
+- Common error patterns that could be prevented
+- New libraries or tools being used consistently
+- Emerging best practices in the codebase
+
+## Analysis Process
+
+Follow this systematic approach when analyzing code for rule improvements:
+
+- Compare new code with existing rules
+- Identify patterns that should be standardized
+- Look for references to external documentation
+- Check for consistent error handling patterns
+- Monitor test patterns and coverage
+
+## Rule Updates
+
+### Add New Rules When
+
+- A new technology/pattern is used in 3+ files
+- Common bugs could be prevented by a rule
+- Code reviews repeatedly mention the same feedback
+- New security or performance patterns emerge
+
+### Modify Existing Rules When
+
+- Better examples exist in the codebase
+- Additional edge cases are discovered
+- Related rules have been updated
+- Implementation details have changed
+
+## Example Pattern Recognition
+
+When you see repeated patterns in the codebase, consider creating or updating rules:
+
+```typescript
+// If you see repeated patterns like:
+const data = await prisma.user.findMany({
+  select: { id: true, email: true },
+  where: { status: 'ACTIVE' }
+});
+
+// Consider adding to [prisma.mdc](mdc:.cursor/rules/prisma.mdc):
+// - Standard select fields
+// - Common where conditions
+// - Performance optimization patterns
+```
+
+## Rule Quality Checks
+
+Ensure rules meet these quality standards:
+
+- Rules should be actionable and specific
+- Examples should come from actual code
+- References should be up to date
+- Patterns should be consistently enforced
+
+## Continuous Improvement
+
+Maintain rule quality through ongoing processes:
+
+- Monitor code review comments
+- Track common development questions
+- Update rules after major refactors
+- Add links to relevant documentation
+- Cross-reference related rules
+
+## Rule Deprecation
+
+Handle outdated rules appropriately:
+
+- Mark outdated patterns as deprecated
+- Remove rules that no longer apply
+- Update references to deprecated rules
+- Document migration paths for old patterns
+
+## Documentation Updates
+
+Keep documentation synchronized with code changes:
+
+- Keep examples synchronized with code
+- Update references to external docs
+- Maintain links between related rules
+- Document breaking changes

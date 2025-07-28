@@ -1,0 +1,229 @@
+---
+description: When creating or updating cursor rules
+globs: *.mdc
+---
+
+# Cursor Rules Management
+
+Guidelines for managing cursor rules in this repository.
+
+## Required Rules
+
+The AI agent should read and follow these rules along with the subject rule:
+
+- **[master.mdc](mdc:.cursor/rules/master.mdc)**: Central reference for all rules that must be understood.
+- **[Naming Conventions](mdc:.cursor/rules/guidelines/naming_conventions.mdc)**: File naming conventions that must be followed.
+- **[Markdown Guidelines](mdc:.cursor/rules/guidelines/markdown.mdc)**: Content formatting standards that must be applied.
+
+## Quick Reference
+
+- **Categories**: agents, commands, guidelines, templates
+- **Naming**: Use `snake_case` for all rule files
+- **Location**: Place in appropriate category subfolder
+- **Structure**: Follow the provided template with frontmatter
+- **Globs**: Use simple patterns, avoid brace expansion
+
+## Best Practices
+
+- **Keep Rules Focused**: Each rule should have a single, clear purpose.
+- **Keep Rules Short**: Omit details that are well known to the AI agent.
+- **Clear Documentation**: Write rules that are easy to understand and follow.
+- **Use Examples**: Include both good and bad examples.
+
+## Table of Contents
+
+- [Cursor Rules Management](#cursor-rules-management)
+  - [Required Rules](#required-rules)
+  - [Quick Reference](#quick-reference)
+  - [Best Practices](#best-practices)
+  - [Table of Contents](#table-of-contents)
+  - [Rules Categories](#rules-categories)
+    - [Agents](#agents)
+    - [Commands](#commands)
+    - [Guidelines](#guidelines)
+    - [Templates](#templates)
+    - [Special Cases](#special-cases)
+  - [Directory Structure](#directory-structure)
+  - [Naming Convention](#naming-convention)
+  - [Rule File Structure](#rule-file-structure)
+    - [Frontmatter Requirements](#frontmatter-requirements)
+    - [Rule Template](#rule-template)
+  - [Updating References](#updating-references)
+  - [Quality Checklist](#quality-checklist)
+
+## Rules Categories
+
+Cursor rules can be categorized based on its purpose:
+
+### Agents
+
+**Purpose**: Rules for AI agent behavior and management
+**Examples**: Summary Commit, Cursor Rules Guidelines, Rule Usage
+**When to use**: For rules that control how the AI agent should behave
+
+### Commands
+
+**Purpose**: Step-by-step commands for the AI agent to perform specific tasks
+**Examples**: Implementation workflows, task-specific guidance, process documentation
+**When to use**: For rules that describe how to accomplish specific tasks or follow processes
+
+### Guidelines
+
+**Purpose**: Opinionated best practices on specific topics
+**Examples**: Commit Message, Naming Conventions, Formatting Standards, Coding Style, Best Practices
+**When to use**: For rules that establish standards, conventions, or best practices
+
+### Templates
+
+**Purpose**: Templates for the AI agent to use
+**Examples**: Rule templates, Workflow templates, etc.
+**When to use**: For rules that provide templates for the AI agent to use
+
+### Special Cases
+
+The `master.mdc` is a special case that does not belong to any category.
+It is placed directly under the `.cursor/rules` folder.
+
+## Directory Structure
+
+Rule files should be placed in the appropriate folder based on its category:
+
+```sh
+.cursor/rules/
+├── master.mdc                              # Central reference (special file)
+├── agents/                                 # Rules for AI agent behavior and management
+│   ├── commit_summary.mdc                  # Add a "Commit Message" section in agent response
+│   ├── cursor_rules.mdc                    # Rule for managing cursor rules
+│   └── self_improvement.mdc                # Guidelines for rule improvement
+├── commands/                              # Step-by-step commands for AI agents to follow
+│   ├── generate_commit_message.mdc         # Guidelines for commit messages
+│   ├── generate_changeset.mdc              # Guidelines for changeset creation
+│   ├── dev_workflow.mdc                    # Development workflow guidelines
+│   ├── prd_implementation_workflow.mdc     # PRD implementation workflow
+│   ├── react_component_prd.mdc             # React component PRD guidelines
+│   ├── react_component_spec.mdc            # React component specification
+│   └── react_component_instructions.mdc    # React component instructions
+├── guidelines/                             # Opinionated best practices
+│   ├── ci_cd_patterns.mdc                  # CI/CD patterns and best practices
+│   ├── code_quality.mdc                    # Code quality standards
+│   ├── markdown.mdc                        # Markdown formatting guidelines
+│   ├── naming_conventions.mdc              # File and folder naming conventions
+│   ├── storybook_stories.mdc               # Storybook story guidelines
+│   ├── styling_patterns.mdc                # Styling and CSS patterns
+│   ├── testing_patterns.mdc                # Testing patterns and strategies
+│   └── typescript_patterns.mdc             # TypeScript patterns and best practices
+├── project/                               # Project-specific guidelines
+└── templates/                              # Templates for the AI agent to use
+    └── component_spec_template.mdc         # Component specification template
+```
+
+## Naming Convention
+
+- **Make names descriptive** of the rule's purpose
+- **Place in appropriate category subfolder** (see categories above)
+
+❌ **Bad names:**
+
+- `ReactComponent.mdc` (PascalCase)
+- `react-component.mdc` (kebab-case)
+- `react_component.md` (wrong extension)
+- `component.mdc` (too generic)
+
+✅ **Good names:**
+
+- `react_component.mdc`
+- `commit_message.mdc`
+- `storybook_story.mdc`
+- `tailwindcss.mdc`
+
+## Rule File Structure
+
+### Frontmatter Requirements
+
+The `globs` field is optional and is used to specify the file patterns where this rule applies (e.g., `src/**/*.tsx`)
+
+- **Important**: Complex glob patterns are not supported
+- **Example**: `*.{ts,tsx}` does not work - use `*.ts,*.tsx` instead
+- **Supported**: Simple patterns like `*.ts`, `src/**/*.tsx`, `packages/*/src/**/*.ts`
+- **Not Supported**: Brace expansion patterns like `*.{ts,tsx}`, `*.{js,jsx,ts,tsx}`
+
+### Rule Template
+
+The cursor rules should follow this template:
+
+```md
+# Rule Title
+
+Brief explanation of the rule's purpose and when to use it.
+
+## Required Rules
+
+The AI agent should read and follow these rules along with the subject rule:
+
+- **[Required Rule Name](mdc:.cursor/rules/category/rule_name.mdc)**: Brief explanation of why this rule is required
+- **[Another Required Rule](mdc:.cursor/rules/category/another_rule.mdc)**: Brief explanation of why this rule is required
+
+## Quick Reference
+
+[Include a summary table or bullet points for quick lookup]
+
+## Table of Contents
+
+- [Section 1](#section-1)
+- [Section 2](#section-2)
+
+## Section 1
+
+Detailed explanation with step-by-step instructions.
+
+### ❌ Bad Examples to avoid
+
+[Include examples of what to avoid]
+
+### ✅ Good Examples to follow
+
+[Include positive examples]
+
+## Section 2
+
+Additional content organized in logical sections.
+
+## Quality Checklist
+
+Before finalizing a new rule, verify:
+
+- [ ] Frontmatter is complete and accurate.
+- [ ] File is in the correct category subfolder.
+- [ ] Filename follows `snake_case` convention.
+- [ ] Content follows the structure template.
+- [ ] Format follows markdown guidelines.
+- [ ] Examples are clear and practical.
+- [ ] Required Rules section references rules that must be followed.
+- [ ] Rule is added to `master.mdc`.
+- [ ] The rule is easy to follow by AI agents.
+```
+
+In the rule template, the following sections are optional:
+
+- **Required Rules**: When the rule does not require any other rules to be followed
+- **Quick Reference**: The rule is short and does not need a quick reference
+- **Table of Contents**: The rule is short and does not have a table of contents
+- **Quality Checklist**: The rule is not complex and does not need a quality checklist
+
+## Updating References
+
+After creating a new rule, update `.cursor/rules/master.mdc` with the new rule.
+
+## Quality Checklist
+
+Before finalizing a new rule, verify:
+
+- [ ] Frontmatter is complete and accurate.
+- [ ] File is in the correct category subfolder.
+- [ ] Filename follows `snake_case` convention.
+- [ ] Content follows the structure template.
+- [ ] Format follows markdown guidelines.
+- [ ] Examples are clear and practical.
+- [ ] Required Rules section references rules that must be followed.
+- [ ] Rule is added to `master.mdc`.
+- [ ] The rule is easy to follow by AI agents.

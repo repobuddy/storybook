@@ -6,10 +6,10 @@ alwaysApply: false
 # Component Specification Template
 
 ## Overview
-This template provides a structured format for specifying React components before implementation. The specification will be used to create components following the [React Component Specification](mdc:.cursor/rules/development/react_component_spec.mdc).
+This template provides a structured format for specifying React components before implementation. The specification will be used to create components following the [React Component Specification](mdc:.cursor/rules/commands/react_component_spec.mdc).
 
-For planning guidelines, refer to the [React Component PRD](mdc:.cursor/rules/planning/react_component_prd.mdc).
-For Storybook documentation requirements, see [Storybook Stories](mdc:.cursor/rules/development/storybook_stories.mdc).
+For planning guidelines, refer to the [React Component PRD](mdc:.cursor/rules/commands/react_component_prd.mdc).
+For Storybook documentation requirements, see [Storybook Stories](mdc:.cursor/rules/guidelines/storybook_stories.mdc).
 
 ## Specification Structure
 

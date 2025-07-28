@@ -1,0 +1,25 @@
+---
+description: Use this rule whenever creating or editing any markdown (.md, .mdx) file—including documentation, READMEs, component and API docs, and Storybook docs—to ensure consistency, accessibility, and compliance with project markdown standards.
+globs: *.md,*.mdx,*.mdc,*.js,*.ts,*.tsx
+alwaysApply: false
+---
+
+# Markdown Guidelines
+
+This rule provides comprehensive guidelines for writing markdown content that follows best practices and passes markdown linting in this project.
+
+## Required Rules
+
+The AI agent should read and follow these rules along with the subject rule:
+
+- **[Naming Guidelines](mdc:.cursor/rules/guidelines/naming.mdc)**: For consistent file naming conventions that must be followed.
+
+## Quick Reference
+
+- **Code Blocks**: Always specify language (`tsx`, `ts`, `js`, `sh`, `jsonc`).
+- **Language IDs**: Use shortest appropriate identifier (`ts` not `typescript`).
+- **Links**: Use descriptive text, not "click here".
+- **Images**: Include descriptive alt text.
+- **Lists**: End list entries with a period when they are complete sentences.
+- **Spacing**: Always leave one blank line before and after common markdown elements to ensure proper rendering and readability.
+- **Table**: Column widths should match the content rather than being artificially stretched.

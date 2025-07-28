@@ -5,3 +5,4 @@ addon
 subpath
 Subpath
 Addon
+WCAG

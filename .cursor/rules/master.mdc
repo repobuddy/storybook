@@ -1,8 +1,3 @@
----
-description: Central reference for all cursor rules in the project
-globs:
-alwaysApply: true
----
 # Master Rules
 
 This document serves as the central reference for all rules in the project.
@@ -11,285 +6,342 @@ This document serves as the central reference for all rules in the project.
 
 ### Planning
 
-#### [React Component PRD](mdc:.cursor/rules/react_component_prd.mdc)
-- **Purpose**: Guidelines for creating Product Requirements Documents (PRD) for React components
-- **Scope**: Component planning, requirements gathering, and documentation standards
-- **Includes**: PRD structure, best practices, and template
-- **Applied to**: New component development and major component updates
+#### [React Component PRD](mdc:.cursor/rules/commands/react_component_prd.mdc)
+
+- **Purpose**: Guidelines for creating Product Requirements Documents (PRD) for React components.
+- **Scope**: Component planning, requirements gathering, and documentation standards.
+- **Includes**: PRD structure, best practices, and template.
+- **Applied to**: New component development and major component updates.
 
 ### Development Standards
 
-#### [React Component Specification](mdc:.cursor/rules/react_component_spec.mdc)
-- **Purpose**: Comprehensive guide for creating React components following project standards
-- **Scope**: Component structure, TypeScript usage, styling, testing, and accessibility
-- **Includes**: Storybook integration and best practices
-- **Applied to**: `libs/**/*.tsx`, `apps/**/*.tsx`
+#### [React Component Specification](mdc:.cursor/rules/commands/react_component_spec.mdc)
 
-#### [Storybook Stories](mdc:.cursor/rules/storybook_stories.mdc)
-- **Purpose**: Standards and best practices for writing Storybook stories
-- **Scope**: Component Story Format (CSF), organization, and testing patterns
-- **Includes**: Naming conventions and implementation guidelines
-- **Applied to**: `**/*.stories.tsx`, `**/*.stories.ts`
+- **Purpose**: Comprehensive guide for creating React components following project standards.
+- **Scope**: Component structure, TypeScript usage, styling, testing, and accessibility.
+- **Includes**: Storybook integration and best practices.
+- **Applied to**: `libs/**/*.tsx`, `apps/**/*.tsx`.
 
-#### [TypeScript Patterns](mdc:.cursor/rules/typescript_patterns.mdc)
-- **Purpose**: TypeScript best practices and patterns for type-safe development
-- **Scope**: Type definitions, import/export patterns, React integration
-- **Includes**: Component props, generics, utility types, Storybook integration
-- **Applied to**: `**/*.{ts,tsx}`
+#### [Storybook Stories](mdc:.cursor/rules/guidelines/storybook_stories.mdc)
 
-#### [Code Quality](mdc:.cursor/rules/code_quality.mdc)
-- **Purpose**: Code quality standards using Biome and project conventions
-- **Scope**: Formatting, naming conventions, error handling, performance
-- **Includes**: Biome configuration, code organization, documentation
-- **Applied to**: `**/*.{ts,tsx,js,jsx,json}`
+- **Purpose**: Standards and best practices for writing Storybook stories.
+- **Scope**: Component Story Format (CSF), organization, and testing patterns.
+- **Includes**: Naming conventions and implementation guidelines.
+- **Applied to**: `**/*.stories.tsx`, `**/*.stories.ts`.
 
-#### [Naming Conventions](mdc:.cursor/rules/naming_conventions.mdc)
-- **Purpose**: File and folder naming conventions for consistent project structure
-- **Scope**: File naming, directory structure, import/export patterns
-- **Includes**: React components, Storybook files, TypeScript patterns, configuration files
-- **Applied to**: All files and directories in the repository
+#### [TypeScript Patterns](mdc:.cursor/rules/guidelines/typescript_patterns.mdc)
+
+- **Purpose**: TypeScript best practices and patterns for type-safe development.
+- **Scope**: Type definitions, import/export patterns, React integration.
+- **Includes**: Component props, generics, utility types, Storybook integration.
+- **Applied to**: `**/*.{ts,tsx}`.
+
+#### [Code Quality](mdc:.cursor/rules/guidelines/code_quality.mdc)
+
+- **Purpose**: Code quality standards using Biome and project conventions.
+- **Scope**: Formatting, naming conventions, error handling, performance.
+- **Includes**: Biome configuration, code organization, documentation.
+- **Applied to**: `**/*.{ts,tsx,js,jsx,json}`.
+
+#### [Naming Conventions](mdc:.cursor/rules/guidelines/naming_conventions.mdc)
+
+- **Purpose**: File and folder naming conventions for consistent project structure.
+- **Scope**: File naming, directory structure, import/export patterns.
+- **Includes**: React components, Storybook files, TypeScript patterns, configuration files.
+- **Applied to**: All files and directories in the repository.
 
 ### Testing & Quality Assurance
 
-#### [Testing Patterns](mdc:.cursor/rules/testing_patterns.mdc)
-- **Purpose**: Comprehensive testing strategies using Vitest and Storybook
-- **Scope**: Unit testing, integration testing, visual regression testing
-- **Includes**: Test organization, Storybook testing, coverage configuration
-- **Applied to**: `**/*.{test,spec,stories}.{ts,tsx}`
+#### [Testing Patterns](mdc:.cursor/rules/guidelines/testing_patterns.mdc)
+
+- **Purpose**: Comprehensive testing strategies using Vitest and Storybook.
+- **Scope**: Unit testing, integration testing, visual regression testing.
+- **Includes**: Test organization, Storybook testing, coverage configuration.
+- **Applied to**: `**/*.{test,spec,stories}.{ts,tsx}`.
 
 ### Styling & UI
 
-#### [Styling Patterns](mdc:.cursor/rules/styling_patterns.mdc)
-- **Purpose**: Tailwind CSS patterns and theme support best practices
-- **Scope**: Component styling, responsive design, accessibility
-- **Includes**: Theme support, responsive design, animation patterns
-- **Applied to**: `**/*.{ts,tsx,css}`
+#### [Styling Patterns](mdc:.cursor/rules/guidelines/styling_patterns.mdc)
+
+- **Purpose**: Tailwind CSS patterns and theme support best practices.
+- **Scope**: Component styling, responsive design, accessibility.
+- **Includes**: Theme support, responsive design, animation patterns.
+- **Applied to**: `**/*.{ts,tsx,css}`.
 
 ### Infrastructure & DevOps
 
-#### [Monorepo Best Practices](mdc:.cursor/rules/monorepo_best_practices.mdc)
-- **Purpose**: Guidelines for working with the pnpm workspace and Turbo build system
-- **Scope**: Package management, workspace organization, build optimization
-- **Includes**: Workspace dependencies, Turbo tasks, cross-package development
-- **Applied to**: All files in the repository
+#### [Monorepo Best Practices](mdc:.cursor/rules/project/monorepo_best_practices.mdc)
 
-#### [CI/CD Patterns](mdc:.cursor/rules/ci_cd_patterns.mdc)
-- **Purpose**: GitHub Actions workflows and deployment best practices
-- **Scope**: Continuous integration, automated testing, release management
-- **Includes**: Workflow organization, caching strategies, error handling
-- **Applied to**: `.github/workflows/*.yml`, `**/package.json`
+- **Purpose**: Guidelines for working with the pnpm workspace and Turbo build system.
+- **Scope**: Package management, workspace organization, build optimization.
+- **Includes**: Workspace dependencies, Turbo tasks, cross-package development.
+- **Applied to**: All files in the repository.
+
+#### [CI/CD Patterns](mdc:.cursor/rules/guidelines/ci_cd_patterns.mdc)
+
+- **Purpose**: GitHub Actions workflows and deployment best practices.
+- **Scope**: Continuous integration, automated testing, release management.
+- **Includes**: Workflow organization, caching strategies, error handling.
+- **Applied to**: `.github/workflows/*.yml`, `**/package.json`.
 
 ### Documentation & Communication
 
-#### [Markdown Guidelines](mdc:.cursor/rules/markdown_guidelines.mdc)
-- **Purpose**: Standards for writing and formatting markdown documentation
-- **Scope**: Documentation style, formatting conventions, and best practices
-- **Includes**: Markdown syntax standards and documentation structure
-- **Applied to**: All markdown files in the project
+#### [Markdown Guidelines](mdc:.cursor/rules/guidelines/markdown.mdc)
 
-#### [Commit Messages](mdc:.cursor/rules/commit_messages.mdc)
-- **Purpose**: Guidelines for writing clear and consistent commit messages
-- **Scope**: Git commit message format, conventions, and best practices
-- **Includes**: Conventional commits format and examples
-- **Applied to**: All git commits in the project
+- **Purpose**: Standards for writing and formatting markdown documentation.
+- **Scope**: Documentation style, formatting conventions, and best practices.
+- **Includes**: Markdown syntax standards and documentation structure.
+- **Applied to**: All markdown files in the project.
 
-#### [Chat Behavior - Commit Summary](mdc:.cursor/rules/chat_behavior_commit_summary.mdc)
-- **Purpose**: Guidelines for handling commit message generation and change summarization
-- **Scope**: End-of-conversation commit message creation and change tracking
-- **Includes**: When to generate commits and response format standards
-- **Applied to**: AI assistant interactions and development workflows
+#### [Commit Summary](mdc:.cursor/rules/agents/commit_summary.mdc)
+
+- **Purpose**: Guidelines for handling commit message generation and change summarization.
+- **Scope**: End-of-conversation commit message creation and change tracking.
+- **Includes**: When to generate commits and response format standards.
+- **Applied to**: AI assistant interactions and development workflows.
+
+#### [Generate Commit Message](mdc:.cursor/rules/commands/generate_commit_message.mdc)
+
+- **Purpose**: Guidelines for writing clear and consistent commit messages.
+- **Scope**: Git commit message format, conventions, and best practices.
+- **Includes**: Conventional commits format and examples.
+- **Applied to**: All git commits in the project.
+
+#### [Generate Changeset](mdc:.cursor/rules/commands/generate_changeset.mdc)
+
+- **Purpose**: Guidelines for creating changesets for version management.
+- **Scope**: Changeset creation, versioning, and release management.
+- **Includes**: Changeset format, conventions, and best practices.
+- **Applied to**: Version management and release workflows.
+
+#### [React Component Instructions](mdc:.cursor/rules/commands/react_component_instructions.mdc)
+
+- **Purpose**: Quick reference instructions for React component development.
+- **Scope**: Component creation, structure, and best practices.
+- **Includes**: Component guidelines and implementation patterns.
+- **Applied to**: React component development.
 
 ### Meta Documentation
 
-#### [Cursor Rules Management](mdc:.cursor/rules/cursor_rules.mdc)
-- **Purpose**: Guidelines for managing cursor rules in the project
-- **Scope**: Rule file structure, location, naming conventions, and organization
-- **Includes**: Template for creating new rule files and best practices
+#### [Cursor Rules Management](mdc:.cursor/rules/agents/cursor_rules.mdc)
 
-#### [Self-Improving Rules](mdc:.cursor/rules/self_improvement.mdc)
-- **Purpose**: Guidelines for continuously improving and maintaining the rules system
-- **Scope**: Rule review cycles, maintenance, and quality metrics
-- **Includes**: Improvement processes, feedback collection, and rule retirement
-- **Applied to**: All rule files in the `.cursor/rules/` directory
+- **Purpose**: Guidelines for managing cursor rules in the project.
+- **Scope**: Rule file structure, location, naming conventions, and organization.
+- **Includes**: Template for creating new rule files and best practices.
 
-#### [Self-Improve](mdc:.cursor/rules/self_improve.mdc)
-- **Purpose**: Additional guidelines for rule improvement and pattern recognition
-- **Scope**: Rule improvement triggers, analysis processes, and quality checks
-- **Includes**: Pattern recognition and continuous improvement workflows
-- **Applied to**: Rule development and maintenance processes
+#### [Self-Improving Rules](mdc:.cursor/rules/agents/self_improvement.mdc)
+
+- **Purpose**: Guidelines for continuously improving and maintaining the rules system.
+- **Scope**: Rule review cycles, maintenance, and quality metrics.
+- **Includes**: Improvement processes, feedback collection, and rule retirement.
+- **Applied to**: All rule files in the `.cursor/rules/` directory.
+
+#### [Self-Improve](mdc:.cursor/rules/agents/self_improvement.mdc)
+
+- **Purpose**: Additional guidelines for rule improvement and pattern recognition.
+- **Scope**: Rule improvement triggers, analysis processes, and quality checks.
+- **Includes**: Pattern recognition and continuous improvement workflows.
+- **Applied to**: Rule development and maintenance processes.
 
 ### Templates
 
-#### [Component Specification Template](mdc:.cursor/rules/component_spec_template.mdc)
-- **Purpose**: Template for creating new component specifications
-- **Scope**: Component planning and documentation
-- **Includes**: Standard structure and required sections
-- **Applied to**: New component development
+#### [Component Specification Template](mdc:.cursor/rules/templates/component_spec_template.mdc)
+
+- **Purpose**: Template for creating new component specifications.
+- **Scope**: Component planning and documentation.
+- **Includes**: Standard structure and required sections.
+- **Applied to**: New component development.
 
 ### Workflows
 
-#### [Development Workflow](mdc:.cursor/rules/dev_workflow.mdc)
-- **Purpose**: Guide for using Taskmaster to manage task-driven development workflows
-- **Scope**: Development process, task management, and team collaboration
-- **Includes**: Workflow patterns, best practices, and tool usage
-- **Applied to**: All development activities
+#### [PRD Implementation Workflow](mdc:.cursor/rules/commands/prd_implementation_workflow.mdc)
+
+- **Purpose**: Guide for implementing features following a PRD using Test Driven Development.
+- **Scope**: Feature implementation, TDD practices, testing strategies, and quality assurance.
+- **Includes**: TDD cycle, PRD analysis, test-first development, and success metrics.
+- **Applied to**: All feature development following PRDs.
+
+#### [Development Workflow](mdc:.cursor/rules/commands/dev_workflow.mdc)
+
+- **Purpose**: Guide for using Taskmaster to manage task-driven development workflows.
+- **Scope**: Development process, task management, and team collaboration.
+- **Includes**: Workflow patterns, best practices, and tool usage.
+- **Applied to**: All development activities.
 
 ## Technology Stack
 
 This repository uses a modern, well-integrated technology stack:
 
 ### Core Technologies
-- **TypeScript**: Strict typing and modern JavaScript features
-- **React**: Component-based UI development
-- **Vite**: Fast build tool and development server
-- **Tailwind CSS**: Utility-first CSS framework
-- **Vitest**: Fast unit testing framework
+
+- **TypeScript**: Strict typing and modern JavaScript features.
+- **React**: Component-based UI development.
+- **Vite**: Fast build tool and development server.
+- **Tailwind CSS**: Utility-first CSS framework.
+- **Vitest**: Fast unit testing framework.
 
 ### Build and Development Tools
-- **pnpm**: Fast, disk space efficient package manager
-- **Turbo**: High-performance build system for monorepos
-- **Biome**: Fast linter and formatter
-- **Storybook**: Component development and documentation
+
+- **pnpm**: Fast, disk space efficient package manager.
+- **Turbo**: High-performance build system for monorepos.
+- **Biome**: Fast linter and formatter.
+- **Storybook**: Component development and documentation.
 
 ### Testing and Quality
-- **Storybook**: Component testing and visual regression
-- **Playwright**: End-to-end testing
-- **Visual Regression**: Automated visual testing
-- **Accessibility Testing**: Automated a11y validation
+
+- **Storybook**: Component testing and visual regression.
+- **Playwright**: End-to-end testing.
+- **Visual Regression**: Automated visual testing.
+- **Accessibility Testing**: Automated a11y validation.
 
 ### CI/CD and Deployment
-- **GitHub Actions**: Automated workflows
-- **Changesets**: Version management and releases
-- **GitHub Pages**: Documentation deployment
-- **Conventional Commits**: Standardized commit messages
+
+- **GitHub Actions**: Automated workflows.
+- **Changesets**: Version management and releases.
+- **GitHub Pages**: Documentation deployment.
+- **Conventional Commits**: Standardized commit messages.
 
 ## How to Use Rules
 
 ### Automatic Application
+
 All rules are automatically applied based on their `globs` patterns when you work on files in the repository. The rules provide:
 
-1. **Code Completion**: Intelligent suggestions based on project patterns
-2. **Error Prevention**: Catch common mistakes before they happen
-3. **Consistency**: Ensure all code follows the same patterns
-4. **Best Practices**: Enforce proven development practices
+1. **Code Completion**: Intelligent suggestions based on project patterns.
+2. **Error Prevention**: Catch common mistakes before they happen.
+3. **Consistency**: Ensure all code follows the same patterns.
+4. **Best Practices**: Enforce proven development practices.
 
 ### Manual Reference
+
 Rules can be referenced during development and code reviews using the `mdc:` syntax.
 
 ### Cross-References
+
 Rules reference each other to provide comprehensive guidance across related areas.
 
 ### Rule Interactions
+
 The rules work together to provide comprehensive guidance:
 
-- **Planning**: Start with [React Component PRD](mdc:.cursor/rules/react_component_prd.mdc) for new components
-- **Development**: Use [React Component Specification](mdc:.cursor/rules/react_component_spec.mdc) and [TypeScript Patterns](mdc:.cursor/rules/typescript_patterns.mdc) for implementation
-- **Testing**: Follow [Testing Patterns](mdc:.cursor/rules/testing_patterns.mdc) and [Storybook Stories](mdc:.cursor/rules/storybook_stories.mdc) for comprehensive testing
-- **Quality**: Ensure [Code Quality](mdc:.cursor/rules/code_quality.mdc) standards are met
-- **Naming Conventions**: Follow [Naming Conventions](mdc:.cursor/rules/naming_conventions.mdc) for file and folder structure
-- **Monorepo**: Follow [Monorepo Best Practices](mdc:.cursor/rules/monorepo_best_practices.mdc)
-- **Deployment**: Use [CI/CD Patterns](mdc:.cursor/rules/ci_cd_patterns.mdc) for reliable deployment
+- **Planning**: Start with [React Component PRD](mdc:.cursor/rules/commands/react_component_prd.mdc) for new components.
+- **Development**: Use [React Component Specification](mdc:.cursor/rules/commands/react_component_spec.mdc) and [TypeScript Patterns](mdc:.cursor/rules/guidelines/typescript_patterns.mdc) for implementation.
+- **Testing**: Follow [Testing Patterns](mdc:.cursor/rules/guidelines/testing_patterns.mdc) and [Storybook Stories](mdc:.cursor/rules/guidelines/storybook_stories.mdc) for comprehensive testing.
+- **Quality**: Ensure [Code Quality](mdc:.cursor/rules/guidelines/code_quality.mdc) standards are met.
+- **Naming Conventions**: Follow [Naming Conventions](mdc:.cursor/rules/guidelines/naming_conventions.mdc) for file and folder structure.
+- **Monorepo**: Follow [Monorepo Best Practices](mdc:.cursor/rules/project/monorepo_best_practices.mdc).
+- **Deployment**: Use [CI/CD Patterns](mdc:.cursor/rules/guidelines/ci_cd_patterns.mdc) for reliable deployment.
 
 ## Rule Development Workflow
 
-1. **Planning**: Use templates from `templates/` directory for complex features
-2. **Implementation**: Follow standards from `development/` directory
-3. **Documentation**: Ensure all components have proper Storybook stories
-4. **Maintenance**: Update rules as patterns evolve
+1. **Planning**: Use templates from `templates/` directory for complex features.
+2. **Implementation**: Follow standards from `development/` directory.
+3. **Documentation**: Ensure all components have proper Storybook stories.
+4. **Maintenance**: Update rules as patterns evolve.
 
 ## Best Practices
 
 ### Development Workflow
-1. **Plan**: Use PRD templates for new features
-2. **Implement**: Follow component specifications and TypeScript patterns
-3. **Test**: Write comprehensive tests using Vitest and Storybook
-4. **Document**: Create clear documentation and examples
-5. **Deploy**: Use automated CI/CD pipelines
+
+1. **Plan**: Use PRD templates for new features.
+2. **Implement**: Follow component specifications and TypeScript patterns.
+3. **Test**: Write comprehensive tests using Vitest and Storybook.
+4. **Document**: Create clear documentation and examples.
+5. **Deploy**: Use automated CI/CD pipelines.
 
 ### Code Quality Standards
-1. **Type Safety**: Use TypeScript strictly with proper typing
-2. **Consistency**: Follow established patterns and conventions
-3. **Performance**: Optimize for bundle size and runtime performance
-4. **Accessibility**: Ensure all components are accessible
-5. **Testing**: Maintain high test coverage with multiple testing strategies
+
+1. **Type Safety**: Use TypeScript strictly with proper typing.
+2. **Consistency**: Follow established patterns and conventions.
+3. **Performance**: Optimize for bundle size and runtime performance.
+4. **Accessibility**: Ensure all components are accessible.
+5. **Testing**: Maintain high test coverage with multiple testing strategies.
 
 ### For Developers
-1. **Read Before Implementing**: Always review relevant rules before starting new work
-2. **Follow Standards**: Use component specifications for React components
-3. **Validate with Stories**: Ensure all components have comprehensive Storybook stories
-4. **Maintain Consistency**: All rules work together to maintain consistent code quality
-5. **Document Changes**: Follow markdown guidelines for all documentation
-6. **Commit Properly**: Use conventional commit format for all changes
+
+1. **Read Before Implementing**: Always review relevant rules before starting new work.
+2. **Follow Standards**: Use component specifications for React components.
+3. **Validate with Stories**: Ensure all components have comprehensive Storybook stories.
+4. **Maintain Consistency**: All rules work together to maintain consistent code quality.
+5. **Document Changes**: Follow markdown guidelines for all documentation.
+6. **Commit Properly**: Use conventional commit format for all changes.
 
 ### Team Collaboration
-1. **Code Reviews**: Use established patterns for consistent reviews
-2. **Documentation**: Keep documentation up to date with code changes
-3. **Automation**: Leverage CI/CD for reliable deployments
-4. **Standards**: Follow established coding standards and conventions
+
+1. **Code Reviews**: Use established patterns for consistent reviews.
+2. **Documentation**: Keep documentation up to date with code changes.
+3. **Automation**: Leverage CI/CD for reliable deployments.
+4. **Standards**: Follow established coding standards and conventions.
 
 ### For Rule Management
-1. **Organized Structure**: Keep rules organized in appropriate categories
-2. **Clear Documentation**: Write rules that are easy to understand and follow
-3. **Regular Updates**: Keep rules current with project evolution
-4. **Cross-Reference**: Link related rules to provide comprehensive guidance
-5. **Continuous Improvement**: Regularly review and update rules based on usage patterns
+
+1. **Organized Structure**: Keep rules organized in appropriate categories.
+2. **Clear Documentation**: Write rules that are easy to understand and follow.
+3. **Regular Updates**: Keep rules current with project evolution.
+4. **Cross-Reference**: Link related rules to provide comprehensive guidance.
+5. **Continuous Improvement**: Regularly review and update rules based on usage patterns.
 
 ## Adding New Rules
 
 When adding new rules:
 
-1. **Choose Category**: Determine the appropriate category based on the rule's purpose
-2. **Create Rule File**: Follow the standard structure defined in [Cursor Rules Management](mdc:.cursor/rules/cursor_rules.mdc)
-3. **Update This Index**: Add the new rule to the appropriate category in this file
-4. **Test Integration**: Ensure the rule works well with existing rules
+1. **Choose Category**: Determine the appropriate category based on the rule's purpose.
+2. **Create Rule File**: Follow the standard structure defined in [Cursor Rules Management](mdc:.cursor/rules/agents/cursor_rules.mdc).
+3. **Update This Index**: Add the new rule to the appropriate category in this file.
+4. **Test Integration**: Ensure the rule works well with existing rules.
 
 ## Rule Categories Explained
 
 ### **Planning**
+
 Guidelines and templates for planning new features and components. These ensure thorough requirements gathering and documentation.
 
 ### **Development Standards**
+
 Core guidelines for writing, structuring, and testing code. These rules ensure consistency and quality across the codebase.
 
 ### **Testing & Quality Assurance**
+
 Comprehensive testing strategies and quality assurance practices. These ensure reliable and maintainable code.
 
 ### **Styling & UI**
+
 Guidelines for styling, theming, and user interface development. These ensure consistent and accessible user experiences.
 
 ### **Infrastructure & DevOps**
+
 Guidelines for build systems, deployment, and development infrastructure. These ensure efficient and reliable development workflows.
 
 ### **Documentation & Communication**
+
 Standards for writing documentation, commit messages, and communication patterns. These ensure clear and consistent project communication.
 
 ### **Meta Documentation**
+
 Documentation about the rules system itself. These rules help maintain and evolve the cursor rules structure.
 
 ### **Templates**
+
 Structured templates for planning and implementing new features. These help ensure comprehensive coverage of requirements.
 
 ### **Workflows**
+
 Process guides and best practices for development workflows. These help maintain consistent and efficient development practices.
 
 ## Quick Reference
 
-- **Component Planning**: Start with [React Component PRD](mdc:.cursor/rules/react_component_prd.mdc)
-- **React Components**: Use [React Component Specification](mdc:.cursor/rules/react_component_spec.mdc)
-- **TypeScript**: Follow [TypeScript Patterns](mdc:.cursor/rules/typescript_patterns.mdc)
-- **Testing**: Use [Testing Patterns](mdc:.cursor/rules/testing_patterns.mdc)
-- **Styling**: Follow [Styling Patterns](mdc:.cursor/rules/styling_patterns.mdc)
-- **Code Quality**: Ensure [Code Quality](mdc:.cursor/rules/code_quality.mdc) standards
-- **Naming Conventions**: Follow [Naming Conventions](mdc:.cursor/rules/naming_conventions.mdc) for file and folder structure
-- **Monorepo**: Follow [Monorepo Best Practices](mdc:.cursor/rules/monorepo_best_practices.mdc)
-- **CI/CD**: Use [CI/CD Patterns](mdc:.cursor/rules/ci_cd_patterns.mdc)
-- **Storybook Stories**: Follow [Storybook Stories](mdc:.cursor/rules/storybook_stories.mdc)
-- **Documentation**: Follow [Markdown Guidelines](mdc:.cursor/rules/markdown_guidelines.mdc)
-- **Commits**: Use [Commit Messages](mdc:.cursor/rules/commit_messages.mdc) format
-- **Managing Rules**: Reference [Cursor Rules Management](mdc:.cursor/rules/cursor_rules.mdc)
-- **Development Process**: Follow [Development Workflow](mdc:.cursor/rules/dev_workflow.mdc)
-
-This organized structure ensures that all rules are discoverable, maintainable, and work together to provide comprehensive guidance for the project.
-
-When you use a rule file in your reasoning, mention its name.
-
+- **Component Planning**: Start with [React Component PRD](mdc:.cursor/rules/commands/react_component_prd.mdc).
+- **Feature Implementation**: Follow [PRD Implementation Workflow](mdc:.cursor/rules/commands/prd_implementation_workflow.mdc) with TDD.
+- **React Components**: Use [React Component Specification](mdc:.cursor/rules/commands/react_component_spec.mdc).
+- **TypeScript**: Follow [TypeScript Patterns](mdc:.cursor/rules/guidelines/typescript_patterns.mdc).
+- **Testing**: Use [Testing Patterns](mdc:.cursor/rules/guidelines/testing_patterns.mdc).
+- **Styling**: Follow [Styling Patterns](mdc:.cursor/rules/guidelines/styling_patterns.mdc).
+- **Code Quality**: Ensure [Code Quality](mdc:.cursor/rules/guidelines/code_quality.mdc) standards.
+- **Naming Conventions**: Follow [Naming Conventions](mdc:.cursor/rules/guidelines/naming_conventions.mdc) for file and folder structure.
+- **Monorepo**: Follow [Monorepo Best Practices](mdc:.cursor/rules/project/monorepo_best_practices.mdc).
+- **CI/CD**: Use [CI/CD Patterns](mdc:.cursor/rules/guidelines/ci_cd_patterns.mdc).
+- **Storybook Stories**: Follow [Storybook Stories](mdc:.cursor/rules/guidelines/storybook_stories.mdc).
+- **Documentation**: Follow [Markdown Guidelines](mdc:.cursor/rules/guidelines/markdown.mdc).
+- **Commits**: Use [Generate Commit Message](mdc:.cursor/rules/commands/generate_commit_message.mdc) format.
+- **Managing Rules**: Reference [Cursor Rules Management](mdc:.cursor/rules/agents/cursor_rules.mdc).
+- **Development Process**: Follow [Development Workflow](mdc:.cursor/rules/commands/dev_workflow.mdc).

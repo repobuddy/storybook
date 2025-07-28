@@ -1,0 +1,633 @@
+---
+description: Implementing workflow for PRD
+globs:
+alwaysApply: false
+---
+
+
+ # PRD Implementation Workflow with Test Driven Development
+
+This workflow guides the implementation of features following a Product Requirements Document (PRD) using Test Driven Development (TDD) principles.
+
+## Test Driven Development Summary
+
+### What is TDD?
+
+Test Driven Development is a software development approach where you write tests **before** writing the actual code. The process follows a simple cycle known as "Red-Green-Refactor":
+
+1. **Red**: Write a failing test that describes the desired behavior
+2. **Green**: Write the minimum code to make the test pass
+3. **Refactor**: Clean up the code while keeping tests passing
+
+### TDD Benefits
+
+- **Design First**: Tests force you to think about the API and behavior before implementation
+- **Confidence**: Comprehensive test coverage from the start
+- **Documentation**: Tests serve as living documentation of expected behavior
+- **Regression Prevention**: Changes are caught immediately if they break existing functionality
+- **Refactoring Safety**: Tests provide confidence when improving code structure
+
+### TDD Cycle in Practice
+
+```typescript
+// 1. RED: Write failing test
+describe('UserProfile', () => {
+  it('should display user name', () => {
+    const user = { id: '1', name: 'John Doe' }
+    render(<UserProfile user={user} />)
+    expect(screen.getByText('John Doe')).toBeInTheDocument()
+  })
+})
+
+// 2. GREEN: Write minimal implementation
+export function UserProfile({ user }: { user: User }) {
+  return <div>{user.name}</div>
+}
+
+// 3. REFACTOR: Improve code structure
+export function UserProfile({ user }: { user: User }) {
+  return (
+    <div className="user-profile">
+      <h2>{user.name}</h2>
+    </div>
+  )
+}
+```
+
+## PRD Implementation Workflow
+
+### Phase 1: PRD Analysis and Planning
+
+#### 1.1 Review PRD Requirements
+
+- **Read the PRD thoroughly** and identify all requirements
+- **Break down features** into smaller, testable units
+- **Identify acceptance criteria** for each requirement
+- **Document edge cases** and error scenarios
+- **Define success metrics** for the feature
+
+#### 1.2 Create Implementation Plan
+
+```markdown
+## Feature: User Profile Component
+
+### Requirements from PRD:
+- Display user name and email
+- Show profile picture
+- Allow editing profile information
+- Handle loading and error states
+
+### Test Cases to Write:
+1. ✅ Renders user information correctly
+2. ✅ Displays profile picture
+3. ✅ Shows edit button when user is owner
+4. ✅ Handles missing profile picture
+5. ✅ Shows loading state
+6. ✅ Shows error state
+7. ✅ Opens edit modal on button click
+8. ✅ Validates form inputs
+9. ✅ Saves changes successfully
+10. ✅ Handles save errors
+```
+
+#### 1.3 Set Up Test Environment
+
+- **Configure test files** following [Testing Patterns](mdc:.cursor/rules/guidelines/testing_patterns.mdc)
+- **Set up test utilities** and mock data
+- **Configure Storybook stories** for component testing
+- **Prepare test data factories** for consistent test data
+
+### Phase 2: Test-First Implementation
+
+#### 2.1 Write First Test (Red Phase)
+
+Start with the simplest, most fundamental test case:
+
+```typescript
+// user_profile.test.tsx
+import { render, screen } from '@testing-library/react'
+import { describe, it, expect } from 'vitest'
+import { UserProfile } from './user_profile.js'
+
+describe('UserProfile', () => {
+  it('should display user name', () => {
+    // Arrange
+    const user = { id: '1', name: 'John Doe', email: 'john@example.com' }
+
+    // Act
+    render(<UserProfile user={user} />)
+
+    // Assert
+    expect(screen.getByText('John Doe')).toBeInTheDocument()
+  })
+})
+```
+
+#### 2.2 Write Minimal Implementation (Green Phase)
+
+Write the absolute minimum code to make the test pass:
+
+```typescript
+// user_profile.tsx
+interface UserProfileProps {
+  user: { id: string; name: string; email: string }
+}
+
+export function UserProfile({ user }: UserProfileProps) {
+  return <div>{user.name}</div>
+}
+```
+
+#### 2.3 Refactor (Refactor Phase)
+
+Improve the code structure while keeping tests passing:
+
+```typescript
+// user_profile.tsx
+interface UserProfileProps {
+  user: { id: string; name: string; email: string }
+}
+
+export function UserProfile({ user }: UserProfileProps) {
+  return (
+    <div className="user-profile">
+      <h2 className="user-name">{user.name}</h2>
+    </div>
+  )
+}
+```
+
+#### 2.4 Continue TDD Cycle
+
+Repeat the Red-Green-Refactor cycle for each requirement:
+
+```typescript
+// Next test: display email
+it('should display user email', () => {
+  const user = { id: '1', name: 'John Doe', email: 'john@example.com' }
+  render(<UserProfile user={user} />)
+  expect(screen.getByText('john@example.com')).toBeInTheDocument()
+})
+
+// Implementation
+export function UserProfile({ user }: UserProfileProps) {
+  return (
+    <div className="user-profile">
+      <h2 className="user-name">{user.name}</h2>
+      <p className="user-email">{user.email}</p>
+    </div>
+  )
+}
+```
+
+### Phase 3: Edge Cases and Error Handling
+
+#### 3.1 Test Edge Cases
+
+Write tests for edge cases identified in the PRD:
+
+```typescript
+it('should handle missing profile picture gracefully', () => {
+  const user = { id: '1', name: 'John Doe', email: 'john@example.com' }
+  render(<UserProfile user={user} />)
+
+  const avatar = screen.getByAltText('Profile picture')
+  expect(avatar).toHaveAttribute('src', '/default-avatar.png')
+})
+
+it('should show loading state while fetching user data', () => {
+  render(<UserProfile isLoading={true} />)
+  expect(screen.getByText('Loading...')).toBeInTheDocument()
+})
+
+it('should show error state when user data fails to load', () => {
+  render(<UserProfile error="Failed to load user data" />)
+  expect(screen.getByText('Failed to load user data')).toBeInTheDocument()
+})
+```
+
+#### 3.2 Test Error Scenarios
+
+```typescript
+it('should handle network errors during save', async () => {
+  const user = { id: '1', name: 'John Doe', email: 'john@example.com' }
+  const mockSave = vi.fn().mockRejectedValue(new Error('Network error'))
+
+  render(<UserProfile user={user} onSave={mockSave} />)
+
+  await userEvent.click(screen.getByText('Edit'))
+  await userEvent.type(screen.getByLabelText('Name'), 'Jane Doe')
+  await userEvent.click(screen.getByText('Save'))
+
+  expect(screen.getByText('Failed to save changes')).toBeInTheDocument()
+})
+```
+
+### Phase 4: Integration and Storybook
+
+#### 4.1 Create Storybook Stories
+
+Following [Storybook Stories](mdc:.cursor/rules/guidelines/storybook_stories.mdc) patterns:
+
+```typescript
+// user_profile.stories.tsx
+import type { Meta, StoryObj } from '#repobuddy/storybook/internal'
+import { UserProfile } from './user_profile.js'
+
+const meta = {
+  title: 'components/UserProfile',
+  component: UserProfile,
+  tags: ['autodocs', 'test'],
+  parameters: {
+    layout: 'centered'
+  }
+} satisfies Meta<typeof UserProfile>
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
+  args: {
+    user: {
+      id: '1',
+      name: 'John Doe',
+      email: 'john@example.com'
+    }
+  }
+}
+
+export const Loading: Story = {
+  args: {
+    isLoading: true
+  }
+}
+
+export const Error: Story = {
+  args: {
+    error: 'Failed to load user data'
+  }
+}
+
+export const WithInteraction: Story = {
+  args: {
+    user: {
+      id: '1',
+      name: 'John Doe',
+      email: 'john@example.com'
+    }
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const editButton = canvas.getByText('Edit')
+
+    await userEvent.click(editButton)
+    await expect(canvas.getByText('Edit Profile')).toBeInTheDocument()
+  }
+}
+```
+
+#### 4.2 Integration Testing
+
+```typescript
+// user_profile.integration.test.tsx
+describe('UserProfile Integration', () => {
+  it('should complete full edit workflow', async () => {
+    const mockSave = vi.fn().mockResolvedValue({ success: true })
+
+    render(
+      <UserProfile
+        user={{ id: '1', name: 'John', email: 'john@example.com' }}
+        onSave={mockSave}
+      />
+    )
+
+    // Open edit mode
+    await userEvent.click(screen.getByText('Edit'))
+
+    // Update information
+    await userEvent.clear(screen.getByLabelText('Name'))
+    await userEvent.type(screen.getByLabelText('Name'), 'Jane')
+
+    // Save changes
+    await userEvent.click(screen.getByText('Save'))
+
+    // Verify save was called
+    expect(mockSave).toHaveBeenCalledWith({
+      id: '1',
+      name: 'Jane',
+      email: 'john@example.com'
+    })
+
+    // Verify UI updates
+    await expect(screen.getByText('Jane')).toBeInTheDocument()
+  })
+})
+```
+
+### Phase 5: Quality Assurance
+
+#### 5.1 Code Quality Checks
+
+- **Run linting**: Ensure code follows [Code Quality](mdc:.cursor/rules/guidelines/code_quality.mdc) standards
+- **Type checking**: Verify TypeScript compliance with [TypeScript Patterns](mdc:.cursor/rules/guidelines/typescript_patterns.mdc)
+- **Test coverage**: Ensure comprehensive test coverage
+- **Performance**: Check for performance issues and optimize
+
+#### 5.2 Accessibility Testing
+
+```typescript
+it('should meet accessibility standards', () => {
+  const user = { id: '1', name: 'John Doe', email: 'john@example.com' }
+  render(<UserProfile user={user} />)
+
+  // Test keyboard navigation
+  const editButton = screen.getByRole('button', { name: /edit/i })
+  editButton.focus()
+  expect(editButton).toHaveFocus()
+
+  // Test screen reader support
+  expect(screen.getByText('John Doe')).toHaveAccessibleName()
+})
+```
+
+#### 5.3 Visual Regression Testing
+
+```typescript
+export const AllStates: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: '1rem' }}>
+      <UserProfile user={{ id: '1', name: 'John', email: 'john@example.com' }} />
+      <UserProfile isLoading={true} />
+      <UserProfile error="Failed to load" />
+    </div>
+  ),
+  parameters: {
+    chromatic: { disableSnapshot: false }
+  }
+}
+```
+
+### Phase 6: Documentation and Review
+
+#### 6.1 Update Documentation
+
+- **Component documentation**: Update JSDoc comments
+- **Storybook documentation**: Add comprehensive examples
+- **API documentation**: Document props and behavior
+- **Usage examples**: Provide clear usage patterns
+
+#### 6.2 Code Review
+
+- **Self-review**: Review your own code before submitting
+- **Peer review**: Get feedback from team members
+- **PRD validation**: Ensure all PRD requirements are met
+- **Test review**: Verify test coverage and quality
+
+## TDD Best Practices
+
+### Test Writing Guidelines
+
+1. **Test Behavior, Not Implementation**
+   ```typescript
+   // ✅ Good: Test user-visible behavior
+   expect(screen.getByText('John Doe')).toBeInTheDocument()
+
+   // ❌ Bad: Test implementation details
+   expect(component.state.userName).toBe('John Doe')
+   ```
+
+2. **Use Descriptive Test Names**
+   ```typescript
+   // ✅ Good: Clear and descriptive
+   it('should display user name when user data is provided')
+
+   // ❌ Bad: Vague and unclear
+   it('should work correctly')
+   ```
+
+3. **Follow Arrange-Act-Assert Pattern**
+   ```typescript
+   it('should save user changes', async () => {
+     // Arrange
+     const mockSave = vi.fn()
+     render(<UserProfile onSave={mockSave} />)
+
+     // Act
+     await userEvent.click(screen.getByText('Edit'))
+     await userEvent.type(screen.getByLabelText('Name'), 'Jane')
+     await userEvent.click(screen.getByText('Save'))
+
+     // Assert
+     expect(mockSave).toHaveBeenCalledWith(expect.objectContaining({
+       name: 'Jane'
+     }))
+   })
+   ```
+
+4. **Test One Thing Per Test**
+   ```typescript
+   // ✅ Good: Single responsibility
+   it('should display user name')
+   it('should display user email')
+   it('should show edit button for owner')
+
+   // ❌ Bad: Multiple responsibilities
+   it('should display user information and handle editing')
+   ```
+
+### Implementation Guidelines
+
+1. **Write Minimal Code**
+   - Only write code to make the current test pass
+   - Don't add features not covered by tests
+   - Keep implementations simple and focused
+
+2. **Refactor Regularly**
+   - Clean up code after each green phase
+   - Remove duplication
+   - Improve readability and structure
+   - Keep tests passing during refactoring
+
+3. **Use TypeScript Strictly**
+   - Follow [TypeScript Patterns](mdc:.cursor/rules/guidelines/typescript_patterns.mdc)
+   - Use proper type definitions
+   - Avoid `any` and `unknown` when possible
+   - Leverage TypeScript for compile-time testing
+
+## Common TDD Patterns
+
+### Component Testing Pattern
+
+```typescript
+describe('ComponentName', () => {
+  // 1. Rendering tests
+  describe('rendering', () => {
+    it('should render with default props')
+    it('should render with custom props')
+    it('should handle conditional rendering')
+  })
+
+  // 2. Interaction tests
+  describe('interactions', () => {
+    it('should handle click events')
+    it('should handle form submissions')
+    it('should handle keyboard navigation')
+  })
+
+  // 3. State tests
+  describe('state management', () => {
+    it('should update state correctly')
+    it('should handle loading states')
+    it('should handle error states')
+  })
+
+  // 4. Integration tests
+  describe('integration', () => {
+    it('should work with parent components')
+    it('should handle API calls')
+    it('should manage side effects')
+  })
+})
+```
+
+### Hook Testing Pattern
+
+```typescript
+describe('useCustomHook', () => {
+  it('should initialize with default value', () => {
+    const { result } = renderHook(() => useCustomHook('initial'))
+    expect(result.current.value).toBe('initial')
+  })
+
+  it('should update value when called', () => {
+    const { result } = renderHook(() => useCustomHook('initial'))
+
+    act(() => {
+      result.current.updateValue('updated')
+    })
+
+    expect(result.current.value).toBe('updated')
+  })
+})
+```
+
+### Utility Function Testing Pattern
+
+```typescript
+describe('formatDate', () => {
+  it('should format valid dates correctly', () => {
+    const date = new Date('2023-01-15')
+    expect(formatDate(date)).toBe('Jan 15, 2023')
+  })
+
+  it('should handle invalid dates', () => {
+    expect(formatDate(null)).toBe('Invalid Date')
+    expect(formatDate(undefined)).toBe('Invalid Date')
+  })
+
+  it('should handle different date formats', () => {
+    const date1 = new Date('2023-12-25')
+    const date2 = new Date('2023-06-01')
+
+    expect(formatDate(date1)).toBe('Dec 25, 2023')
+    expect(formatDate(date2)).toBe('Jun 1, 2023')
+  })
+})
+```
+
+## Troubleshooting Common TDD Issues
+
+### Issue: Tests Are Too Brittle
+
+**Problem**: Tests break when implementation changes
+**Solution**: Test behavior, not implementation details
+
+```typescript
+// ❌ Brittle: Tests implementation details
+expect(component.state.isEditing).toBe(true)
+
+// ✅ Robust: Tests user-visible behavior
+expect(screen.getByText('Edit Profile')).toBeInTheDocument()
+```
+
+### Issue: Tests Are Too Slow
+
+**Problem**: Tests take too long to run
+**Solution**: Mock external dependencies and optimize test setup
+
+```typescript
+// Mock external dependencies
+vi.mock('./api', () => ({
+  fetchUser: vi.fn()
+}))
+
+// Use test data factories
+const createTestUser = (overrides = {}) => ({
+  id: '1',
+  name: 'Test User',
+  email: 'test@example.com',
+  ...overrides
+})
+```
+
+### Issue: Tests Are Hard to Maintain
+
+**Problem**: Test code is duplicated and hard to update
+**Solution**: Create reusable test utilities and follow DRY principles
+
+```typescript
+// Create test utilities
+const renderUserProfile = (props = {}) => {
+  const defaultProps = {
+    user: createTestUser(),
+    ...props
+  }
+  return render(<UserProfile {...defaultProps} />)
+}
+
+// Use in tests
+it('should display user name', () => {
+  renderUserProfile({ user: createTestUser({ name: 'John' }) })
+  expect(screen.getByText('John')).toBeInTheDocument()
+})
+```
+
+## Success Metrics
+
+### Implementation Quality
+
+- [ ] All PRD requirements implemented
+- [ ] 100% test coverage for new code
+- [ ] All tests passing
+- [ ] No TypeScript errors
+- [ ] Code follows project standards
+- [ ] Accessibility requirements met
+
+### Development Efficiency
+
+- [ ] Tests written before implementation
+- [ ] Red-Green-Refactor cycle followed
+- [ ] Code reviewed and approved
+- [ ] Documentation updated
+- [ ] Storybook stories created
+- [ ] Integration tests passing
+
+### Feature Completeness
+
+- [ ] Core functionality working
+- [ ] Edge cases handled
+- [ ] Error states implemented
+- [ ] Loading states implemented
+- [ ] User interactions tested
+- [ ] Performance acceptable
+
+## Related Rules
+
+- [React Component PRD](mdc:.cursor/rules/commands/react_component_prd.mdc) - PRD creation guidelines
+- [Testing Patterns](mdc:.cursor/rules/guidelines/testing_patterns.mdc) - Testing best practices
+- [TypeScript Patterns](mdc:.cursor/rules/guidelines/typescript_patterns.mdc) - TypeScript standards
+- [Code Quality](mdc:.cursor/rules/guidelines/code_quality.mdc) - Code quality standards
+- [Storybook Stories](mdc:.cursor/rules/guidelines/storybook_stories.mdc) - Storybook testing
+- [React Component Specification](mdc:.cursor/rules/commands/react_component_spec.mdc) - Component development standards
+
+When you use this rule file, let me know this rule file is being used in the chat by mentioning the rule filename.
