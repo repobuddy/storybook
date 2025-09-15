@@ -73,7 +73,7 @@
 		"@repobuddy/vitest": "^1.2.2",
 		"@storybook/addon-docs": "^9.0.1",
 		"@storybook/addon-themes": "^9.0.1",
-		"@storybook/addon-vitest": "^9.0.1",
+		"@storybook/addon-vitest": "^9.1.6",
 		"@storybook/react-vite": "^9.0.1",
 		"@tailwindcss/cli": "^4.1.5",
 		"@tailwindcss/vite": "^4.1.5",
