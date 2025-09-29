@@ -177,7 +177,7 @@ importers:
         version: 2.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.1.8(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.2))(prettier@3.5.3)(vite@7.1.7(@types/node@22.18.6)(jiti@2.6.0)(lightningcss@1.30.1)))
       storybook-addon-vis:
         specifier: ^2.1.1
-        version: 2.1.1(@storybook/addon-vitest@9.1.8(@vitest/browser@3.2.4)(@vitest/runner@3.2.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.1.8(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.2))(prettier@3.5.3)(vite@7.1.7(@types/node@22.18.6)(jiti@2.6.0)(lightningcss@1.30.1)))(vitest@3.2.4))(@vitest/browser@3.2.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.1.8(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.2))(prettier@3.5.3)(vite@7.1.7(@types/node@22.18.6)(jiti@2.6.0)(lightningcss@1.30.1)))(vitest@3.2.4)
+        version: 2.1.2(@storybook/addon-vitest@9.1.8(@vitest/browser@3.2.4)(@vitest/runner@3.2.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.1.8(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.2))(prettier@3.5.3)(vite@7.1.7(@types/node@22.18.6)(jiti@2.6.0)(lightningcss@1.30.1)))(vitest@3.2.4))(@vitest/browser@3.2.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.1.8(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.2))(prettier@3.5.3)(vite@7.1.7(@types/node@22.18.6)(jiti@2.6.0)(lightningcss@1.30.1)))(vitest@3.2.4)
       storybook-dark-mode2:
         specifier: ^5.2.1
         version: 5.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.1.8(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.2))(prettier@3.5.3)(vite@7.1.7(@types/node@22.18.6)(jiti@2.6.0)(lightningcss@1.30.1)))
@@ -820,6 +820,14 @@ packages:
   '@inquirer/type@2.0.0':
     resolution: {integrity: sha512-XvJRx+2KR3YXyYtPUUy+qd9i7p+GO9Ko6VIIpWlBrpWwXDv8WLFeHTxz35CfQFUiBMLXlGHhGzys7lqit9gWag==}
     engines: {node: '>=18'}
+
+  '@isaacs/balanced-match@4.0.1':
+    resolution: {integrity: sha512-yzMTt9lEb8Gv7zRioUilSglI0c0smZ9k5D65677DLWLtWJaXIS3CqcGyUFByYKlnUj6TkjLVs54fBl6+TiGQDQ==}
+    engines: {node: 20 || >=22}
+
+  '@isaacs/brace-expansion@5.0.0':
+    resolution: {integrity: sha512-ZT55BDLV0yv0RBm2czMiZ+SqCGO7AvmOM3G/w2xhVPH+te0aKgFjmBvGlL1dH+ql2tgGO3MVrbb3jCKyvpgnxA==}
+    engines: {node: 20 || >=22}
 
   '@isaacs/cliui@8.0.2':
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
@@ -2192,6 +2200,11 @@ packages:
     engines: {node: 20 || >=22}
     hasBin: true
 
+  glob@11.0.3:
+    resolution: {integrity: sha512-2Nim7dha1KVkaiF4q6Dj+ngPPMdfvLJEOpZk/jKiUAkqKebpGAWQXAq9z1xu9HKu5lWfqw/FASuccEjyznjPaA==}
+    engines: {node: 20 || >=22}
+    hasBin: true
+
   global-directory@4.0.1:
     resolution: {integrity: sha512-wHTUcDUoZ1H5/0iVqEudYW4/kAlN5cZ3j/bXn0Dpbizl9iaUVeWSHqiOjsgk6OW2bkLclbBjzewBz6weQ1zA2Q==}
     engines: {node: '>=18'}
@@ -2348,6 +2361,10 @@ packages:
 
   jackspeak@4.1.0:
     resolution: {integrity: sha512-9DDdhb5j6cpeitCbvLO7n7J4IxnbM6hoF6O1g4HQ5TfhvvKN8ywDM7668ZhMHRqVmxqhps/F6syWK2KcPxYlkw==}
+    engines: {node: 20 || >=22}
+
+  jackspeak@4.1.1:
+    resolution: {integrity: sha512-zptv57P3GpL+O0I7VdMJNBZCu+BPHVQUk55Ft8/QCJjTVxrnJHuVuX/0Bl2A6/+2oyR/ZMEuFKwmzqqZ/U5nPQ==}
     engines: {node: 20 || >=22}
 
   jiti@1.21.7:
@@ -2581,6 +2598,10 @@ packages:
 
   minimatch@10.0.1:
     resolution: {integrity: sha512-ethXTt3SGGR+95gudmqJ1eNhRO7eGEGIgYA9vnPatK4/etz2MEVDno5GMCibdMTuBMyElzIlgxMna3K94XDIDQ==}
+    engines: {node: 20 || >=22}
+
+  minimatch@10.0.3:
+    resolution: {integrity: sha512-IPZ167aShDZZUMdRk66cyQAW3qr0WzbHkPdMYa8bzZhlHhO3jALbKdxcaak7W9FfT2rZNpQuUu4Od7ILEpXSaw==}
     engines: {node: 20 || >=22}
 
   minimatch@9.0.5:
@@ -3202,8 +3223,8 @@ packages:
     peerDependencies:
       storybook: ^9.0.0
 
-  storybook-addon-vis@2.1.1:
-    resolution: {integrity: sha512-/r/LH36c3fzn3J8ErG2dBDd7DMOr4gNSkVK7NBvMO3J6/LHqpYiRmaO8HSGX7Wa0JeSd0Kdo1f17ugGPYlUO1Q==}
+  storybook-addon-vis@2.1.2:
+    resolution: {integrity: sha512-oXRdcTNHIdzsIv154k6tTortOC5AAcNaTf4K1pGUbuXcSBieyVNGWVbMU4bStulhrA5jMR+AHCCeCN4fsR3fcg==}
     peerDependencies:
       '@storybook/addon-vitest': ^9.0.0
       '@vitest/browser': ^2 || ^3
@@ -3515,8 +3536,8 @@ packages:
       yaml:
         optional: true
 
-  vitest-plugin-vis@3.4.0:
-    resolution: {integrity: sha512-9fa4JC4LPaxjf+GQoOmLrXrxnn4l9fEKrIowsoONgKDQLMsrmdSbqUdTRwfAHioXGw2awJVlCb/s7i84bF5+hw==}
+  vitest-plugin-vis@3.4.1:
+    resolution: {integrity: sha512-xN4OaFXqweABQCBZjeWgzlBmiBK2qhVi5ElwL+gmEmSyrdrQG4bKJDHED0P+XdAjSlugAgbvDCT/UmdSIGUFCA==}
     peerDependencies:
       '@vitest/browser': ^2 || ^3
       vitest: ^2 || ^3
@@ -4258,6 +4279,12 @@ snapshots:
     dependencies:
       mute-stream: 1.0.0
     optional: true
+
+  '@isaacs/balanced-match@4.0.1': {}
+
+  '@isaacs/brace-expansion@5.0.0':
+    dependencies:
+      '@isaacs/balanced-match': 4.0.1
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -5731,6 +5758,15 @@ snapshots:
       package-json-from-dist: 1.0.1
       path-scurry: 2.0.0
 
+  glob@11.0.3:
+    dependencies:
+      foreground-child: 3.3.1
+      jackspeak: 4.1.1
+      minimatch: 10.0.3
+      minipass: 7.1.2
+      package-json-from-dist: 1.0.1
+      path-scurry: 2.0.0
+
   global-directory@4.0.1:
     dependencies:
       ini: 4.1.1
@@ -5864,6 +5900,10 @@ snapshots:
       '@pkgjs/parseargs': 0.11.0
 
   jackspeak@4.1.0:
+    dependencies:
+      '@isaacs/cliui': 8.0.2
+
+  jackspeak@4.1.1:
     dependencies:
       '@isaacs/cliui': 8.0.2
 
@@ -6039,6 +6079,10 @@ snapshots:
   minimatch@10.0.1:
     dependencies:
       brace-expansion: 2.0.1
+
+  minimatch@10.0.3:
+    dependencies:
+      '@isaacs/brace-expansion': 5.0.0
 
   minimatch@9.0.5:
     dependencies:
@@ -6676,19 +6720,19 @@ snapshots:
       - react
       - react-dom
 
-  storybook-addon-vis@2.1.1(@storybook/addon-vitest@9.1.8(@vitest/browser@3.2.4)(@vitest/runner@3.2.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.1.8(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.2))(prettier@3.5.3)(vite@7.1.7(@types/node@22.18.6)(jiti@2.6.0)(lightningcss@1.30.1)))(vitest@3.2.4))(@vitest/browser@3.2.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.1.8(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.2))(prettier@3.5.3)(vite@7.1.7(@types/node@22.18.6)(jiti@2.6.0)(lightningcss@1.30.1)))(vitest@3.2.4):
+  storybook-addon-vis@2.1.2(@storybook/addon-vitest@9.1.8(@vitest/browser@3.2.4)(@vitest/runner@3.2.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.1.8(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.2))(prettier@3.5.3)(vite@7.1.7(@types/node@22.18.6)(jiti@2.6.0)(lightningcss@1.30.1)))(vitest@3.2.4))(@vitest/browser@3.2.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.1.8(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.2))(prettier@3.5.3)(vite@7.1.7(@types/node@22.18.6)(jiti@2.6.0)(lightningcss@1.30.1)))(vitest@3.2.4):
     dependencies:
       '@storybook/addon-vitest': 9.1.8(@vitest/browser@3.2.4)(@vitest/runner@3.2.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@9.1.8(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.2))(prettier@3.5.3)(vite@7.1.7(@types/node@22.18.6)(jiti@2.6.0)(lightningcss@1.30.1)))(vitest@3.2.4)
       '@storybook/icons': 1.6.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@vitest/browser': 3.2.4(msw@2.4.11(typescript@5.9.2))(playwright@1.55.1)(vite@7.1.7(@types/node@22.18.6)(jiti@2.6.0)(lightningcss@1.30.1))(vitest@3.2.4)
-      glob: 11.0.2
+      glob: 11.0.3
       is-ci: 4.1.0
       memoize: 10.1.0
       pathe: 2.0.3
       storybook: 9.1.8(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.2))(prettier@3.5.3)(vite@7.1.7(@types/node@22.18.6)(jiti@2.6.0)(lightningcss@1.30.1))
       type-plus: 8.0.0-beta.7
       vitest: 3.2.4(@types/node@22.18.6)(@vitest/browser@3.2.4)(jiti@2.6.0)(lightningcss@1.30.1)(msw@2.4.11(typescript@5.9.2))
-      vitest-plugin-vis: 3.4.0(@vitest/browser@3.2.4)(vitest@3.2.4)
+      vitest-plugin-vis: 3.4.1(@vitest/browser@3.2.4)(vitest@3.2.4)
     transitivePeerDependencies:
       - babel-plugin-macros
       - react
@@ -6833,7 +6877,7 @@ snapshots:
 
   tersify@3.12.1:
     dependencies:
-      acorn: 8.14.1
+      acorn: 8.15.0
       is-buffer: 2.0.5
       unpartial: 1.0.5
 
@@ -7054,11 +7098,11 @@ snapshots:
       jiti: 2.6.0
       lightningcss: 1.30.1
 
-  vitest-plugin-vis@3.4.0(@vitest/browser@3.2.4)(vitest@3.2.4):
+  vitest-plugin-vis@3.4.1(@vitest/browser@3.2.4)(vitest@3.2.4):
     dependencies:
       '@vitest/browser': 3.2.4(msw@2.4.11(typescript@5.9.2))(playwright@1.55.1)(vite@7.1.7(@types/node@22.18.6)(jiti@2.6.0)(lightningcss@1.30.1))(vitest@3.2.4)
       dedent: 1.7.0
-      glob: 11.0.2
+      glob: 11.0.3
       is-ci: 4.1.0
       mkdirp: 3.0.1
       pathe: 2.0.3
