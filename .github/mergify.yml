@@ -1,1 +1,1 @@
-extends: repobuddy/.github
+extends: .github
