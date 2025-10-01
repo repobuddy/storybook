@@ -67,7 +67,7 @@
 		"@just-web/css": "^0.7.0",
 		"@repobuddy/test": "^1.0.0",
 		"@storybook/icons": "^1.4.0",
-		"htmlfy": "^0.8.0"
+		"htmlfy": "^1.0.0"
 	},
 	"devDependencies": {
 		"@repobuddy/vitest": "^1.2.2",
