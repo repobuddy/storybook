@@ -17,7 +17,8 @@ const config: StorybookConfig = {
 		getAbsolutePath('@storybook/addon-docs'),
 		getAbsolutePath('@storybook/addon-a11y'),
 		getAbsolutePath('@storybook/addon-vitest'),
-		'@repobuddy/storybook/variants'
+		'@repobuddy/storybook/variants',
+		'@storybook-community/storybook-dark-mode'
 	],
 	framework: {
 		name: getAbsolutePath('@storybook/react-vite'),

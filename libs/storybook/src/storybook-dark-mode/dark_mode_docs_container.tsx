@@ -1,10 +1,10 @@
+import { DARK_MODE_EVENT_NAME } from '@storybook-community/storybook-dark-mode'
 import { DocsContainer, type DocsContextProps } from '@storybook/addon-docs/blocks'
 import { type PropsWithChildren, useEffect, useState } from 'react'
-import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode2'
 import { type ThemeVars, themes } from 'storybook/theming'
 
 /**
- * Creates a `DocsContainer` for `storybook` that works with `storybook-dark-mode2`.
+ * Creates a `DocsContainer` for `storybook` that works with `@storybook-community/storybook-dark-mode`.
  *
  * @see https://github.com/hipstersmoothie/storybook-dark-mode/issues/282
  *

@@ -25,7 +25,7 @@ module.exports = require('@storybook/addon-vitest/preset');
 ```
 
 ```ts
-// storybook-dark-mode2/preset.js
+// @storybook-community/storybook-dark-mode/preset.js
 
 function managerEntries(entry = []) {
   return [...entry, require.resolve('./esm/preset/manager')]
