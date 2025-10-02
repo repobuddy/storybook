@@ -12,9 +12,9 @@
 
 console.info('variants.preset.js.load')
 
-// export const managerEntries = ['storybook-dark-mode2/manager']
-// const previewAnnotations = (entry = []) => [...entry, require.resolve('storybook-dark-mode2')]
-// const previewAnnotations =  [ require.resolve('storybook-dark-mode2')]
+// export const managerEntries = ['@storybook-community/storybook-dark-mode/manager']
+// const previewAnnotations = (entry = []) => [...entry, require.resolve('@storybook-community/storybook-dark-mode')]
+// const previewAnnotations =  [ require.resolve('@storybook-community/storybook-dark-mode')]
 
 // module.exports = {
 // 	managerEntries,

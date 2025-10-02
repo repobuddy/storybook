@@ -102,9 +102,9 @@ import { defaultConfig } from 'storybook-addon-tag-badges'
 addons.setConfig({ tagBadges: [newBadge, ...defaultConfig] })
 ```
 
-### `storybook-dark-mode2`
+### `@storybook-community/storybook-dark-mode`
 
-[`@repobuddy/storybook`][`@repobuddy/storybook`] provides a few utilities to work with [`storybook-dark-mode2`][`storybook-dark-mode2`].
+[`@repobuddy/storybook`][`@repobuddy/storybook`] provides a few utilities to work with [`@storybook-community/storybook-dark-mode`][`@storybook-community/storybook-dark-mode`].
 
 ```ts
 // .storybook/preview.tsx
@@ -133,5 +133,5 @@ export const preview: Preview = {
 
 [`@repobuddy/storybook`]: https://github.com/repobuddy/storybook
 [`storybook-addon-tag-badges`]: https://github.com/Sidnioulz/storybook-addon-tag-badges
-[`storybook-dark-mode2`]: https://github.com/repobuddy/storybook-dark-mode2
+[`@storybook-community/storybook-dark-mode`]: https://github.com/repobuddy/@storybook-community/storybook-dark-mode
 [`storybook-addon-code-editor`]: https://github.com/storybookjs/storybook/tree/main/addons/code/code-editor

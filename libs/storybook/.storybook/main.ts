@@ -11,7 +11,7 @@ export default {
 		getAbsolutePath('@storybook/addon-vitest'),
 		getAbsolutePath('storybook-addon-tag-badges'),
 		getAbsolutePath('@storybook/addon-docs'),
-		getAbsolutePath('storybook-dark-mode2'),
+		getAbsolutePath('@storybook-community/storybook-dark-mode'),
 		{
 			name: getAbsolutePath('storybook-addon-vis'),
 			options: defineStorybookVisOptions({
