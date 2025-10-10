@@ -1,5 +1,17 @@
 # @repobuddy/storybook
 
+## 1.1.0
+
+### Minor Changes
+
+- [#174](https://github.com/repobuddy/storybook/pull/174) [`9cbce4e`](https://github.com/repobuddy/storybook/commit/9cbce4e7c90c31b138c7ac3c49d5ec2b93cb7800) Thanks [@unional](https://github.com/unional)! - Replace `storybook-dark-mode2` with its successor `@storybook-community/storybook-dark-mode`.
+
+- [#100](https://github.com/repobuddy/storybook/pull/100) [`d48b633`](https://github.com/repobuddy/storybook/commit/d48b63307b639e34c29587203e05e99d1ad3a1a4) Thanks [@unional](https://github.com/unional)! - Add `ExtendMeta` and `ExtendStoryObj`.
+
+- [`e548eeb`](https://github.com/repobuddy/storybook/commit/e548eebed9d9aae6716b1c22826ba4bc01894822) - Remove `JSX.Element` support from `docs.description.story` and `docs.description.component` properties in `DocsParam` interface.
+
+  Storybook does not support that when the story is rendered in the docs.
+
 ## 1.0.1
 
 ### Patch Changes
