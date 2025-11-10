@@ -24,8 +24,8 @@ importers:
         specifier: ^20.0.0
         version: 20.0.0
       '@repobuddy/biome':
-        specifier: 1.7.1
-        version: 1.7.1(@biomejs/biome@1.9.4)
+        specifier: 2.1.0
+        version: 2.1.0(@biomejs/biome@1.9.4)
       '@types/react':
         specifier: ^19.1.2
         version: 19.2.2
@@ -1166,10 +1166,10 @@ packages:
   '@polka/url@1.0.0-next.29':
     resolution: {integrity: sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==}
 
-  '@repobuddy/biome@1.7.1':
-    resolution: {integrity: sha512-2G5MpFkzXo6Y0P0ijsvAzYWpagO06WnQInekX8hKYhzusXKGuJfqqIbXs6JdBM4FJk9Uj50Ho3ui7ck+fI8trg==}
+  '@repobuddy/biome@2.1.0':
+    resolution: {integrity: sha512-fQw3U0JgZEJTKJ9RmJ9/4qTsNLtrpYp9UkHfNuvMqwyDgGFenyFXxT7QGRNhF8gtOeMbgAvLJwFeAZMjwBS4uQ==}
     peerDependencies:
-      '@biomejs/biome': '>= 1.8.0'
+      '@biomejs/biome': '>= 2'
 
   '@repobuddy/test@1.0.0':
     resolution: {integrity: sha512-sXIAH4qO6qN/cIpYK6ZYcQrfmUT5QrALgd8YZZ7e2KiteaWgkRUv5NP++5AlaS6L7GQ6AYT+QXXlTwl+FPq9og==}
@@ -4711,7 +4711,7 @@ snapshots:
 
   '@polka/url@1.0.0-next.29': {}
 
-  '@repobuddy/biome@1.7.1(@biomejs/biome@1.9.4)':
+  '@repobuddy/biome@2.1.0(@biomejs/biome@1.9.4)':
     dependencies:
       '@biomejs/biome': 1.9.4
 
