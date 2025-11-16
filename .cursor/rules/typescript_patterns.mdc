@@ -10,17 +10,18 @@ This repository uses TypeScript extensively with strict settings. Follow these p
 ## Type Definitions
 
 ### Component Props
-```typescript
+
+```ts
 // Use interfaces for component props
 interface ComponentNameProps {
-  // Required props
-  title: string
-  // Optional props with default values
-  variant?: 'primary' | 'secondary'
-  // Event handlers
-  onClick?: () => void
-  // Complex types
-  data: Array<{ id: string; name: string }>
+	// Required props
+	title: string
+	// Optional props with default values
+	variant?: 'primary' | 'secondary'
+	// Event handlers
+	onClick?: () => void
+	// Complex types
+	data: Array<{ id: string; name: string }>
 }
 
 // Export interfaces for reuse
@@ -28,24 +29,26 @@ export type { ComponentNameProps }
 ```
 
 ### Generic Types
-```typescript
+
+```ts
 // Use generics for reusable components
 interface ListProps<T> {
-  items: T[]
-  renderItem: (item: T, index: number) => React.ReactNode
-  keyExtractor: (item: T) => string
+	items: T[]
+	renderItem: (item: T, index: number) => React.ReactNode
+	keyExtractor: (item: T) => string
 }
 
 // Constrain generics when needed
 interface ApiResponse<T extends Record<string, unknown>> {
-  data: T
-  status: 'success' | 'error'
-  message?: string
+	data: T
+	status: 'success' | 'error'
+	message?: string
 }
 ```
 
 ### Utility Types
-```typescript
+
+```ts
 // Use built-in utility types
 type OptionalProps<T> = Partial<T>
 type RequiredProps<T> = Required<T>
@@ -55,27 +58,31 @@ type OmitProps<T, K extends keyof T> = Omit<T, K>
 // Custom utility types
 type WithOptional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>
 type DeepPartial<T> = {
-  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P]
+	[P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P]
 }
 ```
 
 ## Import/Export Patterns
 
 ### Named Exports
-```typescript
+
+```ts
 // Prefer named exports for better tree-shaking
-export function ComponentName() { /* ... */ }
+export function ComponentName() {
+	/* ... */
+}
 export type { ComponentNameProps }
 export const CONSTANT_VALUE = 'value'
 
 // Use index files for clean imports
 // index.ts
-export { ComponentName } from './ComponentName'
-export type { ComponentNameProps } from './ComponentName'
+export { ComponentName } from './component_name.js'
+export type { ComponentNameProps } from './component_name.js'
 ```
 
 ### Import Organization
-```typescript
+
+```ts
 // External dependencies first
 import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
@@ -84,12 +91,13 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { ComponentName } from '@repobuddy/storybook'
 
 // Relative imports last
-import './ComponentName.css'
-import type { LocalType } from './types'
+import './component_name.css'
+import type { LocalType } from './types.js'
 ```
 
 ### Type-Only Imports
-```typescript
+
+```ts
 // Use type-only imports for types
 import type { ComponentProps } from 'react'
 import type { StoryObj } from '@storybook/react'
@@ -102,83 +110,87 @@ import type { Dispatch, SetStateAction } from 'react'
 ## React Patterns
 
 ### Function Components
-```typescript
+
+```tsx
 // Use function components with proper typing
 export function ComponentName({ title, onClick }: ComponentNameProps) {
-  return (
-    <button onClick={onClick}>
-      {title}
-    </button>
-  )
+	return (
+		<button onClick={onClick}>
+			{title}
+		</button>
+	)
 }
 
 // Use React.FC sparingly, prefer explicit prop typing
 // Only use when you need children prop
 interface WithChildrenProps {
-  children: React.ReactNode
+	children: React.ReactNode
 }
 
 export const WithChildren: React.FC<WithChildrenProps> = ({ children }) => {
-  return <div>{children}</div>
+	return <div>{children}</div>
 }
 ```
 
 ### Hooks
-```typescript
+
+```ts
 // Type custom hooks properly
 function useCustomHook<T>(initialValue: T) {
-  const [value, setValue] = useState<T>(initialValue)
+	const [value, setValue] = useState<T>(initialValue)
 
-  const updateValue = useCallback((newValue: T) => {
-    setValue(newValue)
-  }, [])
+	const updateValue = useCallback((newValue: T) => {
+		setValue(newValue)
+	}, [])
 
-  return { value, updateValue }
+	return { value, updateValue }
 }
 
 // Type hook return values
 interface UseApiReturn<T> {
-  data: T | null
-  loading: boolean
-  error: Error | null
-  refetch: () => Promise<void>
+	data: T | null
+	loading: boolean
+	error: Error | null
+	refetch: () => Promise<void>
 }
 ```
 
 ### Event Handlers
-```typescript
+
+```ts
 // Type event handlers properly
 const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-  event.preventDefault()
-  // handler logic
+	event.preventDefault()
+	// handler logic
 }
 
 const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  const value = event.target.value
-  // handler logic
+	const value = event.target.value
+	// handler logic
 }
 
 // For form events
 const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  event.preventDefault()
-  // form submission logic
+	event.preventDefault()
+	// form submission logic
 }
 ```
 
 ## Storybook Integration
 
 ### Meta Types
-```typescript
+
+```ts
 // Use the extended Meta type from the repository
-import type { Meta, StoryObj } from '#repobuddy/storybook/internal'
+import type { Meta, StoryObj } from '#repobuddy/storybook/internal.js'
 
 const meta = {
-  title: 'components/ComponentName',
-  component: ComponentName,
-  tags: ['autodocs', 'new'],
-  parameters: {
-    layout: 'centered'
-  }
+	title: 'components/ComponentName',
+	component: ComponentName,
+	tags: ['autodocs', 'new'],
+	parameters: {
+		layout: 'centered'
+	}
 } satisfies Meta<typeof ComponentName>
 
 export default meta
@@ -186,53 +198,56 @@ type Story = StoryObj<typeof meta>
 ```
 
 ### Story Types
-```typescript
+
+```ts
 // Type stories with proper args
 export const Default: Story = {
-  args: {
-    title: 'Default Title',
-    variant: 'primary'
-  }
+	args: {
+		title: 'Default Title',
+		variant: 'primary'
+	}
 }
 
 // Type complex story configurations
 export const WithComplexData: Story = {
-  args: {
-    data: [
-      { id: '1', name: 'Item 1' },
-      { id: '2', name: 'Item 2' }
-    ]
-  },
-  play: async ({ canvasElement }) => {
-    // Type-safe play function
-    const canvas = within(canvasElement)
-    // interaction logic
-  }
+	args: {
+		data: [
+			{ id: '1', name: 'Item 1' },
+			{ id: '2', name: 'Item 2' }
+		]
+	},
+	play: async ({ canvasElement }) => {
+		// Type-safe play function
+		const canvas = within(canvasElement)
+		// interaction logic
+	}
 }
 ```
 
 ## Error Handling
 
 ### Result Types
-```typescript
+
+```ts
 // Use Result pattern for error handling
 type Result<T, E = Error> =
-  | { success: true; data: T }
-  | { success: false; error: E }
+	| { success: true; data: T }
+	| { success: false; error: E }
 
 // Usage
 function fetchData(): Promise<Result<UserData>> {
-  try {
-    const data = await api.getUser()
-    return { success: true, data }
-  } catch (error) {
-    return { success: false, error: error as Error }
-  }
+	try {
+		const data = await api.getUser()
+		return { success: true, data }
+	} catch (error) {
+		return { success: false, error: error as Error }
+	}
 }
 ```
 
 ### Optional Chaining
-```typescript
+
+```ts
 // Use optional chaining for safe property access
 const userName = user?.profile?.name ?? 'Anonymous'
 const firstItem = items?.[0]?.title
@@ -244,32 +259,52 @@ const result = api?.fetchData?.() ?? null
 ## Configuration Files
 
 ### TypeScript Config
-```json
+
+The main TypeScript configuration is defined in [libs/storybook/tsconfig.json](mdc:libs/storybook/tsconfig.json) with strict settings:
+
+```jsonc
 {
-  "compilerOptions": {
-    "strict": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true
-  }
+	"compilerOptions": {
+		"composite": true,
+		"isolatedModules": true,
+		"jsx": "react",
+		"lib": ["ESNext", "DOM.Iterable", "DOM"],
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"outDir": "esm",
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "ES2020",
+		"verbatimModuleSyntax": true
+	},
+	"include": ["src", "types", ".storybook"]
 }
 ```
 
+Key configuration options:
+
+- **strict**: `true` - Enables all strict type checking options
+- **isolatedModules**: `true` - Ensures each file can be safely transpiled
+- **verbatimModuleSyntax**: `true` - Enforces explicit import/export syntax
+- **target**: `ES2020` - Modern JavaScript features
+- **moduleResolution**: `bundler` - Optimized for bundlers like Vite
+
 ### Vite Config
-```typescript
+
+```ts
 // Type Vite configuration
 import type { UserConfig } from 'vite'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  // typed configuration
+	// typed configuration
 } satisfies UserConfig)
 ```
 
 ## Best Practices
 
 ### Type Safety
+
 1. **Avoid `any`**: Use proper types or `unknown` when type is truly unknown
 2. **Use `unknown` over `any`**: More type-safe alternative
 3. **Prefer interfaces over types**: Better for object shapes
@@ -277,18 +312,21 @@ export default defineConfig({
 5. **Leverage discriminated unions**: For complex state management
 
 ### Performance
+
 1. **Use `React.memo`**: For expensive components
 2. **Proper dependency arrays**: In useEffect and useCallback
 3. **Lazy loading**: For code splitting
 4. **Type-only imports**: Reduce bundle size
 
 ### Code Organization
+
 1. **Co-locate types**: Keep types close to their usage
 2. **Shared types**: Put common types in dedicated files
 3. **Barrel exports**: Use index files for clean imports
 4. **Consistent naming**: Use PascalCase for types, camelCase for values
 
 ### Testing
+
 1. **Type test utilities**: Use TypeScript for compile-time testing
 2. **Mock types**: Properly type mocks and test utilities
 3. **Story types**: Ensure Storybook stories are properly typed
