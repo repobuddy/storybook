@@ -6,7 +6,7 @@ alwaysApply: false
 # Component Specification Template
 
 ## Overview
-This template provides a structured format for specifying React components before implementation. The specification will be used to create components following the [React Component Specification](mdc:.cursor/rules/react-component-spec.mdc).
+This template provides a structured format for specifying React components before implementation. The specification will be used to create components following the [React Component Specification](mdc:.cursor/rules/react_component_spec.mdc).
 
 ## Specification Structure
 
