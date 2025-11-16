@@ -18,6 +18,7 @@ export type TagNames =
 	| 'todo'
 	| 'code-only'
 	| 'snapshot'
+	| '!snapshot'
 	| 'unit'
 	| 'integration'
 	| 'keyboard'

@@ -22,7 +22,7 @@ export type ExtendMeta<
 		tag: string
 	}
 > = Omit<M, 'tags'> & {
-	tags?: Array<E['tag'] | (string & {})> | undefined
+	tags?: Array<E['tag'] | 'autodocs' | '!autodocs' | 'test' | '!test' | 'dev' | '!dev' | (string & {})> | undefined
 }
 
 /**
@@ -47,5 +47,5 @@ export type ExtendStoryObj<
 		tag: string
 	}
 > = Omit<S, 'tags'> & {
-	tags?: Array<E['tag'] | (string & {})> | undefined
+	tags?: Array<E['tag'] | 'autodocs' | '!autodocs' | 'test' | '!test' | 'dev' | '!dev' | (string & {})> | undefined
 }
