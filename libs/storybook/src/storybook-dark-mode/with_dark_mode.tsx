@@ -1,8 +1,9 @@
 import type { CSSProperties } from '@just-web/css'
 import { toDOMStyle } from '@just-web/css'
 import { useDarkMode } from '@storybook-community/storybook-dark-mode'
+import React from 'react'
 import type { DecoratorFunction } from 'storybook/internal/types'
-import type { DarkModeParam } from './define_dark_mode.ts'
+import type { DarkModeParam } from './define_dark_mode.js'
 
 /**
  * Applies additional dark mode behavior.

@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { defineDocsParam, ShowHtml } from '../index.ts'
+import type { Meta, StoryObj } from '#repobuddy/storybook/internal'
+import React from 'react'
+import { defineDocsParam, ShowHtml } from '../index.js'
 
 const meta: Meta<typeof ShowHtml> = {
 	title: 'components/ShowHtml',

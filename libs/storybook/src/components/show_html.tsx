@@ -1,6 +1,6 @@
 import type { ClassNameProps, StyleProps } from '@just-web/css'
 import { prettify, type UserConfig } from 'htmlfy'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export type ShowHtmlProps = ClassNameProps &
 	StyleProps & {

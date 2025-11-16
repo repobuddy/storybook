@@ -1,1 +1,1 @@
-export * from '../storybook-addon-tag-badges/types.ts'
+export * from '../storybook-addon-tag-badges/types.js'

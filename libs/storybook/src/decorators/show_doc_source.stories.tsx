@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '#repobuddy/storybook/internal'
 import dedent from 'dedent'
-// @ts-ignore
+import React from 'react'
 import { themes } from 'storybook/internal/theming'
-import { defineDocsParam } from '../parameters/define_docs_param'
-import { showDocSource } from './show_doc_source'
+import { defineDocsParam } from '../parameters/define_docs_param.js'
+import { showDocSource } from './show_doc_source.js'
 
 // Simple demo component for testing the decorator
 const DemoComponent = ({ text = 'Hello World' }: { text?: string }) => (
