@@ -1,5 +1,5 @@
 ---
-description:
+description: Apply when writing, reviewing, or refactoring component styles to ensure consistent Tailwind CSS 4 usage, proper responsive design with container queries, accessibility compliance, and modern CSS features like logical properties and color functions. Use for all component styling, theme implementation, and UI development.
 globs:
 alwaysApply: false
 ---
