@@ -1,0 +1,141 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Component Specification Template
+
+## Overview
+This template provides a structured format for specifying React components before implementation. The specification will be used to create components following the [React Component Specification](mdc:.cursor/rules/react-component-spec.mdc).
+
+## Specification Structure
+
+### Component Name
+[Component Name]
+
+### Description
+[Brief description of the component's purpose and main functionality]
+
+### Research & References
+- [ ] Research existing components in the repository
+- [ ] Research similar components from popular component libraries (Material UI, Chakra UI, etc.)
+- [ ] Document relevant patterns and best practices found
+
+### Features & Behaviors
+[ ] Feature/Behavior 1
+- Description: [Detailed description]
+- Expected behavior: [How it should work]
+- Edge cases: [Any special cases to consider]
+
+[ ] Feature/Behavior 2
+- Description: [Detailed description]
+- Expected behavior: [How it should work]
+- Edge cases: [Any special cases to consider]
+
+### Props Interface
+```typescript
+interface ComponentNameProps {
+  // List all props with types and descriptions
+}
+```
+
+### Accessibility Requirements
+[ ] [Accessibility requirement 1]
+[ ] [Accessibility requirement 2]
+
+### Theme Support
+[ ] Light theme implementation
+[ ] Dark theme implementation
+[ ] Custom theme variables
+
+### Testing Requirements
+[ ] Unit test for [specific functionality]
+[ ] Integration test for [specific functionality]
+[ ] Accessibility test for [specific functionality]
+
+### Performance Considerations
+[ ] [Performance consideration 1]
+[ ] [Performance consideration 2]
+
+### Documentation Requirements
+[ ] Component API documentation
+[ ] Usage examples
+[ ] Props documentation
+[ ] Storybook stories for all variants
+
+## Implementation Notes
+- The implementation will follow the React Component Specification
+- All features will be validated through Storybook stories
+- Each checkbox will be marked as completed when the feature is implemented and tested
+- The implementation will include proper TypeScript types and documentation
+
+## Example Specification
+
+### Component Name
+Button
+
+### Description
+A versatile button component that supports different variants, sizes, and states.
+
+### Research & References
+- [ ] Research existing button components in the repository
+- [ ] Research Material UI Button component
+- [ ] Research Chakra UI Button component
+- [ ] Document common button patterns
+
+### Features & Behaviors
+[ ] Basic Button
+- Description: Standard button with text and optional icon
+- Expected behavior: Renders as a clickable button with proper styling
+- Edge cases: Long text, empty text, icon only
+
+[ ] Button Variants
+- Description: Support for different visual styles (primary, secondary, etc.)
+- Expected behavior: Applies correct styling based on variant prop
+- Edge cases: Custom variant combinations
+
+[ ] Button States
+- Description: Support for different states (disabled, loading, etc.)
+- Expected behavior: Visual feedback for each state
+- Edge cases: State transitions, multiple states
+
+### Props Interface
+```typescript
+interface ButtonProps {
+  variant?: 'primary' | 'secondary' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
+  disabled?: boolean;
+  loading?: boolean;
+  onClick?: () => void;
+  children: React.ReactNode;
+}
+```
+
+### Accessibility Requirements
+[ ] Proper ARIA attributes
+[ ] Keyboard navigation support
+[ ] Focus management
+[ ] Screen reader support
+
+### Theme Support
+[ ] Light theme implementation
+[ ] Dark theme implementation
+[ ] Custom theme variables
+
+### Testing Requirements
+[ ] Unit test for click handler
+[ ] Unit test for disabled state
+[ ] Unit test for loading state
+[ ] Integration test for form submission
+[ ] Accessibility test for keyboard navigation
+
+### Performance Considerations
+[ ] Memoization of callback functions
+[ ] Optimized re-renders
+[ ] Bundle size optimization
+
+### Documentation Requirements
+[ ] Component API documentation
+[ ] Usage examples
+[ ] Props documentation
+[ ] Storybook stories for all variants
