@@ -16,7 +16,7 @@
 		"types": ["@vitest/browser/providers/playwright"],
 		"verbatimModuleSyntax": true
 	},
-	"include": ["src"],
+	"include": ["src", "types"],
 	"references": [
 		{
 			"path": "./tsconfig.proj.json"

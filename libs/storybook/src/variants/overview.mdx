@@ -1,0 +1,59 @@
+import { Meta } from '@storybook/addon-docs'
+
+<Meta title="variants/Overview" />
+
+# Overview
+
+`@repobuddy/storybook/variants` is a Storybook addon that allows you to create and manage variants of your stories.
+
+While the main usage is to create Design System variants,
+such as color theme (light, dark, system),
+language (en, fr, de),
+hans script (CJK: Chinese, Japanese, Korean),
+it can be used for any other purpose.
+
+To use this addon, you need to add it to your Storybook configuration.
+
+```ts
+// .storybook/main.ts
+
+export default {
+  addons: [
+    '@repobuddy/storybook/variants'
+  ]
+}
+```
+
+## Setup
+
+`@repobuddy/storybook/variants` provides a few default variant configs out of the box.
+
+To customize or provide your own variant config,
+you can define it in `.storybook/manager.ts`:
+
+```ts
+// .storybook/manager.ts
+import { addons } from 'storybook/internal/manager-api'
+import { colorVariants } from '@repobuddy/storybook/variants'
+
+addons.setConfig({
+  variants: [
+    colorVariants
+  ]
+})
+```
+
+## Override variants
+
+Variants can be overridden through `parameters`:
+
+```tsx
+export default {
+  parameters: {
+    variants: {
+      // Disable color theme variants
+      colorTheme: false
+    }
+  }
+}
+```
