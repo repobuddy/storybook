@@ -1,0 +1,275 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Markdown Content Guidelines
+
+This rule provides comprehensive guidelines for writing markdown content that follows best practices and passes markdown linting in this project.
+
+## Markdown Linting Configuration
+
+The project uses markdownlint with the following configuration:
+
+- **Line length**: Disabled (no strict character limits)
+- **Inline HTML**: Allowed (can use HTML when needed)
+- **Heading start left**: Disabled (headings can be indented)
+- **Duplicate headings**: Disabled (can have same heading text in different sections)
+
+Reference: [.markdownlint-cli2.jsonc](mdc:.markdownlint-cli2.jsonc)
+
+## General Markdown Best Practices
+
+### Headings
+
+- Use `#` for main title (H1)
+- Use `##` for section headings (H2)
+- Use `###` for subsection headings (H3)
+- Use `####` for sub-subsection headings (H4)
+- Avoid using more than 4 levels of headings
+- Leave one blank line before and after headings
+
+```md
+# Main Title
+
+## Section Heading
+
+### Subsection Heading
+
+#### Sub-subsection Heading
+```
+
+### Text Formatting
+
+- Use **bold** for emphasis: `**text**`
+- Use *italic* for secondary emphasis: `*text*`
+- Use `code` for inline code: `` `code` ``
+- Use ~~strikethrough~~ for deprecated content: `~~text~~`
+
+### Lists
+
+- Use `-` for unordered lists
+- Use `1.` for ordered lists
+- Indent sub-items with 2 spaces
+- Leave blank line before and after lists
+
+```md
+- First item
+- Second item
+  - Sub-item
+  - Another sub-item
+- Third item
+
+1. First step
+2. Second step
+   1. Sub-step
+   2. Another sub-step
+3. Third step
+```
+
+### Links
+
+- Use descriptive link text
+- Include title attribute for accessibility when helpful
+- Use relative paths for internal links
+
+```md
+[Descriptive Link Text](mdc:https:/example.com "Optional title")
+[Internal Link](mdc:../relative/path.md)
+```
+
+### Images
+
+- Always include alt text for accessibility
+- Use descriptive alt text
+- Include title attribute when helpful
+
+```md
+![Descriptive alt text](mdc:image.png "Optional title")
+```
+
+### Code Blocks
+
+- Always specify the language for syntax highlighting
+- Use triple backticks with language identifier
+- Indent code blocks properly
+- Prefer shorter language identifiers for consistency
+
+```tsx
+export const Component = () => {
+  return <div>Hello World</div>
+}
+```
+
+```sh
+npm install package-name
+```
+
+```ts
+function example() {
+  return 'hello world'
+}
+```
+
+```jsonc
+{
+  "name": "example",
+  "version": "1.0.0"
+}
+```
+
+### Blockquotes
+
+- Use `>` for blockquotes
+- Can be nested with multiple `>`
+- Leave blank line before and after
+
+```md
+> This is a blockquote
+>
+> It can span multiple lines
+>
+>> This is a nested blockquote
+```
+
+### Tables
+
+- Use proper table formatting with headers
+- Align columns appropriately
+- Keep tables simple and readable
+
+```md
+| Header 1 | Header 2 | Header 3 |
+|----------|----------|----------|
+| Cell 1   | Cell 2   | Cell 3   |
+| Cell 4   | Cell 5   | Cell 6   |
+```
+
+### Horizontal Rules
+
+- Use `---` for horizontal rules
+- Leave blank lines before and after
+
+```md
+Content above
+
+---
+
+Content below
+```
+
+## Project-Specific Guidelines
+
+### Component Documentation
+
+- Use proper heading hierarchy
+- Include usage examples with code blocks
+- Document props and their types
+- Include accessibility considerations
+
+### API Documentation
+
+- Use consistent formatting for parameters
+- Include type information
+- Provide usage examples
+- Document return values
+
+### Changelog Entries
+
+- Follow the existing changelog format
+- Use appropriate change types (feat, fix, docs, etc.)
+- Include breaking change notes when applicable
+- Reference issues and PRs when relevant
+
+## Common Patterns
+
+### Component Example
+
+```md
+## ComponentName
+
+A brief description of what the component does.
+
+### Usage
+
+\`\`\`tsx
+import { ComponentName } from '@panwds/react-ui'
+
+function Example() {
+  return <ComponentName prop="value" />
+}
+\`\`\`
+
+### Props
+
+| Prop | Type   | Default | Description             |
+| ---- | ------ | ------- | ----------------------- |
+| prop | string | -       | Description of the prop |
+
+### Accessibility
+
+- Describe accessibility features
+- Mention ARIA attributes if used
+- Note keyboard navigation support
+
+```md
+# (Accessibility example here if needed)
+```
+
+### API Reference
+
+## functionName(param1, param2)
+
+Description of what the function does.
+
+### Parameters
+
+- `param1` (string): Description of parameter
+- `param2` (number): Description of parameter
+
+### Returns
+
+- `Promise<Result>`: Description of return value
+
+### Example
+
+```ts
+const result = await functionName('value', 42)
+```
+
+## Common Language Identifiers
+
+Prefer shorter versions for consistency:
+
+- `sh` for shell commands (preferred over `bash`)
+- `tsx` for TypeScript React components
+- `ts` for TypeScript files (preferred over `typescript`)
+- `js` for JavaScript files (preferred over `javascript`)
+- `jsonc` for JSON data (preferred over `json` to allow comments)
+- `md` for markdown content (preferred over `markdown`)
+- `css` for CSS stylesheets
+- `html` for HTML markup
+
+## Quality Checklist
+
+Before submitting markdown content, ensure:
+
+- [ ] All headings follow proper hierarchy
+- [ ] Code blocks have language identifiers
+- [ ] Links have descriptive text
+- [ ] Images have alt text
+- [ ] Lists are properly formatted
+- [ ] Tables are aligned correctly
+- [ ] No broken links
+- [ ] Consistent formatting throughout
+- [ ] Proper use of emphasis and code formatting
+- [ ] Accessibility considerations addressed
+- [ ] Using shortest appropriate language identifiers
+
+## Integration with Other Rules
+
+This rule works in conjunction with:
+
+- [Code Block Formatting](mdc:.cursor/rules/coding_standards_code_block_formatting.mdc) - For consistent code block formatting
+- [File Naming Conventions](mdc:.cursor/rules/file_naming_conventions.mdc) - For consistent file naming
+- [Release Notes Guidelines](mdc:.cursor/rules/release_notes_guidelines.mdc) - For changelog formatting
