@@ -43,6 +43,12 @@ This document serves as the central reference for all rules in the project.
 - **Includes**: Biome configuration, code organization, documentation
 - **Applied to**: `**/*.{ts,tsx,js,jsx,json}`
 
+#### [Naming Conventions](mdc:.cursor/rules/naming_conventions.mdc)
+- **Purpose**: File and folder naming conventions for consistent project structure
+- **Scope**: File naming, directory structure, import/export patterns
+- **Includes**: React components, Storybook files, TypeScript patterns, configuration files
+- **Applied to**: All files and directories in the repository
+
 ### Testing & Quality Assurance
 
 #### [Testing Patterns](mdc:.cursor/rules/testing_patterns.mdc)
@@ -180,6 +186,8 @@ The rules work together to provide comprehensive guidance:
 - **Development**: Use [React Component Specification](mdc:.cursor/rules/react_component_spec.mdc) and [TypeScript Patterns](mdc:.cursor/rules/typescript_patterns.mdc) for implementation
 - **Testing**: Follow [Testing Patterns](mdc:.cursor/rules/testing_patterns.mdc) and [Storybook Stories](mdc:.cursor/rules/storybook_stories.mdc) for comprehensive testing
 - **Quality**: Ensure [Code Quality](mdc:.cursor/rules/code_quality.mdc) standards are met
+- **Naming Conventions**: Follow [Naming Conventions](mdc:.cursor/rules/naming_conventions.mdc) for file and folder structure
+- **Monorepo**: Follow [Monorepo Best Practices](mdc:.cursor/rules/monorepo_best_practices.mdc)
 - **Deployment**: Use [CI/CD Patterns](mdc:.cursor/rules/ci_cd_patterns.mdc) for reliable deployment
 
 ## Rule Development Workflow
@@ -272,6 +280,7 @@ Process guides and best practices for development workflows. These help maintain
 - **Testing**: Use [Testing Patterns](mdc:.cursor/rules/testing_patterns.mdc)
 - **Styling**: Follow [Styling Patterns](mdc:.cursor/rules/styling_patterns.mdc)
 - **Code Quality**: Ensure [Code Quality](mdc:.cursor/rules/code_quality.mdc) standards
+- **Naming Conventions**: Follow [Naming Conventions](mdc:.cursor/rules/naming_conventions.mdc) for file and folder structure
 - **Monorepo**: Follow [Monorepo Best Practices](mdc:.cursor/rules/monorepo_best_practices.mdc)
 - **CI/CD**: Use [CI/CD Patterns](mdc:.cursor/rules/ci_cd_patterns.mdc)
 - **Storybook Stories**: Follow [Storybook Stories](mdc:.cursor/rules/storybook_stories.mdc)

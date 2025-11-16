@@ -1,0 +1,249 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# File and Folder Naming Conventions
+
+This rule defines the standard naming conventions for files and folders in this Storybook repository.
+
+## Directory Structure
+
+### Root Level Directories
+- **`apps/`**: Contains application packages in the monorepo
+- **`libs/`**: Contains library packages in the monorepo
+- **`.cursor/`**: Cursor IDE configuration and rules
+- **`.github/`**: GitHub-specific configuration (workflows, templates)
+- **`.husky/`**: Git hooks configuration
+- **`.changeset/`**: Changeset configuration for versioning
+- **`.vscode/`**: VS Code workspace configuration
+- **`.turbo/`**: Turbo build system cache and configuration
+
+### Application Structure (`apps/`)
+```
+apps/
+├── app/                    # Main application package
+│   ├── src/
+│   │   ├── stories/        # Storybook stories for the app
+│   │   ├── assets/         # Static assets
+│   │   └── [component].tsx # React components
+│   ├── public/             # Public static files
+│   └── package.json        # Package configuration
+```
+
+### Library Structure (`libs/`)
+```
+libs/
+├── storybook/              # Storybook library package
+│   ├── src/
+│   │   ├── components/     # Reusable components
+│   │   ├── decorators/     # Storybook decorators
+│   │   ├── parameters/     # Storybook parameters
+│   │   ├── variants/       # Component variants
+│   │   ├── testing/        # Testing utilities
+│   │   ├── manager/        # Storybook manager
+│   │   └── internal/       # Internal utilities
+│   ├── types/              # TypeScript type definitions
+│   └── package.json        # Package configuration
+```
+
+## File Naming Conventions
+
+### React Components
+- **Component files**: Use `PascalCase` for component names
+  - ✅ `Button.tsx`, `Header.tsx`, `ShowHtml.tsx`
+  - ❌ `button.tsx`, `header.tsx`, `show-html.tsx`
+
+### Storybook Files
+- **Story files**: Use `PascalCase` with `.stories.tsx` or `.stories.ts` extension
+  - ✅ `Button.stories.tsx`, `Header.stories.ts`, `ShowHtml.stories.tsx`
+  - ❌ `button.stories.tsx`, `Button.stories.js`
+
+### TypeScript Files
+- **Type definitions**: Use `camelCase` for utility files, `PascalCase` for component types
+  - ✅ `types.ts`, `helpers.ts`, `constants.ts`
+  - ✅ `Button.tsx` (component), `ShowHtml.tsx` (component)
+  - ❌ `Types.ts`, `HELPERS.ts`
+
+### Configuration Files
+- **Build configs**: Use `kebab-case` with descriptive names
+  - ✅ `build.config.ts`, `vite.config.ts`, `vitest.config.ts`
+  - ✅ `biome.jsonc`, `turbo.json`, `tsconfig.json`
+  - ❌ `buildConfig.ts`, `viteConfig.ts`
+
+### CSS Files
+- **Style files**: Use `camelCase` for component-specific styles
+  - ✅ `button.css`, `header.css`, `page.css`
+  - ✅ `App.css`, `index.css` (global styles)
+  - ❌ `Button.css`, `HEADER.css`
+
+### Documentation Files
+- **Markdown files**: Use `camelCase` for general docs, `PascalCase` for component docs
+  - ✅ `readme.md`, `overview.mdx`, `Configure.mdx`
+  - ✅ `storybook_addon.md`, `CHANGELOG.md`
+  - ❌ `README.md`, `overview.MD`
+
+### Context Files
+- **Context files**: Use `camelCase` with `.ctx.ts` extension
+  - ✅ `variant_bar.ctx.ts`, `when_running_in_text.ctx.ts`
+  - ❌ `variant-bar.ctx.ts`, `VariantBar.ctx.ts`
+
+## Folder Naming Conventions
+
+### Component Directories
+- **Component folders**: Use `kebab-case` for multi-word names
+  - ✅ `storybook-addon-tag-badges/`, `storybook-dark-mode/`
+  - ✅ `class-name-switcher/`, `variant-bar/`
+  - ❌ `storybookAddonTagBadges/`, `StorybookDarkMode/`
+
+### Feature Directories
+- **Feature folders**: Use `camelCase` for simple names, `kebab-case` for complex names
+  - ✅ `components/`, `decorators/`, `parameters/`
+  - ✅ `storybook-addon-tag-badges/`, `storybook-dark-mode/`
+  - ❌ `Components/`, `STORYBOOK-ADDON-TAG-BADGES/`
+
+### Utility Directories
+- **Utility folders**: Use `camelCase`
+  - ✅ `helpers/`, `utils/`, `types/`, `internal/`
+  - ❌ `Helpers/`, `UTILS/`
+
+## Special Cases
+
+### Storybook Addon Directories
+- **Addon folders**: Use `storybook-addon-` prefix with `kebab-case`
+  - ✅ `storybook-addon-tag-badges/`, `storybook-dark-mode/`
+  - ❌ `storybookAddonTagBadges/`, `storybook_addon_tag_badges/`
+
+### Variant System
+- **Variant folders**: Use `kebab-case` for variant names
+  - ✅ `color-theme-variants/`, `size-variants/`
+  - ❌ `colorThemeVariants/`, `ColorThemeVariants/`
+
+### Testing Directories
+- **Test folders**: Use `camelCase` with descriptive names
+  - ✅ `testing/`, `when_running_in_test/`
+  - ❌ `Testing/`, `when-running-in-test/`
+
+## File Extensions
+
+### TypeScript/JavaScript
+- **React components**: `.tsx` for JSX, `.ts` for non-JSX
+- **Stories**: `.stories.tsx` or `.stories.ts`
+- **Context files**: `.ctx.ts`
+- **Type definitions**: `.ts`
+- **Configuration**: `.ts` for TypeScript configs
+
+### Styling
+- **CSS files**: `.css`
+- **Tailwind**: Use `.css` with Tailwind directives
+
+### Documentation
+- **Markdown**: `.md` for general docs, `.mdx` for Storybook docs
+- **Component docs**: `.mdx` for Storybook documentation
+
+### Configuration
+- **JSON**: `.json` for standard configs, `.jsonc` for comments
+- **TypeScript**: `.ts` for build configs
+
+## Import/Export Conventions
+
+### Index Files
+- **Main exports**: Use `index.ts` for package entry points
+- **Barrel exports**: Use `index.ts` for re-exporting from directories
+
+### Named Exports
+- **Components**: Use `PascalCase` for component exports
+- **Utilities**: Use `camelCase` for function/utility exports
+- **Types**: Use `PascalCase` for type exports
+
+## Examples
+
+### Good Examples
+```typescript
+// Component file
+// libs/storybook/src/components/ShowHtml.tsx
+export const ShowHtml: React.FC<ShowHtmlProps> = ({ element, options }) => {
+  // Component implementation
+};
+
+// Story file
+// libs/storybook/src/components/ShowHtml.stories.tsx
+export default {
+  title: 'Components/ShowHtml',
+  component: ShowHtml,
+} as Meta;
+
+// Utility file
+// libs/storybook/src/variants/helpers.ts
+export const createVariantConfig = (config: VariantConfig) => {
+  // Helper implementation
+};
+
+// Type definitions
+// libs/storybook/src/types.ts
+export interface ShowHtmlProps {
+  element: HTMLElement;
+  options?: HtmlfyOptions;
+}
+```
+
+### Bad Examples
+```typescript
+// ❌ Wrong naming
+// libs/storybook/src/components/show-html.tsx
+export const showHtml: React.FC<showHtmlProps> = ({ element, options }) => {
+  // Component implementation
+};
+
+// ❌ Wrong story naming
+// libs/storybook/src/components/ShowHtml.stories.js
+export default {
+  title: 'Components/ShowHtml',
+  component: ShowHtml,
+};
+
+// ❌ Wrong utility naming
+// libs/storybook/src/variants/Helpers.ts
+export const CreateVariantConfig = (config: VariantConfig) => {
+  // Helper implementation
+};
+```
+
+## Enforcement
+
+### Linting Rules
+- Use Biome for consistent formatting and naming
+- Configure ESLint rules for naming conventions
+- Use TypeScript strict mode for type safety
+
+### Git Hooks
+- Use Husky to enforce naming conventions on commit
+- Configure pre-commit hooks to check file naming
+
+### IDE Configuration
+- Configure VS Code/Cursor to show naming violations
+- Use workspace settings for consistent formatting
+
+## Migration Guidelines
+
+### When Renaming Files
+1. Update all import statements
+2. Update Storybook story references
+3. Update documentation links
+4. Update test file references
+5. Commit changes with descriptive message
+
+### When Adding New Files
+1. Follow the established naming patterns
+2. Use appropriate file extensions
+3. Place files in correct directories
+4. Update index files for exports
+5. Add appropriate stories for components
+
+## Related Rules
+
+- [React Component Specification](mdc:.cursor/rules/react_component_spec.mdc) - Component structure and naming
+- [Storybook Stories](mdc:.cursor/rules/storybook_stories.mdc) - Story file conventions
+- [TypeScript Patterns](mdc:.cursor/rules/typescript_patterns.mdc) - TypeScript naming patterns
+- [Code Quality](mdc:.cursor/rules/code_quality.mdc) - Overall code quality standards
+- [Monorepo Best Practices](mdc:.cursor/rules/monorepo_best_practices.mdc) - Monorepo structure guidelines
