@@ -4,6 +4,7 @@ description: >
 globs:
 alwaysApply: false
 ---
+
 # Markdown Content Guidelines
 
 This rule provides comprehensive guidelines for writing markdown content that follows best practices and passes markdown linting in this project.
@@ -18,27 +19,56 @@ This rule provides comprehensive guidelines for writing markdown content that fo
 - Creating Storybook documentation
 - Writing commit messages (see also commit_messages.mdc rule)
 
-## Quick Reference
+## Quick Start Guide
 
-### Essential Rules
+### 🚀 Essential Rules (Apply These First)
 
-- ✅ Use proper heading hierarchy (H1 → H2 → H3 → H4)
-- ✅ Always specify language for code blocks
-- ✅ Include alt text for images
-- ✅ Use descriptive link text
-- ✅ Leave blank lines around headings and lists
-- ✅ Prefer shorter language identifiers (`ts` not `typescript`)
+1. **Headings**: Use proper hierarchy (H1 → H2 → H3 → H4)
+2. **Code Blocks**: Always specify language (`tsx`, `ts`, `js`, `sh`, `jsonc`)
+3. **Images**: Include descriptive alt text
+4. **Links**: Use descriptive text, not "click here"
+5. **Spacing**: Leave blank lines around headings, lists, and code blocks
+6. **Language IDs**: Use shortest appropriate identifier (`ts` not `typescript`)
 
-### Common Language Identifiers
+### 📋 Quick Decision Tree
 
-- `tsx` - TypeScript React components
-- `ts` - TypeScript files
-- `js` - JavaScript files
-- `sh` - Shell commands
-- `jsonc` - JSON with comments
-- `md` - Markdown content
-- `css` - CSS stylesheets
-- `html` - HTML markup
+**Writing a component doc?** → Use [Component Documentation Template](#component-documentation-template)
+**Writing API docs?** → Use [API Documentation Template](#api-documentation-template)
+**Writing a README?** → Use [README Structure](#readme-structure)
+**Writing a changelog?** → Use [Changelog Format](#changelog-entries)
+
+## Do's and Don'ts
+
+### ✅ DO
+
+- Use proper heading hierarchy
+- Specify language for all code blocks
+- Include alt text for images
+- Use descriptive link text
+- Leave blank lines around elements
+- Use relative paths for internal links
+
+### ❌ DON'T
+
+- Skip heading levels (H1 → H3)
+- Use generic language identifiers
+- Use "click here" for links
+- Forget alt text for images
+- Crowd elements together
+- Use absolute paths for internal links
+
+## Common Language Identifiers
+
+| Language | Identifier | Use Case |
+|----------|------------|----------|
+| `tsx` | TypeScript React components |
+| `ts` | TypeScript files |
+| `js` | JavaScript files |
+| `sh` | Shell commands |
+| `jsonc` | JSON with comments |
+| `md` | Markdown content |
+| `css` | CSS stylesheets |
+| `html` | HTML markup |
 
 ## Markdown Linting Configuration
 
@@ -72,6 +102,18 @@ Reference: [.markdownlint-cli2.jsonc](mdc:.markdownlint-cli2.jsonc)
 ### Subsection Heading
 
 #### Sub-subsection Heading
+```
+
+**Common Mistake & Fix:**
+```md
+# ❌ WRONG: Skipping levels
+# Title
+### Subsection
+
+# ✅ CORRECT: Proper hierarchy
+# Title
+## Section
+### Subsection
 ```
 
 ### Text Formatting
@@ -124,6 +166,15 @@ Reference: [.markdownlint-cli2.jsonc](mdc:.markdownlint-cli2.jsonc)
 [Back to top](mdc:#quick-reference)
 ```
 
+**Common Mistakes:**
+```md
+# ❌ WRONG: Generic link text
+[Click here](mdc:docs.md)
+
+# ✅ CORRECT: Descriptive link text
+[View API documentation](mdc:docs.md)
+```
+
 ### Images
 
 **Rules:**
@@ -134,6 +185,15 @@ Reference: [.markdownlint-cli2.jsonc](mdc:.markdownlint-cli2.jsonc)
 **Example:**
 ```md
 ![Component screenshot showing the button in action](mdc:button-example.png "Button component example")
+```
+
+**Common Mistakes:**
+```md
+# ❌ WRONG: Missing alt text
+![](mdc:image.png)
+
+# ✅ CORRECT: Descriptive alt text
+![User interface showing login form with email and password fields](mdc:login-form.png)
 ```
 
 ### Code Blocks
@@ -175,6 +235,23 @@ interface ButtonProps {
     "build": "tsc"
   }
 }
+```
+
+**Common Mistakes:**
+```md
+# ❌ WRONG: No language specified
+```
+function example() {
+  return "hello"
+}
+```
+
+# ✅ CORRECT: Language specified
+```js
+function example() {
+  return "hello"
+}
+```
 ```
 
 ### Blockquotes
@@ -225,6 +302,45 @@ Content below
 ```
 
 ## Project-Specific Guidelines
+
+### README Structure
+
+**Standard README sections:**
+```md
+# Project Name
+
+Brief description of what the project does.
+
+## Installation
+
+```sh
+npm install package-name
+```
+
+## Usage
+
+```tsx
+import { Component } from 'package-name'
+
+function App() {
+  return <Component />
+}
+```
+
+## API Reference
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| prop | string | - | Description |
+
+## Contributing
+
+Guidelines for contributors.
+
+## License
+
+MIT
+```
 
 ### Component Documentation
 
@@ -314,9 +430,9 @@ const result = await functionName('value', 42)
 - Breaking change description (#126)
 ```
 
-## Common Patterns
+## Templates
 
-### Component Example Template
+### Component Documentation Template
 
 Here's a complete example of component documentation:
 
