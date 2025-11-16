@@ -41,32 +41,30 @@ All rule files should follow this structure:
 
 ```markdown
 ---
-description: Short description of the rule's purpose
-globs: ["optional/path/pattern/**/*"]
-alwaysApply: false
+description: Clear, one-line description of what the rule enforces
+globs: path/to/files/*.ext, other/path/**/*
+alwaysApply: boolean
 ---
 
-# Rule Title
+## Rule Title
 
 Main content explaining the rule with markdown formatting.
 
 1. Step-by-step instructions
 2. Code examples
 3. Guidelines
-4. Add this instruction: "When you use this rule file, let me know this rule file is being used in the chat by mentioning the rule filename."
+4. Add this instruction: "When you use this rule file, let me know this rule file is being used in the chat."
 
-Example:
+## Code Examples
+
+- Use language-specific code blocks
 
 ```typescript
-// ✅ Good example
-function goodExample() {
-  // Implementation following guidelines
-}
+// ✅ DO: Show good examples
+const goodExample = true;
 
-// ❌ Bad example
-function badExample() {
-  // Implementation not following guidelines
-}
+// ❌ DON'T: Show anti-patterns
+const badExample = false;
 ```
 
 ## Adding New Rules

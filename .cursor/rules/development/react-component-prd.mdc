@@ -1,0 +1,147 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# React Component PRD Guidelines
+
+## Overview
+This guide outlines the essential elements to include when creating a Product Requirements Document (PRD) for React components. A well-structured PRD ensures clear communication between stakeholders and developers, leading to successful component implementation.
+
+## PRD Structure
+
+### 1. Component Overview
+- Component name and purpose
+- Business value and use cases
+- Target users/consumers
+- Integration points with other components
+
+### 2. Functional Requirements
+- Props interface and types
+- State management requirements
+- Event handlers and callbacks
+- Data flow and dependencies
+- Error handling expectations
+
+### 3. Technical Specifications
+- React version compatibility
+- Dependencies and peer dependencies
+- Performance requirements
+- Accessibility requirements (WCAG compliance)
+- Browser/device compatibility
+
+### 4. Design Requirements
+- UI/UX mockups or references
+- Responsive design specifications
+- Animation and transition requirements
+- Theme and styling guidelines
+- Dark/light mode support
+
+### 5. Testing Requirements
+- Unit test coverage expectations
+- Integration test scenarios
+- Browser compatibility testing
+- Performance testing criteria
+- Accessibility testing requirements
+
+### 6. Documentation Requirements
+- Storybook documentation
+- API documentation
+- Usage examples
+- Props documentation
+- Component variants
+
+### 7. Timeline and Milestones
+- Development phases
+- Review checkpoints
+- Testing phases
+- Documentation deadlines
+- Release schedule
+
+## Best Practices
+
+1. **Be Specific**
+   - Use clear, unambiguous language
+   - Include specific acceptance criteria
+   - Define edge cases and error states
+
+2. **Consider Reusability**
+   - Document component variants
+   - Specify customization options
+   - Include composition patterns
+
+3. **Performance Considerations**
+   - Define loading states
+   - Specify optimization requirements
+   - Include bundle size constraints
+
+4. **Accessibility**
+   - ARIA requirements
+   - Keyboard navigation
+   - Screen reader compatibility
+   - Color contrast requirements
+
+5. **Version Control**
+   - Semantic versioning requirements
+   - Breaking changes policy
+   - Migration guidelines
+
+## Example PRD Template
+
+```markdown
+# Component Name PRD
+
+## Overview
+[Component description and purpose]
+
+## Functional Requirements
+- Props:
+  ```typescript
+  interface ComponentProps {
+    // Define props here
+  }
+  ```
+- State Management:
+  [State management approach]
+- Events:
+  [Event handlers and callbacks]
+
+## Technical Requirements
+- React Version: ^18.0.0
+- Dependencies:
+  - [List dependencies]
+- Performance:
+  - [Performance metrics]
+
+## Design Requirements
+- [Design specifications]
+- [Responsive breakpoints]
+- [Theme support]
+
+## Testing Requirements
+- Unit Tests: [Coverage requirements]
+- Integration Tests: [Test scenarios]
+- Accessibility: [WCAG level]
+
+## Documentation
+- [Documentation requirements]
+- [Usage examples]
+
+## Timeline
+- Development: [Timeline]
+- Testing: [Timeline]
+- Documentation: [Timeline]
+- Release: [Date]
+```
+
+## Review Checklist
+- [ ] All functional requirements are clearly defined
+- [ ] Technical specifications are complete
+- [ ] Design requirements are documented
+- [ ] Testing requirements are specified
+- [ ] Documentation requirements are outlined
+- [ ] Timeline and milestones are realistic
+- [ ] Accessibility requirements are included
+- [ ] Performance requirements are defined
+- [ ] Edge cases are considered
+- [ ] Stakeholder approval is obtained
