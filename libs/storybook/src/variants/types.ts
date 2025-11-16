@@ -1,20 +1,24 @@
 import type { ReactNode } from 'react'
 
-export type VariantOptions = {
-	key: string
-	strategy: ClassNameStrategy | DataAttributeStrategy
-	variants: Record<
-		string,
-		| string
-		| {
-				icon?: ReactNode | undefined
-				label?: string | undefined
-				title?: string | undefined
-				value: string
-		  }
-	>
-	defaultValue: string
-}
+export type VariantOptions<S extends ClassNameStrategy | DataAttributeStrategy | ProviderStrategy = ClassNameStrategy> =
+	{
+		key: string
+		strategy: S
+		variants: Record<
+			string,
+			| string
+			| {
+					icon?: ReactNode | undefined
+					label?: string | undefined
+					title?: string | undefined
+					value: string
+			  }
+		>
+		/**
+		 * The current variant value.
+		 */
+		current?: string | undefined
+	}
 
 export type ClassNameStrategy = {
 	type: 'className'

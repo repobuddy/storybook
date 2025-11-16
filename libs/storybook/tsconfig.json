@@ -1,25 +1,16 @@
 {
 	"compilerOptions": {
-		"allowImportingTsExtensions": true,
 		"composite": true,
 		"isolatedModules": true,
-		"jsx": "react-jsx",
+		"jsx": "react",
 		"lib": ["ESNext", "DOM.Iterable", "DOM"],
 		"module": "ESNext",
-		"moduleResolution": "Bundler",
+		"moduleResolution": "bundler",
 		"outDir": "esm",
-		"rewriteRelativeImportExtensions": true,
-		"rootDir": "src",
 		"skipLibCheck": true,
 		"strict": true,
 		"target": "ES2020",
-		"types": ["@vitest/browser/providers/playwright"],
 		"verbatimModuleSyntax": true
 	},
-	"include": ["src", "types"],
-	"references": [
-		{
-			"path": "./tsconfig.proj.json"
-		}
-	]
+	"include": ["src", "types", ".storybook"]
 }

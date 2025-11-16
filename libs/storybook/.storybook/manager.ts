@@ -1,7 +1,7 @@
 import { addons } from 'storybook/internal/manager-api'
 import { themes } from 'storybook/theming'
 // @ts-ignore
-import { colorThemeVariants } from '#repobuddy/storybook/variants/manager'
+import { colorThemeVariants } from '../src/variants'
 // @ts-ignore
 import { brandTitle } from '../src/manager/index.ts'
 // @ts-ignore

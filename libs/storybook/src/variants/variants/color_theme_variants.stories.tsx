@@ -1,9 +1,10 @@
 import { showDocSource } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/internal'
-import colorVariantCode from './color_theme_variants.tsx?raw'
+import React from 'react'
+import colorVariantCode from './color_theme_variants.js?raw'
 
 export default {
-	title: 'variants/manager/colorThemeVariants',
+	title: 'variants/colorThemeVariants',
 	tags: ['new', 'version:1.1'],
 	decorators: [showDocSource()]
 } satisfies Meta
@@ -16,5 +17,5 @@ export const SourceCode: StoryObj = {
 			}
 		}
 	},
-	render: () => <></>
+	render: () => <div>Hello</div>
 }

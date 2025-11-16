@@ -15,6 +15,7 @@ console.info('variants.preset.js.load')
 // export const managerEntries = ['@storybook-community/storybook-dark-mode/manager']
 // const previewAnnotations = (entry = []) => [...entry, require.resolve('@storybook-community/storybook-dark-mode')]
 // const previewAnnotations =  [ require.resolve('@storybook-community/storybook-dark-mode')]
+export const managerEntries = ['@repobuddy/storybook/variants/manager']
 
 // module.exports = {
 // 	managerEntries,

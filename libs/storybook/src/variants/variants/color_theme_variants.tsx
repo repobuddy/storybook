@@ -1,5 +1,6 @@
 import { MoonIcon, SunIcon } from '@storybook/icons'
-import type { VariantOptions } from '../types.ts'
+import React from 'react'
+import type { VariantOptions } from '../types.js'
 
 /**
  * Color theme variants default configuration.
@@ -23,5 +24,5 @@ export const colorThemeVariants = {
 			value: 'dark'
 		}
 	},
-	defaultValue: 'dark'
+	current: 'dark'
 } satisfies VariantOptions
