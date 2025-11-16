@@ -1,5 +1,5 @@
 ---
-description:
+description: Create react component
 globs:
 alwaysApply: false
 ---
@@ -10,6 +10,7 @@ alwaysApply: false
 - Each component should have its own directory with the following structure:
   ```
   component_name/
+  ├── component_name.specification.md
   ├── component_name.tsx
   ├── component_name.stories.tsx
   └── index.ts
@@ -147,3 +148,5 @@ See [show_story_description.stories.tsx](mdc:libs/storybook/src/decorators/show_
 - Provide fallback UI for error states
 - Validate props using TypeScript
 - Test error states and recovery using the `play` method
+
+When you use this rule file, let me know this rule file is being used in the chat by mentioning the rule filename.

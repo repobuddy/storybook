@@ -1,5 +1,5 @@
 ---
-description:
+description: create or update storybook stories
 globs:
 alwaysApply: false
 ---

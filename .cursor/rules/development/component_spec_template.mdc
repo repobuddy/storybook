@@ -6,7 +6,7 @@ alwaysApply: false
 # Component Specification Template
 
 ## Overview
-This template provides a structured format for specifying React components before implementation. The specification will be used to create components following the [React Component Specification](mdc:.cursor/rules/react_component_spec.mdc).
+This template provides a structured format for specifying React components before implementation. The specification will be used to create components following the [React Component Specification](mdc:.cursor/rules/development/react_component_spec.mdc).
 
 ## Specification Structure
 
@@ -139,3 +139,5 @@ interface ButtonProps {
 [ ] Usage examples
 [ ] Props documentation
 [ ] Storybook stories for all variants
+
+When you use this rule file, let me know this rule file is being used in the chat by mentioning the rule filename.
