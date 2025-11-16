@@ -112,19 +112,22 @@ Some configuration files follow external tool conventions:
 ### Import Guidelines
 
 - **Direct imports**: Import directly from source files, not from index files
-- **File extensions**: Always include file extensions in import paths (required by `verbatimModuleSyntax`)
+- **File extensions**: Always include file extensions in import paths
 - **No barrel exports**: Do not create index files that re-export from directories
-- **Examples**:
-  ```ts
-  // ✅ Correct: Direct import with extension
-  import { ShowHtml } from './components/show_html.js'
 
-  // ❌ Wrong: Missing file extension
-  import { ShowHtml } from './components/show_html'
+For detailed information about `verbatimModuleSyntax` requirements and import/export patterns, see [TypeScript Patterns](mdc:.cursor/rules/typescript_patterns.mdc).
 
-  // ❌ Wrong: Barrel export import
-  import { ShowHtml } from './components'
-  ```
+**Examples**:
+```ts
+// ✅ Correct: Direct import with extension
+import { ShowHtml } from './components/show_html.js'
+
+// ❌ Wrong: Missing file extension
+import { ShowHtml } from './components/show_html'
+
+// ❌ Wrong: Barrel export import
+import { ShowHtml } from './components'
+```
 
 ## Examples
 

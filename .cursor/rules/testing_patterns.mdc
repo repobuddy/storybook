@@ -1,13 +1,8 @@
 ---
-description:
+description: Apply when writing unit tests, integration tests, Storybook stories, or test configurations to ensure consistent testing patterns and coverage strategies
 globs:
 alwaysApply: false
 ---
----
-description: Apply when writing unit tests, integration tests, Storybook stories, or test configurations to ensure consistent testing patterns and coverage strategies
-globs:
-  - "**/*.{test,spec}.{ts,tsx}"
-  - "**/*.stories.{ts,tsx}"
 # Testing Patterns and Best Practices
 
 This repository uses Vitest for unit testing and Storybook for component testing. Follow these patterns for comprehensive test coverage.

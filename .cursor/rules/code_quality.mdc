@@ -365,94 +365,16 @@ afterEach(() => {
 })
 ```
 
-## TypeScript Configuration
+## TypeScript and Documentation
 
-### Compiler Settings
+For comprehensive TypeScript patterns, type safety, JSDoc comments, and inline documentation, refer to [TypeScript Patterns](mdc:.cursor/rules/typescript_patterns.mdc).
 
-TypeScript configuration is defined in [libs/storybook/tsconfig.json](mdc:libs/storybook/tsconfig.json) with strict settings:
-
-- **strict**: `true` - Enables all strict type checking options
-- **isolatedModules**: `true` - Ensures each file can be safely transpiled
-- **verbatimModuleSyntax**: `true` - Enforces explicit import/export syntax
-- **target**: `ES2020` - Modern JavaScript features
-- **moduleResolution**: `bundler` - Optimized for bundlers like Vite
-
-### Type Safety Patterns
-
-```typescript
-// Use proper type annotations
-interface User {
-	id: string
-	name: string
-	email: string
-}
-
-// Generic types for reusable components
-interface ListProps<T> {
-	items: T[]
-	renderItem: (item: T) => React.ReactNode
-}
-
-export function List<T>({ items, renderItem }: ListProps<T>) {
-	return (
-		<ul>
-			{items.map((item, index) => (
-				<li key={index}>{renderItem(item)}</li>
-			))}
-		</ul>
-	)
-}
-
-// Utility types for common patterns
-type Optional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>
-type Required<T, K extends keyof T> = T & Required<Pick<T, K>>
-```
-
-## Documentation
-
-### JSDoc Comments
-
-```typescript
-/**
- * Fetches user data from the API
- * @param userId - The unique identifier of the user
- * @param options - Optional configuration for the request
- * @returns Promise resolving to user data
- * @throws {Error} When the API request fails
- */
-async function fetchUserData(
-	userId: string,
-	options?: RequestOptions
-): Promise<UserData> {
-	// Implementation
-}
-
-/**
- * User profile component that displays user information
- * @param props - Component props
- * @param props.user - User data to display
- * @param props.onEdit - Callback when edit button is clicked
- */
-export function UserProfile({ user, onEdit }: UserProfileProps) {
-	// Implementation
-}
-```
-
-### Inline Comments
-
-```typescript
-// Use comments to explain "why", not "what"
-// This timeout prevents rapid-fire API calls during user typing
-const DEBOUNCE_TIMEOUT = 300
-
-// Bad: This sets the state to true
-// Good: Enable loading state while API call is in progress
-setLoading(true)
-
-// Use TODO comments for future improvements
-// TODO: Add error boundary for better error handling
-// TODO: Optimize re-renders with React.memo
-```
+This rule covers:
+- TypeScript configuration and compiler settings
+- Type safety patterns and best practices
+- JSDoc documentation standards
+- Inline comment guidelines
+- Import/export patterns with verbatim module syntax
 
 ## Build and Development Tools
 
