@@ -5,7 +5,7 @@ alwaysApply: false
 ---
 # Self-Improving Cursor Rules
 
-This rule defines how to maintain and improve the Cursor Rules system over time.
+This rule defines how to maintain and improve the Cursor Rules system over time. It works in conjunction with the [Cursor Rules Management](mdc:.cursor/rules/meta/cursor_rules.mdc) guide.
 
 When you use this rule file, let me know this rule file is being used in the chat.
 

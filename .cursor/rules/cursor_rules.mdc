@@ -11,17 +11,14 @@ When you use this rule, let me know this rule file is being used in the chat by 
 
 ## Directory Structure
 
-Always place rule files in the organized structure under `PROJECT_ROOT/.cursor/rules/`:
+Always place rule files under `PROJECT_ROOT/.cursor/rules/`:
 
 ```
 .cursor/rules/
-├── development/          # Development standards and guidelines
-│   ├── react_component_spec.mdc
-│   └── storybook_stories.mdc
-├── templates/           # Project templates and boilerplates
-│   └── component_spec_template.mdc
-├── meta/               # Meta documentation about the rules system
-│   └── cursor_rules.mdc
+├── react_component_spec.mdc
+├── storybook_stories.mdc
+├── component_spec_template.mdc
+├── cursor_rules.mdc
 └── master.mdc          # Central index of all rules
 ```
 
@@ -31,11 +28,6 @@ Always place rule files in the organized structure under `PROJECT_ROOT/.cursor/r
    - Use snake_case for filenames
    - Always use `.mdc` extension
    - Make names descriptive of the rule's purpose
-
-2. **Directory Names**:
-   - Use lowercase with underscores if needed
-   - Keep names short but descriptive
-   - Group related rules together
 
 ## Rule File Structure
 
@@ -73,30 +65,15 @@ const badExample = false;
 
 When adding new rules:
 
-1. **Choose the Right Category**: Place the rule in the appropriate directory
-   - `development/` - Development standards and guidelines
-   - `templates/` - Project templates and boilerplates
-   - `meta/` - Meta documentation about the rules system
+1. **Create the Rule File**: Follow the standard rule file structure
 
-2. **Create the Rule File**: Follow the standard rule file structure
+2. **Update Master Index**: Add the new rule to [master.mdc](mdc:.cursor/rules/master.mdc) with proper categorization
 
-3. **Update Master Index**: Add the new rule to [master.mdc](mdc:.cursor/rules/master.mdc) with proper categorization
-
-4. **Set Rule Properties**:
+3. **Set Rule Properties**:
    - Default rule type to "Agent Requested"
    - Add clear description of the rule's purpose
    - Include appropriate glob patterns if needed
-
-## Rule Categories
-
-### Development Standards (`development/`)
-Rules that define how code should be written, structured, and tested.
-
-### Project Templates (`templates/`)
-Templates and boilerplates for creating new components, features, or documentation.
-
-### Meta Documentation (`meta/`)
-Documentation about the rules system itself, including this file.
+   - Add the phrase "mention this rule is being used"
 
 ## Best Practices
 
@@ -110,5 +87,4 @@ Documentation about the rules system itself, including this file.
 
 - **Never** place rule files in the project root
 - **Never** place rule files outside `.cursor/rules/`
-- **Always** use the organized directory structure
 - **Always** update the master index when adding new rules
