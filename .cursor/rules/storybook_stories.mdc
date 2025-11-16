@@ -7,228 +7,340 @@ alwaysApply: false
 
 This document outlines the standards and best practices for creating Storybook stories in our project. It complements the [React Component Specification](mdc:.cursor/rules/development/react_component_spec.mdc) and [React Component PRD](mdc:.cursor/rules/planning/react_component_prd.mdc) guidelines.
 
+## Quick Start Guide
+
+### 🚀 Essential Rules
+
+1. **File naming**: Use `.stories.tsx` extension, co-locate with source files
+2. **Import patterns**: Import from main exports (`../index.js`) and types from `#repobuddy/storybook/internal`
+3. **Story structure**: Use CSF format with TypeScript and proper meta configuration
+4. **Naming conventions**: Use `BasicUsage` for default stories, descriptive names for variants
+5. **Tagging**: Use appropriate tags for organization (`['autodocs']`, `['new']`, etc.)
+6. **Documentation**: Use `defineDocsParam` for component and story descriptions
+
 ## Basic Story Structure
 
-1. Use the new Component Story Format (CSF) with TypeScript:
-   ```typescript
-   import type { Meta, StoryObj } from '@storybook/react'
+Use the new Component Story Format (CSF) with TypeScript:
 
-   const meta: Meta<typeof YourComponent> {
-		 title: 'components/YourComponent',
-		 tags: ['new', 'version:1.0'],
-     component: YourComponent,
-     // Add parameters if needed
-   } satisfies Meta
-
-   export default meta
-
-   type Story = StoryObj<typeof meta>
-
-   export const BasicUsage: Story = {
-     // Story implementation
-   }
-   ```
-
-## Story Organization
-
-1. Story files should:
-   - Be placed next to the source file
-   - Use the `.stories.tsx` extension
-   - Follow the naming pattern: `source_name.stories.tsx`
-   - When testing a specific prop, name the story a `source_name.the_prop.stories.tsx`
-2. Do not create shared demo component for utility function.
-3. Story naming conventions:
-   - Default/primary story should be named `BasicUsage`
-   - Additional stories should be named descriptively: `WithError`, `Loading`, etc.
-   - Use `name` property if the story is about a particular props or value:
-	 ```ts
-	 export const Red100: Story = {
-		name: 'red-100'
-	 }
-	 ```
-   - Use Add additional description to the story:
-   ```ts
-	 import { defineDocsParam } from '@repobuddy/storybook'
-
-	 export const SomeStory: Story = {
-		parameters: defineDocsParam({
-			description: {
-				story: 'Additional message goes here'
-			}
-		})
-	 }
-	 ```
-
-## Story Implementation Patterns
-
-1. The properties in the story should follow consistent order. Some of these tests are optional:
-   ```tsx
-	 export const SomeStory: Story = {
-		 name: ...,
-		 tags: ...,
-		 parameters: ...,
-		 args: ...,
-		 loaders: ...,
-		 decorators: ...,
-		 render: ...,
-		 play: ...,
-		 experimental_afterEach: ...
-	 }
-	 ```
-2. When import code in story file, import from the main export such as `./index.ts`.
-3. Use the render function to emphasize the testing subject.
-   For example, when creating a story to test the `onChange` handler of the `RadioGroup` component:
-	 ```tsx
-	 // ✅ Good example
-	 export const OnChange: Story = {
-		  render() {
-			  const [logs, setLogs] = useState<string[]>([])
-
-				return (
-					<div>
-					  <RadioGroup onChange={(value) => {
-							setLogs(logs => [...logs, `selection changed: ${value}`])
-						}}>
-						  <Radio value="apple">Apple</Radio>
-							<Radio value="banana">Banana</Radio>
-						</RadioGroup>
-						<LogPanel logs={logs}>
-					<div>
-				)
-			}
-	 }
-
-	 // ❌ Bad example - the div showing log messages is noise and should be extracted as a `LogPanel` component.
-	 export const OnChange: Story = {
-		  render() {
-			  const [logs, setLogs] = useState<string[]>([])
-
-				return (
-					<div>
-					  <RadioGroup onChange={value => {
-							setLogs(logs => [...logs, `selection changed: ${value}`])
-						}}>
-						  <Radio value="apple">Apple</Radio>
-							<Radio value="banana">Banana</Radio>
-						</RadioGroup>
-						<div
-								style={{
-									backgroundColor: '#f5f5f5',
-									padding: '1rem',
-									borderRadius: '4px',
-									maxHeight: '200px',
-									overflowY: 'auto',
-								}}>
-							<h4 style={{ margin: '0 0 0.5rem' }}>Log Panel</h4>
-								{log.map((entry) => (
-									<pre style={{ fontFamily: 'monospace' }}>{entry}</pre>
-								))}
-						</div>
-					<div>
-				)
-			}
-	 }
-
-	 // ❌ Bad example - `RadioGroupDemo` removes all details,
-	 // making the story hard to understand
-	 const RadioGroupDemo: (args) => {
-			  const [logs, setLogs] = useState<string[]>([])
-
-				return (
-					<div>
-					  <RadioGroup onChange={value => {
-							setLogs(logs => [...logs, `selection changed: ${value}`])
-						}}>
-						  <Radio value="apple">Apple</Radio>
-							<Radio value="banana">Banana</Radio>
-						</RadioGroup>
-						<div
-								style={{
-									backgroundColor: '#f5f5f5',
-									padding: '1rem',
-									borderRadius: '4px',
-									maxHeight: '200px',
-									overflowY: 'auto',
-								}}>
-							<h4 style={{ margin: '0 0 0.5rem' }}>Log Panel</h4>
-								{log.map((entry) => (
-									<pre style={{ fontFamily: 'monospace' }}>{entry}</pre>
-								))}
-						</div>
-					<div>
-				)
-	 }
-
-	 export const OnChange: Story = {
-		  render: RadioGroupDemo
-	 }
-	 ```
-
-## Testing and Documentation
-
-1. Stories serve as visual tests and documentation
-2. Include edge cases and error states
-3. Document component props and usage in the story file
-4. Use story parameters to add documentation:
-   ```ts
-	 import { defineDocsParam } from '@repobuddy/storybook'
-
-	 export const SomeStory: Story = {
-		parameters: defineDocsParam({
-			description: {
-				story: 'Additional message goes here'
-			}
-		})
-	 }
-   ```
-5. Use the `play` function to interact and validate the behavior.
-
-## Example
-
-```typescript
-import type { Meta, StoryObj } from '@storybook/react'
-import { CopyButton } from './copy-button.tsx'
+```tsx
+import type { Meta, StoryObj } from '#repobuddy/storybook/internal'
+import { YourComponent } from './your_component.js'
 
 const meta = {
-  title: 'components/CopyButton/isDisabled',
-  component: CopyButton,
-  tags: ['autodocs'],
-  parameters: {
-    layout: 'centered',
-  },
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} satisfies Meta<typeof CopyButton>
+	title: 'components/YourComponent',
+	tags: ['new', 'version:1.0', 'autodocs'],
+	component: YourComponent,
+	parameters: {
+		layout: 'centered',
+	},
+	argTypes: {
+		// Define controls for your props
+	},
+} satisfies Meta<typeof YourComponent>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Enabled: Story = {
-	name: 'isDisabled: false',
-  args: {
-    label: 'Copy Button',
-		isDisabled: false
-  },
-}
-
-export const Disabled: Story = {
-	name: 'isDisabled: true',
-  args: {
-    label: 'Copy Button',
-		isDisabled: true
-  },
+export const BasicUsage: Story = {
+	// Story implementation
 }
 ```
 
-## Best Practices
+## File Organization
 
-1. Keep stories simple and focused
-2. Test all component variations
-3. Include interactive examples where relevant
-4. Use TypeScript for type safety
-5. Follow the project's component guidelines
+### Naming and Placement
+
+- **Placement**: Co-locate story files with their source components
+- **Extension**: Use `.stories.tsx` extension
+- **Naming**: Follow `source_name.stories.tsx` pattern
+- **Prop-specific stories**: Use `source_name.the_prop.stories.tsx` for testing specific props
+
+### Story Naming Conventions
+
+- **Default story**: Name it `BasicUsage`
+- **Descriptive names**: Use names like `WithError`, `Loading`, etc.
+- **Prop-specific names**: Use the `name` property for specific prop values:
+
+```ts
+export const Red100: Story = {
+	name: 'red-100'
+}
+```
+
+## Import Guidelines
+
+### Import Patterns
+
+1. **Main package exports**: Import components and utilities from main package exports (e.g., `../index.js`)
+2. **Internal types**: Import Storybook types from `#repobuddy/storybook/internal`
+3. **File extensions**: Always include `.js` extensions in import paths
+
+```ts
+// ✅ Good: Import from main export
+import { ShowHtml, defineDocsParam } from '../index.js'
+
+// ✅ Good: Import types from internal
+import type { Meta, StoryObj } from '#repobuddy/storybook/internal'
+
+// ❌ Bad: Direct component import (unless testing specific implementation)
+import { ShowHtml } from './show_html.js'
+```
+
+## Story Implementation
+
+### Property Order
+
+Follow this consistent order for story properties:
+
+```tsx
+export const SomeStory: Story = {
+	name: 'descriptive-name',
+	tags: ['tag1', 'tag2'],
+	parameters: { /* story parameters */ },
+	args: { /* default args */ },
+	loaders: [ /* data loaders */ ],
+	decorators: [ /* story decorators */ ],
+	render: (args, context) => { /* custom render function */ },
+	play: async ({ canvas, step }) => { /* interaction testing */ },
+	experimental_afterEach: () => { /* cleanup */ }
+}
+```
+
+### Render Function Best Practices
+
+Use the `render` function to emphasize the testing subject:
+
+```tsx
+// ✅ Good: Extract reusable components for clarity
+export const OnChange: Story = {
+	render() {
+		const [logs, setLogs] = useState<string[]>([])
+
+		return (
+			<div>
+				<RadioGroup onChange={(value) => {
+					setLogs(logs => [...logs, `selection changed: ${value}`])
+				}}>
+					<Radio value="apple">Apple</Radio>
+					<Radio value="banana">Banana</Radio>
+				</RadioGroup>
+				<LogPanel logs={logs} />
+			</div>
+		)
+	}
+}
+
+// ❌ Bad: Inline styling creates noise
+export const OnChange: Story = {
+	render() {
+		const [logs, setLogs] = useState<string[]>([])
+
+		return (
+			<div>
+				<RadioGroup onChange={value => {
+					setLogs(logs => [...logs, `selection changed: ${value}`])
+				}}>
+					<Radio value="apple">Apple</Radio>
+					<Radio value="banana">Banana</Radio>
+				</RadioGroup>
+				<div style={{ backgroundColor: '#f5f5f5', padding: '1rem' }}>
+					<h4>Log Panel</h4>
+					{logs.map((entry) => (
+						<pre>{entry}</pre>
+					))}
+				</div>
+			</div>
+		)
+	}
+}
+```
+
+## Tagging Guidelines
+
+Use tags to categorize and organize your stories:
+
+### Standard Tags
+
+- `['autodocs']` - Generate automatic documentation
+- `['new']` - Recently added components or features
+- `['beta']` - Unstable or experimental features
+- `['deprecated']` - Components that should be avoided
+- `['internal']` - Hide from production builds
+- `['version:X.Y']` - Version when feature became available
+
+### Testing Tags
+
+- `['unit']` - Unit test stories
+- `['integration']` - Integration test stories
+- `['snapshot']` - Snapshot test stories
+- `['keyboard']` - Keyboard interaction stories
+
+### Development Tags
+
+- `['todo']` - Stories that need work
+- `['code-only']` - Components without design
+- `['outdated']` - Components with pending design updates
+
+## Documentation and Testing
+
+### Documentation Patterns
+
+Use `defineDocsParam` for component and story documentation:
+
+```ts
+import { defineDocsParam } from '@repobuddy/storybook'
+
+export const SomeStory: Story = {
+	parameters: defineDocsParam({
+		description: {
+			story: 'Additional message goes here'
+		}
+	})
+}
+```
+
+### Interaction Testing
+
+Use the `play` function to interact and validate behavior:
+
+```ts
+export const InteractiveStory: Story = {
+	play: async ({ canvas, step }) => {
+		const button = canvas.getByRole('button')
+
+		await step('click button', async () => {
+			await userEvent.click(button)
+		})
+
+		await expect(button).toHaveTextContent('Clicked!')
+	}
+}
+```
+
+## Advanced Patterns
+
+### Using Loaders
+
+```ts
+export const WithData: Story = {
+	loaders: [
+		() => ({
+			api: { getCurrentStoryData: () => ({ parameters: {} }) },
+			addons: { getConfig: () => ({}) }
+		})
+	],
+	render: (_, { loaded: { api, addons } }) => (
+		<Component api={api} addons={addons} />
+	)
+}
+```
+
+### Using Decorators
+
+```ts
+export const WithTheme: Story = {
+	decorators: [
+		(Story) => (
+			<ThemeProvider theme={lightTheme}>
+				<Story />
+			</ThemeProvider>
+		)
+	],
+	render: () => <Component />
+}
+```
+
+## Complete Example
+
+```tsx
+import type { Meta, StoryObj } from '#repobuddy/storybook/internal'
+import { defineDocsParam } from '../index.js'
+import { ShowHtml } from './show_html.js'
+
+const meta = {
+	title: 'components/ShowHtml',
+	tags: ['new', 'version:1.0', 'autodocs'],
+	component: ShowHtml,
+	parameters: defineDocsParam({
+		description: {
+			component: 'ShowHtml displays the HTML of a subject using htmlfy internally.'
+		}
+	}),
+	argTypes: {
+		config: {
+			control: { type: 'object' }
+		}
+	}
+} satisfies Meta<typeof ShowHtml>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const BasicUsage: Story = {
+	parameters: defineDocsParam({
+		description: {
+			story: 'The selector prop defaults to [data-testid="subject"]'
+		}
+	}),
+	render: () => (
+		<div className="flex flex-col gap-4">
+			<div data-testid="subject">
+				<button type="button" className="bg-sky-500 text-white rounded p-2">
+					This is a button
+				</button>
+			</div>
+			<ShowHtml />
+		</div>
+	)
+}
+
+export const NoSubjectFound: Story = {
+	render: () => <ShowHtml selector="not-exist" />
+}
+```
+
+## Quality Checklist
+
+Before submitting a story, ensure:
+
+- [ ] Story file uses `.stories.tsx` extension
+- [ ] Story is co-located with source component
+- [ ] Proper import patterns (main exports for components, internal for types)
+- [ ] File extensions included in import paths
+- [ ] Story follows CSF format with TypeScript
+- [ ] Meta configuration includes appropriate tags
+- [ ] Story properties follow consistent order
+- [ ] Render functions emphasize testing subject
+- [ ] Appropriate tags used for organization
+- [ ] Documentation added using `defineDocsParam`
+- [ ] Interactive testing included where relevant
+- [ ] Edge cases and error states covered
+
+## Common Issues
+
+### Import Issues
+- **Missing file extensions**: Always include `.js` extensions in import paths
+- **Wrong import location**: Use main exports (`../index.js`) for components, internal for types
+
+### Story Structure Issues
+- **Missing TypeScript types**: Use `Meta<typeof Component>` and `StoryObj<typeof meta>`
+- **Inconsistent property order**: Follow the defined property order in this guide
+
+### Documentation Issues
+- **Missing descriptions**: Use `defineDocsParam` for component and story documentation
+- **No interaction testing**: Add `play` functions for behavior validation
+
+## Integration with Other Rules
+
+This rule works in conjunction with:
+
+- [React Component Specification](mdc:.cursor/rules/development/react_component_spec.mdc) - For component development standards
+- [TypeScript Patterns](mdc:.cursor/rules/typescript_patterns.mdc) - For TypeScript best practices
+- [Naming Conventions](mdc:.cursor/rules/naming_conventions.mdc) - For file naming consistency
+- [Testing Patterns](mdc:.cursor/rules/testing_patterns.mdc) - For testing strategies
 
 Remember to follow these guidelines when creating new Storybook stories.
+
 When you use this rule file, let me know this rule file is being used in the chat by mentioning the rule filename.
