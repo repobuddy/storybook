@@ -41,7 +41,8 @@
 		"repobuddy",
 		"ssim",
 		"Vite",
-		"vitest"
+		"vitest",
+		"WCAG"
 	],
 	"files.associations": {
 		"tailwind.css": "tailwindcss"

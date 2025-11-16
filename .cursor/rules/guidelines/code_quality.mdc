@@ -93,7 +93,7 @@ import type { ComponentProps } from 'react'
 
 ## Naming Conventions
 
-For comprehensive naming conventions including file naming, folder structure, and import/export patterns, refer to [Naming Conventions](mdc:.cursor/rules/naming_conventions.mdc).
+For comprehensive naming conventions including file naming, folder structure, and import/export patterns, refer to [Naming Conventions](mdc:.cursor/rules/guidelines/naming_conventions.mdc).
 
 This rule covers:
 - File and folder naming standards (snake_case)
@@ -367,7 +367,7 @@ afterEach(() => {
 
 ## TypeScript and Documentation
 
-For comprehensive TypeScript patterns, type safety, JSDoc comments, and inline documentation, refer to [TypeScript Patterns](mdc:.cursor/rules/typescript_patterns.mdc).
+For comprehensive TypeScript patterns, type safety, JSDoc comments, and inline documentation, refer to [TypeScript Patterns](mdc:.cursor/rules/guidelines/typescript_patterns.mdc).
 
 This rule covers:
 - TypeScript configuration and compiler settings
@@ -432,10 +432,10 @@ Monorepo workspace is configured in [pnpm-workspace.yaml](mdc:pnpm-workspace.yam
 
 ### Related Rules
 
-- [Monorepo Best Practices](mdc:.cursor/rules/monorepo_best_practices.mdc) - Workspace organization
-- [Naming Conventions](mdc:.cursor/rules/naming_conventions.mdc) - File and folder naming standards
-- [TypeScript Patterns](mdc:.cursor/rules/typescript_patterns.mdc) - TypeScript-specific patterns
-- [Testing Patterns](mdc:.cursor/rules/testing_patterns.mdc) - Testing strategies
-- [CI/CD Patterns](mdc:.cursor/rules/ci_cd_patterns.mdc) - Build and deployment
+- [Monorepo Best Practices](mdc:.cursor/rules/project/monorepo_best_practices.mdc) - Workspace organization
+- [Naming Conventions](mdc:.cursor/rules/guidelines/naming_conventions.mdc) - File and folder naming standards
+- [TypeScript Patterns](mdc:.cursor/rules/guidelines/typescript_patterns.mdc) - TypeScript-specific patterns
+- [Testing Patterns](mdc:.cursor/rules/guidelines/testing_patterns.mdc) - Testing strategies
+- [CI/CD Patterns](mdc:.cursor/rules/guidelines/ci_cd_patterns.mdc) - Build and deployment
 
 When you use this rule file, let me know this rule file is being used in the chat by mentioning the rule filename.

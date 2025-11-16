@@ -139,7 +139,7 @@ This repository is a Storybook-focused monorepo using pnpm workspaces and Turbo.
 
 - Stories co-located with components
 - Use `.stories.tsx` extension
-- Follow naming conventions from [Storybook Stories](mdc:.cursor/rules/storybook_stories.mdc)
+- Follow naming conventions from [Storybook Stories](mdc:.cursor/rules/guidelines/storybook_stories.mdc)
 - Tag-based organization for better discoverability
 
 ## Performance Considerations

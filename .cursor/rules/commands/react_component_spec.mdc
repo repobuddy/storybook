@@ -5,7 +5,7 @@ alwaysApply: false
 ---
 # React Component Specification Guide
 
-This guide should be used in conjunction with the [React Component PRD](mdc:.cursor/rules/planning/react_component_prd.mdc) for planning and the [Storybook Stories](mdc:.cursor/rules/development/storybook_stories.mdc) guide for documentation.
+This guide should be used in conjunction with the [React Component PRD](mdc:.cursor/rules/commands/react_component_prd.mdc) for planning and the [Storybook Stories](mdc:.cursor/rules/guidelines/storybook_stories.mdc) guide for documentation.
 
 ## Component Structure
 - Components should be created in the appropriate feature or shared directory under `libs/`

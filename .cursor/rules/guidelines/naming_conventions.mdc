@@ -26,7 +26,7 @@ This rule defines the standard naming conventions for files and folders in this 
 
 ### Standard Package Structure
 
-```
+```sh
 package/
 ├── src/
 │   ├── components/     # Reusable components
@@ -115,9 +115,10 @@ Some configuration files follow external tool conventions:
 - **File extensions**: Always include file extensions in import paths
 - **No barrel exports**: Do not create index files that re-export from directories
 
-For detailed information about `verbatimModuleSyntax` requirements and import/export patterns, see [TypeScript Patterns](mdc:.cursor/rules/typescript_patterns.mdc).
+For detailed information about `verbatimModuleSyntax` requirements and import/export patterns, see [TypeScript Patterns](mdc:.cursor/rules/guidelines/typescript_patterns.mdc).
 
 **Examples**:
+
 ```ts
 // ✅ Correct: Direct import with extension
 import { ShowHtml } from './components/show_html.js'
@@ -211,8 +212,8 @@ libs/storybook/src/components/show_html.stories.js
 
 ## Related Rules
 
-- [React Component Specification](mdc:.cursor/rules/react_component_spec.mdc) - Component structure and naming
-- [Storybook Stories](mdc:.cursor/rules/storybook_stories.mdc) - Story file conventions
-- [TypeScript Patterns](mdc:.cursor/rules/typescript_patterns.mdc) - TypeScript naming patterns
-- [Code Quality](mdc:.cursor/rules/code_quality.mdc) - Overall code quality standards
-- [Monorepo Best Practices](mdc:.cursor/rules/monorepo_best_practices.mdc) - Monorepo structure guidelines
+- [React Component Specification](mdc:.cursor/rules/commands/react_component_spec.mdc) - Component structure and naming
+- [Storybook Stories](mdc:.cursor/rules/guidelines/storybook_stories.mdc) - Story file conventions
+- [TypeScript Patterns](mdc:.cursor/rules/guidelines/typescript_patterns.mdc) - TypeScript naming patterns
+- [Code Quality](mdc:.cursor/rules/guidelines/code_quality.mdc) - Overall code quality standards
+- [Monorepo Best Practices](mdc:.cursor/rules/project/monorepo_best_practices.mdc) - Monorepo structure guidelines
