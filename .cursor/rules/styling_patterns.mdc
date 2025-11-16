@@ -1,0 +1,394 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Styling Patterns and Best Practices
+
+This repository uses Tailwind CSS for styling with comprehensive theme support. Follow these patterns for consistent and maintainable styles.
+
+## Tailwind CSS Configuration
+
+### Setup
+```typescript
+// tailwind.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Custom CSS variables for theming
+:root {
+  --color-primary: theme('colors.blue.500');
+  --color-secondary: theme('colors.gray.500');
+}
+
+.dark {
+  --color-primary: theme('colors.blue.400');
+  --color-secondary: theme('colors.gray.400');
+}
+```
+
+### Vite Integration
+```typescript
+// vite.config.ts
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [
+    tailwindcss(),
+    // other plugins
+  ]
+})
+```
+
+## Component Styling Patterns
+
+### Basic Component Styling
+```typescript
+interface ComponentProps {
+  variant?: 'primary' | 'secondary' | 'danger'
+  size?: 'small' | 'medium' | 'large'
+  className?: string
+}
+
+export function Component({ variant = 'primary', size = 'medium', className }: ComponentProps) {
+  const baseClasses = 'rounded-md font-medium transition-colors focus:outline-none focus:ring-2'
+
+  const variantClasses = {
+    primary: 'bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-500',
+    secondary: 'bg-gray-500 text-white hover:bg-gray-600 focus:ring-gray-500',
+    danger: 'bg-red-500 text-white hover:bg-red-600 focus:ring-red-500'
+  }
+
+  const sizeClasses = {
+    small: 'px-3 py-1 text-sm',
+    medium: 'px-4 py-2 text-base',
+    large: 'px-6 py-3 text-lg'
+  }
+
+  const classes = [
+    baseClasses,
+    variantClasses[variant],
+    sizeClasses[size],
+    className
+  ].filter(Boolean).join(' ')
+
+  return (
+    <button className={classes}>
+      {/* component content */}
+    </button>
+  )
+}
+```
+
+### Conditional Styling
+```typescript
+import { clsx } from 'clsx'
+
+export function ConditionalComponent({ isActive, isDisabled, className }: ComponentProps) {
+  const classes = clsx(
+    // Base styles
+    'px-4 py-2 rounded-md transition-all',
+
+    // Conditional styles
+    isActive && 'bg-blue-500 text-white',
+    !isActive && 'bg-gray-100 text-gray-900 hover:bg-gray-200',
+    isDisabled && 'opacity-50 cursor-not-allowed',
+
+    // Custom classes
+    className
+  )
+
+  return <div className={classes}>Content</div>
+}
+```
+
+### Responsive Design
+```typescript
+export function ResponsiveComponent() {
+  return (
+    <div className="
+      grid
+      grid-cols-1
+      gap-4
+      sm:grid-cols-2
+      md:grid-cols-3
+      lg:grid-cols-4
+      xl:grid-cols-5
+    ">
+      {/* grid items */}
+    </div>
+  )
+}
+```
+
+## Theme Support
+
+### Dark Mode Implementation
+```typescript
+// Theme-aware component
+export function ThemeAwareComponent() {
+  return (
+    <div className="
+      bg-white
+      text-gray-900
+      dark:bg-gray-900
+      dark:text-white
+      border
+      border-gray-200
+      dark:border-gray-700
+      rounded-lg
+      p-4
+    ">
+      <h2 className="
+        text-xl
+        font-semibold
+        text-gray-900
+        dark:text-white
+        mb-2
+      ">
+        Theme Aware Title
+      </h2>
+      <p className="
+        text-gray-600
+        dark:text-gray-300
+      ">
+        This component adapts to light and dark themes.
+      </p>
+    </div>
+  )
+}
+```
+
+### Theme Provider Integration
+```typescript
+import { ThemeProvider, themes } from 'storybook/theming'
+
+export function ThemedWrapper({ children, theme = 'light' }: ThemedWrapperProps) {
+  return (
+    <ThemeProvider theme={themes[theme]}>
+      <div className="
+        min-h-screen
+        bg-white
+        dark:bg-gray-900
+        transition-colors
+        duration-200
+      ">
+        {children}
+      </div>
+    </ThemeProvider>
+  )
+}
+```
+
+### CSS Custom Properties
+```typescript
+// Using CSS custom properties for theming
+export function CustomPropertyComponent() {
+  return (
+    <div className="
+      bg-[var(--color-primary)]
+      text-white
+      p-4
+      rounded-lg
+      shadow-lg
+      hover:shadow-xl
+      transition-shadow
+    ">
+      <h3 className="text-lg font-semibold mb-2">
+        Custom Property Component
+      </h3>
+      <p className="opacity-90">
+        This component uses CSS custom properties for theming.
+      </p>
+    </div>
+  )
+}
+```
+
+## Utility Classes
+
+### Common Patterns
+```typescript
+// Layout utilities
+const layoutClasses = {
+  container: 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8',
+  section: 'py-12 sm:py-16 lg:py-20',
+  card: 'bg-white dark:bg-gray-800 rounded-lg shadow-md p-6',
+  flexCenter: 'flex items-center justify-center',
+  flexBetween: 'flex items-center justify-between',
+  gridCenter: 'grid place-items-center'
+}
+
+// Spacing utilities
+const spacingClasses = {
+  section: 'space-y-6',
+  stack: 'space-y-4',
+  inline: 'space-x-4',
+  padding: 'p-4 sm:p-6 lg:p-8'
+}
+
+// Typography utilities
+const typographyClasses = {
+  heading: 'text-2xl font-bold text-gray-900 dark:text-white',
+  subheading: 'text-lg font-semibold text-gray-700 dark:text-gray-300',
+  body: 'text-base text-gray-600 dark:text-gray-400',
+  caption: 'text-sm text-gray-500 dark:text-gray-500'
+}
+```
+
+### Component Variants
+```typescript
+// Button variants
+const buttonVariants = {
+  base: 'inline-flex items-center justify-center rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
+  primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
+  secondary: 'bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500',
+  outline: 'border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:ring-blue-500',
+  ghost: 'text-gray-700 hover:bg-gray-100 focus:ring-gray-500'
+}
+
+// Size variants
+const buttonSizes = {
+  sm: 'px-3 py-1.5 text-sm',
+  md: 'px-4 py-2 text-base',
+  lg: 'px-6 py-3 text-lg'
+}
+```
+
+## Animation and Transitions
+
+### Transition Patterns
+```typescript
+// Common transition classes
+const transitionClasses = {
+  fast: 'transition-all duration-150 ease-in-out',
+  normal: 'transition-all duration-200 ease-in-out',
+  slow: 'transition-all duration-300 ease-in-out',
+  colors: 'transition-colors duration-200 ease-in-out',
+  transform: 'transition-transform duration-200 ease-in-out'
+}
+
+// Hover effects
+const hoverEffects = {
+  lift: 'hover:transform hover:scale-105 hover:shadow-lg',
+  glow: 'hover:shadow-lg hover:shadow-blue-500/25',
+  border: 'hover:border-blue-500 hover:border-2'
+}
+```
+
+### Animation Components
+```typescript
+export function AnimatedComponent({ isVisible }: { isVisible: boolean }) {
+  return (
+    <div className={clsx(
+      'transform transition-all duration-300 ease-in-out',
+      isVisible
+        ? 'opacity-100 translate-y-0'
+        : 'opacity-0 translate-y-4'
+    )}>
+      <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
+        Animated content
+      </div>
+    </div>
+  )
+}
+```
+
+## Accessibility
+
+### Focus Management
+```typescript
+// Focus-visible utilities
+const focusClasses = {
+  ring: 'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2',
+  visible: 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500',
+  keyboard: 'focus:outline-none focus:ring-2 focus:ring-blue-500'
+}
+
+// Skip link example
+export function SkipLink() {
+  return (
+    <a
+      href="#main-content"
+      className="
+        sr-only
+        focus:not-sr-only
+        focus:absolute
+        focus:top-4
+        focus:left-4
+        bg-blue-600
+        text-white
+        px-4
+        py-2
+        rounded-md
+        z-50
+      "
+    >
+      Skip to main content
+    </a>
+  )
+}
+```
+
+### Screen Reader Support
+```typescript
+export function AccessibleComponent() {
+  return (
+    <button
+      className="
+        bg-blue-600
+        text-white
+        px-4
+        py-2
+        rounded-md
+        hover:bg-blue-700
+        focus:ring-2
+        focus:ring-blue-500
+        focus:ring-offset-2
+      "
+      aria-label="Submit form"
+      aria-describedby="submit-description"
+    >
+      Submit
+      <span id="submit-description" className="sr-only">
+        Click to submit the form
+      </span>
+    </button>
+  )
+}
+```
+
+## Best Practices
+
+### Class Organization
+1. **Logical Grouping**: Group related classes together
+2. **Responsive First**: Start with mobile, then add responsive variants
+3. **Consistent Order**: Use consistent class ordering (layout, spacing, typography, etc.)
+4. **Utility Classes**: Prefer utility classes over custom CSS when possible
+
+### Performance
+1. **Purge CSS**: Ensure unused styles are removed in production
+2. **Critical CSS**: Inline critical styles for above-the-fold content
+3. **Lazy Loading**: Load non-critical styles asynchronously
+4. **Minification**: Compress CSS in production builds
+
+### Maintainability
+1. **Component Libraries**: Create reusable component patterns
+2. **Design Tokens**: Use consistent spacing, colors, and typography
+3. **Documentation**: Document complex styling patterns
+4. **Testing**: Test components in different themes and screen sizes
+
+### Theme Support
+1. **Dark Mode**: Always consider dark mode variants
+2. **High Contrast**: Ensure sufficient contrast ratios
+3. **Color Blindness**: Use patterns and icons in addition to color
+4. **Reduced Motion**: Respect user's motion preferences
+
+### Responsive Design
+1. **Mobile First**: Design for mobile, then enhance for larger screens
+2. **Breakpoint Consistency**: Use consistent breakpoints across components
+3. **Touch Targets**: Ensure touch targets are at least 44px
+4. **Viewport Meta**: Include proper viewport meta tag
+
+When you use this rule file, let me know this rule file is being used in the chat by mentioning the rule filename.

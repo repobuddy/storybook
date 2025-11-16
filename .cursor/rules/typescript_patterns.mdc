@@ -1,0 +1,296 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# TypeScript Patterns and Best Practices
+
+This repository uses TypeScript extensively with strict settings. Follow these patterns for consistent and type-safe code.
+
+## Type Definitions
+
+### Component Props
+```typescript
+// Use interfaces for component props
+interface ComponentNameProps {
+  // Required props
+  title: string
+  // Optional props with default values
+  variant?: 'primary' | 'secondary'
+  // Event handlers
+  onClick?: () => void
+  // Complex types
+  data: Array<{ id: string; name: string }>
+}
+
+// Export interfaces for reuse
+export type { ComponentNameProps }
+```
+
+### Generic Types
+```typescript
+// Use generics for reusable components
+interface ListProps<T> {
+  items: T[]
+  renderItem: (item: T, index: number) => React.ReactNode
+  keyExtractor: (item: T) => string
+}
+
+// Constrain generics when needed
+interface ApiResponse<T extends Record<string, unknown>> {
+  data: T
+  status: 'success' | 'error'
+  message?: string
+}
+```
+
+### Utility Types
+```typescript
+// Use built-in utility types
+type OptionalProps<T> = Partial<T>
+type RequiredProps<T> = Required<T>
+type PickProps<T, K extends keyof T> = Pick<T, K>
+type OmitProps<T, K extends keyof T> = Omit<T, K>
+
+// Custom utility types
+type WithOptional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>
+type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P]
+}
+```
+
+## Import/Export Patterns
+
+### Named Exports
+```typescript
+// Prefer named exports for better tree-shaking
+export function ComponentName() { /* ... */ }
+export type { ComponentNameProps }
+export const CONSTANT_VALUE = 'value'
+
+// Use index files for clean imports
+// index.ts
+export { ComponentName } from './ComponentName'
+export type { ComponentNameProps } from './ComponentName'
+```
+
+### Import Organization
+```typescript
+// External dependencies first
+import React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
+
+// Internal workspace dependencies
+import { ComponentName } from '@repobuddy/storybook'
+
+// Relative imports last
+import './ComponentName.css'
+import type { LocalType } from './types'
+```
+
+### Type-Only Imports
+```typescript
+// Use type-only imports for types
+import type { ComponentProps } from 'react'
+import type { StoryObj } from '@storybook/react'
+
+// Separate type and value imports
+import { useState } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
+```
+
+## React Patterns
+
+### Function Components
+```typescript
+// Use function components with proper typing
+export function ComponentName({ title, onClick }: ComponentNameProps) {
+  return (
+    <button onClick={onClick}>
+      {title}
+    </button>
+  )
+}
+
+// Use React.FC sparingly, prefer explicit prop typing
+// Only use when you need children prop
+interface WithChildrenProps {
+  children: React.ReactNode
+}
+
+export const WithChildren: React.FC<WithChildrenProps> = ({ children }) => {
+  return <div>{children}</div>
+}
+```
+
+### Hooks
+```typescript
+// Type custom hooks properly
+function useCustomHook<T>(initialValue: T) {
+  const [value, setValue] = useState<T>(initialValue)
+
+  const updateValue = useCallback((newValue: T) => {
+    setValue(newValue)
+  }, [])
+
+  return { value, updateValue }
+}
+
+// Type hook return values
+interface UseApiReturn<T> {
+  data: T | null
+  loading: boolean
+  error: Error | null
+  refetch: () => Promise<void>
+}
+```
+
+### Event Handlers
+```typescript
+// Type event handlers properly
+const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  event.preventDefault()
+  // handler logic
+}
+
+const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const value = event.target.value
+  // handler logic
+}
+
+// For form events
+const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  event.preventDefault()
+  // form submission logic
+}
+```
+
+## Storybook Integration
+
+### Meta Types
+```typescript
+// Use the extended Meta type from the repository
+import type { Meta, StoryObj } from '#repobuddy/storybook/internal'
+
+const meta = {
+  title: 'components/ComponentName',
+  component: ComponentName,
+  tags: ['autodocs', 'new'],
+  parameters: {
+    layout: 'centered'
+  }
+} satisfies Meta<typeof ComponentName>
+
+export default meta
+type Story = StoryObj<typeof meta>
+```
+
+### Story Types
+```typescript
+// Type stories with proper args
+export const Default: Story = {
+  args: {
+    title: 'Default Title',
+    variant: 'primary'
+  }
+}
+
+// Type complex story configurations
+export const WithComplexData: Story = {
+  args: {
+    data: [
+      { id: '1', name: 'Item 1' },
+      { id: '2', name: 'Item 2' }
+    ]
+  },
+  play: async ({ canvasElement }) => {
+    // Type-safe play function
+    const canvas = within(canvasElement)
+    // interaction logic
+  }
+}
+```
+
+## Error Handling
+
+### Result Types
+```typescript
+// Use Result pattern for error handling
+type Result<T, E = Error> =
+  | { success: true; data: T }
+  | { success: false; error: E }
+
+// Usage
+function fetchData(): Promise<Result<UserData>> {
+  try {
+    const data = await api.getUser()
+    return { success: true, data }
+  } catch (error) {
+    return { success: false, error: error as Error }
+  }
+}
+```
+
+### Optional Chaining
+```typescript
+// Use optional chaining for safe property access
+const userName = user?.profile?.name ?? 'Anonymous'
+const firstItem = items?.[0]?.title
+
+// For function calls
+const result = api?.fetchData?.() ?? null
+```
+
+## Configuration Files
+
+### TypeScript Config
+```json
+{
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true
+  }
+}
+```
+
+### Vite Config
+```typescript
+// Type Vite configuration
+import type { UserConfig } from 'vite'
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  // typed configuration
+} satisfies UserConfig)
+```
+
+## Best Practices
+
+### Type Safety
+1. **Avoid `any`**: Use proper types or `unknown` when type is truly unknown
+2. **Use `unknown` over `any`**: More type-safe alternative
+3. **Prefer interfaces over types**: Better for object shapes
+4. **Use const assertions**: `as const` for literal types
+5. **Leverage discriminated unions**: For complex state management
+
+### Performance
+1. **Use `React.memo`**: For expensive components
+2. **Proper dependency arrays**: In useEffect and useCallback
+3. **Lazy loading**: For code splitting
+4. **Type-only imports**: Reduce bundle size
+
+### Code Organization
+1. **Co-locate types**: Keep types close to their usage
+2. **Shared types**: Put common types in dedicated files
+3. **Barrel exports**: Use index files for clean imports
+4. **Consistent naming**: Use PascalCase for types, camelCase for values
+
+### Testing
+1. **Type test utilities**: Use TypeScript for compile-time testing
+2. **Mock types**: Properly type mocks and test utilities
+3. **Story types**: Ensure Storybook stories are properly typed
+
+When you use this rule file, let me know this rule file is being used in the chat by mentioning the rule filename.

@@ -1,0 +1,346 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Testing Patterns and Best Practices
+
+This repository uses Vitest for unit testing and Storybook for component testing. Follow these patterns for comprehensive test coverage.
+
+## Testing Strategy
+
+### Test Types
+1. **Unit Tests**: Test individual functions and components in isolation
+2. **Integration Tests**: Test component interactions and workflows
+3. **Visual Tests**: Storybook stories with visual regression testing
+4. **Accessibility Tests**: Automated a11y testing through Storybook
+5. **E2E Tests**: Playwright for end-to-end testing (when applicable)
+
+### Test File Organization
+```
+src/
+├── components/
+│   ├── ComponentName/
+│   │   ├── ComponentName.tsx
+│   │   ├── ComponentName.stories.tsx
+│   │   ├── ComponentName.test.tsx
+│   │   └── index.ts
+│   └── utils/
+│       ├── utils.ts
+│       └── utils.test.ts
+```
+
+## Vitest Configuration
+
+### Test Setup
+```typescript
+// vitest.config.ts
+import { defineProject } from 'vitest/config'
+import { browserTestPreset } from '@repobuddy/vitest/config'
+
+export default defineProject({
+  plugins: [browserTestPreset()],
+  test: {
+    name: 'package-name',
+    setupFiles: ['.storybook/vitest.setup.ts']
+  }
+})
+```
+
+### Test Environment
+- **Browser Environment**: For component testing with DOM APIs
+- **Node Environment**: For utility function testing
+- **Storybook Integration**: For component testing with full context
+
+## Unit Testing Patterns
+
+### Component Testing
+```typescript
+import { render, screen } from '@testing-library/react'
+import { describe, it, expect } from 'vitest'
+import { ComponentName } from './ComponentName'
+
+describe('ComponentName', () => {
+  it('renders with default props', () => {
+    render(<ComponentName title="Test Title" />)
+    expect(screen.getByText('Test Title')).toBeInTheDocument()
+  })
+
+  it('handles click events', async () => {
+    const handleClick = vi.fn()
+    render(<ComponentName onClick={handleClick} />)
+
+    await userEvent.click(screen.getByRole('button'))
+    expect(handleClick).toHaveBeenCalledOnce()
+  })
+
+  it('applies variant styles correctly', () => {
+    render(<ComponentName variant="primary" />)
+    const element = screen.getByRole('button')
+    expect(element).toHaveClass('variant-primary')
+  })
+})
+```
+
+### Hook Testing
+```typescript
+import { renderHook, act } from '@testing-library/react'
+import { describe, it, expect } from 'vitest'
+import { useCustomHook } from './useCustomHook'
+
+describe('useCustomHook', () => {
+  it('initializes with default value', () => {
+    const { result } = renderHook(() => useCustomHook('initial'))
+    expect(result.current.value).toBe('initial')
+  })
+
+  it('updates value when called', () => {
+    const { result } = renderHook(() => useCustomHook('initial'))
+
+    act(() => {
+      result.current.updateValue('updated')
+    })
+
+    expect(result.current.value).toBe('updated')
+  })
+})
+```
+
+### Utility Function Testing
+```typescript
+import { describe, it, expect } from 'vitest'
+import { formatDate, validateEmail } from './utils'
+
+describe('formatDate', () => {
+  it('formats date correctly', () => {
+    const date = new Date('2023-01-15')
+    expect(formatDate(date)).toBe('Jan 15, 2023')
+  })
+
+  it('handles invalid dates', () => {
+    expect(formatDate(null)).toBe('Invalid Date')
+  })
+})
+
+describe('validateEmail', () => {
+  it('validates correct email formats', () => {
+    expect(validateEmail('test@example.com')).toBe(true)
+    expect(validateEmail('user.name+tag@domain.co.uk')).toBe(true)
+  })
+
+  it('rejects invalid email formats', () => {
+    expect(validateEmail('invalid-email')).toBe(false)
+    expect(validateEmail('test@')).toBe(false)
+    expect(validateEmail('@domain.com')).toBe(false)
+  })
+})
+```
+
+## Storybook Testing
+
+### Story Structure
+```typescript
+import type { Meta, StoryObj } from '#repobuddy/storybook/internal'
+import { expect } from '@storybook/jest'
+import { userEvent } from '@storybook/testing-library'
+import { ComponentName } from './ComponentName'
+
+const meta = {
+  title: 'components/ComponentName',
+  component: ComponentName,
+  tags: ['autodocs', 'test'],
+  parameters: {
+    layout: 'centered'
+  }
+} satisfies Meta<typeof ComponentName>
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
+  args: {
+    title: 'Default Title'
+  }
+}
+
+export const WithInteraction: Story = {
+  args: {
+    title: 'Interactive Title'
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const button = canvas.getByRole('button')
+
+    await userEvent.click(button)
+    await expect(canvas.getByText('Clicked!')).toBeInTheDocument()
+  }
+}
+```
+
+### Visual Testing
+```typescript
+// Stories for visual regression testing
+export const AllVariants: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: '1rem' }}>
+      <ComponentName variant="primary" title="Primary" />
+      <ComponentName variant="secondary" title="Secondary" />
+      <ComponentName variant="danger" title="Danger" />
+    </div>
+  ),
+  parameters: {
+    chromatic: { disableSnapshot: false }
+  }
+}
+```
+
+### Accessibility Testing
+```typescript
+export const AccessibilityTest: Story = {
+  args: {
+    title: 'Accessible Button'
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+
+    // Test keyboard navigation
+    const button = canvas.getByRole('button')
+    button.focus()
+    expect(button).toHaveFocus()
+
+    // Test screen reader text
+    expect(button).toHaveAccessibleName('Accessible Button')
+  },
+  parameters: {
+    a11y: {
+      config: {
+        rules: [
+          { id: 'button-name', enabled: true }
+        ]
+      }
+    }
+  }
+}
+```
+
+## Test Utilities
+
+### Custom Render Function
+```typescript
+// test-utils.tsx
+import { render, type RenderOptions } from '@testing-library/react'
+import { ThemeProvider } from 'storybook/theming'
+import { themes } from 'storybook/theming'
+
+interface CustomRenderOptions extends Omit<RenderOptions, 'wrapper'> {
+  theme?: 'light' | 'dark'
+}
+
+export function customRender(
+  ui: React.ReactElement,
+  options: CustomRenderOptions = {}
+) {
+  const { theme = 'light', ...renderOptions } = options
+
+  const Wrapper = ({ children }: { children: React.ReactNode }) => (
+    <ThemeProvider theme={themes[theme]}>
+      {children}
+    </ThemeProvider>
+  )
+
+  return render(ui, { wrapper: Wrapper, ...renderOptions })
+}
+```
+
+### Mock Utilities
+```typescript
+// mocks.ts
+import { vi } from 'vitest'
+
+export const mockApi = {
+  fetchData: vi.fn(),
+  postData: vi.fn()
+}
+
+export const mockLocalStorage = {
+  getItem: vi.fn(),
+  setItem: vi.fn(),
+  removeItem: vi.fn(),
+  clear: vi.fn()
+}
+
+// Setup in test files
+beforeEach(() => {
+  vi.clearAllMocks()
+  Object.defineProperty(window, 'localStorage', {
+    value: mockLocalStorage,
+    writable: true
+  })
+})
+```
+
+## Coverage Configuration
+
+### Coverage Setup
+```typescript
+// vitest.config.ts
+export default defineProject({
+  test: {
+    coverage: {
+      include: ['src/**/*.{ts,tsx}'],
+      exclude: [
+        '**/*.stories.{ts,tsx}',
+        '**/*.test.{ts,tsx}',
+        '**/index.ts'
+      ],
+      thresholds: {
+        global: {
+          branches: 80,
+          functions: 80,
+          lines: 80,
+          statements: 80
+        }
+      }
+    }
+  }
+})
+```
+
+### Coverage Reports
+- **HTML Reports**: Generated in `coverage/` directory
+- **CI Integration**: Coverage reports in CI/CD pipelines
+- **Threshold Enforcement**: Fail builds if coverage drops below thresholds
+
+## Best Practices
+
+### Test Organization
+1. **Arrange-Act-Assert**: Structure tests with clear sections
+2. **Descriptive Names**: Use clear, descriptive test names
+3. **Single Responsibility**: Each test should test one thing
+4. **Setup/Teardown**: Use beforeEach/afterEach for common setup
+
+### Test Data
+1. **Factories**: Use factory functions for test data
+2. **Fixtures**: Store complex test data in fixture files
+3. **Randomization**: Use deterministic random data for edge cases
+4. **Realistic Data**: Use realistic data that matches production
+
+### Performance
+1. **Fast Tests**: Keep tests fast and focused
+2. **Parallel Execution**: Use Vitest's parallel test execution
+3. **Mocking**: Mock external dependencies and APIs
+4. **Cleanup**: Properly clean up after tests
+
+### Maintenance
+1. **DRY Principle**: Avoid test code duplication
+2. **Shared Utilities**: Create reusable test utilities
+3. **Consistent Patterns**: Use consistent testing patterns across the codebase
+4. **Documentation**: Document complex test scenarios
+
+### Storybook Integration
+1. **Component Stories**: Every component should have stories
+2. **Interaction Testing**: Use play functions for interaction testing
+3. **Visual Regression**: Use visual testing for UI consistency
+4. **Accessibility**: Include accessibility testing in stories
+
+When you use this rule file, let me know this rule file is being used in the chat by mentioning the rule filename.

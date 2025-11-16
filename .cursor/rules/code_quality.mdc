@@ -1,0 +1,466 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Code Quality Patterns and Best Practices
+
+This repository uses Biome for linting and formatting with strict quality standards. Follow these patterns for consistent, high-quality code.
+
+## Biome Configuration
+
+### Base Configuration
+```jsonc
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.3/schema.json",
+  "extends": ["@repobuddy/biome/recommended"],
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true,
+    "defaultBranch": "main"
+  },
+  "files": {
+    "ignoreUnknown": false,
+    "ignore": ["node_modules", "dist", "build", "coverage", "*.mdx", "*.md", ".vscode"]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "tab"
+  },
+  "javascript": {
+    "formatter": {
+      "trailingCommas": "none"
+    }
+  }
+}
+```
+
+### VSCode Integration
+```json
+{
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    },
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    },
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  }
+}
+```
+
+## Code Formatting
+
+### Indentation and Spacing
+```typescript
+// Use tabs for indentation (not spaces)
+export function ComponentName() {
+	const [state, setState] = useState('')
+
+	const handleClick = () => {
+		setState('updated')
+	}
+
+	return (
+		<div>
+			<button onClick={handleClick}>
+				Click me
+			</button>
+		</div>
+	)
+}
+
+// No trailing commas in JavaScript/TypeScript
+const config = {
+	api: 'https://api.example.com',
+	timeout: 5000
+}
+
+// Proper line breaks for readability
+const longArray = [
+	'item1',
+	'item2',
+	'item3',
+	'item4'
+]
+```
+
+### Import Organization
+```typescript
+// External dependencies first
+import React from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
+
+// Internal workspace dependencies
+import { ComponentName } from '@repobuddy/storybook'
+
+// Relative imports last
+import './ComponentName.css'
+import type { LocalType } from './types'
+
+// Type-only imports
+import type { ComponentProps } from 'react'
+```
+
+## Naming Conventions
+
+### Variables and Functions
+```typescript
+// Use camelCase for variables and functions
+const userName = 'John'
+const isActive = true
+const handleClick = () => {}
+const fetchUserData = async () => {}
+
+// Use PascalCase for components and types
+export function UserProfile() {}
+interface UserProfileProps {}
+type UserStatus = 'active' | 'inactive'
+
+// Use UPPER_SNAKE_CASE for constants
+const API_BASE_URL = 'https://api.example.com'
+const MAX_RETRY_ATTEMPTS = 3
+```
+
+### File Naming
+```typescript
+// Use kebab-case for file names
+// user-profile.tsx
+// api-client.ts
+// test-utils.tsx
+
+// Use PascalCase for component files
+// UserProfile.tsx
+// ApiClient.ts
+// TestUtils.tsx
+
+// Use descriptive names
+// Bad: utils.ts
+// Good: date-utils.ts, string-utils.ts
+```
+
+## Code Organization
+
+### File Structure
+```typescript
+// 1. Imports (external, internal, relative)
+import React from 'react'
+import { ComponentName } from '@repobuddy/storybook'
+import './styles.css'
+
+// 2. Type definitions
+interface ComponentProps {
+	title: string
+	onClick?: () => void
+}
+
+// 3. Constants
+const DEFAULT_TITLE = 'Default Title'
+
+// 4. Utility functions
+const formatTitle = (title: string) => title.toUpperCase()
+
+// 5. Main component
+export function Component({ title, onClick }: ComponentProps) {
+	// 6. Hooks
+	const [state, setState] = useState('')
+
+	// 7. Event handlers
+	const handleClick = () => {
+		setState('clicked')
+		onClick?.()
+	}
+
+	// 8. Render
+	return (
+		<button onClick={handleClick}>
+			{formatTitle(title)}
+		</button>
+	)
+}
+
+// 9. Exports
+export type { ComponentProps }
+```
+
+### Component Organization
+```typescript
+// Single responsibility principle
+export function UserCard({ user }: UserCardProps) {
+	return (
+		<div className="user-card">
+			<UserAvatar user={user} />
+			<UserInfo user={user} />
+			<UserActions user={user} />
+		</div>
+	)
+}
+
+// Separate concerns into smaller components
+function UserAvatar({ user }: { user: User }) {
+	return <img src={user.avatar} alt={user.name} />
+}
+
+function UserInfo({ user }: { user: User }) {
+	return (
+		<div>
+			<h3>{user.name}</h3>
+			<p>{user.email}</p>
+		</div>
+	)
+}
+
+function UserActions({ user }: { user: User }) {
+	return (
+		<div>
+			<button>Edit</button>
+			<button>Delete</button>
+		</div>
+	)
+}
+```
+
+## Error Handling
+
+### Try-Catch Patterns
+```typescript
+// Proper error handling
+async function fetchData() {
+	try {
+		const response = await fetch('/api/data')
+		if (!response.ok) {
+			throw new Error(`HTTP error! status: ${response.status}`)
+		}
+		return await response.json()
+	} catch (error) {
+		console.error('Failed to fetch data:', error)
+		throw error // Re-throw for caller to handle
+	}
+}
+
+// Error boundaries for React components
+class ErrorBoundary extends React.Component {
+	constructor(props) {
+		super(props)
+		this.state = { hasError: false }
+	}
+
+	static getDerivedStateFromError(error) {
+		return { hasError: true }
+	}
+
+	componentDidCatch(error, errorInfo) {
+		console.error('Error caught by boundary:', error, errorInfo)
+	}
+
+	render() {
+		if (this.state.hasError) {
+			return <h1>Something went wrong.</h1>
+		}
+
+		return this.props.children
+	}
+}
+```
+
+### Null Safety
+```typescript
+// Use optional chaining
+const userName = user?.profile?.name ?? 'Anonymous'
+const firstItem = items?.[0]?.title
+
+// Use nullish coalescing
+const config = {
+	timeout: userTimeout ?? 5000,
+	retries: maxRetries ?? 3
+}
+
+// Proper type guards
+function isUser(obj: unknown): obj is User {
+	return (
+		typeof obj === 'object' &&
+		obj !== null &&
+		'id' in obj &&
+		'name' in obj
+	)
+}
+```
+
+## Performance Patterns
+
+### React Optimization
+```typescript
+// Use React.memo for expensive components
+export const ExpensiveComponent = React.memo(function ExpensiveComponent({ data }) {
+	return <div>{/* expensive rendering */}</div>
+})
+
+// Use useCallback for stable references
+export function ParentComponent() {
+	const [count, setCount] = useState(0)
+
+	const handleClick = useCallback(() => {
+		setCount(prev => prev + 1)
+	}, []) // Empty dependency array for stable reference
+
+	return (
+		<ChildComponent onClick={handleClick} />
+	)
+}
+
+// Use useMemo for expensive calculations
+export function DataComponent({ items }) {
+	const processedData = useMemo(() => {
+		return items.map(item => ({
+			...item,
+			processed: expensiveOperation(item)
+		}))
+	}, [items]) // Only recalculate when items change
+
+	return <div>{/* render processed data */}</div>
+}
+```
+
+### Bundle Optimization
+```typescript
+// Lazy loading for code splitting
+const LazyComponent = lazy(() => import('./LazyComponent'))
+
+// Dynamic imports
+const loadFeature = async () => {
+	const { default: Feature } = await import('./Feature')
+	return Feature
+}
+
+// Tree-shaking friendly exports
+export { ComponentA } from './ComponentA'
+export { ComponentB } from './ComponentB'
+// Instead of: export * from './components'
+```
+
+## Testing Patterns
+
+### Test Organization
+```typescript
+// Arrange-Act-Assert pattern
+describe('ComponentName', () => {
+	it('should render with default props', () => {
+		// Arrange
+		const defaultProps = { title: 'Test' }
+
+		// Act
+		render(<ComponentName {...defaultProps} />)
+
+		// Assert
+		expect(screen.getByText('Test')).toBeInTheDocument()
+	})
+
+	it('should handle user interactions', async () => {
+		// Arrange
+		const handleClick = vi.fn()
+		render(<ComponentName onClick={handleClick} />)
+
+		// Act
+		await userEvent.click(screen.getByRole('button'))
+
+		// Assert
+		expect(handleClick).toHaveBeenCalledOnce()
+	})
+})
+```
+
+### Mock Patterns
+```typescript
+// Proper mocking
+vi.mock('./api', () => ({
+	fetchData: vi.fn()
+}))
+
+// Mock implementation
+const mockFetchData = vi.mocked(fetchData)
+mockFetchData.mockResolvedValue({ id: 1, name: 'Test' })
+
+// Clean up
+afterEach(() => {
+	vi.clearAllMocks()
+})
+```
+
+## Documentation
+
+### JSDoc Comments
+```typescript
+/**
+ * Fetches user data from the API
+ * @param userId - The unique identifier of the user
+ * @param options - Optional configuration for the request
+ * @returns Promise resolving to user data
+ * @throws {Error} When the API request fails
+ */
+async function fetchUserData(
+	userId: string,
+	options?: RequestOptions
+): Promise<UserData> {
+	// Implementation
+}
+
+/**
+ * User profile component that displays user information
+ * @param props - Component props
+ * @param props.user - User data to display
+ * @param props.onEdit - Callback when edit button is clicked
+ */
+export function UserProfile({ user, onEdit }: UserProfileProps) {
+	// Implementation
+}
+```
+
+### Inline Comments
+```typescript
+// Use comments to explain "why", not "what"
+// This timeout prevents rapid-fire API calls during user typing
+const DEBOUNCE_TIMEOUT = 300
+
+// Bad: This sets the state to true
+// Good: Enable loading state while API call is in progress
+setLoading(true)
+
+// Use TODO comments for future improvements
+// TODO: Add error boundary for better error handling
+// TODO: Optimize re-renders with React.memo
+```
+
+## Best Practices
+
+### Code Quality
+1. **Single Responsibility**: Each function/component should do one thing
+2. **DRY Principle**: Don't repeat yourself - extract common patterns
+3. **KISS Principle**: Keep it simple, stupid - avoid over-engineering
+4. **Consistent Patterns**: Use consistent patterns across the codebase
+
+### Performance
+1. **Lazy Loading**: Load code and data only when needed
+2. **Memoization**: Cache expensive calculations and component renders
+3. **Bundle Size**: Keep bundle size small with tree-shaking
+4. **Network Requests**: Minimize and optimize API calls
+
+### Maintainability
+1. **Clear Naming**: Use descriptive names for variables, functions, and files
+2. **Proper Structure**: Organize code logically and consistently
+3. **Documentation**: Document complex logic and APIs
+4. **Testing**: Write comprehensive tests for all functionality
+
+### Security
+1. **Input Validation**: Validate all user inputs
+2. **XSS Prevention**: Sanitize user-generated content
+3. **Secure Dependencies**: Keep dependencies updated
+4. **Error Handling**: Don't expose sensitive information in errors
+
+When you use this rule file, let me know this rule file is being used in the chat by mentioning the rule filename.
