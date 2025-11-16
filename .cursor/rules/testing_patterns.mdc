@@ -1,68 +1,56 @@
 ---
+description:
+globs:
+alwaysApply: false
+---
+---
 description: Apply when writing unit tests, integration tests, Storybook stories, or test configurations to ensure consistent testing patterns and coverage strategies
 globs:
   - "**/*.{test,spec}.{ts,tsx}"
   - "**/*.stories.{ts,tsx}"
-  - "**/vitest.config.{ts,js}"
-  - "**/test/**/*"
-alwaysApply: false
----
 # Testing Patterns and Best Practices
 
 This repository uses Vitest for unit testing and Storybook for component testing. Follow these patterns for comprehensive test coverage.
 
-## Testing Strategy
+## Quick Decision Tree
 
-### Test Types
-1. **Unit Tests**: Test individual functions and components in isolation
-2. **Integration Tests**: Test component interactions and workflows
-3. **Visual Tests**: Storybook stories with visual regression testing
-4. **Accessibility Tests**: Automated a11y testing through Storybook
-5. **E2E Tests**: Playwright for end-to-end testing (when applicable)
+**Writing a component test?** → [Component Testing Patterns](mdc:#component-testing-patterns)
+**Writing a Storybook story?** → [Storybook Testing Patterns](mdc:#storybook-testing-patterns)
+**Writing a utility function test?** → [Utility Function Testing](mdc:#utility-function-testing)
+**Setting up test configuration?** → [Vitest Configuration](mdc:#vitest-configuration)
+**Need test utilities?** → [Test Utilities](mdc:#test-utilities)
 
-### Test File Organization
+## File Organization Standards
+
+### Test File Structure
+
 ```
 src/
 ├── components/
 │   ├── component_name/
-│   │   ├── component_name.tsx
-│   │   ├── component_name.stories.tsx
-│   │   ├── component_name.test.tsx
-│   │   └── index.ts
+│   │   ├── component_name.tsx          # Component implementation
+│   │   ├── component_name.stories.tsx  # Storybook stories
+│   │   └── component_name.test.tsx     # Unit tests
 │   └── utils/
-│       ├── utils.ts
-│       └── utils.test.ts
+│       ├── utils.ts                    # Utility functions
+│       └── utils.test.ts               # Utility tests
 ```
 
-## Vitest Configuration
+### Naming Conventions
 
-### Test Setup
-```typescript
-// vitest.config.ts
-import { defineProject } from 'vitest/config'
-import { browserTestPreset } from '@repobuddy/vitest/config'
+- **Test files**: `component_name.test.tsx` or `component_name.spec.tsx`
+- **Story files**: `component_name.stories.tsx`
+- **Test utilities**: `test_utils.tsx` or `testing_helpers.ts`
+- **Mock files**: `mocks.ts` or `test_mocks.ts`
 
-export default defineProject({
-  plugins: [browserTestPreset()],
-  test: {
-    name: 'package-name',
-    setupFiles: ['.storybook/vitest.setup.ts']
-  }
-})
-```
+## Component Testing Patterns
 
-### Test Environment
-- **Browser Environment**: For component testing with DOM APIs
-- **Node Environment**: For utility function testing
-- **Storybook Integration**: For component testing with full context
-
-## Unit Testing Patterns
-
-### Component Testing
+### Standard Component Test Template
 
 ```tsx
 import { render, screen } from '@testing-library/react'
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
+import userEvent from '@testing-library/user-event'
 import { ComponentName } from './component_name.js'
 
 describe('ComponentName', () => {
@@ -87,7 +75,35 @@ describe('ComponentName', () => {
 })
 ```
 
-### Hook Testing
+### Common Test Patterns
+
+| Test Type | Pattern | Example |
+|---|---|---|
+| **Rendering** | Test component displays correctly | `expect(screen.getByText('text')).toBeInTheDocument()` |
+| **User Interaction** | Test click, input, navigation | `await userEvent.click(button)` |
+| **Props Validation** | Test prop changes affect component | `render(<Component prop="value" />)` |
+| **Accessibility** | Test ARIA attributes and keyboard nav | `expect(button).toHaveAccessibleName('text')` |
+| **Event Handling** | Test event callbacks | `expect(handleClick).toHaveBeenCalledWith('value')` |
+| **Conditional Rendering** | Test conditional UI elements | `expect(screen.queryByText('text')).not.toBeInTheDocument()` |
+
+### Import Patterns
+
+```ts
+// Always include these imports for component tests
+import { render, screen } from '@testing-library/react'
+import { describe, it, expect, vi } from 'vitest'
+import userEvent from '@testing-library/user-event'
+
+// Component under test
+import { ComponentName } from './component_name.js'
+
+// Test utilities (if needed)
+import { customRender } from './test_utils.js'
+```
+
+## Hook Testing Patterns
+
+### Standard Hook Test Template
 
 ```tsx
 import { renderHook, act } from '@testing-library/react'
@@ -112,7 +128,9 @@ describe('useCustomHook', () => {
 })
 ```
 
-### Utility Function Testing
+## Utility Function Testing
+
+### Standard Utility Test Template
 
 ```ts
 import { describe, it, expect } from 'vitest'
@@ -143,9 +161,9 @@ describe('validateEmail', () => {
 })
 ```
 
-## Storybook Testing
+## Storybook Testing Patterns
 
-### Story Structure
+### Standard Story Template
 
 ```tsx
 import type { Meta, StoryObj } from '#repobuddy/storybook/internal'
@@ -184,10 +202,9 @@ export const WithInteraction: Story = {
 }
 ```
 
-### Visual Testing
+### Visual Regression Testing
 
 ```tsx
-// Stories for visual regression testing
 export const AllVariants: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '1rem' }}>
@@ -230,6 +247,50 @@ export const AccessibilityTest: Story = {
     }
   }
 }
+```
+
+## Vitest Configuration
+
+### Standard Test Setup
+
+```ts
+// vitest.config.ts
+import { defineProject } from 'vitest/config'
+import { browserTestPreset } from '@repobuddy/vitest/config'
+
+export default defineProject({
+  plugins: [browserTestPreset()],
+  test: {
+    name: 'package-name',
+    setupFiles: ['.storybook/vitest.setup.ts']
+  }
+})
+```
+
+### Coverage Configuration
+
+```ts
+// vitest.config.ts
+export default defineProject({
+  test: {
+    coverage: {
+      include: ['src/**/*.{ts,tsx}'],
+      exclude: [
+        '**/*.stories.{ts,tsx}',
+        '**/*.test.{ts,tsx}',
+        '**/index.ts'
+      ],
+      thresholds: {
+        global: {
+          branches: 80,
+          functions: 80,
+          lines: 80,
+          statements: 80
+        }
+      }
+    }
+  }
+})
 ```
 
 ## Test Utilities
@@ -289,75 +350,94 @@ beforeEach(() => {
 })
 ```
 
-## Coverage Configuration
-
-### Coverage Setup
-
-```ts
-// vitest.config.ts
-export default defineProject({
-  test: {
-    coverage: {
-      include: ['src/**/*.{ts,tsx}'],
-      exclude: [
-        '**/*.stories.{ts,tsx}',
-        '**/*.test.{ts,tsx}',
-        '**/index.ts'
-      ],
-      thresholds: {
-        global: {
-          branches: 80,
-          functions: 80,
-          lines: 80,
-          statements: 80
-        }
-      }
-    }
-  }
-})
-```
-
-### Coverage Reports
-
-- **HTML Reports**: Generated in `coverage/` directory
-- **CI Integration**: Coverage reports in CI/CD pipelines
-- **Threshold Enforcement**: Fail builds if coverage drops below thresholds
-
-## Best Practices
+## Best Practices Checklist
 
 ### Test Organization
 
-1. **Arrange-Act-Assert**: Structure tests with clear sections
-2. **Descriptive Names**: Use clear, descriptive test names
-3. **Single Responsibility**: Each test should test one thing
-4. **Setup/Teardown**: Use beforeEach/afterEach for common setup
+- [ ] Use **Arrange-Act-Assert** pattern
+- [ ] Write **descriptive test names**
+- [ ] Test **one thing per test**
+- [ ] Use `beforeEach`/`afterEach` for setup/teardown
+- [ ] Group related tests with `describe` blocks
 
 ### Test Data
 
-1. **Factories**: Use factory functions for test data
-2. **Fixtures**: Store complex test data in fixture files
-3. **Randomization**: Use deterministic random data for edge cases
-4. **Realistic Data**: Use realistic data that matches production
+- [ ] Use **factory functions** for test data
+- [ ] Store **complex data in fixtures**
+- [ ] Use **deterministic random data** for edge cases
+- [ ] Use **realistic data** that matches production
 
 ### Performance
 
-1. **Fast Tests**: Keep tests fast and focused
-2. **Parallel Execution**: Use Vitest's parallel test execution
-3. **Mocking**: Mock external dependencies and APIs
-4. **Cleanup**: Properly clean up after tests
+- [ ] Keep tests **fast and focused**
+- [ ] Use **parallel execution** with Vitest
+- [ ] **Mock external dependencies** and APIs
+- [ ] **Clean up** after tests properly
 
 ### Maintenance
 
-1. **DRY Principle**: Avoid test code duplication
-2. **Shared Utilities**: Create reusable test utilities
-3. **Consistent Patterns**: Use consistent testing patterns across the codebase
-4. **Documentation**: Document complex test scenarios
+- [ ] Follow **DRY principle** - avoid test code duplication
+- [ ] Create **reusable test utilities**
+- [ ] Use **consistent patterns** across codebase
+- [ ] **Document complex test scenarios**
 
 ### Storybook Integration
 
-1. **Component Stories**: Every component should have stories
-2. **Interaction Testing**: Use play functions for interaction testing
-3. **Visual Regression**: Use visual testing for UI consistency
-4. **Accessibility**: Include accessibility testing in stories
+- [ ] Every component has **stories**
+- [ ] Use **play functions** for interaction testing
+- [ ] Include **visual regression testing**
+- [ ] Add **accessibility testing** to stories
+
+## Common Anti-Patterns to Avoid
+
+### ❌ Don't Do This
+
+```tsx
+// ❌ Testing multiple things in one test
+it('handles everything', () => {
+  render(<Component />)
+  expect(screen.getByText('text')).toBeInTheDocument()
+  fireEvent.click(button)
+  expect(handleClick).toHaveBeenCalled()
+  expect(element).toHaveClass('class')
+})
+
+// ❌ Using fireEvent instead of userEvent
+fireEvent.click(button)
+
+// ❌ Testing implementation details
+expect(component.state.value).toBe('test')
+
+// ❌ Not cleaning up mocks
+// Missing vi.clearAllMocks() in beforeEach
+```
+
+### ✅ Do This Instead
+
+```tsx
+// ✅ Testing one thing per test
+it('renders with default props', () => {
+  render(<Component />)
+  expect(screen.getByText('text')).toBeInTheDocument()
+})
+
+it('handles click events', async () => {
+  const handleClick = vi.fn()
+  render(<Component onClick={handleClick} />)
+  await userEvent.click(screen.getByRole('button'))
+  expect(handleClick).toHaveBeenCalledOnce()
+})
+
+// ✅ Using userEvent for realistic interactions
+await userEvent.click(button)
+
+// ✅ Testing user-visible behavior
+expect(screen.getByText('result')).toBeInTheDocument()
+
+// ✅ Proper mock cleanup
+beforeEach(() => {
+  vi.clearAllMocks()
+})
+```
 
 When you use this rule file, let me know this rule file is being used in the chat by mentioning the rule filename.
