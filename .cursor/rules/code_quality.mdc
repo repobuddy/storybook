@@ -93,42 +93,13 @@ import type { ComponentProps } from 'react'
 
 ## Naming Conventions
 
-### Variables and Functions
+For comprehensive naming conventions including file naming, folder structure, and import/export patterns, refer to [Naming Conventions](mdc:.cursor/rules/naming_conventions.mdc).
 
-```typescript
-// Use camelCase for variables and functions
-const userName = 'John'
-const isActive = true
-const handleClick = () => {}
-const fetchUserData = async () => {}
-
-// Use PascalCase for components and types
-export function UserProfile() {}
-interface UserProfileProps {}
-type UserStatus = 'active' | 'inactive'
-
-// Use UPPER_SNAKE_CASE for constants
-const API_BASE_URL = 'https://api.example.com'
-const MAX_RETRY_ATTEMPTS = 3
-```
-
-### File Naming
-
-```typescript
-// Use kebab-case for file names
-// user-profile.tsx
-// api-client.ts
-// test-utils.tsx
-
-// Use PascalCase for component files
-// UserProfile.tsx
-// ApiClient.ts
-// TestUtils.tsx
-
-// Use descriptive names
-// Bad: utils.ts
-// Good: date-utils.ts, string-utils.ts
-```
+This rule covers:
+- File and folder naming standards (snake_case)
+- Import/export conventions
+- Component and type naming patterns
+- Special cases and migration guidelines
 
 ## Code Organization
 
@@ -540,6 +511,7 @@ Monorepo workspace is configured in [pnpm-workspace.yaml](mdc:pnpm-workspace.yam
 ### Related Rules
 
 - [Monorepo Best Practices](mdc:.cursor/rules/monorepo_best_practices.mdc) - Workspace organization
+- [Naming Conventions](mdc:.cursor/rules/naming_conventions.mdc) - File and folder naming standards
 - [TypeScript Patterns](mdc:.cursor/rules/typescript_patterns.mdc) - TypeScript-specific patterns
 - [Testing Patterns](mdc:.cursor/rules/testing_patterns.mdc) - Testing strategies
 - [CI/CD Patterns](mdc:.cursor/rules/ci_cd_patterns.mdc) - Build and deployment
