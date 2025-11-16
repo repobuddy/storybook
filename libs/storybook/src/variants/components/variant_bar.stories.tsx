@@ -1,10 +1,18 @@
 import type { Meta, StoryObj } from '#repobuddy/storybook/internal'
 import React from 'react'
+import { convert, ThemeProvider, themes } from 'storybook/internal/theming'
 import { expect } from 'storybook/test'
 import { VariantBar } from './variant_bar.js'
 
 export default {
-	title: 'variants/components/VariantBar'
+	title: 'variants/components/VariantBar',
+	decorators: [
+		(Story) => (
+			<ThemeProvider theme={convert(themes.light)}>
+				<Story />
+			</ThemeProvider>
+		)
+	]
 } satisfies Meta
 
 export const HiddenWithoutParameters: StoryObj = {

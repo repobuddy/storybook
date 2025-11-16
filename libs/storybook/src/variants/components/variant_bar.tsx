@@ -4,6 +4,7 @@ import type { API, AddonStore } from 'storybook/manager-api'
 import { addons as defaultAddons } from 'storybook/manager-api'
 import { CONFIG_KEY, PARAM_KEY } from '../constants.js'
 import type { VariantConfigOptions, VariantOptions } from '../types.js'
+import { ClassNameSwitcher } from './class_name_switcher.js'
 
 type VariantBarProps = {
 	api: API
@@ -33,7 +34,13 @@ export function VariantBar(props: VariantBarProps) {
 		<div {...rest}>
 			{variants.map((v) => {
 				if (v.value.strategy.type === 'className') {
-					return <div>class</div>
+					return (
+						<ClassNameSwitcher
+							selector={v.value.strategy.selector}
+							current={v.value.current ?? v.config?.current ?? 'dark'}
+							variants={v.value.variants ?? v.config?.variants ?? {}}
+						/>
+					)
 				}
 				if (v.value.strategy.type === 'dataAttribute') {
 					return <div>data-attribute</div>
