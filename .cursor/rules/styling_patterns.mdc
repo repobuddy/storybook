@@ -10,26 +10,26 @@ This repository uses Tailwind CSS for styling with comprehensive theme support. 
 ## Tailwind CSS Configuration
 
 ### Setup
-```typescript
-// tailwind.css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-// Custom CSS variables for theming
+```css
+/* tailwind.css */
+@import "tailwindcss";
+
+/* Custom CSS variables for theming */
 :root {
-  --color-primary: theme('colors.blue.500');
-  --color-secondary: theme('colors.gray.500');
+  --color-primary: var(--color-blue-500);
+  --color-secondary: var(--color-gray-500);
 }
 
 .dark {
-  --color-primary: theme('colors.blue.400');
-  --color-secondary: theme('colors.gray.400');
+  --color-primary: var(--color-blue-400);
+  --color-secondary: var(--color-gray-400);
 }
 ```
 
 ### Vite Integration
-```typescript
+
+```ts
 // vite.config.ts
 import tailwindcss from '@tailwindcss/vite'
 
@@ -41,10 +41,77 @@ export default defineConfig({
 })
 ```
 
+### Tailwind 4 Configuration
+
+```css
+/* tailwind.css */
+@import "tailwindcss";
+
+/* Custom theme configuration using CSS */
+@theme {
+  --color-primary-50: #eff6ff;
+  --color-primary-500: #3b82f6;
+  --color-primary-900: #1e3a8a;
+
+  /* Semantic color tokens */
+  --color-surface-light: #ffffff;
+  --color-surface-dark: #1f2937;
+  --color-content-light: #111827;
+  --color-content-dark: #f9fafb;
+
+  /* Custom spacing */
+  --spacing-18: 4.5rem;
+  --spacing-88: 22rem;
+
+  /* Custom animations */
+  --animate-fade-in: fade-in 0.3s ease-out;
+}
+
+/* Custom keyframes */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom CSS variables for theming */
+:root {
+  --color-primary: var(--color-blue-500);
+  --color-secondary: var(--color-gray-500);
+}
+
+.dark {
+  --color-primary: var(--color-blue-400);
+  --color-secondary: var(--color-gray-400);
+}
+```
+
+### Vite Integration for Tailwind 4
+
+```ts
+// vite.config.ts
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwind/vite'
+
+export default defineConfig({
+  plugins: [
+    react(),
+    tailwindcss(),
+  ]
+})
+```
+
 ## Component Styling Patterns
 
 ### Basic Component Styling
-```typescript
+
+```tsx
 interface ComponentProps {
   variant?: 'primary' | 'secondary' | 'danger'
   size?: 'small' | 'medium' | 'large'
@@ -82,7 +149,8 @@ export function Component({ variant = 'primary', size = 'medium', className }: C
 ```
 
 ### Conditional Styling
-```typescript
+
+```tsx
 import { clsx } from 'clsx'
 
 export function ConditionalComponent({ isActive, isDisabled, className }: ComponentProps) {
@@ -104,7 +172,8 @@ export function ConditionalComponent({ isActive, isDisabled, className }: Compon
 ```
 
 ### Responsive Design
-```typescript
+
+```tsx
 export function ResponsiveComponent() {
   return (
     <div className="
@@ -122,10 +191,134 @@ export function ResponsiveComponent() {
 }
 ```
 
+## Tailwind 4 Features
+
+### Container Queries
+
+```tsx
+export function ContainerQueryComponent() {
+  return (
+    <div className="
+      @container
+      bg-white
+      dark:bg-gray-800
+      rounded-lg
+      p-4
+    ">
+      <div className="
+        @lg:grid
+        @lg:grid-cols-2
+        @lg:gap-6
+        space-y-4
+        @lg:space-y-0
+      ">
+        <div className="
+          @xl:text-lg
+          text-base
+          font-medium
+        ">
+          Responsive content
+        </div>
+        <div className="
+          @xl:text-base
+          text-sm
+          text-gray-600
+          dark:text-gray-300
+        ">
+          Adapts to container size
+        </div>
+      </div>
+    </div>
+  )
+}
+```
+
+### Logical Properties
+
+```tsx
+export function LogicalPropertiesComponent() {
+  return (
+    <div className="
+      /* Logical spacing */
+      margin-inline: auto
+      padding-block: 1rem
+      padding-inline: 1.5rem
+
+      /* Logical borders */
+      border-inline-start: 4px solid blue-500
+      border-block-end: 1px solid gray-200
+
+      /* Logical sizing */
+      width: fit-content
+      height: auto
+    ">
+      <p className="
+        /* Logical text alignment */
+        text-align: start
+        /* Logical overflow */
+        overflow-block: auto
+      ">
+        Content with logical properties
+      </p>
+    </div>
+  )
+}
+```
+
+### Modern Color Functions
+
+```tsx
+export function ModernColorComponent() {
+  return (
+    <div className="
+      /* Modern color functions */
+      background: color-mix(in srgb, blue-500 50%, transparent)
+      color: color-contrast(white vs gray-900, blue-500)
+      border-color: color-mix(in oklch, red-500 25%, blue-500)
+    ">
+      <div className="
+        /* Color manipulation */
+        background: hsl(from blue-500 h s calc(l + 10%))
+        color: oklch(from red-500 l c h)
+      ">
+        Modern color features
+      </div>
+    </div>
+  )
+}
+```
+
+### Subgrid Support
+
+```tsx
+export function SubgridComponent() {
+  return (
+    <div className="
+      grid
+      grid-cols-3
+      gap-4
+      @supports(grid-template-columns: subgrid):grid-cols-subgrid
+    ">
+      <div className="
+        grid
+        grid-cols-subgrid
+        col-span-3
+        gap-2
+      ">
+        <div className="bg-blue-100 p-2">Item 1</div>
+        <div className="bg-blue-200 p-2">Item 2</div>
+        <div className="bg-blue-300 p-2">Item 3</div>
+      </div>
+    </div>
+  )
+}
+```
+
 ## Theme Support
 
 ### Dark Mode Implementation
-```typescript
+
+```tsx
 // Theme-aware component
 export function ThemeAwareComponent() {
   return (
@@ -161,7 +354,8 @@ export function ThemeAwareComponent() {
 ```
 
 ### Theme Provider Integration
-```typescript
+
+```tsx
 import { ThemeProvider, themes } from 'storybook/theming'
 
 export function ThemedWrapper({ children, theme = 'light' }: ThemedWrapperProps) {
@@ -182,7 +376,8 @@ export function ThemedWrapper({ children, theme = 'light' }: ThemedWrapperProps)
 ```
 
 ### CSS Custom Properties
-```typescript
+
+```tsx
 // Using CSS custom properties for theming
 export function CustomPropertyComponent() {
   return (
@@ -209,7 +404,8 @@ export function CustomPropertyComponent() {
 ## Utility Classes
 
 ### Common Patterns
-```typescript
+
+```ts
 // Layout utilities
 const layoutClasses = {
   container: 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8',
@@ -238,7 +434,8 @@ const typographyClasses = {
 ```
 
 ### Component Variants
-```typescript
+
+```ts
 // Button variants
 const buttonVariants = {
   base: 'inline-flex items-center justify-center rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2',
@@ -259,7 +456,8 @@ const buttonSizes = {
 ## Animation and Transitions
 
 ### Transition Patterns
-```typescript
+
+```ts
 // Common transition classes
 const transitionClasses = {
   fast: 'transition-all duration-150 ease-in-out',
@@ -278,7 +476,8 @@ const hoverEffects = {
 ```
 
 ### Animation Components
-```typescript
+
+```tsx
 export function AnimatedComponent({ isVisible }: { isVisible: boolean }) {
   return (
     <div className={clsx(
@@ -295,18 +494,52 @@ export function AnimatedComponent({ isVisible }: { isVisible: boolean }) {
 }
 ```
 
+### Tailwind 4 Animation Features
+
+```tsx
+export function ModernAnimationComponent() {
+  return (
+    <div className="
+      /* Modern animation features */
+      animation: fade-in 0.5s ease-out
+      animation-fill-mode: both
+
+      /* Staggered animations */
+      animation-delay: calc(var(--index, 0) * 100ms)
+
+      /* Custom easing */
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
+    ">
+      <div className="
+        /* View transitions */
+        view-transition-name: card
+        /* Scroll-driven animations */
+        animation-timeline: scroll()
+        animation-range: entry 10% cover 20%
+      ">
+        Modern animation content
+      </div>
+    </div>
+  )
+}
+```
+
 ## Accessibility
 
 ### Focus Management
-```typescript
+
+```ts
 // Focus-visible utilities
 const focusClasses = {
   ring: 'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2',
   visible: 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500',
   keyboard: 'focus:outline-none focus:ring-2 focus:ring-blue-500'
 }
+```
 
-// Skip link example
+### Skip Link Example
+
+```tsx
 export function SkipLink() {
   return (
     <a
@@ -332,7 +565,8 @@ export function SkipLink() {
 ```
 
 ### Screen Reader Support
-```typescript
+
+```tsx
 export function AccessibleComponent() {
   return (
     <button
@@ -359,36 +593,90 @@ export function AccessibleComponent() {
 }
 ```
 
+### Modern Accessibility Features
+
+```tsx
+export function ModernAccessibleComponent() {
+  return (
+    <div className="
+      /* Modern accessibility features */
+      color-scheme: light dark
+      forced-color-adjust: none
+
+      /* High contrast mode support */
+      @media (forced-colors: active) {
+        border: 1px solid CanvasText
+      }
+    ">
+      <button className="
+        /* Modern focus indicators */
+        focus-visible:outline: 2px solid CanvasText
+        focus-visible:outline-offset: 2px
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+          animation: none
+          transition: none
+        }
+      ">
+        Accessible button
+      </button>
+    </div>
+  )
+}
+```
+
 ## Best Practices
 
 ### Class Organization
+
 1. **Logical Grouping**: Group related classes together
 2. **Responsive First**: Start with mobile, then add responsive variants
 3. **Consistent Order**: Use consistent class ordering (layout, spacing, typography, etc.)
 4. **Utility Classes**: Prefer utility classes over custom CSS when possible
 
 ### Performance
+
 1. **Purge CSS**: Ensure unused styles are removed in production
 2. **Critical CSS**: Inline critical styles for above-the-fold content
 3. **Lazy Loading**: Load non-critical styles asynchronously
 4. **Minification**: Compress CSS in production builds
+5. **Container Queries**: Use container queries for component-level responsive design
+6. **Logical Properties**: Use logical properties for better internationalization support
 
 ### Maintainability
+
 1. **Component Libraries**: Create reusable component patterns
 2. **Design Tokens**: Use consistent spacing, colors, and typography
 3. **Documentation**: Document complex styling patterns
 4. **Testing**: Test components in different themes and screen sizes
+5. **Modern Features**: Leverage Tailwind 4 features for better maintainability
 
 ### Theme Support
+
 1. **Dark Mode**: Always consider dark mode variants
 2. **High Contrast**: Ensure sufficient contrast ratios
 3. **Color Blindness**: Use patterns and icons in addition to color
 4. **Reduced Motion**: Respect user's motion preferences
+5. **Color Functions**: Use modern color functions for better color manipulation
+6. **Semantic Colors**: Use semantic color tokens for better theme consistency
 
 ### Responsive Design
+
 1. **Mobile First**: Design for mobile, then enhance for larger screens
 2. **Breakpoint Consistency**: Use consistent breakpoints across components
 3. **Touch Targets**: Ensure touch targets are at least 44px
 4. **Viewport Meta**: Include proper viewport meta tag
+5. **Container Queries**: Use container queries for component-level responsiveness
+6. **Logical Properties**: Use logical properties for better RTL support
+
+### Tailwind 4 Specific
+
+1. **Container Queries**: Prefer container queries over media queries for component-level responsiveness
+2. **Logical Properties**: Use logical properties for better internationalization
+3. **Modern Colors**: Leverage modern color functions for better color manipulation
+4. **Subgrid**: Use subgrid for complex grid layouts
+5. **View Transitions**: Implement view transitions for smooth page transitions
+6. **Scroll-Driven Animations**: Use scroll-driven animations for engaging experiences
 
 When you use this rule file, let me know this rule file is being used in the chat by mentioning the rule filename.
