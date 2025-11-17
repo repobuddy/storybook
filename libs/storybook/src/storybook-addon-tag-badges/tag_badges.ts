@@ -1,4 +1,4 @@
-import { type TagBadgeParameters, defaultConfig } from 'storybook-addon-tag-badges'
+import { type TagBadgeParameters, defaultConfig } from 'storybook-addon-tag-badges/manager-helpers'
 
 const [, , , , , , versionBadge] = defaultConfig
 

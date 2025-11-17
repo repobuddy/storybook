@@ -1,5 +1,5 @@
 import type { CSSProperties } from '@just-web/css'
-import type { ThemeVars } from 'storybook/internal/theming'
+import type { ThemeVars } from 'storybook/theming'
 
 /**
  * Configuration parameters for `@storybook-community/storybook-dark-mode`.

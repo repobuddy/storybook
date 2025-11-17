@@ -2,7 +2,12 @@ packages:
   - apps/*
   - libs/*
   - tools/*
+
+ignoredBuiltDependencies:
+  - '@parcel/watcher'
+
 onlyBuiltDependencies:
   - '@biomejs/biome'
   - '@tailwindcss/oxide'
   - esbuild
+  - msw

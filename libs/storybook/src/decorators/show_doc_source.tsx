@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { SyntaxHighlighter } from 'storybook/internal/components'
 import type { Args, DecoratorFunction, Renderer } from 'storybook/internal/csf'
-import { convert, ThemeProvider, themes } from 'storybook/internal/theming'
 import { addons } from 'storybook/preview-api'
+import { convert, ThemeProvider, themes } from 'storybook/theming'
 
 const channel = addons.getChannel()
 
