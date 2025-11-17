@@ -1,0 +1,103 @@
+import{j as s,s as d,d as o}from"./iframe-BEZL4eC4.js";import{d as n}from"./dedent-C8rexWvS.js";import"./preload-helper-PPVm8Dsz.js";function i(p){return{viewport:p}}const w={title:"Parameters/defineViewportParam",tags:["new","version:1.0","autodocs"],decorators:[d()],render:()=>s.jsx(s.Fragment,{})},e={parameters:{...i({defaultViewport:"mobile1",viewports:{mobile1:{name:"Mobile",styles:{width:"320px",height:"568px"},type:"mobile"},tablet1:{name:"Tablet",styles:{width:"768px",height:"1024px"},type:"tablet"}}}),...o({source:{code:n`defineViewportParam({
+                    defaultViewport: 'mobile1',
+                    viewports: {
+                        mobile1: {
+                            name: 'Mobile',
+                            styles: { width: '320px', height: '568px' },
+                            type: 'mobile'
+                        },
+                        tablet1: {
+                            name: 'Tablet',
+                            styles: { width: '768px', height: '1024px' },
+                            type: 'tablet'
+                        }
+                    }
+                })`}})}},t={parameters:{...i({defaultOrientation:"landscape"}),...o({source:{code:n`defineViewportParam({
+                    defaultOrientation: 'landscape'
+                })`}})}},a={parameters:{...i({disable:!0}),...o({source:{code:n`defineViewportParam({
+                    disable: true
+                })`}})}},r={parameters:{...i({defaultViewport:"tablet1"}),...o({source:{code:n`defineViewportParam({
+                    defaultViewport: 'tablet1'
+                })`}})}};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`{
+  parameters: {
+    ...defineViewportParam({
+      defaultViewport: 'mobile1',
+      viewports: {
+        mobile1: {
+          name: 'Mobile',
+          styles: {
+            width: '320px',
+            height: '568px'
+          },
+          type: 'mobile'
+        },
+        tablet1: {
+          name: 'Tablet',
+          styles: {
+            width: '768px',
+            height: '1024px'
+          },
+          type: 'tablet'
+        }
+      }
+    }),
+    ...defineDocsParam({
+      source: {
+        code: dedent\`defineViewportParam({
+                    defaultViewport: 'mobile1',
+                    viewports: {
+                        mobile1: {
+                            name: 'Mobile',
+                            styles: { width: '320px', height: '568px' },
+                            type: 'mobile'
+                        },
+                        tablet1: {
+                            name: 'Tablet',
+                            styles: { width: '768px', height: '1024px' },
+                            type: 'tablet'
+                        }
+                    }
+                })\`
+      }
+    })
+  }
+}`,...e.parameters?.docs?.source},description:{story:"Basic example showing how to configure viewport parameters with custom viewports",...e.parameters?.docs?.description}}};t.parameters={...t.parameters,docs:{...t.parameters?.docs,source:{originalSource:`{
+  parameters: {
+    ...defineViewportParam({
+      defaultOrientation: 'landscape'
+    }),
+    ...defineDocsParam({
+      source: {
+        code: dedent\`defineViewportParam({
+                    defaultOrientation: 'landscape'
+                })\`
+      }
+    })
+  }
+}`,...t.parameters?.docs?.source},description:{story:"Example showing how to set a default viewport orientation",...t.parameters?.docs?.description}}};a.parameters={...a.parameters,docs:{...a.parameters?.docs,source:{originalSource:`{
+  parameters: {
+    ...defineViewportParam({
+      disable: true
+    }),
+    ...defineDocsParam({
+      source: {
+        code: dedent\`defineViewportParam({
+                    disable: true
+                })\`
+      }
+    })
+  }
+}`,...a.parameters?.docs?.source},description:{story:"Example showing how to disable the viewport addon for a specific story",...a.parameters?.docs?.description}}};r.parameters={...r.parameters,docs:{...r.parameters?.docs,source:{originalSource:`{
+  parameters: {
+    ...defineViewportParam({
+      defaultViewport: 'tablet1'
+    }),
+    ...defineDocsParam({
+      source: {
+        code: dedent\`defineViewportParam({
+                    defaultViewport: 'tablet1'
+                })\`
+      }
+    })
+  }
+}`,...r.parameters?.docs?.source},description:{story:"Example showing how to set a specific default viewport",...r.parameters?.docs?.description}}};const u=["CustomViewports","DefaultOrientation","DisabledViewport","SpecificViewport"];export{e as CustomViewports,t as DefaultOrientation,a as DisabledViewport,r as SpecificViewport,u as __namedExportsOrder,w as default};

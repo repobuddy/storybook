@@ -54,11 +54,7 @@
     
     <link href="./sb-addons/docs-3/manager-bundle.js" rel="modulepreload" />
     
-    <link href="./sb-addons/storybook-dark-mode2-esm-preset-4/manager-bundle.js" rel="modulepreload" />
-    
-    <link href="./sb-addons/vis-5/manager-bundle.js" rel="modulepreload" />
-    
-    <link href="./sb-addons/storybook-6/manager-bundle.js" rel="modulepreload" />
+    <link href="./sb-addons/storybook-4/manager-bundle.js" rel="modulepreload" />
        
 
     <style>
@@ -115,16 +111,6 @@
       
         
           window['TAGS_OPTIONS'] = {
-  "dev-only": {
-    "excludeFromDocsStories": true
-  },
-  "docs-only": {
-    "excludeFromSidebar": true
-  },
-  "test-only": {
-    "excludeFromSidebar": true,
-    "excludeFromDocsStories": true
-  },
   "internal-sp": {
     "excludeFromSidebar": true
   }
@@ -136,11 +122,11 @@
         
       
         
-          window['STORYBOOK_BUILDER'] = "@storybook/builder-vite";
+          window['STORYBOOK_BUILDER'] = "@storybook/builder-vite/dist/index.js";
         
       
         
-          window['STORYBOOK_FRAMEWORK'] = "/home/runner/work/storybook/storybook/node_modules/.pnpm/@storybook+react-vite@9.0.4_react-dom@18.3.1_react@18.3.1__react@18.3.1_rollup@4.40.1_s_718e026be7e0faf10863e715ccf107ca/node_modules/@storybook/react-vite";
+          window['STORYBOOK_FRAMEWORK'] = "@storybook/react-vite";
         
       
     </script>
@@ -158,11 +144,7 @@
       
         import './sb-addons/docs-3/manager-bundle.js';
       
-        import './sb-addons/storybook-dark-mode2-esm-preset-4/manager-bundle.js';
-      
-        import './sb-addons/vis-5/manager-bundle.js';
-      
-        import './sb-addons/storybook-6/manager-bundle.js';
+        import './sb-addons/storybook-4/manager-bundle.js';
       
 
       import './sb-manager/runtime.js';
