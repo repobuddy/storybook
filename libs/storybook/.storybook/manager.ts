@@ -1,9 +1,7 @@
-import { addons } from 'storybook/internal/manager-api'
+import { brandTitle } from '#repobuddy/storybook/manager'
+import { tagBadges } from '#repobuddy/storybook/storybook-addon-tag-badges'
+import { addons } from 'storybook/manager-api'
 import { themes } from 'storybook/theming'
-// @ts-ignore
-import { brandTitle } from '../src/manager/index.ts'
-// @ts-ignore
-import { tagBadges } from '../src/storybook-addon-tag-badges/index.ts'
 
 addons.setConfig({
 	tagBadges,

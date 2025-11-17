@@ -32,6 +32,7 @@ export function withDarkMode(
 		const darkMode = parameters.darkMode as DarkModeParam | undefined
 		if (!darkMode) return <Story />
 
+		// biome-ignore lint/correctness/useHookAtTopLevel: on purpose
 		const dark = useDarkMode()
 		const target = darkMode.classTarget === 'html' ? document.documentElement : document.body
 		if (dark) {

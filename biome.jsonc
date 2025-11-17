@@ -9,7 +9,18 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"includes": ["!node_modules", "!dist", "!build", "!coverage", "!*.mdx", "!*.md", "!.vscode"]
+		"includes": [
+			"**/*.ts",
+			"**/*.tsx",
+			"**/*.json",
+			"!node_modules",
+			"!dist",
+			"!build",
+			"!coverage",
+			"!*.mdx",
+			"!*.md",
+			"!.vscode"
+		]
 	},
 	"formatter": {
 		"enabled": true,

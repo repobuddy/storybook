@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
-// @ts-ignore
-import { themes } from 'storybook/internal/theming'
+import { themes } from 'storybook/theming'
 import { defineDocsParam } from '../parameters/define_docs_param'
 import { showDocSource } from './show_doc_source'
 
