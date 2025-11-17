@@ -90,7 +90,7 @@
 		"react": "^19.2.0",
 		"react-dom": "^19.2.0",
 		"rimraf": "^6.1.0",
-		"storybook": "^10.0.7",
+		"storybook": "^10.0.8",
 		"storybook-addon-tag-badges": "^3.0.2",
 		"tailwindcss": "^4.1.17",
 		"unbuild": "^3.6.1",
