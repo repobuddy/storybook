@@ -70,7 +70,7 @@
 		"htmlfy": "^1.0.0"
 	},
 	"devDependencies": {
-		"@repobuddy/vitest": "^1.2.2",
+		"@repobuddy/vitest": "^2.0.0",
 		"@storybook-community/storybook-dark-mode": "^7.0.0",
 		"@storybook/addon-docs": "^9.1.10",
 		"@storybook/addon-themes": "^9.1.10",
