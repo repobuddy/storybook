@@ -71,7 +71,7 @@
 	},
 	"devDependencies": {
 		"@repobuddy/vitest": "^1.2.2",
-		"@storybook-community/storybook-dark-mode": "^6.0.7",
+		"@storybook-community/storybook-dark-mode": "^7.0.0",
 		"@storybook/addon-docs": "^9.1.10",
 		"@storybook/addon-themes": "^9.1.10",
 		"@storybook/addon-vitest": "^9.1.10",
@@ -94,7 +94,7 @@
 		"vitest": "^3.1.2"
 	},
 	"peerDependencies": {
-		"@storybook-community/storybook-dark-mode": "^6.0.0",
+		"@storybook-community/storybook-dark-mode": "^6.0.0 || ^7.0.0",
 		"storybook-addon-tag-badges": "^2.0.0 || ^3.0.0"
 	},
 	"peerDependenciesMeta": {

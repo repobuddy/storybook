@@ -70,8 +70,8 @@ importers:
         specifier: workspace:*
         version: link:../../libs/storybook
       '@storybook-community/storybook-dark-mode':
-        specifier: ^6.0.7
-        version: 6.0.8(@storybook/addon-docs@9.1.16(@types/react@19.2.5)(storybook@9.1.16(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.3))(prettier@3.5.3)(vite@7.2.2(@types/node@22.19.1)(jiti@2.6.1)(lightningcss@1.30.2))))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(storybook@9.1.16(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.3))(prettier@3.5.3)(vite@7.2.2(@types/node@22.19.1)(jiti@2.6.1)(lightningcss@1.30.2)))
+        specifier: ^7.0.0
+        version: 7.0.1(@storybook/addon-docs@9.1.16(@types/react@19.2.5)(storybook@9.1.16(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.3))(prettier@3.5.3)(vite@7.2.2(@types/node@22.19.1)(jiti@2.6.1)(lightningcss@1.30.2))))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(storybook@9.1.16(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.3))(prettier@3.5.3)(vite@7.2.2(@types/node@22.19.1)(jiti@2.6.1)(lightningcss@1.30.2)))
       '@storybook/addon-a11y':
         specifier: ^9.0.6
         version: 9.1.16(storybook@9.1.16(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.3))(prettier@3.5.3)(vite@7.2.2(@types/node@22.19.1)(jiti@2.6.1)(lightningcss@1.30.2)))
@@ -131,8 +131,8 @@ importers:
         specifier: ^1.2.2
         version: 1.2.2
       '@storybook-community/storybook-dark-mode':
-        specifier: ^6.0.7
-        version: 6.0.8(@storybook/addon-docs@9.1.16(@types/react@19.2.5)(storybook@9.1.16(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.3))(prettier@3.5.3)(vite@7.2.2(@types/node@22.19.1)(jiti@2.6.1)(lightningcss@1.30.2))))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(storybook@9.1.16(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.3))(prettier@3.5.3)(vite@7.2.2(@types/node@22.19.1)(jiti@2.6.1)(lightningcss@1.30.2)))
+        specifier: ^7.0.0
+        version: 7.0.1(@storybook/addon-docs@9.1.16(@types/react@19.2.5)(storybook@9.1.16(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.3))(prettier@3.5.3)(vite@7.2.2(@types/node@22.19.1)(jiti@2.6.1)(lightningcss@1.30.2))))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(storybook@9.1.16(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.3))(prettier@3.5.3)(vite@7.2.2(@types/node@22.19.1)(jiti@2.6.1)(lightningcss@1.30.2)))
       '@storybook/addon-docs':
         specifier: ^9.1.10
         version: 9.1.16(@types/react@19.2.5)(storybook@9.1.16(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.3))(prettier@3.5.3)(vite@7.2.2(@types/node@22.19.1)(jiti@2.6.1)(lightningcss@1.30.2)))
@@ -1454,11 +1454,11 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@storybook-community/storybook-dark-mode@6.0.8':
-    resolution: {integrity: sha512-9lqzkcL+GtzOtTs7q/T42wkg4qSn5T3D0CMm1x1vFQxlIacy3jSYfE9YvcaDo478txGc7TKn5aV2Qm+6M4B3rQ==}
+  '@storybook-community/storybook-dark-mode@7.0.1':
+    resolution: {integrity: sha512-JpHbuFNbA4ZHiIsWmIjkJ6e43jgpx6fa0tsIMjljAmIbBVEaLll45uWHjLaKm9lAZbErb0rWnaHd8ysUU6RB7w==}
     peerDependencies:
-      '@storybook/addon-docs': ^9.0.18
-      storybook: ^9.0.18
+      '@storybook/addon-docs': ^10.0.0
+      storybook: ^10.0.0
     peerDependenciesMeta:
       '@storybook/addon-docs':
         optional: true
@@ -4919,7 +4919,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.52.5':
     optional: true
 
-  '@storybook-community/storybook-dark-mode@6.0.8(@storybook/addon-docs@9.1.16(@types/react@19.2.5)(storybook@9.1.16(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.3))(prettier@3.5.3)(vite@7.2.2(@types/node@22.19.1)(jiti@2.6.1)(lightningcss@1.30.2))))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(storybook@9.1.16(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.3))(prettier@3.5.3)(vite@7.2.2(@types/node@22.19.1)(jiti@2.6.1)(lightningcss@1.30.2)))':
+  '@storybook-community/storybook-dark-mode@7.0.1(@storybook/addon-docs@9.1.16(@types/react@19.2.5)(storybook@9.1.16(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.3))(prettier@3.5.3)(vite@7.2.2(@types/node@22.19.1)(jiti@2.6.1)(lightningcss@1.30.2))))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(storybook@9.1.16(@testing-library/dom@10.4.1)(msw@2.4.11(typescript@5.9.3))(prettier@3.5.3)(vite@7.2.2(@types/node@22.19.1)(jiti@2.6.1)(lightningcss@1.30.2)))':
     dependencies:
       '@storybook/icons': 1.6.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       fast-deep-equal: 3.1.3
