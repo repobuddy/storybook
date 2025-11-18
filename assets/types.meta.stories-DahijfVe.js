@@ -1,4 +1,4 @@
-import{j as o,s as t,d as a}from"./iframe-BEZL4eC4.js";import{d as s}from"./dedent-C8rexWvS.js";import"./preload-helper-PPVm8Dsz.js";const m={title:"storybook-addon-tag-badges/types/Meta",tags:["new","version:1.0"],decorators:[t()],render:()=>o.jsx(o.Fragment,{})},e={name:"TypicalUsage",parameters:{...a({source:{code:s`
+import{j as o,s as t,d as a}from"./iframe-CoPqPLz4.js";import{d as s}from"./dedent-C8rexWvS.js";import"./preload-helper-PPVm8Dsz.js";const m={title:"storybook-addon-tag-badges/types/Meta",tags:["new","version:1.0"],decorators:[t()],render:()=>o.jsx(o.Fragment,{})},e={name:"TypicalUsage",parameters:{...a({source:{code:s`
                 // component.stories.tsx
                 import type { Meta } from '@repobuddy/storybook/storybook-addon-tag-badges'
 

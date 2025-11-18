@@ -1,4 +1,4 @@
-import{j as t,s as r,d as o}from"./iframe-BEZL4eC4.js";import{d as a}from"./dedent-C8rexWvS.js";import"./preload-helper-PPVm8Dsz.js";const m={title:"types/ExtendMeta",tags:["new","version:1.1"],decorators:[r()],render:()=>t.jsx(t.Fragment,{})},e={name:"TypicalUsage",parameters:{...o({source:{code:a`
+import{j as t,s as r,d as o}from"./iframe-CoPqPLz4.js";import{d as a}from"./dedent-C8rexWvS.js";import"./preload-helper-PPVm8Dsz.js";const m={title:"types/ExtendMeta",tags:["new","version:1.1"],decorators:[r()],render:()=>t.jsx(t.Fragment,{})},e={name:"TypicalUsage",parameters:{...o({source:{code:a`
                 // types.ts
                 import type { ExtendMeta } from '@repobuddy/storybook'
                 import type { Args, Meta as M } from '@storybook/your-framework'

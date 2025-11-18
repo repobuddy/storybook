@@ -1,4 +1,4 @@
-import{j as o,M as r,l as s}from"./iframe-BEZL4eC4.js";import{useMDXComponents as a}from"./index-De2EJz1V.js";import"./preload-helper-PPVm8Dsz.js";const d=`# @repobuddy/storybook
+import{j as o,M as r,l as s}from"./iframe-CoPqPLz4.js";import{useMDXComponents as a}from"./index-CsTRoQtS.js";import"./preload-helper-PPVm8Dsz.js";const d=`# @repobuddy/storybook
 
 Your repository buddy for Storybook.
 

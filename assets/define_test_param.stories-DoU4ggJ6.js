@@ -1,4 +1,4 @@
-import{j as a,s as d,d as o}from"./iframe-BEZL4eC4.js";import{d as n}from"./dedent-C8rexWvS.js";import"./preload-helper-PPVm8Dsz.js";function t(c){return{test:c}}const l={title:"Parameters/defineTestParam",tags:["new","version:1.0"],parameters:{docs:{description:{component:"Helper function to define test parameters for Storybook stories"}}},decorators:[d()],render:()=>a.jsx(a.Fragment,{})},e={parameters:{...t({clearMocks:!0,mockReset:!0,restoreMocks:!0}),...o({source:{code:n`defineTestParam({
+import{j as a,s as d,d as o}from"./iframe-CoPqPLz4.js";import{d as n}from"./dedent-C8rexWvS.js";import"./preload-helper-PPVm8Dsz.js";function t(c){return{test:c}}const l={title:"Parameters/defineTestParam",tags:["new","version:1.0"],parameters:{docs:{description:{component:"Helper function to define test parameters for Storybook stories"}}},decorators:[d()],render:()=>a.jsx(a.Fragment,{})},e={parameters:{...t({clearMocks:!0,mockReset:!0,restoreMocks:!0}),...o({source:{code:n`defineTestParam({
                     clearMocks: true,
                     mockReset: true,
                     restoreMocks: true
