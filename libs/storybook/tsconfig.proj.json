@@ -1,6 +1,5 @@
 {
 	"compilerOptions": {
-		"allowImportingTsExtensions": true,
 		"composite": true,
 		"jsx": "react-jsxdev",
 		"module": "ESNext",

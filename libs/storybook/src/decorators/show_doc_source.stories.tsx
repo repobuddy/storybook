@@ -1,8 +1,7 @@
+import { defineDocsParam, showDocSource } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
 import { themes } from 'storybook/theming'
-import { defineDocsParam } from '../parameters/define_docs_param'
-import { showDocSource } from './show_doc_source'
 
 // Simple demo component for testing the decorator
 const DemoComponent = ({ text = 'Hello World' }: { text?: string }) => (

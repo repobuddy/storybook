@@ -1,5 +1,5 @@
 import type { Decorator, StrictArgs } from '@storybook/react-vite'
-import { ctx } from './when_running_in_text.ctx.ts'
+import { ctx } from './when_running_in_text.ctx.js'
 
 /**
  * executes the specified decorator or handler if the code is running in test.

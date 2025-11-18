@@ -1,7 +1,7 @@
+import { defineDocsParam, showDocSource } from '#repobuddy/storybook'
+import { defineDarkModeParam } from '#repobuddy/storybook/storybook-dark-mode'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
-import { defineDocsParam, showDocSource } from '../index.ts'
-import { defineDarkModeParam } from './index.ts'
 
 const meta = {
 	title: 'storybook-dark-mode/defineDarkModeParam',
