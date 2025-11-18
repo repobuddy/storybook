@@ -1,6 +1,6 @@
+import { defineBackgroundsParam, defineDocsParam, showDocSource } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
-import { defineBackgroundsParam, defineDocsParam, showDocSource } from '../index.ts'
 
 const meta = {
 	title: 'Parameters/defineBackgroundsParam',

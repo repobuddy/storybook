@@ -1,6 +1,5 @@
 {
 	"compilerOptions": {
-		// "allowImportingTsExtensions": true,
 		"composite": true,
 		"isolatedModules": true,
 		// "allowJs": true,

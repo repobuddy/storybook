@@ -1,6 +1,6 @@
+import { defineDarkModeParam, withDarkMode } from '#repobuddy/storybook/storybook-dark-mode'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useEffect } from 'react'
-import { defineDarkModeParam, withDarkMode } from './index.ts'
 
 const meta = {
 	title: 'storybook-dark-mode/withDarkMode',
