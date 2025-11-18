@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 2.0.1
+
+### Patch Changes
+
+- [#242](https://github.com/repobuddy/storybook/pull/242) [`4453f23`](https://github.com/repobuddy/storybook/commit/4453f23127d2c70b4b482fc688d1f4d1cbc031c3) Thanks [@unional](https://github.com/unional)! - Fix import paths.
+
 ## 2.0.0
 
 ### Major Changes
