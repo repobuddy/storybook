@@ -1,4 +1,4 @@
-import{j as e,M as s}from"./iframe-CoPqPLz4.js";import{useMDXComponents as r}from"./index-CsTRoQtS.js";import"./preload-helper-PPVm8Dsz.js";function n(t){const o={code:"code",h1:"h1",h2:"h2",p:"p",pre:"pre",...r(),...t.components};return e.jsxs(e.Fragment,{children:[e.jsx(o.h1,{id:"createdarkmodedocscontainer",children:e.jsx(o.code,{children:"createDarkModeDocsContainer"})}),`
+import{j as e,M as s}from"./iframe-BAM9uuYf.js";import{useMDXComponents as r}from"./index-CLAhgopm.js";import"./preload-helper-PPVm8Dsz.js";function n(t){const o={code:"code",h1:"h1",h2:"h2",p:"p",pre:"pre",...r(),...t.components};return e.jsxs(e.Fragment,{children:[e.jsx(o.h1,{id:"createdarkmodedocscontainer",children:e.jsx(o.code,{children:"createDarkModeDocsContainer"})}),`
 `,e.jsx(s,{title:"storybook-dark-mode/createDarkModeDocsContainer"}),`
 `,e.jsxs(o.p,{children:["Creates a ",e.jsx(o.code,{children:"DocsContainer"})," for ",e.jsx(o.code,{children:"storybook"})," that works with ",e.jsx(o.code,{children:"@storybook-community/storybook-dark-mode"}),"."]}),`
 `,e.jsx(o.h2,{id:"usage",children:"Usage"}),`

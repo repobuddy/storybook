@@ -1,4 +1,4 @@
-import{j as n}from"./iframe-CoPqPLz4.js";import{d as s}from"./dedent-C8rexWvS.js";import"./preload-helper-PPVm8Dsz.js";function i(a){return`<span style="display: flex; align-items: center; gap: 2px;">
+import{j as n}from"./iframe-BAM9uuYf.js";import{d as s}from"./dedent-C8rexWvS.js";import"./preload-helper-PPVm8Dsz.js";function i(a){return`<span style="display: flex; align-items: center; gap: 2px;">
 		${a.logo??""}
 		${a.title}
 	</span>`}const p={title:"Manager/brandTitle",tags:["new","version:1.0","autodocs"]},e={parameters:{docs:{source:{code:s`brandTitle({

@@ -1,4 +1,4 @@
-import{j as t,s as e,d as o}from"./iframe-CoPqPLz4.js";import{d as s}from"./dedent-C8rexWvS.js";import"./preload-helper-PPVm8Dsz.js";const y={title:"types/ExtendStoryObj",tags:["new","version:1.1"],decorators:[e()],render:()=>t.jsx(t.Fragment,{})},r={parameters:{...o({source:{code:s`
+import{j as t,s as e,d as o}from"./iframe-BAM9uuYf.js";import{d as s}from"./dedent-C8rexWvS.js";import"./preload-helper-PPVm8Dsz.js";const y={title:"types/ExtendStoryObj",tags:["new","version:1.1"],decorators:[e()],render:()=>t.jsx(t.Fragment,{})},r={parameters:{...o({source:{code:s`
                 // types.ts
                 import type { ExtendStoryObj } from '@repobuddy/storybook'
                 import type { StoryObj as S } from '@storybook/your-framework'

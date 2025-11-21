@@ -1,4 +1,4 @@
-import{j as c,s as n,d as s}from"./iframe-CoPqPLz4.js";import{d as t}from"./dedent-C8rexWvS.js";import"./preload-helper-PPVm8Dsz.js";const p={title:"Parameters/defineDocsParam",tags:["autodocs","new","version:1.0"],parameters:s({description:{component:"`docs.description.component` can be used to describe the component in meta. It has no effect on the stories."}}),decorators:[n()],render:()=>c.jsx(c.Fragment,{})},e={parameters:s({source:{code:t`
+import{j as c,s as n,d as s}from"./iframe-BAM9uuYf.js";import{d as t}from"./dedent-C8rexWvS.js";import"./preload-helper-PPVm8Dsz.js";const p={title:"Parameters/defineDocsParam",tags:["autodocs","new","version:1.0"],parameters:s({description:{component:"`docs.description.component` can be used to describe the component in meta. It has no effect on the stories."}}),decorators:[n()],render:()=>c.jsx(c.Fragment,{})},e={parameters:s({source:{code:t`
             /**
              * Storybook uses JSDoc to generate documentation for the story.
              */
