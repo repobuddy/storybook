@@ -1,5 +1,12 @@
 # @repobuddy/storybook
 
+## 2.1.0
+
+### Minor Changes
+
+- [#249](https://github.com/repobuddy/storybook/pull/249) [`4ee38b2`](https://github.com/repobuddy/storybook/commit/4ee38b270ca094940b149809b220180f205835a3) Thanks [@unional](https://github.com/unional)! - Convert to use `tsdown` instead of `unbuild`.
+  `unbuild` leads to `React not found` error.
+
 ## 2.0.1
 
 ### Patch Changes
