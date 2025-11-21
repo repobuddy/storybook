@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 2.1.1
+
+### Patch Changes
+
+- [`30176cc`](https://github.com/repobuddy/storybook/commit/30176cc3cfb7ed9917c0f9000b58c207d0afa3ec) Thanks [@unional](https://github.com/unional)! - External `react/jsx-runtime`.
+
 ## 2.1.0
 
 ### Minor Changes
