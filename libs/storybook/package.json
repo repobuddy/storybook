@@ -24,29 +24,27 @@
 	},
 	"exports": {
 		".": {
-			"types": "./esm/index.d.ts",
-			"default": "./esm/index.js"
+			"types": "./esm/index.d.mts",
+			"default": "./esm/index.mjs"
 		},
 		"./manager": {
-			"types": "./esm/manager/index.d.ts",
-			"default": "./esm/manager/index.js"
+			"types": "./esm/manager/index.d.mts",
+			"default": "./esm/manager/index.mjs"
 		},
 		"./storybook-addon-tag-badges": {
-			"types": "./esm/storybook-addon-tag-badges/index.d.ts",
-			"default": "./esm/storybook-addon-tag-badges/index.js"
+			"types": "./esm/storybook-addon-tag-badges/index.d.mts",
+			"default": "./esm/storybook-addon-tag-badges/index.mjs"
 		},
 		"./storybook-dark-mode": {
-			"types": "./esm/storybook-dark-mode/index.d.ts",
-			"default": "./esm/storybook-dark-mode/index.js"
+			"types": "./esm/storybook-dark-mode/index.d.mts",
+			"default": "./esm/storybook-dark-mode/index.mjs"
 		},
 		"./variants": {
 			"import": {
-				"types": "./esm/variants/index.d.ts",
-				"default": "./esm/variants/index.js"
+				"types": "./esm/variants/index.d.mts",
+				"default": "./esm/variants/index.mjs"
 			}
-		},
-		"./variants/package.json": "./esm/variants/package.json",
-		"./variants/preset": "./esm/variants/preset.js"
+		}
 	},
 	"files": [
 		"cjs",
@@ -56,7 +54,7 @@
 		"!**/*.mdx"
 	],
 	"scripts": {
-		"build": "unbuild",
+		"build": "tsdown",
 		"clean": "rimraf .turbo coverage cjs esm storybook-static *.tsbuildinfo",
 		"coverage": "vitest run --coverage",
 		"sb": "storybook dev -p 6006",
@@ -93,7 +91,7 @@
 		"storybook": "^10.0.8",
 		"storybook-addon-tag-badges": "^3.0.2",
 		"tailwindcss": "^4.1.17",
-		"unbuild": "^3.6.1",
+		"tsdown": "^0.16.6",
 		"vite": "^7.2.2",
 		"vitest": "^4.0.9"
 	},
