@@ -29,10 +29,5 @@ export default defineConfig([
 		entry: ['./src/storybook-dark-mode/index.ts'],
 		outDir: './esm/storybook-dark-mode',
 		external
-	},
-	{
-		entry: ['./src/variants/index.ts'],
-		outDir: './esm/variants',
-		external
 	}
 ])
