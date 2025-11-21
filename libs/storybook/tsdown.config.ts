@@ -4,15 +4,11 @@ const commonConfig: UserConfig = {
 	platform: 'browser',
 	target: 'esnext',
 	external: [
-		'@storybook-community/storybook-dark-mode',
-		'@storybook/addon-docs',
-		'@storybook/addon-themes',
-		'@storybook/addon-vitest',
-		'@storybook/icons',
-		'@storybook/react-vite',
+		/^@storybook-community\/.*$/,
+		/^@storybook\/.*$/,
 		'react',
-		'react-dom',
 		'storybook',
+		/^storybook\/.*$/,
 		'storybook-addon-tag-badges'
 	]
 }
