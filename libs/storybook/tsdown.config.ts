@@ -1,5 +1,15 @@
 import { defineConfig } from 'tsdown'
-
+const external = [
+	'@storybook-community/storybook-dark-mode',
+	'@storybook/addon-docs',
+	'@storybook/addon-themes',
+	'@storybook/addon-vitest',
+	'@storybook/react-vite',
+	'react',
+	'react-dom',
+	'storybook',
+	'storybook-addon-tag-badges'
+]
 export default defineConfig([
 	{
 		entry: ['./src/index.ts'],
@@ -7,18 +17,22 @@ export default defineConfig([
 	},
 	{
 		entry: ['./src/manager/index.ts'],
-		outDir: './esm/manager'
+		outDir: './esm/manager',
+		external
 	},
 	{
 		entry: ['./src/storybook-addon-tag-badges/index.ts'],
-		outDir: './esm/storybook-addon-tag-badges'
+		outDir: './esm/storybook-addon-tag-badges',
+		external
 	},
 	{
 		entry: ['./src/storybook-dark-mode/index.ts'],
-		outDir: './esm/storybook-dark-mode'
+		outDir: './esm/storybook-dark-mode',
+		external
 	},
 	{
 		entry: ['./src/variants/index.ts'],
-		outDir: './esm/variants'
+		outDir: './esm/variants',
+		external
 	}
 ])
