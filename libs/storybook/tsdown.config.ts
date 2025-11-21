@@ -2,15 +2,24 @@ import { defineConfig, type UserConfig } from 'tsdown'
 
 const commonConfig: UserConfig = {
 	platform: 'browser',
+	format: 'esm',
 	target: 'esnext',
 	external: [
 		/^@storybook-community\/.*$/,
 		/^@storybook\/.*$/,
 		'react',
+		/^react\/.*$/,
 		'storybook',
 		/^storybook\/.*$/,
 		'storybook-addon-tag-badges'
-	]
+	],
+	banner: ({ format }) => {
+		if (format === 'esm')
+			return {
+				js: `import { createRequire } from 'module'; const require = createRequire(import.meta.url);`
+			}
+		return {}
+	}
 }
 
 export default defineConfig([
