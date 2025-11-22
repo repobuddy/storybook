@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 2.1.2
+
+### Patch Changes
+
+- [`0de3ad5`](https://github.com/repobuddy/storybook/commit/0de3ad54b787ede457404ad113176c8c814197a4) Thanks [@unional](https://github.com/unional)! - Add `@storybook/addon-docs` as peer deps
+
 ## 2.1.1
 
 ### Patch Changes
