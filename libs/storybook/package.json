@@ -91,6 +91,7 @@
 	},
 	"peerDependencies": {
 		"@storybook-community/storybook-dark-mode": "^7.0.0",
+		"@storybook/addon-docs": "^10.0.0",
 		"storybook-addon-tag-badges": "^3.0.2"
 	},
 	"peerDependenciesMeta": {
