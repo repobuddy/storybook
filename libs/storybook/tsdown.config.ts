@@ -4,6 +4,7 @@ const commonConfig: UserConfig = {
 	platform: 'browser',
 	format: 'esm',
 	target: 'esnext',
+	tsconfig: './tsconfig.build.json',
 	external: [
 		/^@storybook-community\/.*$/,
 		/^@storybook\/.*$/,

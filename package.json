@@ -39,7 +39,7 @@
 		"add": "^2.0.6",
 		"husky": "^9.1.7",
 		"pathe": "^2.0.3",
-		"playwright": "latest",
+		"playwright": "^1.57.0",
 		"rimraf": "^6.1.0",
 		"turbo": "^2.6.1",
 		"typescript": "^5.9.3"
