@@ -122,7 +122,7 @@ importers:
         version: 2.0.1(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
       htmlfy:
         specifier: ^1.0.0
-        version: 1.0.0
+        version: 1.0.1
     devDependencies:
       '@repobuddy/vitest':
         specifier: ^2.0.0
@@ -2071,8 +2071,8 @@ packages:
   html-escaper@2.0.2:
     resolution: {integrity: sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg==}
 
-  htmlfy@1.0.0:
-    resolution: {integrity: sha512-XM6zkMWIekSHqT55GhXXuf9BbIIsxidbIpj9uwY2I5MsnQPw4llWL1QD2BbzsmD5ozyi+t5gJQsuFIJj+shOYQ==}
+  htmlfy@1.0.1:
+    resolution: {integrity: sha512-M85PmyEpWUDqhlEknsnvqmqGLq67h8e86WuKLMdXQdUl8iyvOSDbAAyv0tv0IVmIfh7Py1Vsot/IU1skdswt6g==}
 
   human-id@4.1.2:
     resolution: {integrity: sha512-v/J+4Z/1eIJovEBdlV5TYj1IR+ZiohcYGRY+qN/oC9dAfKzVT023N/Bgw37hrKCoVRBvk3bqyzpr2PP5YeTMSg==}
@@ -5034,7 +5034,7 @@ snapshots:
 
   html-escaper@2.0.2: {}
 
-  htmlfy@1.0.0: {}
+  htmlfy@1.0.1: {}
 
   human-id@4.1.2: {}
 
