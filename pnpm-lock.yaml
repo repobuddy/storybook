@@ -126,7 +126,7 @@ importers:
     devDependencies:
       '@repobuddy/vitest':
         specifier: ^2.0.0
-        version: 2.0.0(@vitest/browser-playwright@4.0.15)(vitest@4.0.15)
+        version: 2.1.0(@vitest/browser-playwright@4.0.15)(vitest@4.0.15)
       '@storybook-community/storybook-dark-mode':
         specifier: ^7.0.2
         version: 7.0.3(@storybook/addon-docs@10.1.4(@types/react@19.2.7)(esbuild@0.27.0)(rollup@4.53.3)(storybook@10.1.4(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(vite@7.2.6(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(storybook@10.1.4(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.1(react@19.2.1))(react@19.2.1))
@@ -1016,8 +1016,8 @@ packages:
   '@repobuddy/test@1.0.0':
     resolution: {integrity: sha512-sXIAH4qO6qN/cIpYK6ZYcQrfmUT5QrALgd8YZZ7e2KiteaWgkRUv5NP++5AlaS6L7GQ6AYT+QXXlTwl+FPq9og==}
 
-  '@repobuddy/vitest@2.0.0':
-    resolution: {integrity: sha512-bNxQu+z3VDKQa65pqGI0KrDJ2y4cqrI5Or4s5etWEGB/IxvdmpgyYNY9xtRspt1JWfNYtb0gNcVGV29y6G5xjA==}
+  '@repobuddy/vitest@2.1.0':
+    resolution: {integrity: sha512-Hn5L0Q9ZBrHuXGD/EqVLK2zG5mMpk6DGQfzaGH/5PQtrCtMgWMqnAn0WKxw69L/enCKi7ezkfulaLHNEVQUSIA==}
     peerDependencies:
       '@vitest/browser-playwright': '>= 4'
       vitest: '>= 4'
@@ -4003,7 +4003,7 @@ snapshots:
 
   '@repobuddy/test@1.0.0': {}
 
-  '@repobuddy/vitest@2.0.0(@vitest/browser-playwright@4.0.15)(vitest@4.0.15)':
+  '@repobuddy/vitest@2.1.0(@vitest/browser-playwright@4.0.15)(vitest@4.0.15)':
     dependencies:
       '@repobuddy/test': 1.0.0
       vitest: 4.0.15(@types/node@24.10.1)(@vitest/browser-playwright@4.0.15)(jiti@2.6.1)(lightningcss@1.30.2)(msw@2.4.11(typescript@5.9.3))
