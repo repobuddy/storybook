@@ -182,8 +182,8 @@ importers:
         specifier: ^4.1.17
         version: 4.1.18
       tsdown:
-        specifier: ^0.17.0
-        version: 0.17.4(typescript@5.9.3)
+        specifier: ^0.18.0
+        version: 0.18.0(typescript@5.9.3)
       vite:
         specifier: ^7.2.2
         version: 7.2.7(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)
@@ -2906,8 +2906,8 @@ packages:
     resolution: {integrity: sha512-NoZ4roiN7LnbKn9QqE1amc9DJfzvZXxF4xDavcOWt1BPkdx+m+0gJuPM+S0vCe7zTJMYUP0R8pO2XMr+Y8oLIg==}
     engines: {node: '>=6'}
 
-  tsdown@0.17.4:
-    resolution: {integrity: sha512-z+kNuv1rwM1POQIufDUVrdNc/uGy0ueRVafCyDH39IdHxin4JXgB8DNGSPoqdIpcOpqUoRbNreK8NxENFmlhKw==}
+  tsdown@0.18.0:
+    resolution: {integrity: sha512-Yotdh3NzizysnqR96xfpHFYtEntk1cZvSRHz8A+Pn3ZHNdTQa4fBQxh6HHzWZwfjdQv47xb7GCv6vEWMtxBirw==}
     engines: {node: '>=20.19.0'}
     hasBin: true
     peerDependencies:
@@ -5793,7 +5793,7 @@ snapshots:
       minimist: 1.2.8
       strip-bom: 3.0.0
 
-  tsdown@0.17.4(typescript@5.9.3):
+  tsdown@0.18.0(typescript@5.9.3):
     dependencies:
       ansis: 4.2.0
       cac: 6.7.14

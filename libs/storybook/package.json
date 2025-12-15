@@ -85,7 +85,7 @@
 		"storybook": "^10.0.8",
 		"storybook-addon-tag-badges": "^3.0.2",
 		"tailwindcss": "^4.1.17",
-		"tsdown": "^0.17.0",
+		"tsdown": "^0.18.0",
 		"vite": "^7.2.2",
 		"vitest": "^4.0.9"
 	},
