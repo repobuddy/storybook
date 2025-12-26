@@ -4,9 +4,11 @@ Your repository buddy for Storybook.
 
 > [!NOTE]
 >
-> This package supports Storybook 9.x from version `1.0.0`.
+> For Storybook 10, please use version `2.x`.
 >
-> For Storybook 8.x, please use `0.x` version.
+> For Storybook 9, please use version `1.x`.
+>
+> For Storybook 8.x, please use version `0.x`.
 
 ## Install
 
