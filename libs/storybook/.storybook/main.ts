@@ -4,10 +4,10 @@ import { dirname, join } from 'node:path'
 export default {
 	stories: ['../src/**/*.mdx', '../src/**/*.stories.tsx'],
 	addons: [
+		getAbsolutePath('@storybook/addon-docs'),
 		getAbsolutePath('@storybook/addon-vitest'),
 		getAbsolutePath('storybook-addon-tag-badges'),
-		getAbsolutePath('@storybook/addon-docs')
-		// getAbsolutePath('@storybook-community/storybook-dark-mode')
+		getAbsolutePath('@storybook-community/storybook-dark-mode')
 		// {
 		// 	name: getAbsolutePath('storybook-addon-vis'),
 		// 	options: defineStorybookVisOptions({

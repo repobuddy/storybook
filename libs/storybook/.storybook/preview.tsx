@@ -1,14 +1,10 @@
-// import { withThemeByClassName } from '#repobuddy/storybook/themes'
-import type { Preview } from '@storybook/react-vite'
-
-// @ts-expect-error
 import { defineDocsParam } from '#repobuddy/storybook'
-// @ts-expect-error
 import {
 	createDarkModeDocsContainer,
 	defineDarkModeParam,
 	withDarkMode
 } from '#repobuddy/storybook/storybook-dark-mode'
+import type { Preview } from '@storybook/react-vite'
 
 import '../tailwind.css'
 
