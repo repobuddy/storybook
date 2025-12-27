@@ -22,6 +22,7 @@ export type TagNames =
 	| 'integration'
 	| 'keyboard'
 	| 'internal'
+	| 'usecase'
 
 /**
  * Configuration for story tag badges that appear in the Storybook sidebar.
