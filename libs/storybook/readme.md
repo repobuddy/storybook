@@ -16,6 +16,8 @@ Your repository buddy for Storybook.
 pnpm add -D @repobuddy/storybook
 ```
 
+If you use the components in the library, import `@repobuddy/storybook/styles.css`.
+
 ## Features
 
 ### Typed Parameters

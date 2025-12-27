@@ -38,22 +38,27 @@
 		"./storybook-dark-mode": {
 			"types": "./esm/storybook-dark-mode/index.d.ts",
 			"default": "./esm/storybook-dark-mode/index.js"
-		}
+		},
+		"./styles.css": "./styles.css"
 	},
 	"files": [
 		"cjs",
 		"esm",
 		"src",
+		"styles.css",
 		"!**/*.{spec,test,unit,accept,integrate,system,perf,stress,study,stories}.*",
 		"!**/*.mdx"
 	],
 	"scripts": {
-		"build": "tsdown",
+		"build": "run-p build:*",
+		"build:code": "tsdown",
+		"build:css": "tailwindcss -i ./tailwind.css -o ./styles.css",
 		"clean": "rimraf .turbo coverage cjs esm storybook-static *.tsbuildinfo",
 		"coverage": "vitest run --coverage",
 		"sb": "storybook dev -p 6006",
 		"sb:build": "storybook build",
 		"test": "vitest run",
+		"test:types": "tsc --noEmit",
 		"test:dark": "vitest run --config=vitest.config.dark.ts",
 		"test:light": "vitest run --config=vitest.config.light.ts",
 		"test:theme": "vitest run --config=vitest.config.theme.ts",
@@ -63,7 +68,10 @@
 		"@just-web/css": "^0.7.0",
 		"@repobuddy/test": "^1.0.0",
 		"@storybook/icons": "^2.0.1",
-		"htmlfy": "^1.0.0"
+		"class-variance-authority": "^0.7.1",
+		"htmlfy": "^1.0.0",
+		"react-aria-components": "^1.14.0",
+		"tailwind-merge": "^3.4.0"
 	},
 	"devDependencies": {
 		"@repobuddy/vitest": "^2.0.0",
@@ -79,6 +87,7 @@
 		"@vitest/coverage-v8": "^4.0.9",
 		"dedent": "^1.7.0",
 		"ncp": "^2.0.0",
+		"npm-run-all2": "^8.0.4",
 		"react": "^19.2.0",
 		"react-dom": "^19.2.0",
 		"rimraf": "^6.1.0",
