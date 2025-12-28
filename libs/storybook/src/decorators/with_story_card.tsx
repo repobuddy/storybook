@@ -1,5 +1,4 @@
 import { cva } from 'class-variance-authority'
-import type { ClassValue } from 'class-variance-authority/types'
 import {
 	createContext,
 	useContext,
@@ -12,7 +11,8 @@ import {
 } from 'react'
 import type { DecoratorFunction, Renderer } from 'storybook/internal/csf'
 import { twMerge } from 'tailwind-merge'
-import { generateKey } from '../utils/generate_key'
+import type { RequiredPick } from 'type-plus'
+import { generateKey } from '../utils/generate_key.js'
 
 export type StoryCardProps = {
 	/**
@@ -35,8 +35,8 @@ export type StoryCardProps = {
 	 * and should return the final className string.
 	 */
 	className?:
-		| ((state: Pick<StoryCardProps, 'status'> & { defaultClassName: string }) => string)
-		| ClassValue
+		| ((state: Required<Pick<StoryCardProps, 'status'>> & { defaultClassName: string }) => string)
+		| string
 		| undefined
 	/**
 	 * Content to display in the card body.
@@ -117,6 +117,7 @@ export type StoryCardProps = {
  */
 export function withStoryCard<TRenderer extends Renderer = Renderer>({
 	title,
+	status = 'info',
 	content: contentProp,
 	...rest
 }: StoryCardProps = {}): DecoratorFunction<TRenderer> {
@@ -126,11 +127,11 @@ export function withStoryCard<TRenderer extends Renderer = Renderer>({
 		const content = contentProp ?? parameters.docs?.description?.story ?? parameters.docs?.description?.component
 		if (!content && !title) return <Story />
 
-		return <StoryCardContainerWrapper Story={Story} content={content} title={title} {...rest} />
+		return <StoryCardContainerWrapper Story={Story} content={content} title={title} status={status} {...rest} />
 	}
 }
 
-interface StoryCardContainerWrapperProps extends StoryCardProps {
+interface StoryCardContainerWrapperProps extends RequiredPick<StoryCardProps, 'status'> {
 	Story: ComponentType
 }
 
@@ -177,15 +178,14 @@ function StoryCardContainer({ children }: { children: ReactNode }) {
 	)
 }
 
-type StoryCardWithKey = StoryCardProps & { key: string }
+type StoryCardWithKey = RequiredPick<StoryCardProps, 'status'> & { key: string }
 
-const storyCardTheme = (state: Pick<StoryCardProps, 'status'>, className: StoryCardProps['className']) => {
+function storyCardTheme(state: Required<Pick<StoryCardProps, 'status'>>, className: StoryCardProps['className']) {
 	const defaultClassName = storyCardVariants(state)
 	if (!className) return defaultClassName
-	return twMerge(
-		defaultClassName,
-		typeof className === 'function' ? className({ ...state, defaultClassName }) : className
-	)
+	return typeof className === 'function'
+		? className({ ...state, defaultClassName })
+		: twMerge(defaultClassName, className)
 }
 
 const storyCardVariants = cva('flex flex-col gap-1 py-3 px-4 rounded text-black dark:text-gray-100', {
@@ -195,13 +195,10 @@ const storyCardVariants = cva('flex flex-col gap-1 py-3 px-4 rounded text-black 
 			warn: 'bg-yellow-100 dark:bg-yellow-900',
 			info: 'bg-sky-100 dark:bg-sky-900'
 		}
-	},
-	defaultVariants: {
-		status: 'info'
 	}
 })
 
-interface StoryCardCollectorProps extends StoryCardProps {
+interface StoryCardCollectorProps extends RequiredPick<StoryCardProps, 'status'> {
 	Story: ComponentType
 }
 
@@ -229,7 +226,7 @@ function StoryCardCollector({ Story, title, status, className, content }: StoryC
 }
 
 interface StoryCardContextValue {
-	addCard: (card: StoryCardProps) => string
+	addCard: (card: RequiredPick<StoryCardProps, 'status'>) => string
 	removeCard: (id: string) => void
 }
 

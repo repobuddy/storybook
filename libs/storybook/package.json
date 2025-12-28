@@ -69,7 +69,8 @@
 		"@repobuddy/test": "^1.0.0",
 		"class-variance-authority": "^0.7.1",
 		"htmlfy": "^1.0.0",
-		"tailwind-merge": "^3.4.0"
+		"tailwind-merge": "^3.4.0",
+		"type-plus": "8.0.0-beta.7"
 	},
 	"devDependencies": {
 		"@repobuddy/vitest": "^2.0.0",

@@ -1,6 +1,7 @@
 import { defineDocsParam, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 import { expect } from 'storybook/test'
+import { twMerge } from 'tailwind-merge'
 
 const meta = {
 	title: 'decorators/withStoryCard',
@@ -166,19 +167,23 @@ export const WithClassNameFunction: Story = {
 	tags: ['props'],
 	parameters: defineDocsParam({
 		description: {
-			story: 'The card can be customized with a className function that receives the status and default className.'
+			story:
+				'The card can be customized with a className function that receives the `status` and `defaultClassName`. The function should return the final className string.'
 		}
 	}),
 	decorators: [
 		withStoryCard({
 			title: 'Function-Based Styling',
 			status: 'info',
-			className: ({ status }) =>
-				({
-					info: 'bg-green-200 dark:bg-green-800',
-					warn: 'bg-amber-300 dark:bg-amber-900',
-					error: 'bg-rose-400 dark:bg-rose-900'
-				})[status!]
+			className: ({ status, defaultClassName }) =>
+				twMerge(
+					{
+						info: 'bg-green-200 dark:bg-green-800',
+						warn: 'bg-amber-300 dark:bg-amber-900',
+						error: 'bg-rose-400 dark:bg-rose-900'
+					}[status!],
+					defaultClassName
+				)
 		})
 	],
 	render: () => <pre>{'className: ({ status, defaultClassName }) => string'}</pre>,

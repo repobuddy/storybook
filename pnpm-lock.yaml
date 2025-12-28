@@ -108,6 +108,9 @@ importers:
       tailwind-merge:
         specifier: ^3.4.0
         version: 3.4.0
+      type-plus:
+        specifier: 8.0.0-beta.7
+        version: 8.0.0-beta.7
     devDependencies:
       '@repobuddy/vitest':
         specifier: ^2.0.0
