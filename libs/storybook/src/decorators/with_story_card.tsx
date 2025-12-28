@@ -12,6 +12,7 @@ import {
 } from 'react'
 import type { DecoratorFunction, Renderer } from 'storybook/internal/csf'
 import { twMerge } from 'tailwind-merge'
+import { generateKey } from '../utils/generate_key'
 
 export type StoryCardProps = {
 	/**
@@ -150,7 +151,7 @@ function StoryCardContainer({ children }: { children: ReactNode }) {
 	const contextValue: StoryCardContextValue = useMemo(
 		() => ({
 			addCard(card) {
-				const id = `story-card-${crypto.randomUUID()}`
+				const id = generateKey('story-card')
 				setCards((cards) => [...cards, { ...card, id }])
 				return id
 			},
