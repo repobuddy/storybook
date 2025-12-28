@@ -1,4 +1,4 @@
-import{j as t}from"./iframe-CKjSMc0F.js";import{s as r}from"./with_story_card-CnEAkYrX.js";import{d as o}from"./define_docs_param-lmgaBKCF.js";import{d as a}from"./dedent-BuYMbVyj.js";import"./preload-helper-PPVm8Dsz.js";const d={title:"types/ExtendMeta",tags:["new","version:1.1"],decorators:[r()],render:()=>t.jsx(t.Fragment,{})},e={name:"TypicalUsage",parameters:{...o({source:{code:a`
+import{j as t}from"./iframe-aCpVKDze.js";import{s as r}from"./with_story_card-1ocT0FRf.js";import{d as o}from"./define_docs_param-lmgaBKCF.js";import{d as a}from"./dedent-BuYMbVyj.js";import"./preload-helper-PPVm8Dsz.js";const d={title:"types/ExtendMeta",tags:["new","version:1.1"],decorators:[r()],render:()=>t.jsx(t.Fragment,{})},e={name:"TypicalUsage",parameters:{...o({source:{code:a`
                 // types.ts
                 import type { ExtendMeta } from '@repobuddy/storybook'
                 import type { Args, Meta as M } from '@storybook/your-framework'

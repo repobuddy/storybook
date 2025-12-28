@@ -1,4 +1,4 @@
-import{j as r}from"./iframe-CKjSMc0F.js";import{s as t}from"./with_story_card-CnEAkYrX.js";import{d as e}from"./define_docs_param-lmgaBKCF.js";import{d as s}from"./dedent-BuYMbVyj.js";import"./preload-helper-PPVm8Dsz.js";const y={title:"storybook-addon-tag-badges/types/StoryObj",tags:["new","version:1.0"],decorators:[t()],render:()=>r.jsx(r.Fragment,{})},o={parameters:{...e({source:{code:s`
+import{j as r}from"./iframe-aCpVKDze.js";import{s as t}from"./with_story_card-1ocT0FRf.js";import{d as e}from"./define_docs_param-lmgaBKCF.js";import{d as s}from"./dedent-BuYMbVyj.js";import"./preload-helper-PPVm8Dsz.js";const y={title:"storybook-addon-tag-badges/types/StoryObj",tags:["new","version:1.0"],decorators:[t()],render:()=>r.jsx(r.Fragment,{})},o={parameters:{...e({source:{code:s`
                 // component.stories.tsx
                 import type { StoryObj } from '@repobuddy/storybook/storybook-addon-tag-badges'
 

@@ -1,4 +1,4 @@
-import{j as r}from"./iframe-CKjSMc0F.js";import{s as d}from"./with_story_card-CnEAkYrX.js";import{d as n}from"./define_docs_param-lmgaBKCF.js";import{d as o}from"./dedent-BuYMbVyj.js";import"./preload-helper-PPVm8Dsz.js";const t=s=>({backgrounds:s}),g={title:"Parameters/defineBackgroundsParam",tags:["new","version:1.0"],decorators:[d()],render:()=>r.jsx(r.Fragment,{})},e={parameters:{...t({default:"light"}),...n({source:{code:o`defineBackgroundParam({
+import{j as r}from"./iframe-aCpVKDze.js";import{s as d}from"./with_story_card-1ocT0FRf.js";import{d as n}from"./define_docs_param-lmgaBKCF.js";import{d as o}from"./dedent-BuYMbVyj.js";import"./preload-helper-PPVm8Dsz.js";const t=s=>({backgrounds:s}),g={title:"Parameters/defineBackgroundsParam",tags:["new","version:1.0"],decorators:[d()],render:()=>r.jsx(r.Fragment,{})},e={parameters:{...t({default:"light"}),...n({source:{code:o`defineBackgroundParam({
                     default: 'light'
                 })`}})}},a={parameters:{...t({options:[{name:"light",value:"light"},{name:"dark",value:"dark"}]}),...n({source:{code:o`defineBackgroundsParam({
                     options: [
