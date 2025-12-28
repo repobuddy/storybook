@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 2.2.1
+
+### Patch Changes
+
+- [`8f74138`](https://github.com/repobuddy/storybook/commit/8f7413890fd367996089ba5aa218a6c9db4d41c0) Thanks [@unional](https://github.com/unional)! - Add fallback for `crypto.randomUUID()`
+
 ## 2.2.0
 
 ### Minor Changes
