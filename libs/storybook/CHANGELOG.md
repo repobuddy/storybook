@@ -1,5 +1,14 @@
 # @repobuddy/storybook
 
+## 2.2.0
+
+### Minor Changes
+
+- [`d2eff3b`](https://github.com/repobuddy/storybook/commit/d2eff3b2780ea3c3edd1d159f029a0167adf6035) Thanks [@unional](https://github.com/unional)! - Add `withStoryCard`
+
+- [`677d72e`](https://github.com/repobuddy/storybook/commit/677d72e095fb81e653e914a1b6a9d2386c7c230b) Thanks [@unional](https://github.com/unional)! - Add `usecase` tag name literal.
+  It does not have an associated badge, as that will make the side bar too busy.
+
 ## 2.1.2
 
 ### Patch Changes
