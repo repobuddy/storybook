@@ -1,5 +1,13 @@
 # @repobuddy/storybook
 
+## 2.2.2
+
+### Patch Changes
+
+- [`b9e3883`](https://github.com/repobuddy/storybook/commit/b9e38834977c72b89cfd4003731b96f74c4e523d) Thanks [@unional](https://github.com/unional)! - fix `withStoryCard({ className: ({ status, defaultClassName }) => string })` to treat returning string as the final className string instead of merging with the `defaultClassName`.
+
+  Remove `undefined` from the `status` type in the function. The `status` defaults to `info` so it will never be `undefined`.
+
 ## 2.2.1
 
 ### Patch Changes
