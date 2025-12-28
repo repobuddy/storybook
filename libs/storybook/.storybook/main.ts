@@ -1,13 +1,12 @@
 import type { StorybookConfig } from '@storybook/react-vite'
-import { dirname, join } from 'node:path'
 
 export default {
 	stories: ['../src/**/*.mdx', '../src/**/*.stories.tsx'],
 	addons: [
-		getAbsolutePath('@storybook/addon-docs'),
-		getAbsolutePath('@storybook/addon-vitest'),
-		getAbsolutePath('storybook-addon-tag-badges'),
-		getAbsolutePath('@storybook-community/storybook-dark-mode')
+		'@storybook/addon-docs',
+		'@storybook/addon-vitest',
+		'storybook-addon-tag-badges',
+		'@storybook-community/storybook-dark-mode'
 		// {
 		// 	name: getAbsolutePath('storybook-addon-vis'),
 		// 	options: defineStorybookVisOptions({
@@ -42,7 +41,3 @@ export default {
 		}
 	}
 } satisfies StorybookConfig
-
-function getAbsolutePath(value: string): any {
-	return dirname(import.meta.resolve(join(value, 'package.json')))
-}
