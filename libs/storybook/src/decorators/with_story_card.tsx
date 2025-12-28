@@ -29,14 +29,8 @@ export function withStoryCard<TRenderer extends Renderer = Renderer>({
 	}
 }
 
-type StoryCard = {
-	id: string
-	content: ReactNode
-}
-
 type StoryCardContextValue = {
 	addCard: (card: ReactNode) => void
-	getCards: () => StoryCard[]
 }
 
 const StoryCardContext = createContext<StoryCardContextValue | null>(null)
@@ -45,49 +39,44 @@ interface StoryCardProps extends WithStoryCardProps {
 	Story: ComponentType
 }
 
+type CardWithId = {
+	id: string
+	content: ReactNode
+}
+
 function StoryCard({ Story, title, status, className, content }: StoryCardProps) {
 	const parentContext = useContext(StoryCardContext)
-	const cardRef = useRef<ReactNode | null>(null)
+
+	const cardsRef = useRef<CardWithId[]>([])
+	const [cards, setCards] = useState<CardWithId[]>([])
+	const cardIdCounterRef = useRef(0)
 	const registeredRef = useRef(false)
 
-	const cardsRef = useRef<StoryCard[]>([])
-	const cardIdCounterRef = useRef(0)
-	const [, setCards] = useState<StoryCard[]>([])
-
-	// Create the card element once
-	if (!cardRef.current) {
-		cardRef.current = (
-			<section className={storyCardTheme({ status }, className)}>
-				{title && <Heading className="text-lg font-bold">{title}</Heading>}
-				{content}
-			</section>
-		)
-	}
+	// Create the card element
+	const cardElement = (
+		<section className={storyCardTheme({ status }, className)}>
+			{title && <Heading className="text-lg font-bold">{title}</Heading>}
+			{content}
+		</section>
+	)
 
 	const addCard = (card: ReactNode) => {
 		const id = `story-card-${cardIdCounterRef.current++}`
 		cardsRef.current.push({ id, content: card })
-		// Trigger re-render to show all collected cards
 		setCards([...cardsRef.current])
 	}
 
-	const getCards = () => {
-		// Cards are collected in definition order (outermost decorator registers first, then inner ones)
-		return [...cardsRef.current]
-	}
-
 	const contextValue: StoryCardContextValue = {
-		addCard,
-		getCards
+		addCard
 	}
 
-	// Register this card once - always call useLayoutEffect
+	// Register this card once with parent context or local state
 	useLayoutEffect(() => {
-		if (cardRef.current && !registeredRef.current) {
+		if (!registeredRef.current) {
 			if (parentContext) {
-				parentContext.addCard(cardRef.current)
+				parentContext.addCard(cardElement)
 			} else {
-				addCard(cardRef.current)
+				addCard(cardElement)
 			}
 			registeredRef.current = true
 		}
@@ -102,7 +91,7 @@ function StoryCard({ Story, title, status, className, content }: StoryCardProps)
 	return (
 		<StoryCardContext.Provider value={contextValue}>
 			<div className="flex flex-col gap-2">
-				{getCards().map((card) => (
+				{cards.map((card) => (
 					<div key={card.id}>{card.content}</div>
 				))}
 				<Story />
