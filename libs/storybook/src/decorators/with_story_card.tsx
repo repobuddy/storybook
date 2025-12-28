@@ -146,17 +146,17 @@ function StoryCardContainerWrapper({ Story, ...props }: StoryCardContainerWrappe
 }
 
 function StoryCardContainer({ children }: { children: ReactNode }) {
-	const [cards, setCards] = useState<StoryCardWithId[]>([])
+	const [cards, setCards] = useState<StoryCardWithKey[]>([])
 
 	const contextValue: StoryCardContextValue = useMemo(
 		() => ({
 			addCard(card) {
-				const id = generateKey('story-card')
-				setCards((cards) => [...cards, { ...card, id }])
-				return id
+				const key = generateKey('story-card')
+				setCards((cards) => [...cards, { ...card, key }])
+				return key
 			},
-			removeCard(id) {
-				setCards((cards) => cards.filter((card) => card.id !== id))
+			removeCard(key) {
+				setCards((cards) => cards.filter((card) => card.key !== key))
 			}
 		}),
 		[]
@@ -165,8 +165,8 @@ function StoryCardContainer({ children }: { children: ReactNode }) {
 	return (
 		<StoryCardContext.Provider value={contextValue}>
 			<div className="flex flex-col gap-2">
-				{cards.map(({ id, status, className, content, title }) => (
-					<section key={id} className={storyCardTheme({ status }, className)}>
+				{cards.map(({ key, status, className, content, title }) => (
+					<section key={key} className={storyCardTheme({ status }, className)}>
 						{title && <h2 className="text-lg font-bold">{title}</h2>}
 						{content}
 					</section>
@@ -177,7 +177,7 @@ function StoryCardContainer({ children }: { children: ReactNode }) {
 	)
 }
 
-type StoryCardWithId = StoryCardProps & { id: string }
+type StoryCardWithKey = StoryCardProps & { key: string }
 
 const storyCardTheme = (state: Pick<StoryCardProps, 'status'>, className: StoryCardProps['className']) => {
 	const defaultClassName = storyCardVariants(state)
