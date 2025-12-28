@@ -1,106 +1,218 @@
 import { cva } from 'class-variance-authority'
 import type { ClassValue } from 'class-variance-authority/types'
-import { createContext, useContext, useLayoutEffect, useRef, useState, type ComponentType, type ReactNode } from 'react'
-import { Heading } from 'react-aria-components'
-import type { DecoratorFunction, Renderer } from 'storybook/internal/types'
+import {
+	createContext,
+	useContext,
+	useLayoutEffect,
+	useMemo,
+	useRef,
+	useState,
+	type ComponentType,
+	type ReactNode
+} from 'react'
+import type { DecoratorFunction, Renderer } from 'storybook/internal/csf'
 import { twMerge } from 'tailwind-merge'
 
-export type WithStoryCardProps = {
-	title?: string | undefined
+export type StoryCardProps = {
+	/**
+	 * Optional title displayed as a heading in the card.
+	 * Can be any React node (string, JSX, etc.).
+	 */
+	title?: ReactNode | undefined
+	/**
+	 * Visual status of the card, affecting its background color.
+	 * - `'error'`: Red background (bg-red-100 dark:bg-red-900)
+	 * - `'warn'`: Yellow background (bg-yellow-100 dark:bg-yellow-900)
+	 * - `'info'`: Blue background (bg-sky-100 dark:bg-sky-900) - default
+	 */
 	status?: 'error' | 'warn' | 'info' | undefined
+	/**
+	 * Additional CSS classes or a function to compute classes.
+	 *
+	 * If a string is provided, it will be merged with the default classes.
+	 * If a function is provided, it receives the card state and default className,
+	 * and should return the final className string.
+	 */
 	className?:
-		| ((state: Pick<WithStoryCardProps, 'status'> & { defaultClassName: string }) => string)
+		| ((state: Pick<StoryCardProps, 'status'> & { defaultClassName: string }) => string)
 		| ClassValue
 		| undefined
+	/**
+	 * Content to display in the card body.
+	 * Can be any React node (string, JSX, etc.).
+	 *
+	 * If not provided, the decorator will automatically use:
+	 * 1. Story description (`parameters.docs.description.story`)
+	 * 2. Component description (`parameters.docs.description.component`)
+	 * 3. Nothing (card won't render if no content and no title)
+	 */
 	content?: ReactNode | undefined
 }
 
+/**
+ * A decorator that adds a card section to display additional information about the story.
+ *
+ * The card is automatically hidden when the story is shown in docs mode.
+ * Multiple decorators can be chained together,
+ * and all cards will be collected and displayed above the story content.
+ *
+ * @returns A Storybook decorator function.
+ *
+ * @example
+ * Basic usage - automatically uses component or story description:
+ * ```tsx
+ * export const MyStory: Story = {
+ *   parameters: defineDocsParam({
+ *     description: {
+ *       story: 'This description will be shown in the card'
+ *     }
+ *   }),
+ *   decorators: [withStoryCard()]
+ * }
+ * ```
+ *
+ * @example
+ * With custom content:
+ * ```tsx
+ * export const MyStory: Story = {
+ *   decorators: [
+ *     withStoryCard({
+ *       content: <p>This is a custom message displayed in the card.</p>
+ *     })
+ *   ]
+ * }
+ * ```
+ *
+ * @example
+ * With title and status:
+ * ```tsx
+ * export const MyStory: Story = {
+ *   decorators: [
+ *     withStoryCard({
+ *       title: 'Important Notice',
+ *       status: 'warn',
+ *       content: <p>Please review this carefully.</p>
+ *     })
+ *   ]
+ * }
+ * ```
+ *
+ * @example
+ * Multiple cards:
+ * ```tsx
+ * export const MyStory: Story = {
+ *   decorators: [
+ *     withStoryCard({ title: 'First Card', status: 'info' }),
+ *     withStoryCard({ title: 'Second Card', status: 'warn' })
+ *   ]
+ * }
+ * ```
+ *
+ * @remarks
+ * - The card will not render if both `content` and `title` are missing.
+ * - If `content` is not provided, it will automatically use the story description,
+ *   or fall back to the component description.
+ * - Cards are collected and displayed in the order they are defined in the decorators array.
+ */
 export function withStoryCard<TRenderer extends Renderer = Renderer>({
 	title,
 	content: contentProp,
 	...rest
-}: WithStoryCardProps = {}): DecoratorFunction<TRenderer> {
+}: StoryCardProps = {}): DecoratorFunction<TRenderer> {
 	return (Story, { parameters, viewMode }) => {
 		if (viewMode === 'docs') return <Story />
 
 		const content = contentProp ?? parameters.docs?.description?.story ?? parameters.docs?.description?.component
 		if (!content && !title) return <Story />
-		return <StoryCard Story={Story} content={content} title={title} {...rest} />
+
+		return <StoryCardContainerWrapper Story={Story} content={content} title={title} {...rest} />
 	}
 }
 
-type StoryCardContextValue = {
-	addCard: (card: ReactNode) => void
+interface StoryCardContainerWrapperProps extends StoryCardProps {
+	Story: ComponentType
+}
+
+function StoryCardContainerWrapper({ Story, ...props }: StoryCardContainerWrapperProps) {
+	const context = useContext(StoryCardContext)
+	const collector = <StoryCardCollector Story={Story} {...props} />
+
+	if (context === null) {
+		return <StoryCardContainer>{collector}</StoryCardContainer>
+	}
+
+	return collector
+}
+
+interface StoryCardContextValue {
+	addCard: (card: StoryCardProps) => string
+	removeCard: (id: string) => void
 }
 
 const StoryCardContext = createContext<StoryCardContextValue | null>(null)
 
-interface StoryCardProps extends WithStoryCardProps {
-	Story: ComponentType
-}
+type StoryCardWithId = StoryCardProps & { id: string }
 
-type CardWithId = {
-	id: string
-	content: ReactNode
-}
+function StoryCardContainer({ children }: { children: ReactNode }) {
+	const [cards, setCards] = useState<StoryCardWithId[]>([])
 
-function StoryCard({ Story, title, status, className, content }: StoryCardProps) {
-	const parentContext = useContext(StoryCardContext)
-
-	const cardsRef = useRef<CardWithId[]>([])
-	const [cards, setCards] = useState<CardWithId[]>([])
-	const cardIdCounterRef = useRef(0)
-	const registeredRef = useRef(false)
-
-	// Create the card element
-	const cardElement = (
-		<section className={storyCardTheme({ status }, className)}>
-			{title && <Heading className="text-lg font-bold">{title}</Heading>}
-			{content}
-		</section>
+	const contextValue: StoryCardContextValue = useMemo(
+		() => ({
+			addCard(card) {
+				const id = `story-card-${crypto.randomUUID()}`
+				setCards((cards) => [...cards, { ...card, id }])
+				return id
+			},
+			removeCard(id) {
+				setCards((cards) => cards.filter((card) => card.id !== id))
+			}
+		}),
+		[]
 	)
 
-	const addCard = (card: ReactNode) => {
-		const id = `story-card-${cardIdCounterRef.current++}`
-		cardsRef.current.push({ id, content: card })
-		setCards([...cardsRef.current])
-	}
-
-	const contextValue: StoryCardContextValue = {
-		addCard
-	}
-
-	// Register this card once with parent context or local state
-	useLayoutEffect(() => {
-		if (!registeredRef.current) {
-			if (parentContext) {
-				parentContext.addCard(cardElement)
-			} else {
-				addCard(cardElement)
-			}
-			registeredRef.current = true
-		}
-	})
-
-	// If there's a parent context, just render the Story
-	if (parentContext) {
-		return <Story />
-	}
-
-	// This is the outermost decorator - render all cards
 	return (
 		<StoryCardContext.Provider value={contextValue}>
 			<div className="flex flex-col gap-2">
-				{cards.map((card) => (
-					<div key={card.id}>{card.content}</div>
+				{cards.map(({ id, status, className, content, title }) => (
+					<section key={id} className={storyCardTheme({ status }, className)}>
+						{title && <h2 className="text-lg font-bold">{title}</h2>}
+						{content}
+					</section>
 				))}
-				<Story />
+				{children}
 			</div>
 		</StoryCardContext.Provider>
 	)
 }
 
-const storyCardTheme = (state: Pick<WithStoryCardProps, 'status'>, className: WithStoryCardProps['className']) => {
+interface StoryCardCollectorProps extends StoryCardProps {
+	Story: ComponentType
+}
+
+function StoryCardCollector({ Story, title, status, className, content }: StoryCardCollectorProps) {
+	// StoryCardCollector is an internal component. Context is guaranteed to be not null by `StoryCardContainer`.
+	const context = useContext(StoryCardContext)!
+	const cardIdRef = useRef<string | null>(null)
+
+	// Collect this card once into the collection
+	useLayoutEffect(() => {
+		// Only add if not already added (handles Strict Mode double-render)
+		if (cardIdRef.current === null) {
+			cardIdRef.current = context.addCard({ title, status, className, content })
+		}
+
+		return () => {
+			if (cardIdRef.current !== null) {
+				context.removeCard(cardIdRef.current)
+				cardIdRef.current = null
+			}
+		}
+	}, [])
+
+	return <Story />
+}
+
+const storyCardTheme = (state: Pick<StoryCardProps, 'status'>, className: StoryCardProps['className']) => {
 	const defaultClassName = storyCardVariants(state)
 	if (!className) return defaultClassName
 	return twMerge(
