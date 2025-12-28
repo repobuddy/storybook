@@ -176,6 +176,8 @@ function StoryCardContainer({ children }: { children: ReactNode }) {
 	)
 }
 
+type StoryCardWithId = StoryCardProps & { id: string }
+
 interface StoryCardCollectorProps extends StoryCardProps {
 	Story: ComponentType
 }
@@ -209,8 +211,6 @@ interface StoryCardContextValue {
 }
 
 const StoryCardContext = createContext<StoryCardContextValue | null>(null)
-
-type StoryCardWithId = StoryCardProps & { id: string }
 
 const storyCardTheme = (state: Pick<StoryCardProps, 'status'>, className: StoryCardProps['className']) => {
 	const defaultClassName = storyCardVariants(state)
