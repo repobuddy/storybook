@@ -75,9 +75,9 @@
 	"devDependencies": {
 		"@repobuddy/vitest": "^2.0.0",
 		"@storybook-community/storybook-dark-mode": "^7.0.2",
-		"@storybook/addon-docs": "^10.0.7",
-		"@storybook/addon-vitest": "^10.0.7",
-		"@storybook/react-vite": "^10.0.7",
+		"@storybook/addon-docs": "^10.1.10",
+		"@storybook/addon-vitest": "^10.1.10",
+		"@storybook/react-vite": "^10.1.10",
 		"@tailwindcss/cli": "^4.1.17",
 		"@tailwindcss/vite": "^4.1.17",
 		"@vitest/browser": "^4.0.16",
@@ -88,7 +88,7 @@
 		"react": "^19.2.0",
 		"react-dom": "^19.2.0",
 		"rimraf": "^6.1.0",
-		"storybook": "^10.0.8",
+		"storybook": "^10.1.10",
 		"storybook-addon-tag-badges": "^3.0.2",
 		"tailwindcss": "^4.1.17",
 		"tsdown": "^0.18.0",
@@ -97,7 +97,7 @@
 	},
 	"peerDependencies": {
 		"@storybook-community/storybook-dark-mode": "^7.0.0",
-		"@storybook/addon-docs": "^10.0.0",
+		"@storybook/addon-docs": "^10.1.10",
 		"storybook-addon-tag-badges": "^3.0.2"
 	},
 	"peerDependenciesMeta": {
