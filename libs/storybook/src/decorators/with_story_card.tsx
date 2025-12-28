@@ -178,6 +178,28 @@ function StoryCardContainer({ children }: { children: ReactNode }) {
 
 type StoryCardWithId = StoryCardProps & { id: string }
 
+const storyCardTheme = (state: Pick<StoryCardProps, 'status'>, className: StoryCardProps['className']) => {
+	const defaultClassName = storyCardVariants(state)
+	if (!className) return defaultClassName
+	return twMerge(
+		defaultClassName,
+		typeof className === 'function' ? className({ ...state, defaultClassName }) : className
+	)
+}
+
+const storyCardVariants = cva('flex flex-col gap-1 py-3 px-4 rounded text-black dark:text-gray-100', {
+	variants: {
+		status: {
+			error: 'bg-red-100 dark:bg-red-900',
+			warn: 'bg-yellow-100 dark:bg-yellow-900',
+			info: 'bg-sky-100 dark:bg-sky-900'
+		}
+	},
+	defaultVariants: {
+		status: 'info'
+	}
+})
+
 interface StoryCardCollectorProps extends StoryCardProps {
 	Story: ComponentType
 }
@@ -211,25 +233,3 @@ interface StoryCardContextValue {
 }
 
 const StoryCardContext = createContext<StoryCardContextValue | null>(null)
-
-const storyCardTheme = (state: Pick<StoryCardProps, 'status'>, className: StoryCardProps['className']) => {
-	const defaultClassName = storyCardVariants(state)
-	if (!className) return defaultClassName
-	return twMerge(
-		defaultClassName,
-		typeof className === 'function' ? className({ ...state, defaultClassName }) : className
-	)
-}
-
-const storyCardVariants = cva('flex flex-col gap-1 py-3 px-4 rounded text-black dark:text-gray-100', {
-	variants: {
-		status: {
-			error: 'bg-red-100 dark:bg-red-900',
-			warn: 'bg-yellow-100 dark:bg-yellow-900',
-			info: 'bg-sky-100 dark:bg-sky-900'
-		}
-	},
-	defaultVariants: {
-		status: 'info'
-	}
-})
