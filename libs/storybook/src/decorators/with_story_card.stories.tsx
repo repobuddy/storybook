@@ -177,12 +177,12 @@ export const WithClassNameFunction: Story = {
 			status: 'info',
 			className: ({ status, defaultClassName }) =>
 				twMerge(
+					defaultClassName,
 					{
 						info: 'bg-green-200 dark:bg-green-800',
 						warn: 'bg-amber-300 dark:bg-amber-900',
 						error: 'bg-rose-400 dark:bg-rose-900'
-					}[status!],
-					defaultClassName
+					}[status!]
 				)
 		})
 	],
