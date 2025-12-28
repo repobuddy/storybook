@@ -15,6 +15,20 @@ export type WithStoryCardProps = {
 	content?: ReactNode | undefined
 }
 
+export function withStoryCard<TRenderer extends Renderer = Renderer>({
+	title,
+	content: contentProp,
+	...rest
+}: WithStoryCardProps = {}): DecoratorFunction<TRenderer> {
+	return (Story, { parameters, viewMode }) => {
+		if (viewMode === 'docs') return <Story />
+
+		const content = contentProp ?? parameters.docs?.description?.story ?? parameters.docs?.description?.component
+		if (!content && !title) return <Story />
+		return <StoryCard Story={Story} content={content} title={title} {...rest} />
+	}
+}
+
 type StoryCard = {
 	id: string
 	content: ReactNode
@@ -27,19 +41,11 @@ type StoryCardContextValue = {
 
 const StoryCardContext = createContext<StoryCardContextValue | null>(null)
 
-function StoryCardWrapper({
-	Story,
-	title,
-	status,
-	className,
-	children
-}: {
+interface StoryCardProps extends WithStoryCardProps {
 	Story: ComponentType
-	title?: string | undefined
-	status?: 'error' | 'warn' | 'info' | undefined
-	className?: WithStoryCardProps['className'] | undefined
-	children?: ReactNode | undefined
-}) {
+}
+
+function StoryCard({ Story, title, status, className, content }: StoryCardProps) {
 	const parentContext = useContext(StoryCardContext)
 	const cardRef = useRef<ReactNode | null>(null)
 	const registeredRef = useRef(false)
@@ -53,7 +59,7 @@ function StoryCardWrapper({
 		cardRef.current = (
 			<section className={storyCardTheme({ status }, className)}>
 				{title && <Heading className="text-lg font-bold">{title}</Heading>}
-				{children}
+				{content}
 			</section>
 		)
 	}
@@ -103,35 +109,6 @@ function StoryCardWrapper({
 			</div>
 		</StoryCardContext.Provider>
 	)
-}
-
-export function withStoryCard<TRenderer extends Renderer = Renderer>({
-	title,
-	status,
-	className,
-	content
-}: WithStoryCardProps = {}): DecoratorFunction<TRenderer> {
-	return (
-		Story,
-		{
-			parameters: {
-				docs: {
-					description: { component, story }
-				}
-			},
-			viewMode
-		}
-	) => {
-		if (viewMode === 'docs') return <Story />
-
-		const cardContent = content ?? story ?? component
-		if (!cardContent && !title) return <Story />
-		return (
-			<StoryCardWrapper Story={Story} title={title} status={status} className={className}>
-				{cardContent}
-			</StoryCardWrapper>
-		)
-	}
 }
 
 const storyCardTheme = (state: Pick<WithStoryCardProps, 'status'>, className: WithStoryCardProps['className']) => {

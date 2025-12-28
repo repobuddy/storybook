@@ -1,5 +1,6 @@
 import { defineDocsParam, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
+import { expect } from 'storybook/test'
 
 const meta = {
 	title: 'decorators/withStoryCard',
@@ -18,7 +19,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const ShowsComponentDescription: Story = {
-	tags: ['usecase'],
+	tags: ['usecase', 'snapshot'],
 	decorators: [
 		withStoryCard(),
 		withStoryCard({
@@ -29,11 +30,15 @@ export const ShowsComponentDescription: Story = {
 				</p>
 			)
 		})
-	]
+	],
+	play: async ({ canvasElement }) => {
+		const sections = canvasElement.querySelectorAll('section')
+		await expect(sections).toHaveLength(2)
+	}
 }
 
 export const ShowsStoryDescription: Story = {
-	tags: ['usecase'],
+	tags: ['usecase', 'snapshot'],
 	parameters: defineDocsParam({
 		description: {
 			story: 'This is story description'
@@ -50,7 +55,10 @@ export const ShowsStoryDescription: Story = {
 			)
 		})
 	],
-	render: () => <p>This is the story content</p>
+	play: async ({ canvasElement }) => {
+		const sections = canvasElement.querySelectorAll('section')
+		await expect(sections).toHaveLength(2)
+	}
 }
 
 export const WithContent: Story = {
@@ -63,9 +71,13 @@ export const WithContent: Story = {
 	],
 	render: () => (
 		<p>
-			When providing a custom <code>`content`</code> value, it will be used over any component or story description.
+			When providing a custom <code>`content`</code> value, it will be used over component andy story description.
 		</p>
-	)
+	),
+	play: async ({ canvas }) => {
+		const message = canvas.getByText('Custom message.')
+		await expect(message).toBeInTheDocument()
+	}
 }
 
 export const WithTitle: Story = {
@@ -77,7 +89,10 @@ export const WithTitle: Story = {
 		}
 	}),
 	decorators: [withStoryCard({ title: 'Story Card Title' })],
-	render: () => <p>This is the story content</p>
+	play: async ({ canvas }) => {
+		const title = canvas.getByText('Story Card Title')
+		await expect(title).toBeInTheDocument()
+	}
 }
 
 export const WithInfoStatus: Story = {
@@ -89,7 +104,10 @@ export const WithInfoStatus: Story = {
 		}
 	}),
 	decorators: [withStoryCard({ title: 'Info Card', status: 'info' })],
-	render: () => <p>This story is wrapped with an info card</p>
+	play: async ({ canvasElement }) => {
+		const section = canvasElement.querySelector('section')
+		await expect(section).toHaveClass('bg-sky-100', 'dark:bg-sky-900')
+	}
 }
 
 export const WithWarnStatus: Story = {
@@ -101,7 +119,10 @@ export const WithWarnStatus: Story = {
 		}
 	}),
 	decorators: [withStoryCard({ title: 'Warning Card', status: 'warn' })],
-	render: () => <p>This story is wrapped with a warning card</p>
+	play: async ({ canvasElement }) => {
+		const section = canvasElement.querySelector('section')
+		await expect(section).toHaveClass('bg-yellow-100', 'dark:bg-yellow-900')
+	}
 }
 
 export const WithErrorStatus: Story = {
@@ -113,7 +134,10 @@ export const WithErrorStatus: Story = {
 		}
 	}),
 	decorators: [withStoryCard({ title: 'Error Card', status: 'error' })],
-	render: () => <p>This story is wrapped with an error card</p>
+	play: async ({ canvasElement }) => {
+		const section = canvasElement.querySelector('section')
+		await expect(section).toHaveClass('bg-red-100', 'dark:bg-red-900')
+	}
 }
 
 export const WithCustomClassName: Story = {
@@ -131,7 +155,10 @@ export const WithCustomClassName: Story = {
 			className: 'border-2 border-blue-500 shadow-lg'
 		})
 	],
-	render: () => <p>This card has custom styling</p>
+	play: async ({ canvasElement }) => {
+		const section = canvasElement.querySelector('section')
+		await expect(section).toHaveClass('border-2 border-blue-500 shadow-lg')
+	}
 }
 
 export const WithClassNameFunction: Story = {
@@ -154,7 +181,11 @@ export const WithClassNameFunction: Story = {
 				})[status!]
 		})
 	],
-	render: () => <pre>{'className: ({ status, defaultClassName }) => string'}</pre>
+	render: () => <pre>{'className: ({ status, defaultClassName }) => string'}</pre>,
+	play: async ({ canvasElement }) => {
+		const section = canvasElement.querySelector('section')
+		await expect(section).toHaveClass('bg-green-200', 'dark:bg-green-800')
+	}
 }
 
 export const HiddenWithoutMessage: Story = {
@@ -170,5 +201,9 @@ export const HiddenWithoutMessage: Story = {
 			When there are no component or story description, and the `withStoryCard` call does not provide `title` or
 			`children`, it will not render anything.
 		</p>
-	)
+	),
+	play: async ({ canvasElement }) => {
+		const section = canvasElement.querySelector('section')
+		await expect(section).not.toBeInTheDocument()
+	}
 }
