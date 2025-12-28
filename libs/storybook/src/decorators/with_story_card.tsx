@@ -144,15 +144,6 @@ function StoryCardContainerWrapper({ Story, ...props }: StoryCardContainerWrappe
 	return collector
 }
 
-interface StoryCardContextValue {
-	addCard: (card: StoryCardProps) => string
-	removeCard: (id: string) => void
-}
-
-const StoryCardContext = createContext<StoryCardContextValue | null>(null)
-
-type StoryCardWithId = StoryCardProps & { id: string }
-
 function StoryCardContainer({ children }: { children: ReactNode }) {
 	const [cards, setCards] = useState<StoryCardWithId[]>([])
 
@@ -211,6 +202,15 @@ function StoryCardCollector({ Story, title, status, className, content }: StoryC
 
 	return <Story />
 }
+
+interface StoryCardContextValue {
+	addCard: (card: StoryCardProps) => string
+	removeCard: (id: string) => void
+}
+
+const StoryCardContext = createContext<StoryCardContextValue | null>(null)
+
+type StoryCardWithId = StoryCardProps & { id: string }
 
 const storyCardTheme = (state: Pick<StoryCardProps, 'status'>, className: StoryCardProps['className']) => {
 	const defaultClassName = storyCardVariants(state)
