@@ -1,4 +1,4 @@
-import{j as t}from"./iframe-CLNnVhs-.js";import{s as e}from"./with_story_card-DxkGFcDR.js";import{d as o}from"./define_docs_param-lmgaBKCF.js";import{d as s}from"./dedent-BuYMbVyj.js";import"./preload-helper-PPVm8Dsz.js";const c={title:"types/ExtendStoryObj",tags:["new","version:1.1"],decorators:[e()],render:()=>t.jsx(t.Fragment,{})},r={parameters:{...o({source:{code:s`
+import{j as t}from"./iframe-CKjSMc0F.js";import{s as e}from"./with_story_card-CnEAkYrX.js";import{d as o}from"./define_docs_param-lmgaBKCF.js";import{d as s}from"./dedent-BuYMbVyj.js";import"./preload-helper-PPVm8Dsz.js";const c={title:"types/ExtendStoryObj",tags:["new","version:1.1"],decorators:[e()],render:()=>t.jsx(t.Fragment,{})},r={parameters:{...o({source:{code:s`
                 // types.ts
                 import type { ExtendStoryObj } from '@repobuddy/storybook'
                 import type { StoryObj as S } from '@storybook/your-framework'
