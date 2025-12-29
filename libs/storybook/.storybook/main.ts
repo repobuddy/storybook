@@ -1,12 +1,18 @@
 import type { StorybookConfig } from '@storybook/react-vite'
+import { fileURLToPath } from 'node:url'
+import { getCodeEditorStaticDirs } from 'storybook-addon-code-editor/getStaticDirs'
+
+const __filename = fileURLToPath(import.meta.url)
 
 export default {
 	stories: ['../src/**/*.mdx', '../src/**/*.stories.tsx'],
+	staticDirs: [...getCodeEditorStaticDirs(__filename)],
 	addons: [
 		'@storybook/addon-docs',
 		'@storybook/addon-vitest',
+		'@storybook-community/storybook-dark-mode',
 		'storybook-addon-tag-badges',
-		'@storybook-community/storybook-dark-mode'
+		'storybook-addon-code-editor'
 		// {
 		// 	name: getAbsolutePath('storybook-addon-vis'),
 		// 	options: defineStorybookVisOptions({
