@@ -89,6 +89,7 @@
 		"react-dom": "^19.2.0",
 		"rimraf": "^6.1.0",
 		"storybook": "^10.1.10",
+		"storybook-addon-code-editor": "^6.1.1",
 		"storybook-addon-tag-badges": "^3.0.2",
 		"tailwindcss": "^4.1.17",
 		"tsdown": "^0.18.0",

@@ -160,6 +160,9 @@ importers:
       storybook:
         specifier: ^10.1.10
         version: 10.1.10(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      storybook-addon-code-editor:
+        specifier: ^6.1.1
+        version: 6.1.1(@types/react@19.2.7)(react@19.2.3)(storybook@10.1.10(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       storybook-addon-tag-badges:
         specifier: ^3.0.2
         version: 3.0.4(storybook@10.1.10(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
@@ -254,6 +257,10 @@ packages:
 
   '@babel/runtime@7.28.4':
     resolution: {integrity: sha512-Q/N6JNWvIvPnLDvjlE1OUBLPQHH6l3CltCEsHIujp45zQUSSh8K+gHnaEX45yAT1nyngnINhvWtzN+Nb9D8RAQ==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/standalone@7.28.5':
+    resolution: {integrity: sha512-1DViPYJpRU50irpGMfLBQ9B4kyfQuL6X7SS7pwTeWeZX0mNkjzPi0XFqxCjSdddZXUQy4AhnQnnesA/ZHnvAdw==}
     engines: {node: '>=6.9.0'}
 
   '@babel/template@7.27.2':
@@ -2347,6 +2354,9 @@ packages:
     resolution: {integrity: sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw==}
     engines: {node: '>=16 || 14 >=14.17'}
 
+  monaco-editor@0.52.2:
+    resolution: {integrity: sha512-GEQWEZmfkOGLdd3XK8ryrfWz3AIP8YymVXiPHEdewrUq7mh0qrKrfHLNCXcbB6sTnMLnOZ3ztSiKcciFUkIJwQ==}
+
   mri@1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
     engines: {node: '>=4'}
@@ -2753,6 +2763,16 @@ packages:
 
   std-env@3.10.0:
     resolution: {integrity: sha512-5GS12FdOZNliM5mAOxFRg7Ir0pWz8MdpYm6AY6VPkGpbA7ZzmbzNcBJQ0GPvvyWgcY7QAhCgf9Uy89I03faLkg==}
+
+  storybook-addon-code-editor@6.1.1:
+    resolution: {integrity: sha512-RKMqVVE+0gO6O6EtT2rYa6/S3mYJO3NQnB8LpxJZiRxuIf5iWoklAGkWILqT2OWHKrsIvRIWpcqAtMgi3KjaHA==}
+    peerDependencies:
+      '@types/react': 17.x.x || 18.x.x || 19.x.x
+      react: 17.x.x || 18.x.x || 19.x.x
+      storybook: 10.x.x
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
 
   storybook-addon-tag-badges@3.0.4:
     resolution: {integrity: sha512-evRp8ot5mVoN23WuKnP+yp/2ZvrEl+aAjMBjHD4f1rJ1K2oZ2SVRohmJewNHgtl2A2VYUK5cwgt3smPFXjzFYg==}
@@ -3270,6 +3290,8 @@ snapshots:
       '@babel/helper-plugin-utils': 7.27.1
 
   '@babel/runtime@7.28.4': {}
+
+  '@babel/standalone@7.28.5': {}
 
   '@babel/template@7.27.2':
     dependencies:
@@ -5283,6 +5305,8 @@ snapshots:
 
   minipass@7.1.2: {}
 
+  monaco-editor@0.52.2: {}
+
   mri@1.2.0: {}
 
   mrmime@2.0.1: {}
@@ -5695,6 +5719,15 @@ snapshots:
     optional: true
 
   std-env@3.10.0: {}
+
+  storybook-addon-code-editor@6.1.1(@types/react@19.2.7)(react@19.2.3)(storybook@10.1.10(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)):
+    dependencies:
+      '@babel/standalone': 7.28.5
+      monaco-editor: 0.52.2
+      react: 19.2.3
+      storybook: 10.1.10(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+    optionalDependencies:
+      '@types/react': 19.2.7
 
   storybook-addon-tag-badges@3.0.4(storybook@10.1.10(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)):
     dependencies:
