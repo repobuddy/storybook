@@ -15,5 +15,5 @@
 		"target": "esnext",
 		"verbatimModuleSyntax": true
 	},
-	"include": ["src", ".storybook", "*.ts"]
+	"include": ["src", "types", ".storybook", "*.ts"]
 }
