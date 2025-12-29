@@ -94,8 +94,8 @@ importers:
   libs/storybook:
     dependencies:
       '@just-web/css':
-        specifier: ^0.7.0
-        version: 0.7.0
+        specifier: ^0.8.0
+        version: 0.8.0
       '@repobuddy/test':
         specifier: ^1.0.0
         version: 1.0.0
@@ -695,8 +695,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@just-web/css@0.7.0':
-    resolution: {integrity: sha512-cueAVhavUptLB96wViiDntBZh5i+BdcFG+4yOea6UXyghBzF5wI0/jeufiNHTqf6yACY/4K+GXrN5c5MquzTKw==}
+  '@just-web/css@0.8.0':
+    resolution: {integrity: sha512-y98d9QswGktuK2cDUERJS3s9jJCElBmiMmDJf0C1oM+uCX3JClGvbSlWoYmhpPoZVN1HzGq8YX3d8aOTdK5DNQ==}
 
   '@manypkg/find-root@1.1.0':
     resolution: {integrity: sha512-mki5uBvhHzO8kYYix/WRy2WX8S3B5wdVSc9D6KcU5lQNglP2yt58/VfLuAK49glRXChosY8ap2oJ1qgma3GUVA==}
@@ -3794,7 +3794,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@just-web/css@0.7.0':
+  '@just-web/css@0.8.0':
     dependencies:
       csstype: 3.2.3
       type-plus: 8.0.0-beta.7
