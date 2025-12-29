@@ -6,6 +6,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
  * @template M - The base Meta type
  * @template E - The extension type containing tagType
  *
+ * @deprecated use `import { ExtendsMeta } from '@repobuddy/storybook'` instead.
+ *
  * @example
  * ```ts
  * // Create a generic Meta type for a project
@@ -30,6 +32,8 @@ export type ExtendMeta<
  * @template TMetaOrCmpOrArgs - The meta, component or args type
  * @template S - The base StoryObj type
  * @template E - The extension type containing tagType
+ *
+ * @deprecated use `import { ExtendsStoryObj } from '@repobuddy/storybook'` instead.
  *
  * @example
  * ```ts
