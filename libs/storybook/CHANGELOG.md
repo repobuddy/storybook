@@ -1,5 +1,17 @@
 # @repobuddy/storybook
 
+## 2.3.0
+
+### Minor Changes
+
+- [#324](https://github.com/repobuddy/storybook/pull/324) [`a12377d`](https://github.com/repobuddy/storybook/commit/a12377d68a3c66bf2d9058c98ff8fdf568050011) Thanks [@unional](https://github.com/unional)! - Add `ExtendsStoryObj`, deprecate `ExtendStoryObj`.
+
+  `ExtendsStoryObj` simplify type params, and improve extending `tags` if the extending `StoryObj` has predefined tag literals.
+
+- [#324](https://github.com/repobuddy/storybook/pull/324) [`5d3b312`](https://github.com/repobuddy/storybook/commit/5d3b312e3a7f464391f64717216cad7b74002e22) Thanks [@unional](https://github.com/unional)! - Add `ExtendsMeta`, deprecate `ExtendMeta`.
+
+  `ExtendsMeta` simplify type params, and improve extending `tags` if the extending `Meta` has predefined tag literals.
+
 ## 2.2.2
 
 ### Patch Changes
