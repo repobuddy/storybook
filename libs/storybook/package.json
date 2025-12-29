@@ -65,7 +65,7 @@
 		"w": "vitest"
 	},
 	"dependencies": {
-		"@just-web/css": "^0.7.0",
+		"@just-web/css": "^0.8.0",
 		"@repobuddy/test": "^1.0.0",
 		"class-variance-authority": "^0.7.1",
 		"htmlfy": "^1.0.0",
