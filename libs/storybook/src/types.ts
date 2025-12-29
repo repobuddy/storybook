@@ -33,6 +33,8 @@ export type ExtendMeta<
  * @template S - The base StoryObj type
  * @template E - The extension type containing tagType
  *
+ * @deprecated use `import { ExtendsStoryObj } from '@repobuddy/storybook'` instead.
+ *
  * @example
  * ```ts
  * // Create a generic StoryObj type for a project
