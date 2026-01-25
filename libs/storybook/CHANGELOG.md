@@ -1,5 +1,14 @@
 # @repobuddy/storybook
 
+## 2.4.0
+
+### Minor Changes
+
+- [#360](https://github.com/repobuddy/storybook/pull/360) [`4b3a90d`](https://github.com/repobuddy/storybook/commit/4b3a90dcdb96c116e8094993c54203e672936965) Thanks [@unional](https://github.com/unional)! - Enhance `showDocSource` decorator.
+  Add `showOriginalSource` option to `showDocSource` decorator to display original source code in a card.
+
+- [#360](https://github.com/repobuddy/storybook/pull/360) [`f03cfe8`](https://github.com/repobuddy/storybook/commit/f03cfe80f879a797af43b59776dacd6712026211) Thanks [@unional](https://github.com/unional)! - Add `version:next` tag to tag badges configuration
+
 ## 2.3.0
 
 ### Minor Changes
