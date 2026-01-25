@@ -9,7 +9,7 @@ const DemoComponent = ({ text = 'Hello World' }: { text?: string }) => (
 
 const meta = {
 	title: 'decorators/showDocSource',
-	tags: ['version:next'],
+	tags: ['version:2.4'],
 	render: () => <></>
 } satisfies Meta
 
