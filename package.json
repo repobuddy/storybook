@@ -26,7 +26,7 @@
 		"v": "turbo check build coverage",
 		"verify": "turbo check build coverage",
 		"verify:ci": "turbo check build coverage --concurrency=1",
-		"version": "changeset version"
+		"version": "changeset version && node scripts/update-version-tags.mjs"
 	},
 	"dependencies": {
 		"@biomejs/biome": "2.3.12",
