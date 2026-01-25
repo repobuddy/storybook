@@ -9,19 +9,7 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"includes": [
-			"**/*.ts",
-			"**/*.tsx",
-			"**/*.json",
-			"!node_modules",
-			"!**/.sb-themes",
-			"!dist",
-			"!build",
-			"!coverage",
-			"!*.mdx",
-			"!*.md",
-			"!.vscode"
-		]
+		"includes": ["!node_modules", "!**/.sb-themes", "!dist", "!build", "!coverage", "!*.mdx", "!*.md", "!.vscode"]
 	},
 	"formatter": {
 		"enabled": true,
