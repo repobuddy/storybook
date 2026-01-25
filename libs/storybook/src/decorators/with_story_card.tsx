@@ -1,4 +1,3 @@
-import { cva } from 'class-variance-authority'
 import {
 	createContext,
 	useContext,
@@ -10,23 +9,11 @@ import {
 	type ReactNode
 } from 'react'
 import type { DecoratorFunction, Renderer } from 'storybook/internal/csf'
-import { twMerge } from 'tailwind-merge'
 import type { RequiredPick } from 'type-plus'
+import { StoryCard, type StoryCardProps } from '../components/story_card.js'
 import { generateKey } from '../utils/generate_key.js'
 
-export type StoryCardProps = {
-	/**
-	 * Optional title displayed as a heading in the card.
-	 * Can be any React node (string, JSX, etc.).
-	 */
-	title?: ReactNode | undefined
-	/**
-	 * Visual status of the card, affecting its background color.
-	 * - `'error'`: Red background (bg-red-100 dark:bg-red-900)
-	 * - `'warn'`: Yellow background (bg-yellow-100 dark:bg-yellow-900)
-	 * - `'info'`: Blue background (bg-sky-100 dark:bg-sky-900) - default
-	 */
-	status?: 'error' | 'warn' | 'info' | undefined
+export type WithStoryCardProps = Omit<StoryCardProps, 'children' | 'className'> & {
 	/**
 	 * Additional CSS classes or a function to compute classes.
 	 *
@@ -34,10 +21,7 @@ export type StoryCardProps = {
 	 * If a function is provided, it receives the card state and default className,
 	 * and should return the final className string.
 	 */
-	className?:
-		| ((state: Required<Pick<StoryCardProps, 'status'>> & { defaultClassName: string }) => string)
-		| string
-		| undefined
+	className?: ((state: Pick<StoryCardProps, 'status'> & { defaultClassName: string }) => string) | string | undefined
 	/**
 	 * Content to display in the card body.
 	 * Can be any React node (string, JSX, etc.).
@@ -120,7 +104,7 @@ export function withStoryCard<TRenderer extends Renderer = Renderer>({
 	status = 'info',
 	content: contentProp,
 	...rest
-}: StoryCardProps = {}): DecoratorFunction<TRenderer> {
+}: WithStoryCardProps = {}): DecoratorFunction<TRenderer> {
 	return (Story, { parameters, viewMode }) => {
 		if (viewMode === 'docs') return <Story />
 
@@ -131,7 +115,7 @@ export function withStoryCard<TRenderer extends Renderer = Renderer>({
 	}
 }
 
-interface StoryCardContainerWrapperProps extends RequiredPick<StoryCardProps, 'status'> {
+interface StoryCardContainerWrapperProps extends RequiredPick<WithStoryCardProps, 'status'> {
 	Story: ComponentType
 }
 
@@ -166,11 +150,10 @@ function StoryCardContainer({ children }: { children: ReactNode }) {
 	return (
 		<StoryCardContext.Provider value={contextValue}>
 			<div className="flex flex-col gap-2">
-				{cards.map(({ key, status, className, content, title }) => (
-					<section key={key} className={storyCardTheme({ status }, className)}>
-						{title && <h2 className="text-lg font-bold">{title}</h2>}
+				{cards.map(({ content, key, ...rest }) => (
+					<StoryCard key={key} {...rest}>
 						{content}
-					</section>
+					</StoryCard>
 				))}
 				{children}
 			</div>
@@ -178,27 +161,9 @@ function StoryCardContainer({ children }: { children: ReactNode }) {
 	)
 }
 
-type StoryCardWithKey = RequiredPick<StoryCardProps, 'status'> & { key: string }
+type StoryCardWithKey = RequiredPick<WithStoryCardProps, 'status'> & { key: string }
 
-function storyCardTheme(state: Required<Pick<StoryCardProps, 'status'>>, className: StoryCardProps['className']) {
-	const defaultClassName = storyCardVariants(state)
-	if (!className) return defaultClassName
-	return typeof className === 'function'
-		? className({ ...state, defaultClassName })
-		: twMerge(defaultClassName, className)
-}
-
-const storyCardVariants = cva('flex flex-col gap-1 py-3 px-4 rounded text-black dark:text-gray-100', {
-	variants: {
-		status: {
-			error: 'bg-red-100 dark:bg-red-900',
-			warn: 'bg-yellow-100 dark:bg-yellow-900',
-			info: 'bg-sky-100 dark:bg-sky-900'
-		}
-	}
-})
-
-interface StoryCardCollectorProps extends RequiredPick<StoryCardProps, 'status'> {
+interface StoryCardCollectorProps extends RequiredPick<WithStoryCardProps, 'status'> {
 	Story: ComponentType
 }
 
@@ -226,7 +191,7 @@ function StoryCardCollector({ Story, title, status, className, content }: StoryC
 }
 
 interface StoryCardContextValue {
-	addCard: (card: RequiredPick<StoryCardProps, 'status'>) => string
+	addCard: (card: RequiredPick<WithStoryCardProps, 'status'>) => string
 	removeCard: (id: string) => void
 }
 
