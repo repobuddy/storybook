@@ -1,6 +1,5 @@
-import { defineDocsParam, showDocSource } from '#repobuddy/storybook'
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import dedent from 'dedent'
+import { defineDocsParam, showDocSource, withStoryCard } from '#repobuddy/storybook'
+import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 import { themes } from 'storybook/theming'
 
 // Simple demo component for testing the decorator
@@ -10,29 +9,21 @@ const DemoComponent = ({ text = 'Hello World' }: { text?: string }) => (
 
 const meta = {
 	title: 'decorators/showDocSource',
-	tags: ['autodocs'],
-	parameters: {
-		layout: 'padded'
-	}
+	tags: ['version:next'],
+	render: () => <></>
 } satisfies Meta
 
 export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const BasicUsage: Story = {
-	parameters: {
-		docs: {
-			source: {
-				code: `() => <DemoComponent text="Hello World" />`
-			}
-		}
-	},
+export const ShowStoryCode: Story = {
 	decorators: [showDocSource()],
 	render: () => <DemoComponent text="Hello World" />
 }
 
-export const ShowSourceOnly: Story = {
+export const ShowDocsSource: Story = {
+	name: 'Show docs.source.code',
 	parameters: {
 		docs: {
 			source: {
@@ -40,33 +31,48 @@ export const ShowSourceOnly: Story = {
 			}
 		}
 	},
-	decorators: [showDocSource()],
-	render: () => <></>
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Shows the code in <code>docs.source.code</code> parameter
+				</p>
+			)
+		}),
+		showDocSource(),
+		showDocSource({ showOriginalSource: true })
+	]
 }
 
-export const WithLanguage: Story = {
+export const WithLanguageJson: Story = {
+	name: 'With docs.source.language: json',
 	parameters: defineDocsParam({
 		source: {
-			code: dedent`
-				<div>Hello, World!</div>
-				`,
-			language: 'html'
+			code: '{ "hello": "world" }',
+			language: 'json'
 		}
 	}),
-	decorators: [showDocSource()],
-	render: () => <></>
+	decorators: [showDocSource(), showDocSource({ showOriginalSource: true })]
+}
+
+export const WithLanguageMd: Story = {
+	name: 'With docs.source.language: md',
+	parameters: defineDocsParam({
+		source: {
+			code: 'This is a `markdown` text',
+			language: 'md'
+		}
+	}),
+	decorators: [showDocSource(), showDocSource({ showOriginalSource: true })]
 }
 
 export const WithDocsTheme: Story = {
+	name: 'With docs.theme: dark',
 	parameters: defineDocsParam({
 		source: {
-			code: dedent`
-				<div>Hello, World!</div>
-				`,
-			language: 'html'
+			code: '<div>Hello, World!</div>'
 		},
 		theme: themes.dark
 	}),
-	decorators: [showDocSource()],
-	render: () => <></>
+	decorators: [showDocSource(), showDocSource({ showOriginalSource: true })]
 }

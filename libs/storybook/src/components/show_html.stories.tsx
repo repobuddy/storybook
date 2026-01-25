@@ -1,4 +1,4 @@
-import { defineDocsParam, ShowHtml } from '#repobuddy/storybook'
+import { defineDocsParam, ShowHtml, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta: Meta<typeof ShowHtml> = {
@@ -31,6 +31,7 @@ export const DefaultSubject: StoryObj = {
 			story: 'The `selector` prop is default to `[data-testid="subject"]`.'
 		}
 	}),
+	decorators: [withStoryCard()],
 	render: () => (
 		<div className="flex flex-col gap-4">
 			<div data-testid="subject">
