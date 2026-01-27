@@ -1,5 +1,15 @@
 # @repobuddy/storybook
 
+## 2.5.0
+
+### Minor Changes
+
+- [`afaccdf`](https://github.com/repobuddy/storybook/commit/afaccdfeba5bd7a04d27780f2face6c3be8d5aa2) Thanks [@unional](https://github.com/unional)! - Add Tailwind CSS prefix system and enhance `showDocSource` decorator.
+
+  - Add `rbsb:` prefix to all Tailwind classes to avoid conflicts with user styles
+  - Add `className` option to `showDocSource` decorator for custom styling
+  - Update `StoryCard` component to use the new prefix system
+
 ## 2.4.0
 
 ### Minor Changes
