@@ -20,7 +20,7 @@ const preview: Preview = {
 		...defineDarkModeParam({
 			current: 'dark',
 			stylePreview: true,
-			darkClass: ['dark', 'text-white', 'bg-black']
+			darkClass: ['rbsb:text-white', 'rbsb:bg-black']
 		})
 	}
 }

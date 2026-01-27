@@ -149,7 +149,7 @@ function StoryCardContainer({ children }: { children: ReactNode }) {
 
 	return (
 		<StoryCardContext.Provider value={contextValue}>
-			<div className="flex flex-col gap-2">
+			<div className="rbsb:flex rbsb:flex-col rbsb:gap-2">
 				{cards.map(({ content, key, ...rest }) => (
 					<StoryCard key={key} {...rest}>
 						{content}

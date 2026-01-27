@@ -4,7 +4,7 @@ import { themes } from 'storybook/theming'
 
 // Simple demo component for testing the decorator
 const DemoComponent = ({ text = 'Hello World' }: { text?: string }) => (
-	<div className="p-4 bg-gray-100 dark:bg-gray-500 rounded">{text}</div>
+	<div className="rbsb:p-4 rbsb:bg-gray-100 rbsb:dark:bg-gray-500 rbsb:rounded">{text}</div>
 )
 
 const meta = {
@@ -75,4 +75,70 @@ export const WithDocsTheme: Story = {
 		theme: themes.dark
 	}),
 	decorators: [showDocSource(), showDocSource({ showOriginalSource: true })]
+}
+
+export const WithClassNameString: Story = {
+	name: 'className: string',
+	tags: ['props'],
+	parameters: defineDocsParam({
+		source: {
+			code: '<div>Hello, World!</div>'
+		},
+		description: {
+			story: 'Demonstrates using className as a string to add custom styling'
+		}
+	}),
+	decorators: [
+		showDocSource({
+			showOriginalSource: true,
+			className: 'rbsb:bg-blue-500 rbsb:dark:bg-blue-900'
+		})
+	],
+	render: () => <DemoComponent text="Custom border and shadow" />
+}
+
+export const WithClassNameFunction: Story = {
+	name: 'className: function',
+	tags: ['props'],
+	parameters: defineDocsParam({
+		source: {
+			code: '<div>Hello, World!</div>'
+		},
+		description: {
+			story: 'Demonstrates using className as a function to conditionally apply styles based on state'
+		}
+	}),
+	decorators: [
+		showDocSource({
+			className: ({ defaultClassName }) => {
+				return `${defaultClassName} rbsb:border-2 rbsb:border-purple-500 rbsb:rounded-lg`
+			}
+		})
+	],
+	render: () => <DemoComponent text="Function-based styling" />
+}
+
+export const WithClassNameConditional: Story = {
+	name: 'With className: conditional function',
+	parameters: defineDocsParam({
+		source: {
+			code: '<div>Hello, World!</div>'
+		},
+		description: {
+			story: 'Demonstrates using className function to access state and apply conditional styles'
+		}
+	}),
+	decorators: [
+		showDocSource({
+			className: ({ defaultClassName, status }) => {
+				// Status will be 'info' by default since showDocSource doesn't set it
+				const additionalStyles =
+					status === 'info'
+						? 'rbsb:border-2 rbsb:border-blue-500 rbsb:ring-2 rbsb:ring-blue-200 rbsb:dark:ring-blue-800'
+						: 'rbsb:border-2 rbsb:rounded-lg'
+				return `${defaultClassName} ${additionalStyles}`
+			}
+		})
+	],
+	render: () => <DemoComponent text="Conditional styling with function" />
 }

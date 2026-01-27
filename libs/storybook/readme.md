@@ -135,6 +135,16 @@ export const preview: Preview = {
 }
 ```
 
+## Styles
+
+[`@repobuddy/storybook`][`@repobuddy/storybook`] uses Tailwind CSS 4 and the prefix `rbsb:` to avoid conflicts with user styles.
+
+To use the styles, import `@repobuddy/storybook/styles.css`:
+
+```ts
+import '@repobuddy/storybook/styles.css'
+```
+
 [`@repobuddy/storybook`]: https://github.com/repobuddy/storybook
 [`storybook-addon-tag-badges`]: https://github.com/Sidnioulz/storybook-addon-tag-badges
 [`@storybook-community/storybook-dark-mode`]: https://github.com/repobuddy/@storybook-community/storybook-dark-mode

@@ -16,19 +16,24 @@ type Story = StoryObj<typeof meta>
 export const WithClassName: Story = {
 	parameters: defineDarkModeParam({
 		classTarget: 'html',
-		darkClass: ['bg-green-800', 'font-extrabold'],
-		lightClass: ['bg-red-800', 'font-extralight']
+		darkClass: ['rbsb:bg-green-800', 'rbsb:font-extrabold'],
+		lightClass: ['rbsb:bg-red-800', 'rbsb:font-extralight']
 	}),
 	decorators: [withDarkMode()],
 	render: () => {
 		useEffect(
 			() => () => {
-				document.documentElement.classList.remove('bg-green-800', 'bg-red-800', 'font-extrabold', 'font-extralight')
+				document.documentElement.classList.remove(
+					'rbsb:bg-green-800',
+					'rbsb:bg-red-800',
+					'rbsb:font-extrabold',
+					'rbsb:font-extralight'
+				)
 			},
 			[]
 		)
 		return (
-			<div className="p-4">
+			<div className="rbsb:p-4">
 				<p>The background color will turn green in dark mode and red in light mode.</p>
 			</div>
 		)
@@ -57,7 +62,7 @@ export const WithStyle: Story = {
 			[]
 		)
 		return (
-			<div className="p-4">
+			<div className="rbsb:p-4">
 				<p>The background color will turn green in dark mode and red in light mode.</p>
 			</div>
 		)
@@ -69,14 +74,14 @@ export const BodyClass: Story = {
 	tags: ['props'],
 	decorators: [
 		withDarkMode({
-			bodyClass: 'bg-red-800 font-extralight dark:bg-green-800 dark:font-extrabold'
+			bodyClass: 'rbsb:bg-red-800 rbsb:font-extralight rbsb:dark:bg-green-800 rbsb:dark:font-extrabold'
 		})
 	],
 	render: () => {
 		useEffect(
 			() => () => {
-				document.body.classList.remove('bg-red-800', 'font-extralight')
-				document.body.classList.remove('dark:bg-green-800', 'dark:font-extrabold')
+				document.body.classList.remove('rbsb:bg-red-800', 'rbsb:font-extralight')
+				document.body.classList.remove('rbsb:dark:bg-green-800', 'rbsb:dark:font-extrabold')
 			},
 			[]
 		)
@@ -115,20 +120,20 @@ export const BodyStyle: Story = {
 export const WithBodyTarget: Story = {
 	parameters: defineDarkModeParam({
 		classTarget: 'body',
-		darkClass: ['bg-green-800', 'font-extrabold'],
-		lightClass: ['bg-red-800', 'font-extralight']
+		darkClass: ['rbsb:bg-green-800', 'rbsb:font-extrabold'],
+		lightClass: ['rbsb:bg-red-800', 'rbsb:font-extralight']
 	}),
 	decorators: [withDarkMode()],
 	render: () => {
 		useEffect(
 			() => () => {
-				document.body.classList.remove('bg-green-800', 'font-extrabold')
-				document.body.classList.remove('bg-red-800', 'font-extralight')
+				document.body.classList.remove('rbsb:bg-green-800', 'rbsb:font-extrabold')
+				document.body.classList.remove('rbsb:bg-red-800', 'rbsb:font-extralight')
 			},
 			[]
 		)
 		return (
-			<div className="p-4">
+			<div className="rbsb:p-4">
 				<p>The background color will turn green in dark mode and red in light mode.</p>
 			</div>
 		)

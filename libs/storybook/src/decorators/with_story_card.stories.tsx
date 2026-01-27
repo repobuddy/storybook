@@ -107,7 +107,7 @@ export const WithInfoStatus: Story = {
 	decorators: [withStoryCard({ title: 'Info Card', status: 'info' })],
 	play: async ({ canvasElement }) => {
 		const section = canvasElement.querySelector('section')
-		await expect(section).toHaveClass('bg-sky-100', 'dark:bg-sky-900')
+		await expect(section).toHaveClass('rbsb:bg-sky-100', 'rbsb:dark:bg-sky-900')
 	}
 }
 
@@ -122,7 +122,7 @@ export const WithWarnStatus: Story = {
 	decorators: [withStoryCard({ title: 'Warning Card', status: 'warn' })],
 	play: async ({ canvasElement }) => {
 		const section = canvasElement.querySelector('section')
-		await expect(section).toHaveClass('bg-yellow-100', 'dark:bg-yellow-900')
+		await expect(section).toHaveClass('rbsb:bg-yellow-100', 'rbsb:dark:bg-yellow-900')
 	}
 }
 
@@ -137,7 +137,7 @@ export const WithErrorStatus: Story = {
 	decorators: [withStoryCard({ title: 'Error Card', status: 'error' })],
 	play: async ({ canvasElement }) => {
 		const section = canvasElement.querySelector('section')
-		await expect(section).toHaveClass('bg-red-100', 'dark:bg-red-900')
+		await expect(section).toHaveClass('rbsb:bg-red-100', 'rbsb:dark:bg-red-900')
 	}
 }
 
@@ -153,12 +153,12 @@ export const WithCustomClassName: Story = {
 		withStoryCard({
 			title: 'Custom Styled Card',
 			status: 'info',
-			className: 'border-2 border-blue-500 shadow-lg'
+			className: 'rbsb:border-2 rbsb:border-blue-500 rbsb:shadow-lg'
 		})
 	],
 	play: async ({ canvasElement }) => {
 		const section = canvasElement.querySelector('section')
-		await expect(section).toHaveClass('border-2 border-blue-500 shadow-lg')
+		await expect(section).toHaveClass('rbsb:border-2 rbsb:border-blue-500 rbsb:shadow-lg')
 	}
 }
 
@@ -179,9 +179,9 @@ export const WithClassNameFunction: Story = {
 				twMerge(
 					defaultClassName,
 					{
-						info: 'bg-green-200 dark:bg-green-800',
-						warn: 'bg-amber-300 dark:bg-amber-900',
-						error: 'bg-rose-400 dark:bg-rose-900'
+						info: 'rbsb:bg-green-200 rbsb:dark:bg-green-800',
+						warn: 'rbsb:bg-amber-300 rbsb:dark:bg-amber-900',
+						error: 'rbsb:bg-rose-400 rbsb:dark:bg-rose-900'
 					}[status!]
 				)
 		})
@@ -189,7 +189,7 @@ export const WithClassNameFunction: Story = {
 	render: () => <pre>{'className: ({ status, defaultClassName }) => string'}</pre>,
 	play: async ({ canvasElement }) => {
 		const section = canvasElement.querySelector('section')
-		await expect(section).toHaveClass('bg-green-200', 'dark:bg-green-800')
+		await expect(section).toHaveClass('rbsb:bg-green-200', 'rbsb:dark:bg-green-800')
 	}
 }
 

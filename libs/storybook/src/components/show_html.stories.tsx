@@ -33,9 +33,9 @@ export const DefaultSubject: StoryObj = {
 	}),
 	decorators: [withStoryCard()],
 	render: () => (
-		<div className="flex flex-col gap-4">
+		<div className="rbsb:flex rbsb:flex-col rbsb:gap-4">
 			<div data-testid="subject">
-				<button type="button" className="bg-sky-500 text-white rounded p-2">
+				<button type="button" className="rbsb:bg-sky-500 rbsb:text-white rbsb:rounded rbsb:p-2">
 					This is a button
 				</button>
 			</div>
@@ -50,7 +50,7 @@ export const NoSubjectFound: StoryObj = {
 
 export const CustomizeWithClassName: StoryObj = {
 	tags: ['props'],
-	render: () => <ShowHtml className="bg-sky-500 text-white rounded p-2" />
+	render: () => <ShowHtml className="rbsb:bg-sky-500 rbsb:text-white rbsb:rounded rbsb:p-2" />
 }
 
 export const CustomizeWithStyle: StoryObj = {

@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority'
 import type { ReactNode } from 'react'
-import { twMerge } from 'tailwind-merge'
+import { twJoin, twMerge } from 'tailwind-merge'
 
 export type StoryCardProps = {
 	/**
@@ -10,9 +10,9 @@ export type StoryCardProps = {
 	title?: ReactNode | undefined
 	/**
 	 * Visual status of the card, affecting its background color.
-	 * - `'error'`: Red background (bg-red-100 dark:bg-red-900)
-	 * - `'warn'`: Yellow background (bg-yellow-100 dark:bg-yellow-900)
-	 * - `'info'`: Blue background (bg-sky-100 dark:bg-sky-900) - default
+	 * - `'error'`: Red background (rbsb:bg-red-100 rbsb:dark:bg-red-900)
+	 * - `'warn'`: Yellow background (rbsb:bg-yellow-100 rbsb:dark:bg-yellow-900)
+	 * - `'info'`: Blue background (rbsb:bg-sky-100 rbsb:dark:bg-sky-900) - default
 	 */
 	status?: 'error' | 'warn' | 'info' | undefined
 	/**
@@ -33,23 +33,26 @@ export type StoryCardProps = {
 function storyCardTheme(state: Pick<StoryCardProps, 'status'>, className: StoryCardProps['className']) {
 	const defaultClassName = storyCardVariants(state)
 	if (!className) return defaultClassName
-	return typeof className === 'function'
-		? className({ ...state, defaultClassName })
-		: twMerge(defaultClassName, className)
+	return twMerge(
+		typeof className === 'function' ? className({ ...state, defaultClassName }) : twJoin(defaultClassName, className)
+	)
 }
 
-const storyCardVariants = cva('flex flex-col gap-1 py-3 px-4 rounded text-black dark:text-gray-100', {
-	variants: {
-		status: {
-			error: 'bg-red-100 dark:bg-red-900',
-			warn: 'bg-yellow-100 dark:bg-yellow-900',
-			info: 'bg-sky-100 dark:bg-sky-900'
+const storyCardVariants = cva(
+	'rbsb:flex rbsb:flex-col rbsb:gap-1 rbsb:py-3 rbsb:px-4 rbsb:rounded rbsb:text-black rbsb:dark:text-gray-100',
+	{
+		variants: {
+			status: {
+				error: 'rbsb:bg-red-100 rbsb:dark:bg-red-900',
+				warn: 'rbsb:bg-yellow-100 rbsb:dark:bg-yellow-900',
+				info: 'rbsb:bg-sky-100 rbsb:dark:bg-sky-900'
+			}
+		},
+		defaultVariants: {
+			status: 'info'
 		}
-	},
-	defaultVariants: {
-		status: 'info'
 	}
-})
+)
 
 /**
  * A card component that displays information with optional title and status styling.
@@ -60,7 +63,7 @@ const storyCardVariants = cva('flex flex-col gap-1 py-3 px-4 rounded text-black 
 export function StoryCard({ status, className, children, title }: StoryCardProps) {
 	return (
 		<section className={storyCardTheme({ status }, className)}>
-			{title && <h2 className="text-lg font-bold">{title}</h2>}
+			{title && <h2 className="rbsb:text-lg rbsb:font-bold">{title}</h2>}
 			{children}
 		</section>
 	)
