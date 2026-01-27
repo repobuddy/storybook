@@ -79,7 +79,7 @@ export const WithDocsTheme: Story = {
 
 export const WithClassNameString: Story = {
 	name: 'className: string',
-	tags: ['props', 'version:next'],
+	tags: ['props', 'version:next', '!version:2.4'],
 	parameters: defineDocsParam({
 		source: {
 			code: '<div>Hello, World!</div>'
@@ -99,7 +99,7 @@ export const WithClassNameString: Story = {
 
 export const WithClassNameFunction: Story = {
 	name: 'className: function',
-	tags: ['props', 'version:next'],
+	tags: ['props', 'version:next', '!version:2.4'],
 	parameters: defineDocsParam({
 		source: {
 			code: '<div>Hello, World!</div>'
@@ -120,7 +120,7 @@ export const WithClassNameFunction: Story = {
 
 export const WithClassNameConditional: Story = {
 	name: 'With className: conditional function',
-	tags: ['props', 'version:next'],
+	tags: ['props', 'version:next', '!version:2.4'],
 	parameters: defineDocsParam({
 		source: {
 			code: '<div>Hello, World!</div>'
