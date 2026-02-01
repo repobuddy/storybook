@@ -6,7 +6,7 @@ import { testType } from 'type-plus'
 
 const meta = {
 	title: 'arg-types/FnToArgTypes',
-	tags: ['version:next'],
+	tags: ['version:2.6'],
 	decorators: [showDocSource()],
 	render: () => <></>
 } satisfies Meta

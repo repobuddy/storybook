@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 2.6.0
+
+### Minor Changes
+
+- [#378](https://github.com/repobuddy/storybook/pull/378) [`bdad2c4`](https://github.com/repobuddy/storybook/commit/bdad2c40db1bb97c271e033077383591c5a6a9eb) Thanks [@unional](https://github.com/unional)! - Add `FnToArgTypes` type utility to convert a function's parameter types to Storybook Args type.
+
 ## 2.5.0
 
 ### Minor Changes
