@@ -6,9 +6,9 @@ import type { AnyFunction, CreateTuple, Properties, Tail } from 'type-plus'
  *
  * @example
  * type F = (a: number, b: string) => void
- * type R = ToArgTypes<F, ['x', 'y']>  // { x: number; y: string }
+ * type R = FnToArgTypes<F, ['x', 'y']>  // { x: number; y: string }
  */
-export type ParamsToArgTypes<
+export type FnToArgTypes<
 	F extends AnyFunction,
 	Names extends CreateTuple<Parameters<F>['length'], string>
 > = Properties<ReduceToRecord<Parameters<F>, Names>>
