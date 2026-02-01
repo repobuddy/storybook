@@ -1,4 +1,5 @@
 export * from '@repobuddy/test'
+export type * from './arg-types/params-to-arg-types.ts'
 export * from './components/show_html.tsx'
 export * from './decorators/show_doc_source.tsx'
 export * from './decorators/with_story_card.tsx'
