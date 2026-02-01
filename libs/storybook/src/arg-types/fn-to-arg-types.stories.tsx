@@ -43,7 +43,24 @@ export const BasicUsage: Story = {
 		})
 	],
 	async play() {
+		testType.equal<FnToArgTypes<() => void>, unknown>(true)
+		testType.equal<keyof FnToArgTypes<() => void>, never>(true)
+		const _m0: Meta<FnToArgTypes<() => void, []>> = { argTypes: {} }
+
+		const _m0X: Meta<FnToArgTypes<() => void>> = { argTypes: { x: { control: 'text' } } }
+
 		testType.equal<FnToArgTypes<(a: number) => void, ['x']>, { x: number }>(true)
+		const _m1: Meta<FnToArgTypes<(a: number) => void>> = {
+			argTypes: { x: { control: 'number' } }
+		}
+		const _m1X: Meta<FnToArgTypes<(a: number) => void, ['x']>> = {
+			argTypes: {
+				x: { control: 'number' },
+				// @ts-expect-error
+				y: { control: 'text' }
+			}
+		}
+
 		testType.equal<FnToArgTypes<(a: number, b: string) => void, ['x', 'y']>, { x: number; y: string }>(true)
 		testType.equal<FnToArgTypes<(a: number, b?: string) => void, ['x', 'y']>, { x: number; y: string | undefined }>(
 			true
@@ -52,5 +69,14 @@ export const BasicUsage: Story = {
 			FnToArgTypes<(a: number, b: string, c: boolean) => void, ['x', 'y', 'z']>,
 			{ x: number; y: string; z: boolean }
 		>(true)
+		const _m2: Meta<FnToArgTypes<(a: number, b: string, c: boolean) => void, ['x', 'y', 'z']>> = {
+			argTypes: {
+				x: { control: 'number' },
+				y: { control: 'text' },
+				z: { control: 'boolean' },
+				// @ts-expect-error
+				p: { control: 'text' }
+			}
+		}
 	}
 }

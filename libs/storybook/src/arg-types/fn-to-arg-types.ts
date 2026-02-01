@@ -10,13 +10,15 @@ import type { AnyFunction, CreateTuple, Properties, Tail } from 'type-plus'
  */
 export type FnToArgTypes<
 	F extends AnyFunction,
-	Names extends CreateTuple<Parameters<F>['length'], string>
+	Names extends CreateTuple<Parameters<F>['length'], string> = CreateTuple<Parameters<F>['length'], string>
 > = Properties<ReduceToRecord<Parameters<F>, Names>>
 
-type ReduceToRecord<Params extends Array<any>, Names extends Array<any>> = Names['length'] extends 1
-	? Names extends [infer K extends string]
-		? { [I in K]: Params[0] }
-		: never
-	: Names extends [infer K extends string, ...infer Rest]
-		? { [I in K]: Params[0] } & ReduceToRecord<Tail<Params>, Rest>
-		: never
+type ReduceToRecord<Params extends Array<any>, Names extends Array<any>> = Names['length'] extends 0
+	? unknown
+	: Names['length'] extends 1
+		? Names extends [infer K extends string]
+			? { [I in K]: Params[0] }
+			: never
+		: Names extends [infer K extends string, ...infer Rest]
+			? { [I in K]: Params[0] } & ReduceToRecord<Tail<Params>, Rest>
+			: never
