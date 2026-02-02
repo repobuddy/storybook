@@ -75,7 +75,7 @@
 	"devDependencies": {
 		"@repobuddy/vitest": "^2.0.0",
 		"@storybook-community/storybook-dark-mode": "^7.0.2",
-		"@storybook/addon-docs": "^10.1.10",
+		"@storybook/addon-docs": "^10.2.4",
 		"@storybook/addon-vitest": "^10.1.10",
 		"@storybook/react-vite": "^10.2.4",
 		"@tailwindcss/cli": "^4.1.17",
@@ -97,7 +97,7 @@
 	},
 	"peerDependencies": {
 		"@storybook-community/storybook-dark-mode": "^7.0.0",
-		"@storybook/addon-docs": "^10.1.10",
+		"@storybook/addon-docs": "^10.2.4",
 		"storybook-addon-tag-badges": "^3.0.2"
 	},
 	"peerDependenciesMeta": {
