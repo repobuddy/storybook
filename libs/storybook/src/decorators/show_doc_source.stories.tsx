@@ -202,6 +202,6 @@ export const WithClassNameConditional: Story = {
 
 export const WithSourceString: Story = {
 	name: 'source: string',
-	tags: ['props', 'version:next'],
+	tags: ['props', 'version:2.7'],
 	decorators: [showDocSource({ source: '() => <DemoComponent text="Hello World" />' })]
 }
