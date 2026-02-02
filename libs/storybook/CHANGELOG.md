@@ -1,5 +1,13 @@
 # @repobuddy/storybook
 
+## 2.7.0
+
+### Minor Changes
+
+- [`6c6435b`](https://github.com/repobuddy/storybook/commit/6c6435b7202b73abb4126f5c61472f51d7c4ea74) Thanks [@unional](https://github.com/unional)! - Add `source` option to `showDocSource` decorator
+
+  When provided, the decorator shows the given source string instead of `docs.source.code` or the story's original source. This allows callers to override the displayed code explicitly.
+
 ## 2.6.0
 
 ### Minor Changes
