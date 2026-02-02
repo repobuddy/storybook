@@ -17,13 +17,103 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const ShowStoryCode: Story = {
-	decorators: [showDocSource()],
+export const ShowDocsSourceCode: Story = {
+	parameters: {
+		docs: {
+			source: {
+				code: `() => /* from docs.source.code */ <DemoComponent text="Hello World" />`
+			}
+		}
+	},
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					When <code>docs.source.code</code> is provided, the decorator will show it by default.
+				</p>
+			)
+		}),
+		showDocSource()
+	],
 	render: () => <DemoComponent text="Hello World" />
 }
 
+export const ShowStorySource: Story = {
+	decorators: [
+		withStoryCard({
+			content: <p>When no `source` is provided, the decorator will use the original source code of the story.</p>
+		}),
+		showDocSource()
+	],
+	render: () => <DemoComponent text="Hello World" />
+}
+
+export const WithLanguageJson: Story = {
+	name: 'With docs.source.language: json',
+	parameters: defineDocsParam({
+		source: {
+			code: '{ "hello": "world" }',
+			language: 'json'
+		}
+	}),
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Use <code>docs.source.language</code> to specify the language of the source code.
+				</p>
+			)
+		}),
+		showDocSource(),
+		showDocSource({ showOriginalSource: true })
+	]
+}
+
+export const WithLanguageMd: Story = {
+	name: 'With docs.source.language: md',
+	parameters: defineDocsParam({
+		source: {
+			code: 'This is a `markdown` text',
+			language: 'md'
+		}
+	}),
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Use <code>docs.source.language</code> to specify the language of the source code.
+				</p>
+			)
+		}),
+		showDocSource(),
+		showDocSource({ showOriginalSource: true })
+	]
+}
+
+export const WithDocsTheme: Story = {
+	name: 'With docs.theme: dark',
+	parameters: defineDocsParam({
+		source: {
+			code: '<div>Hello, World!</div>'
+		},
+		theme: themes.dark
+	}),
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Use <code>docs.theme</code> to specify the theme of the source code.
+				</p>
+			)
+		}),
+		showDocSource(),
+		showDocSource({ showOriginalSource: true })
+	]
+}
+
 export const ShowDocsSource: Story = {
-	name: 'Show docs.source.code',
+	name: 'showOriginalSource: true',
+	tags: ['props'],
 	parameters: {
 		docs: {
 			source: {
@@ -35,46 +125,13 @@ export const ShowDocsSource: Story = {
 		withStoryCard({
 			content: (
 				<p>
-					Shows the code in <code>docs.source.code</code> parameter
+					Use <code>showOriginalSource: true</code> to show the source code of the story instead of the one in{' '}
+					<code>docs.source.code</code>.
 				</p>
 			)
 		}),
-		showDocSource(),
 		showDocSource({ showOriginalSource: true })
 	]
-}
-
-export const WithLanguageJson: Story = {
-	name: 'With docs.source.language: json',
-	parameters: defineDocsParam({
-		source: {
-			code: '{ "hello": "world" }',
-			language: 'json'
-		}
-	}),
-	decorators: [showDocSource(), showDocSource({ showOriginalSource: true })]
-}
-
-export const WithLanguageMd: Story = {
-	name: 'With docs.source.language: md',
-	parameters: defineDocsParam({
-		source: {
-			code: 'This is a `markdown` text',
-			language: 'md'
-		}
-	}),
-	decorators: [showDocSource(), showDocSource({ showOriginalSource: true })]
-}
-
-export const WithDocsTheme: Story = {
-	name: 'With docs.theme: dark',
-	parameters: defineDocsParam({
-		source: {
-			code: '<div>Hello, World!</div>'
-		},
-		theme: themes.dark
-	}),
-	decorators: [showDocSource(), showDocSource({ showOriginalSource: true })]
 }
 
 export const WithClassNameString: Story = {
@@ -90,7 +147,6 @@ export const WithClassNameString: Story = {
 	}),
 	decorators: [
 		showDocSource({
-			showOriginalSource: true,
 			className: 'rbsb:bg-blue-500 rbsb:dark:bg-blue-900'
 		})
 	],
@@ -119,7 +175,7 @@ export const WithClassNameFunction: Story = {
 }
 
 export const WithClassNameConditional: Story = {
-	name: 'With className: conditional function',
+	name: 'className: conditional function',
 	tags: ['props', 'version:2.5', '!version:2.4'],
 	parameters: defineDocsParam({
 		source: {
@@ -142,4 +198,10 @@ export const WithClassNameConditional: Story = {
 		})
 	],
 	render: () => <DemoComponent text="Conditional styling with function" />
+}
+
+export const WithSourceString: Story = {
+	name: 'source: string',
+	tags: ['props', 'version:next'],
+	decorators: [showDocSource({ source: '() => <DemoComponent text="Hello World" />' })]
 }
