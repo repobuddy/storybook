@@ -37,7 +37,7 @@
 		"@repobuddy/biome": "2.2.0",
 		"@types/react": "^19.2.5",
 		"husky": "^9.1.7",
-		"knip": "^5.78.0",
+		"knip": "^5.83.0",
 		"playwright": "^1.57.0",
 		"rimraf": "^6.1.0",
 		"turbo": "^2.6.1",
