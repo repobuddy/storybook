@@ -1,5 +1,13 @@
 # @repobuddy/storybook
 
+## 2.9.0
+
+### Minor Changes
+
+- [`152a10c`](https://github.com/repobuddy/storybook/commit/152a10c9210b072bd34f0ec6466731aae222ea61) Thanks [@unional](https://github.com/unional)! - Add `defineStoryCard` parameter function to configure story cards via story parameters.
+
+  The `withStoryCard` decorator now supports reading configuration from story parameters using `defineStoryCard`, allowing story card configuration to be defined in the `parameters` object instead of only in decorator props.
+
 ## 2.8.0
 
 ### Minor Changes
