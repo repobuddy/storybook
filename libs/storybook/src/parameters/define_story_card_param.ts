@@ -78,6 +78,6 @@ export interface StoryCardParam {
  * }
  * ```
  */
-export function defineStoryCard(storyCard: StoryCardParam['storyCard']): StoryCardParam {
+export function defineStoryCardParam(storyCard: StoryCardParam['storyCard']): StoryCardParam {
 	return { storyCard }
 }

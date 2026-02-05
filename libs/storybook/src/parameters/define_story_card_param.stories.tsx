@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
-import { defineDocsParam, defineStoryCard, showDocSource, withStoryCard } from '#repobuddy/storybook'
+import { defineDocsParam, defineStoryCardParam, showDocSource, withStoryCard } from '#repobuddy/storybook'
 
 const meta: Meta = {
 	title: 'parameters/defineStoryCard',
@@ -17,7 +17,7 @@ type Story = StoryObj<typeof meta>
  */
 export const WithTitleAndContent: Story = {
 	parameters: {
-		...defineStoryCard({
+		...defineStoryCardParam({
 			title: 'Important Notice',
 			status: 'info',
 			content: <p>This is a custom message displayed in the card.</p>
@@ -45,7 +45,7 @@ export const WithStoryDescription: Story = {
 				story: 'This description will be automatically shown in the card.'
 			}
 		}),
-		...defineStoryCard({
+		...defineStoryCardParam({
 			title: 'Story Information',
 			status: 'info'
 		}),
@@ -66,7 +66,7 @@ export const WithStoryDescription: Story = {
  */
 export const WithErrorStatus: Story = {
 	parameters: {
-		...defineStoryCard({
+		...defineStoryCardParam({
 			title: 'Error Card',
 			status: 'error',
 			content: <p>This card displays an error status with red background styling.</p>
@@ -89,7 +89,7 @@ export const WithErrorStatus: Story = {
  */
 export const WithWarnStatus: Story = {
 	parameters: {
-		...defineStoryCard({
+		...defineStoryCardParam({
 			title: 'Warning Card',
 			status: 'warn',
 			content: <p>This card displays a warning status with yellow background styling.</p>
@@ -112,7 +112,7 @@ export const WithWarnStatus: Story = {
  */
 export const WithInfoStatus: Story = {
 	parameters: {
-		...defineStoryCard({
+		...defineStoryCardParam({
 			title: 'Info Card',
 			status: 'info',
 			content: <p>This card displays an info status with blue background styling. This is the default status.</p>
@@ -135,7 +135,7 @@ export const WithInfoStatus: Story = {
  */
 export const WithCustomClassName: Story = {
 	parameters: {
-		...defineStoryCard({
+		...defineStoryCardParam({
 			title: 'Custom Styled Card',
 			status: 'info',
 			content: <p>This card has custom border styling applied via className.</p>,
@@ -160,7 +160,7 @@ export const WithCustomClassName: Story = {
  */
 export const WithClassNameFunction: Story = {
 	parameters: {
-		...defineStoryCard({
+		...defineStoryCardParam({
 			title: 'Function-Based Styling',
 			status: 'info',
 			content: <p>This card uses a function to compute className based on the card state.</p>,
@@ -196,7 +196,7 @@ export const WithClassNameFunction: Story = {
  */
 export const DecoratorPropsOverride: Story = {
 	parameters: {
-		...defineStoryCard({
+		...defineStoryCardParam({
 			title: 'Parameter Title',
 			status: 'info',
 			content: <p>This content will be overridden by the decorator.</p>
