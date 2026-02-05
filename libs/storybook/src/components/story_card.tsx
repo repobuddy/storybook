@@ -2,6 +2,14 @@ import { cva } from 'class-variance-authority'
 import type { ReactNode } from 'react'
 import { twJoin, twMerge } from 'tailwind-merge'
 
+/**
+ * Visual status of the card, affecting its background color.
+ * - `'error'`: Red background (rbsb:bg-red-100 rbsb:dark:bg-red-900)
+ * - `'warn'`: Yellow background (rbsb:bg-yellow-100 rbsb:dark:bg-yellow-900)
+ * - `'info'`: Blue background (rbsb:bg-sky-100 rbsb:dark:bg-sky-900) - default
+ */
+export type StoryCardStatus = 'error' | 'warn' | 'info' | undefined
+
 export type StoryCardProps = {
 	/**
 	 * Optional title displayed as a heading in the card.
@@ -14,7 +22,7 @@ export type StoryCardProps = {
 	 * - `'warn'`: Yellow background (rbsb:bg-yellow-100 rbsb:dark:bg-yellow-900)
 	 * - `'info'`: Blue background (rbsb:bg-sky-100 rbsb:dark:bg-sky-900) - default
 	 */
-	status?: 'error' | 'warn' | 'info' | undefined
+	status?: StoryCardStatus
 	/**
 	 * Additional CSS classes or a function to compute classes.
 	 *

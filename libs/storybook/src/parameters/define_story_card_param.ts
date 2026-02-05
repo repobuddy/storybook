@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import type { StoryCardProps } from '../components/story_card.js'
+import type { StoryCardProps, StoryCardStatus } from '../components/story_card.js'
 
 export interface StoryCardParam {
 	storyCard: {
@@ -14,7 +14,7 @@ export interface StoryCardParam {
 		 * - `'warn'`: Yellow background
 		 * - `'info'`: Blue background - default
 		 */
-		status?: 'error' | 'warn' | 'info' | undefined
+		status?: StoryCardStatus
 		/**
 		 * Additional CSS classes or a function to compute classes.
 		 *
