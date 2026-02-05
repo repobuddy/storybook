@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 2.9.1
+
+### Patch Changes
+
+- [`78149f4`](https://github.com/repobuddy/storybook/commit/78149f4f9b33688ac298bdc7b9fa93a96a20f8aa) Thanks [@unional](https://github.com/unional)! - fix name of `defineStoryCardParam`
+
 ## 2.9.0
 
 ### Minor Changes
