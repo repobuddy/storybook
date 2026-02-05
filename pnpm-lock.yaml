@@ -162,7 +162,7 @@ importers:
         version: 10.2.6(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       storybook-addon-tag-badges:
         specifier: ^3.0.2
-        version: 3.0.5(storybook@10.2.6(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
+        version: 3.0.6(storybook@10.2.6(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
       tailwindcss:
         specifier: ^4.1.17
         version: 4.1.18
@@ -1510,6 +1510,9 @@ packages:
   '@types/react@19.2.13':
     resolution: {integrity: sha512-KkiJeU6VbYbUOp5ITMIc7kBfqlYkKA5KhEHVrGMmUUMt7NeaZg65ojdPk+FtNrBAOXNVM5QM72jnADjM+XVRAQ==}
 
+  '@types/react@19.2.13':
+    resolution: {integrity: sha512-KkiJeU6VbYbUOp5ITMIc7kBfqlYkKA5KhEHVrGMmUUMt7NeaZg65ojdPk+FtNrBAOXNVM5QM72jnADjM+XVRAQ==}
+
   '@types/resolve@1.20.6':
     resolution: {integrity: sha512-A4STmOXPhMUtHH+S6ymgE2GiBSMqf4oTvcQZMcHzokuTLVYzXTB8ttjcgxOVaAp2lGwEdzZ0J+cRbbeevQj1UQ==}
 
@@ -2373,6 +2376,12 @@ packages:
     resolution: {integrity: sha512-hXdUTZYIVOt1Ex//jAQi+wTZZpUpwBj/0QsOzqegb3rGMMeJiSEu5xLHnYfBrRV4RH2+OCSOO95Is/7x1WJ4bw==}
     engines: {node: '>=10'}
 
+  map-or-similar@1.5.0:
+    resolution: {integrity: sha512-0aF7ZmVon1igznGI4VS30yugpduQW3y3GkcgGJOp7d8x8QrizhigUxjI/m2UojsXXto+jLAH3KSz+xOJTiORjg==}
+
+  memoizerific@1.11.3:
+    resolution: {integrity: sha512-/EuHYwAPdLtXwAwSZkh/Gutery6pD2KYd44oQLhAvQp/50mpyduZh8Q7PYHXTCJ+wuXxt7oij2LXyIJOOYFPog==}
+
   memorystream@0.3.1:
     resolution: {integrity: sha512-S3UwM3yj5mtUSEfP41UZmt/0SCoVYUcU1rkXv+BQ5Ig8ndL4sPoJNBUJERafdPb5jjHJGuMgytgKvKIf58XNBw==}
     engines: {node: '>= 0.10.0'}
@@ -2807,8 +2816,8 @@ packages:
   std-env@3.10.0:
     resolution: {integrity: sha512-5GS12FdOZNliM5mAOxFRg7Ir0pWz8MdpYm6AY6VPkGpbA7ZzmbzNcBJQ0GPvvyWgcY7QAhCgf9Uy89I03faLkg==}
 
-  storybook-addon-tag-badges@3.0.5:
-    resolution: {integrity: sha512-1o7ZTKhBkS+9Bm2KF0ef4UjQSrpgXkEpxQOwXiMWRqRWZJqIV+uhwiqQrRxjbHBXUXg49mmsrOo1gWXgzriynA==}
+  storybook-addon-tag-badges@3.0.6:
+    resolution: {integrity: sha512-UQ9kaBqcKYgMsu2fkoLwcKJt83r7y1fzAtjrU9BUhkpILK1Jp0BbzQzeyno9opl5nWhYT57XXSAWDMeXH6dMlw==}
     engines: {node: '>=20'}
     peerDependencies:
       storybook: ^10.0.0
@@ -3906,6 +3915,12 @@ snapshots:
       '@types/react': 19.2.13
       react: 19.2.4
 
+  '@mdx-js/react@3.1.1(@types/react@19.2.13)(react@19.2.4)':
+    dependencies:
+      '@types/mdx': 2.0.13
+      '@types/react': 19.2.13
+      react: 19.2.4
+
   '@mswjs/interceptors@0.35.9':
     dependencies:
       '@open-draft/deferred-promise': 2.2.0
@@ -4231,11 +4246,39 @@ snapshots:
       - react
       - react-dom
 
+  '@storybook-community/storybook-dark-mode@7.1.0(@storybook/addon-docs@10.2.6(@types/react@19.2.13)(esbuild@0.27.2)(rollup@4.55.1)(storybook@10.2.6(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(vite@7.3.1(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(storybook@10.2.6(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))':
+    dependencies:
+      '@storybook/icons': 2.0.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      dequal: 2.0.3
+      storybook: 10.2.6(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+    optionalDependencies:
+      '@storybook/addon-docs': 10.2.6(@types/react@19.2.13)(esbuild@0.27.2)(rollup@4.55.1)(storybook@10.2.6(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(vite@7.3.1(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2))
+    transitivePeerDependencies:
+      - react
+      - react-dom
+
   '@storybook/addon-a11y@10.2.6(storybook@10.2.6(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))':
     dependencies:
       '@storybook/global': 5.0.0
       axe-core: 4.11.1
       storybook: 10.2.6(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+
+  '@storybook/addon-docs@10.2.6(@types/react@19.2.13)(esbuild@0.27.2)(rollup@4.55.1)(storybook@10.2.6(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(vite@7.3.1(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2))':
+    dependencies:
+      '@mdx-js/react': 3.1.1(@types/react@19.2.13)(react@19.2.4)
+      '@storybook/csf-plugin': 10.2.6(esbuild@0.27.2)(rollup@4.55.1)(storybook@10.2.6(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(vite@7.3.1(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2))
+      '@storybook/icons': 2.0.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@storybook/react-dom-shim': 10.2.6(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(storybook@10.2.6(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
+      storybook: 10.2.6(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      ts-dedent: 2.2.0
+    transitivePeerDependencies:
+      - '@types/react'
+      - esbuild
+      - rollup
+      - vite
+      - webpack
 
   '@storybook/addon-docs@10.2.6(@types/react@19.2.13)(esbuild@0.27.2)(rollup@4.55.1)(storybook@10.2.6(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(vite@7.3.1(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2))':
     dependencies:
@@ -4503,6 +4546,10 @@ snapshots:
   '@types/react-dom@19.2.3(@types/react@19.2.13)':
     dependencies:
       '@types/react': 19.2.13
+
+  '@types/react@19.2.13':
+    dependencies:
+      csstype: 3.2.3
 
   '@types/react@19.2.13':
     dependencies:
@@ -5302,6 +5349,12 @@ snapshots:
     dependencies:
       semver: 7.7.3
 
+  map-or-similar@1.5.0: {}
+
+  memoizerific@1.11.3:
+    dependencies:
+      map-or-similar: 1.5.0
+
   memorystream@0.3.1: {}
 
   meow@12.1.1: {}
@@ -5736,8 +5789,9 @@ snapshots:
 
   std-env@3.10.0: {}
 
-  storybook-addon-tag-badges@3.0.5(storybook@10.2.6(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)):
+  storybook-addon-tag-badges@3.0.6(storybook@10.2.6(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)):
     dependencies:
+      memoizerific: 1.11.3
       storybook: 10.2.6(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
 
   storybook@10.2.6(@testing-library/dom@10.4.1)(prettier@3.5.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
