@@ -1,7 +1,7 @@
-import { showDocSource, whenRunningInTest } from '#repobuddy/storybook'
-import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 import { isRunningInTest } from '@repobuddy/vitest'
 import { expect } from 'storybook/test'
+import { showDocSource, whenRunningInTest } from '#repobuddy/storybook'
+import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 import { ctx } from './when_running_in_text.ctx.js'
 
 export default {

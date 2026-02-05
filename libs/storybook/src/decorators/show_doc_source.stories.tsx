@@ -1,6 +1,6 @@
+import { themes } from 'storybook/theming'
 import { defineDocsParam, showDocSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
-import { themes } from 'storybook/theming'
 
 // Simple demo component for testing the decorator
 const DemoComponent = ({ text = 'Hello World' }: { text?: string }) => (

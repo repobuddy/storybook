@@ -1,7 +1,7 @@
-import { defineDocsParam, withStoryCard } from '#repobuddy/storybook'
-import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 import { expect } from 'storybook/test'
 import { twMerge } from 'tailwind-merge'
+import { defineDocsParam, withStoryCard } from '#repobuddy/storybook'
+import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
 const meta = {
 	title: 'decorators/withStoryCard',

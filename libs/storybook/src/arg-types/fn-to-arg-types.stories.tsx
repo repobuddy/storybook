@@ -1,8 +1,8 @@
+import dedent from 'dedent'
+import { testType } from 'type-plus'
 import type { FnToArgTypes } from '#repobuddy/storybook'
 import { defineDocsParam, showDocSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
-import dedent from 'dedent'
-import { testType } from 'type-plus'
 
 const meta = {
 	title: 'arg-types/FnToArgTypes',

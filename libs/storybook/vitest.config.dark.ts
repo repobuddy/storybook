@@ -1,7 +1,7 @@
+import { join } from 'node:path'
 import { browserTestPreset } from '@repobuddy/vitest/config'
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
 import tailwindcss from '@tailwindcss/vite'
-import { join } from 'node:path'
 // import { storybookVis } from 'storybook-addon-vis/vitest-plugin'
 import { defineProject } from 'vitest/config'
 

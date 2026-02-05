@@ -1,6 +1,6 @@
-import { defineDocsParam, defineStoryCard, showDocSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
+import { defineDocsParam, defineStoryCard, showDocSource, withStoryCard } from '#repobuddy/storybook'
 
 const meta: Meta = {
 	title: 'parameters/defineStoryCard',

@@ -1,6 +1,6 @@
-import { defineDocsParam, showDocSource } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
+import { defineDocsParam, showDocSource } from '#repobuddy/storybook'
 
 export default {
 	title: 'storybook-addon-tag-badges/tagBadges'

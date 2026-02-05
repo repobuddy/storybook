@@ -1,5 +1,5 @@
-import { createDarkModeDocsContainer, defineDarkModeParam } from '#repobuddy/storybook/storybook-dark-mode'
 import type { Preview } from '@storybook/react-vite'
+import { createDarkModeDocsContainer, defineDarkModeParam } from '#repobuddy/storybook/storybook-dark-mode'
 
 import '../reset.css'
 import '../tailwind.css'
