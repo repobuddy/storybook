@@ -24,8 +24,8 @@ importers:
         specifier: ^20.0.0
         version: 20.4.1
       '@repobuddy/biome':
-        specifier: 2.2.0
-        version: 2.2.0(@biomejs/biome@2.3.14)
+        specifier: 2.3.1
+        version: 2.3.1(@biomejs/biome@2.3.14)
       '@types/react':
         specifier: ^19.2.5
         version: 19.2.13
@@ -989,8 +989,8 @@ packages:
   '@quansync/fs@1.0.0':
     resolution: {integrity: sha512-4TJ3DFtlf1L5LDMaM6CanJ/0lckGNtJcMjQ1NAV6zDmA0tEHKZtxNKin8EgPaVX1YzljbxckyT2tJrpQKAtngQ==}
 
-  '@repobuddy/biome@2.2.0':
-    resolution: {integrity: sha512-018qb4TY8Zu7kj50udCG9qRybmDUNXWT86UEwTH6aAf1cXOiiokFvTEBb54RlQeqVM/GZYKOUWSjuSvsU/N8uQ==}
+  '@repobuddy/biome@2.3.1':
+    resolution: {integrity: sha512-dFxQSl+lYZ5Wc9TVUxrSwze9vwC6IBpg4zcbxJkLiZPPnYLX95Zvp9zC+ChPRmc2QpyVzqH4eGnxKzHaVZ1A7Q==}
     peerDependencies:
       '@biomejs/biome': '>= 2'
 
@@ -4092,7 +4092,7 @@ snapshots:
     dependencies:
       quansync: 1.0.0
 
-  '@repobuddy/biome@2.2.0(@biomejs/biome@2.3.14)':
+  '@repobuddy/biome@2.3.1(@biomejs/biome@2.3.14)':
     dependencies:
       '@biomejs/biome': 2.3.14
 
