@@ -30,6 +30,7 @@
 		"editor.formatOnSave": true
 	},
 	"cSpell.words": [
+		"autodocs",
 		"biomejs",
 		"esbuild",
 		"Homa",
