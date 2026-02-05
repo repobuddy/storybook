@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 2.8.0
+
+### Minor Changes
+
+- [`b1b5c5b`](https://github.com/repobuddy/storybook/commit/b1b5c5b6f1bdd4ec16d06005cdae307958c08526) Thanks [@unional](https://github.com/unional)! - Export `StoryCard`.
+
 ## 2.7.0
 
 ### Minor Changes
