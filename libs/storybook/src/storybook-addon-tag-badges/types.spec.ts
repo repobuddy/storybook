@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 import { it } from 'vitest'
+import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 import type { ShowHtml } from '../components/show_html'
 
 it('improves StoryObj[tags]', () => {

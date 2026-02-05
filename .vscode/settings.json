@@ -17,14 +17,14 @@
 	},
 	"[typescript]": {
 		"editor.codeActionsOnSave": {
-			"source.organizeImports": "explicit"
+			"source.organizeImports.biome": "explicit"
 		},
 		"editor.defaultFormatter": "biomejs.biome",
 		"editor.formatOnSave": true
 	},
 	"[typescriptreact]": {
 		"editor.codeActionsOnSave": {
-			"source.organizeImports": "explicit"
+			"source.organizeImports.biome": "explicit"
 		},
 		"editor.defaultFormatter": "biomejs.biome",
 		"editor.formatOnSave": true

@@ -1,5 +1,5 @@
-import { defineDocsParam, StoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import { defineDocsParam, StoryCard } from '#repobuddy/storybook'
 
 const meta: Meta<typeof StoryCard> = {
 	title: 'components/StoryCard',

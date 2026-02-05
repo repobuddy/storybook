@@ -1,9 +1,9 @@
-import type { ExtendsMeta } from '#repobuddy/storybook'
-import { defineDocsParam, showDocSource } from '#repobuddy/storybook'
 import type { Args, Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
 import type { Component } from 'react'
 import { testType } from 'type-plus'
+import type { ExtendsMeta } from '#repobuddy/storybook'
+import { defineDocsParam, showDocSource } from '#repobuddy/storybook'
 import type { ExtractStringLiterals } from './_extract_string_literals.js'
 
 const meta = {
