@@ -11,6 +11,7 @@ import {
 import type { DecoratorFunction, Renderer } from 'storybook/internal/csf'
 import type { RequiredPick } from 'type-plus'
 import { StoryCard, type StoryCardProps } from '../components/story_card.js'
+import type { StoryCardParam } from '../parameters/define_story_card_param.js'
 import { generateKey } from '../utils/generate_key.js'
 
 export type WithStoryCardProps = Omit<StoryCardProps, 'children' | 'className'> & {
@@ -51,6 +52,19 @@ export type WithStoryCardProps = Omit<StoryCardProps, 'children' | 'className'> 
  *     description: {
  *       story: 'This description will be shown in the card'
  *     }
+ *   }),
+ *   decorators: [withStoryCard()]
+ * }
+ * ```
+ *
+ * @example
+ * Using defineStoryCard parameter:
+ * ```tsx
+ * export const MyStory: Story = {
+ *   parameters: defineStoryCard({
+ *     title: 'Important Notice',
+ *     status: 'warn',
+ *     content: <p>Please review this carefully.</p>
  *   }),
  *   decorators: [withStoryCard()]
  * }
@@ -101,17 +115,37 @@ export type WithStoryCardProps = Omit<StoryCardProps, 'children' | 'className'> 
  */
 export function withStoryCard<TRenderer extends Renderer = Renderer>({
 	title,
-	status = 'info',
+	status,
 	content: contentProp,
+	className,
 	...rest
 }: WithStoryCardProps = {}): DecoratorFunction<TRenderer> {
 	return (Story, { parameters, viewMode }) => {
 		if (viewMode === 'docs') return <Story />
 
-		const content = contentProp ?? parameters.docs?.description?.story ?? parameters.docs?.description?.component
-		if (!content && !title) return <Story />
+		// Get story card config from parameters if available
+		const storyCardParam = (parameters as Partial<StoryCardParam>).storyCard
+		// Decorator props override parameter values
+		// Use parameters as fallback when decorator props are not provided
+		const finalTitle = title ?? storyCardParam?.title
+		const finalStatus = status ?? storyCardParam?.status ?? 'info'
+		const finalContent = contentProp ?? storyCardParam?.content
+		const finalClassName = className ?? storyCardParam?.className
 
-		return <StoryCardContainerWrapper Story={Story} content={content} title={title} status={status} {...rest} />
+		// Fallback to docs description if no content provided
+		const content = finalContent ?? parameters.docs?.description?.story ?? parameters.docs?.description?.component
+		if (!content && !finalTitle) return <Story />
+
+		return (
+			<StoryCardContainerWrapper
+				Story={Story}
+				content={content}
+				title={finalTitle}
+				status={finalStatus}
+				className={finalClassName}
+				{...rest}
+			/>
+		)
 	}
 }
 
