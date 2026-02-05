@@ -5,7 +5,7 @@ import { twMerge } from 'tailwind-merge'
 
 const meta = {
 	title: 'decorators/withStoryCard',
-	tags: ['autodocs'],
+	tags: ['autodocs', 'version:2.2'],
 	parameters: defineDocsParam({
 		description: {
 			component:
