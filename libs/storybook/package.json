@@ -39,6 +39,9 @@
 			"types": "./esm/storybook-dark-mode/index.d.ts",
 			"default": "./esm/storybook-dark-mode/index.js"
 		},
+		"./tailwind": {
+			"style": "./tailwind.css"
+		},
 		"./styles.css": "./styles.css"
 	},
 	"files": [
@@ -46,6 +49,7 @@
 		"esm",
 		"src",
 		"styles.css",
+		"tailwind.css",
 		"!**/*.{spec,test,unit,accept,integrate,system,perf,stress,study,stories}.*",
 		"!**/*.mdx"
 	],

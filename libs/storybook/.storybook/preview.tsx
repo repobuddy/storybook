@@ -1,8 +1,7 @@
 import type { Preview } from '@storybook/react-vite'
 import { createDarkModeDocsContainer, defineDarkModeParam } from '#repobuddy/storybook/storybook-dark-mode'
 
-import '../reset.css'
-import '../tailwind.css'
+import './storybook.css'
 
 const preview: Preview = {
 	tags: ['snapshot'],
@@ -20,7 +19,7 @@ const preview: Preview = {
 		...defineDarkModeParam({
 			current: 'dark',
 			stylePreview: true,
-			darkClass: ['rbsb:text-white', 'rbsb:bg-black']
+			darkClass: ['dark', 'rbsb:text-white', 'rbsb:bg-black']
 		})
 	}
 }

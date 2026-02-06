@@ -139,10 +139,15 @@ export const preview: Preview = {
 
 [`@repobuddy/storybook`][`@repobuddy/storybook`] uses Tailwind CSS 4 and the prefix `rbsb:` to avoid conflicts with user styles.
 
-To use the styles, import `@repobuddy/storybook/styles.css`:
+To use the styles, import `@repobuddy/storybook/tailwind` in your Tailwind config:
 
-```ts
-import '@repobuddy/storybook/styles.css'
+```css
+/* tailwind.css */
+@import "tailwindcss";
+@import "@repobuddy/storybook/tailwind";
+
+/* specify your dark variant mechanism */
+@custom-variant dark (&:where(.dark, .dark *));
 ```
 
 [`@repobuddy/storybook`]: https://github.com/repobuddy/storybook
