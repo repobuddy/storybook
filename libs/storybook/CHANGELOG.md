@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 2.10.0
+
+### Minor Changes
+
+- [`f9f468d`](https://github.com/repobuddy/storybook/commit/f9f468d4e0659298a5a80160d822ed29306f3fe5) Thanks [@unional](https://github.com/unional)! - Provide tailwind style compsition support.
+
 ## 2.9.1
 
 ### Patch Changes
