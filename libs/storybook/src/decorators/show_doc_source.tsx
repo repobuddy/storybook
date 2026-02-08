@@ -5,6 +5,7 @@ import { addons } from 'storybook/preview-api'
 import { convert, ThemeProvider, themes } from 'storybook/theming'
 import { twJoin } from 'tailwind-merge'
 import { StoryCard, type StoryCardProps } from '../components/story_card'
+import { StoryCardScope } from '../contexts/story_card_scope'
 
 const channel = addons.getChannel()
 
@@ -22,6 +23,12 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 	options?: Pick<StoryCardProps, 'className'> & {
 		source?: string | undefined
 		showOriginalSource?: boolean | undefined
+		/**
+		 * Whether to show the source code before the story.
+		 *
+		 * @default false
+		 */
+		before?: boolean | undefined
 	}
 ): DecoratorFunction<TRenderer, TArgs> {
 	return (Story, { parameters: { docs, darkMode } }) => {
@@ -46,10 +53,43 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 
 		const isOriginalSource = code === docs?.source?.originalSource
 
-		const content = <SyntaxHighlighter language={language}>{code}</SyntaxHighlighter>
+		const sourceContent = <SyntaxHighlighter language={language}>{code}</SyntaxHighlighter>
+
+		const showBefore = options?.before ?? false
+
+		const sourceCardClassName = (state: Pick<StoryCardProps, 'status'> & { defaultClassName: string }) => {
+			const modifiedState = {
+				...state,
+				defaultClassName: twJoin(
+					state.defaultClassName,
+					isOriginalSource ? 'rbsb:bg-transparent rbsb:dark:bg-transparent' : 'rbsb:bg-gray-100 rbsb:dark:bg-gray-900'
+				)
+			}
+
+			const className = options?.className
+			return typeof className === 'function'
+				? className(modifiedState)
+				: twJoin(modifiedState.defaultClassName, className)
+		}
+
+		const theme = convert(docs?.theme ?? (isDark ? themes.dark : themes.light))
+
+		if (showBefore) {
+			return (
+				<ThemeProvider theme={theme}>
+					<StoryCardScope Story={Story} content={sourceContent} className={sourceCardClassName} status="info" />
+				</ThemeProvider>
+			)
+		}
+
+		const storyCard = (
+			<StoryCard className={sourceCardClassName} status="info">
+				{sourceContent}
+			</StoryCard>
+		)
 
 		return (
-			<ThemeProvider theme={convert(docs?.theme ?? (isDark ? themes.dark : themes.light))}>
+			<ThemeProvider theme={theme}>
 				<section
 					style={{
 						display: 'flex',
@@ -58,26 +98,7 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 					}}
 				>
 					<Story />
-					<StoryCard
-						className={(state) => {
-							const modifiedState = {
-								...state,
-								defaultClassName: twJoin(
-									state.defaultClassName,
-									isOriginalSource
-										? 'rbsb:bg-transparent rbsb:dark:bg-transparent'
-										: 'rbsb:bg-gray-100 rbsb:dark:bg-gray-900'
-								)
-							}
-
-							const className = options?.className
-							return typeof className === 'function'
-								? className(modifiedState)
-								: twJoin(modifiedState.defaultClassName, className)
-						}}
-					>
-						{content}
-					</StoryCard>
+					{storyCard}
 				</section>
 			</ThemeProvider>
 		)
