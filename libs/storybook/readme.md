@@ -135,20 +135,53 @@ export const preview: Preview = {
 }
 ```
 
-## Styles
+## Styling
 
-[`@repobuddy/storybook`][`@repobuddy/storybook`] uses Tailwind CSS 4 and the prefix `rbsb:` to avoid conflicts with user styles.
+[`@repobuddy/storybook`][`@repobuddy/storybook`] uses Tailwind CSS 4 with the prefix `rbsb:` and support `dark` variant.
 
-To use the styles, import `@repobuddy/storybook/tailwind` in your Tailwind config:
+Since how to control the dark variant is different in different projects,
+the pre-built `@repobuddy/storybook/styles.css` might not work for you.
+
+Instead, you can use the `@repobuddy/storybook/tailwind.css` to build the stylesheet for your project.
+
+Let's say you are using it in your storybook (obviously),
+you need to separate your tailwind config and import them in your storybook.
+
+```tsx
+// .storybook/preview.tsx
+import './tailwind.css'
+import './tailwind.repobuddy-storybook.css'
+import '../tailwind.css'
+```
+
+```css
+/* .storybook/tailwind.css */
+
+/* adding the layer "rbsb" is optional */
+@layer theme, base, components, rbsb, utilities;
+@import "tailwindcss/preflight.css" layer(base);
+```
+
+```css
+/* .storybook/tailwind.repobuddy-storybook.css */
+/* adding the layer "rbsb" is optional */
+@import "@repobuddy/storybook/tailwind.css" layer(rbsb);
+
+@source "../node_modules/@repobuddy/storybook/src/**";
+
+@custom-variant dark (&:where(.dark, .dark *));
+```
 
 ```css
 /* tailwind.css */
-@import "tailwindcss";
-@import "@repobuddy/storybook/tailwind";
+@import "tailwindcss/theme.css" layer(theme) prefix(app);
+@import "tailwindcss/utilities.css" layer(utilities) prefix(app);
 
-/* specify your dark variant mechanism */
 @custom-variant dark (&:where(.dark, .dark *));
 ```
+
+Note that `@repobuddy/storybook/tailwind` is deprecated in favor of `@repobuddy/storybook/tailwind.css`.
+That convention better aligns with the Tailwind CSS 4 convention.
 
 [`@repobuddy/storybook`]: https://github.com/repobuddy/storybook
 [`storybook-addon-tag-badges`]: https://github.com/Sidnioulz/storybook-addon-tag-badges

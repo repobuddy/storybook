@@ -1,4 +1,2 @@
 @import "tailwindcss/theme.css" layer(theme) prefix(rbsb);
-@import "tailwindcss/utilities.css" layer(utilities);
-
-@source "src/**";
+@import "tailwindcss/utilities.css" layer(utilities) prefix(rbsb);
