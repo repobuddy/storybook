@@ -1,5 +1,18 @@
 # @repobuddy/storybook
 
+## 2.12.0
+
+### Minor Changes
+
+- [`2daf00b`](https://github.com/repobuddy/storybook/commit/2daf00b92ca8a4a23275de762fc60fa4bf7a965c) Thanks [@unional](https://github.com/unional)! - Add `before` option to `showDocSource` decorator to display source code above the story
+
+  - **showDocSource**: New optional `before?: boolean` (default `false`) to render the source code card above the story instead of below.
+  - Added stories demonstrating `before: true`, multiple `showDocSource` decorators, and combinations with `withStoryCard`.
+
+### Patch Changes
+
+- [`42dd3ed`](https://github.com/repobuddy/storybook/commit/42dd3edef4a98c19cfd656bd3fa5190342847461) Thanks [@unional](https://github.com/unional)! - Show unit badge in sidebar and reorder tag badges (versionBadge before internal/snapshot).
+
 ## 2.11.0
 
 ### Minor Changes
