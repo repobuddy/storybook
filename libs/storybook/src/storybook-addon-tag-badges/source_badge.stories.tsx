@@ -4,6 +4,7 @@ import { defineDocsParam, showDocSource, withStoryCard } from '#repobuddy/storyb
 
 export default {
 	title: 'storybook-addon-tag-badges/sourceBadge',
+	tags: ['autodocs'],
 	render: () => <></>
 } satisfies Meta
 
