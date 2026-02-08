@@ -216,32 +216,32 @@ export const WithSourceString: Story = {
 	render: () => <DemoComponent text="Hello World" />
 }
 
-export const BeforeTrue: Story = {
-	name: 'before: true',
+export const PlacementBefore: Story = {
+	name: "placement: 'before'",
 	tags: ['props', 'version:next', '!version:2.4'],
 	parameters: defineDocsParam({
 		source: {
 			code: '() => <DemoComponent text="Rendered below the source" />'
 		},
 		description: {
-			story: 'Use `before: true` to show the source code above the rendered story instead of below.'
+			story: "Use `placement: 'before'` to show the source code above the rendered story instead of below."
 		}
 	}),
 	decorators: [
 		withStoryCard({
 			content: (
 				<p>
-					Use <code>before: true</code> to display the source code card above the story output.
+					Use <code>placement: 'before'</code> to display the source code card above the story output.
 				</p>
 			)
 		}),
-		showDocSource({ before: true })
+		showDocSource({ placement: 'before' })
 	],
 	render: () => <DemoComponent text="Rendered below the source" />
 }
 
 export const TwoShowDocSourceBefore: Story = {
-	name: 'two showDocSource (before: true)',
+	name: "two showDocSource (placement: 'before')",
 	tags: ['unit', '!version:2.4', 'snapshot'],
 	parameters: defineDocsParam({
 		source: {
@@ -249,25 +249,26 @@ export const TwoShowDocSourceBefore: Story = {
 		},
 		description: {
 			story:
-				'With two showDocSource(before: true), cards are rendered in decorator order: first source card, second source card, then the story.'
+				"With two showDocSource(placement: 'before'), cards are rendered in decorator order: first source card, second source card, then the story."
 		}
 	}),
 	decorators: [
-		showDocSource({ before: true, source: '// First source block' }),
-		showDocSource({ before: true, source: '// Second source block' })
+		showDocSource({ placement: 'before', source: '// First source block' }),
+		showDocSource({ placement: 'before', source: '// Second source block' })
 	],
 	render: () => <DemoComponent text="Story content" />
 }
 
 export const TwoShowDocSourceAfter: Story = {
-	name: 'two showDocSource (default after)',
+	name: "two showDocSource (placement: 'after' / default)",
 	tags: ['unit', '!version:2.4', 'snapshot'],
 	parameters: defineDocsParam({
 		source: {
 			code: '() => <DemoComponent text="Story content" />'
 		},
 		description: {
-			story: 'With two showDocSource() (after), order is: story first, then first source card, then second source card.'
+			story:
+				"With two showDocSource() (placement defaults to 'after'), order is: story first, then first source card, then second source card."
 		}
 	}),
 	decorators: [showDocSource({ source: '// First source block' }), showDocSource({ source: '// Second source block' })],
@@ -283,12 +284,12 @@ export const TwoWithStoryCardTwoShowDocSource: Story = {
 		},
 		description: {
 			story:
-				'Cards render in decorator order: First card (withStoryCard), source before (showDocSource before: true), second card (withStoryCard), story, then source after (showDocSource).'
+				"Cards render in decorator order: First card (withStoryCard), source before (showDocSource placement: 'before'), second card (withStoryCard), story, then source after (showDocSource)."
 		}
 	}),
 	decorators: [
 		withStoryCard({ title: 'First card', content: <p>This card should appear first.</p> }),
-		showDocSource({ before: true, source: '// Source shown before the story' }),
+		showDocSource({ placement: 'before', source: '// Source shown before the story' }),
 		withStoryCard({ title: 'Second card', content: <p>This card should appear after the first source.</p> }),
 		showDocSource({ source: '// Source shown after the story' })
 	],
