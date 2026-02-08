@@ -218,7 +218,7 @@ export const WithSourceString: Story = {
 
 export const PlacementBefore: Story = {
 	name: "placement: 'before'",
-	tags: ['props', 'version:next', '!version:2.4'],
+	tags: ['props', 'version:2.12', '!version:2.4'],
 	parameters: defineDocsParam({
 		source: {
 			code: '() => <DemoComponent text="Rendered below the source" />'
