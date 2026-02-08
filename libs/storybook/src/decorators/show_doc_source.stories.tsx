@@ -203,7 +203,17 @@ export const WithClassNameConditional: Story = {
 export const WithSourceString: Story = {
 	name: 'source: string',
 	tags: ['props', 'version:2.7'],
-	decorators: [showDocSource({ source: '() => <DemoComponent text="Hello World" />' })]
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Pass <code>source</code> as a string to the decorator to override the displayed source code.
+				</p>
+			)
+		}),
+		showDocSource({ source: '() => <DemoComponent text="Hello World" />' })
+	],
+	render: () => <DemoComponent text="Hello World" />
 }
 
 export const BeforeTrue: Story = {
