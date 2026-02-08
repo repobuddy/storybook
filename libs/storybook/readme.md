@@ -139,6 +139,9 @@ export const preview: Preview = {
 
 [`@repobuddy/storybook`][`@repobuddy/storybook`] uses Tailwind CSS 4 with the prefix `rbsb:` and support `dark` variant.
 
+While we provide a pre-built `@repobuddy/storybook/styles.css` for you,
+it uses the default `dark` variant which is based on the `(prefers-color-scheme: dark)` media query.
+
 Since how to control the dark variant is different in different projects,
 the pre-built `@repobuddy/storybook/styles.css` might not work for you.
 
@@ -149,38 +152,32 @@ you need to separate your tailwind config and import them in your storybook.
 
 ```tsx
 // .storybook/preview.tsx
-import './tailwind.css'
-import './tailwind.repobuddy-storybook.css'
 import '../tailwind.css'
+import './tailwind.repobuddy-storybook.css'
 ```
 
 ```css
-/* .storybook/tailwind.css */
+/* tailwind.css */
+/* add `@repobuddy/storybook/tailwind.css` to a separate layer "repobuddy-storybook" to control the layer order */
+@layer theme, base, repobuddy-storybook, components,  utilities;
+@import "tailwindcss";
 
-/* adding the layer "rbsb" is optional */
-@layer theme, base, components, rbsb, utilities;
-@import "tailwindcss/preflight.css" layer(base);
+@custom-variant dark (&:where(.dark, .dark *));
 ```
 
 ```css
 /* .storybook/tailwind.repobuddy-storybook.css */
-/* adding the layer "rbsb" is optional */
-@import "@repobuddy/storybook/tailwind.css" layer(rbsb);
+@import "@repobuddy/storybook/tailwind.css" layer(repobuddy-storybook);
 
 @source "../node_modules/@repobuddy/storybook/src/**";
 
 @custom-variant dark (&:where(.dark, .dark *));
 ```
 
-```css
-/* tailwind.css */
-@import "tailwindcss/theme.css" layer(theme) prefix(app);
-@import "tailwindcss/utilities.css" layer(utilities) prefix(app);
+You may notice that the `@custom-variant dark` is duplicated in both files.
+If you want to avoid this, you can extract it to a separate file and import it in both files.
 
-@custom-variant dark (&:where(.dark, .dark *));
-```
-
-Note that `@repobuddy/storybook/tailwind` is deprecated in favor of `@repobuddy/storybook/tailwind.css`.
+Also note that `@repobuddy/storybook/tailwind` is deprecated in favor of `@repobuddy/storybook/tailwind.css`.
 That convention better aligns with the Tailwind CSS 4 convention.
 
 [`@repobuddy/storybook`]: https://github.com/repobuddy/storybook
