@@ -1,0 +1,18 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="storybook-addon-tag-badges/codeOnlyBadge" />
+
+# Code-only badge
+
+Use the **code-only** badge for components that only exist in code and not in design. The badge displays 📝 with a "Code Only" tooltip. This badge is hidden in MDX docs.
+
+## Usage
+
+Add the `code-only` tag to your story.
+
+```tsx
+export const YourStory = {
+	tags: ['code-only'],
+	render: () => <YourComponent />
+}
+```

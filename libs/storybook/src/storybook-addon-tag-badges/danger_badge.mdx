@@ -1,0 +1,18 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="storybook-addon-tag-badges/dangerBadge" />
+
+# Danger badge
+
+Use the **danger** badge for components that require particular attention when configuring them (e.g. security concerns). The badge displays 🚨 with a "Dangerous" tooltip.
+
+## Usage
+
+Add the `danger` tag to your story.
+
+```tsx
+export const YourStory = {
+	tags: ['danger'],
+	render: () => <YourComponent />
+}
+```

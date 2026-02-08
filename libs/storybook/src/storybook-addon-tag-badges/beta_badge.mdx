@@ -1,0 +1,18 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="storybook-addon-tag-badges/betaBadge" />
+
+# Beta badge
+
+Use the **beta** badge to warn that a component or prop is not stable yet. The badge displays 🅱️ with a "Beta" tooltip.
+
+## Usage
+
+Add the `beta` tag to your story.
+
+```tsx
+export const YourStory = {
+	tags: ['beta'],
+	render: () => <YourComponent />
+}
+```

@@ -1,0 +1,18 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="storybook-addon-tag-badges/integrationBadge" />
+
+# Integration badge
+
+Use the **integration** badge for stories that serve as integration tests. The badge displays 🔗 with an "Integration Test" tooltip. It is hidden from the sidebar by default.
+
+## Usage
+
+Add the `integration` tag to your story.
+
+```tsx
+export const YourStory = {
+	tags: ['integration'],
+	render: () => <YourComponent />
+}
+```

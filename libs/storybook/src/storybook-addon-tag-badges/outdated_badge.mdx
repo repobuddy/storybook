@@ -1,0 +1,18 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="storybook-addon-tag-badges/outdatedBadge" />
+
+# Outdated badge
+
+Use the **outdated** badge for components with design changes that were not yet implemented, which can incur extra development costs to your users. The badge displays ⚠️ with an "Outdated" tooltip.
+
+## Usage
+
+Add the `outdated` tag to your story.
+
+```tsx
+export const YourStory = {
+	tags: ['outdated'],
+	render: () => <YourComponent />
+}
+```

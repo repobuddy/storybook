@@ -1,0 +1,18 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="storybook-addon-tag-badges/snapshotBadge" />
+
+# Snapshot badge
+
+Use the **snapshot** badge for stories with snapshot tests. The badge displays 📸 with a "Snapshot Test" tooltip. It is shown in the toolbar on the story canvas, not in the sidebar.
+
+## Usage
+
+Add the `snapshot` tag to your story.
+
+```tsx
+export const YourStory = {
+	tags: ['snapshot'],
+	render: () => <YourComponent />
+}
+```

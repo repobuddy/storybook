@@ -1,0 +1,20 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="storybook-addon-tag-badges/versionBadge" />
+
+# Version badge
+
+Use the **version** badge to indicate when a component, feature, or property becomes available. The tag format is `version:<semver>` (e.g. `version:1.0`, `version:next`).
+
+## Usage
+
+Add a `version` tag with a semver value to your story.
+
+```tsx
+export const YourStory = {
+	tags: ['version:1.0'],
+	render: () => <YourComponent />
+}
+```
+
+The badge displays the version number in the sidebar and docs.

@@ -1,0 +1,36 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="storybook-addon-tag-badges/internalBadge" />
+
+# Internal badge
+
+Use the **internal** badge to hide stories from the sidebar during production build. The badge displays 🔒 with an "Internal" tooltip. Internal stories are excluded from the sidebar by default in filter selection.
+
+## Usage
+
+Add the `internal` tag to your story. Configure your `.storybook/main.ts` so that stories with the `internal` tag are excluded from the sidebar in production:
+
+```tsx
+export const YourStory = {
+	tags: ['internal'],
+	render: () => <YourComponent />
+}
+```
+
+In `.storybook/main.ts`:
+
+```ts
+export default {
+	tags: {
+		internal: {
+			excludeFromSidebar: process.env.NODE_ENV === 'production'
+		}
+	}
+}
+```
+
+Build with:
+
+```sh
+NODE_ENV=production storybook build
+```

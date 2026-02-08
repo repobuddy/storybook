@@ -1,0 +1,18 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="storybook-addon-tag-badges/unitBadge" />
+
+# Unit badge
+
+Use the **unit** badge for stories that serve as unit tests. The badge displays 🧪 with a "Unit Test" tooltip.
+
+## Usage
+
+Add the `unit` tag to your story.
+
+```tsx
+export const YourStory = {
+	tags: ['unit'],
+	render: () => <YourComponent />
+}
+```

@@ -1,0 +1,18 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="storybook-addon-tag-badges/deprecatedBadge" />
+
+# Deprecated badge
+
+Use the **deprecated** badge for components or props that should be avoided in new code. The badge displays 🪦 with a "Deprecated" tooltip.
+
+## Usage
+
+Add the `deprecated` tag to your story.
+
+```tsx
+export const YourStory = {
+	tags: ['deprecated'],
+	render: () => <YourComponent />
+}
+```
