@@ -202,7 +202,7 @@ export const WithClassNameConditional: Story = {
 
 export const WithSourceString: Story = {
 	name: 'source: string',
-	tags: ['props', 'version:2.7'],
+	tags: ['props', 'version:2.7', '!version:2.4'],
 	decorators: [
 		withStoryCard({
 			content: (
