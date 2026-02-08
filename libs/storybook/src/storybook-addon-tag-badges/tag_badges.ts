@@ -155,6 +155,24 @@ export const codeOnlyBadge: TagBadgeParameter = {
 			borderColor: 'transparent'
 		},
 		tooltip: 'Code Only'
+	},
+	display: {
+		mdx: false
+	}
+}
+
+export const sourceBadge: TagBadgeParameter = {
+	tags: 'source',
+	badge: {
+		text: '</>',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
+		tooltip: 'Source Code'
+	},
+	display: {
+		mdx: false
 	}
 }
 
@@ -230,6 +248,7 @@ export const internalBadge: TagBadgeParameter = {
 
 export const tagBadges: TagBadgeParameters = [
 	editorBadge,
+	sourceBadge,
 	unitBadge,
 	integrationBadge,
 	keyboardBadge,

@@ -3,7 +3,8 @@ import dedent from 'dedent'
 import { defineDocsParam, showDocSource } from '#repobuddy/storybook'
 
 export default {
-	title: 'storybook-addon-tag-badges/tagBadges'
+	title: 'storybook-addon-tag-badges/tagBadges',
+	tags: ['autodocs']
 } satisfies Meta
 
 export const EditorBadge: StoryObj = {
