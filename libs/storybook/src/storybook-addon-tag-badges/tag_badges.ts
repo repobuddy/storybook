@@ -9,6 +9,7 @@ type TagBadgeParameter = TagBadgeParameters[0]
  */
 export type TagNames =
 	| 'editor'
+	| 'source'
 	| 'new'
 	| 'beta'
 	| 'props'
