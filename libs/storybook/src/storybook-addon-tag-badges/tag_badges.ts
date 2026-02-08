@@ -185,7 +185,7 @@ export const unitBadge: TagBadgeParameter = {
 		tooltip: 'Unit Test'
 	},
 	display: {
-		sidebar: false
+		sidebar: true
 	}
 }
 
@@ -241,7 +241,7 @@ export const tagBadges: TagBadgeParameters = [
 	propsBadge,
 	todoBadge,
 	codeOnlyBadge,
+	versionBadge,
 	internalBadge,
-	snapshotBadge,
-	versionBadge
+	snapshotBadge
 ]
