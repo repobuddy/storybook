@@ -38,6 +38,12 @@ export default {
 	tags: {
 		'internal-sp': {
 			excludeFromSidebar: process.env.NODE_ENV === 'production'
+		},
+		unit: {
+			defaultFilterSelection: 'exclude'
+		},
+		internal: {
+			defaultFilterSelection: 'exclude'
 		}
 	}
 } satisfies StorybookConfig
