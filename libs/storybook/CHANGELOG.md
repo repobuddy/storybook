@@ -1,5 +1,14 @@
 # @repobuddy/storybook
 
+## 2.11.0
+
+### Minor Changes
+
+- [`85c43e0`](https://github.com/repobuddy/storybook/commit/85c43e00dc11d0ff363d35e39836c7bed32cf3de) Thanks [@unional](https://github.com/unional)! - Add `@repobuddy/storybook/tailwind.css` export and document Tailwind style composition.
+
+  - Export `./tailwind.css` for projects that build their own stylesheet.
+  - Update readme with Styling section: how to use `tailwind.css`.
+
 ## 2.10.0
 
 ### Minor Changes
