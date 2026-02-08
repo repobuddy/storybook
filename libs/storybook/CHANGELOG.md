@@ -1,5 +1,17 @@
 # @repobuddy/storybook
 
+## 2.13.0
+
+### Minor Changes
+
+- [`4b655ca`](https://github.com/repobuddy/storybook/commit/4b655ca0f19c5f2cc0ca4f42daaac80baa6fe24a) Thanks [@unional](https://github.com/unional)! - Add source badge to storybook-addon-tag-badges.
+
+  - Export `sourceBadge` tag badge parameter for the `source` tag (displays `</>` with "Source Code" tooltip, hidden in MDX).
+
+### Patch Changes
+
+- [`4321270`](https://github.com/repobuddy/storybook/commit/43212700cfd082f6566806a78eb8dd13d618b1b7) Thanks [@unional](https://github.com/unional)! - Add missing type for source badge.
+
 ## 2.12.0
 
 ### Minor Changes
