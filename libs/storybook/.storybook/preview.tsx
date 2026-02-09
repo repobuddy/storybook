@@ -1,7 +1,7 @@
 import type { Preview } from '@storybook/react-vite'
 import { createDarkModeDocsContainer, defineDarkModeParam } from '#repobuddy/storybook/storybook-dark-mode'
 
-import './storybook.css'
+import './tailwind.css'
 
 const preview: Preview = {
 	tags: ['snapshot'],
