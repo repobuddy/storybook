@@ -52,5 +52,12 @@
 	"tailwindCSS.experimental.configFile": {
 		"./libs/storybook/.storybook/tailwind.css": "./libs/storybook/src/**"
 	},
+	"tailwindCSS.experimental.classRegex": [
+		"tw`([^`]*)",
+		"twm`([^`]*)",
+		"'@apply([^']*)':",
+		["toComparableClassName\\(([^\\)]*)\\)","'([^']*)'"],
+		["toHaveClass\\(([^\\)]*)\\)","'([^']*)'"]
+	],
 	"typescript.tsdk": "node_modules/typescript/lib"
 }
