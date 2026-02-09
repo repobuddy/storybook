@@ -45,6 +45,8 @@ export type TagNames =
  *
  * Also includes the default version badge from `storybook-addon-tag-badges`.
  */
+
+/** Badge (✏️) for stories with a live editor. Shown in sidebar on story and inherited. */
 export const editorBadge: TagBadgeParameter = {
 	tags: 'editor',
 	badge: {
@@ -63,6 +65,7 @@ export const editorBadge: TagBadgeParameter = {
 	}
 }
 
+/** Badge (🆕) for recently added stories. */
 export const newBadge: TagBadgeParameter = {
 	tags: 'new',
 	badge: {
@@ -75,6 +78,7 @@ export const newBadge: TagBadgeParameter = {
 	}
 }
 
+/** Badge (🅱️) for stories covering features in beta. */
 export const betaBadge: TagBadgeParameter = {
 	tags: 'beta',
 	badge: {
@@ -87,6 +91,7 @@ export const betaBadge: TagBadgeParameter = {
 	}
 }
 
+/** Badge (🔧) for stories that demonstrate props or configuration. */
 export const propsBadge: TagBadgeParameter = {
 	tags: 'props',
 	badge: {
@@ -99,6 +104,7 @@ export const propsBadge: TagBadgeParameter = {
 	}
 }
 
+/** Badge (🪦) for stories documenting deprecated features. */
 export const deprecatedBadge: TagBadgeParameter = {
 	tags: 'deprecated',
 	badge: {
@@ -111,6 +117,7 @@ export const deprecatedBadge: TagBadgeParameter = {
 	}
 }
 
+/** Badge (⚠️) for stories that need updating. */
 export const outdatedBadge: TagBadgeParameter = {
 	tags: 'outdated',
 	badge: {
@@ -123,6 +130,7 @@ export const outdatedBadge: TagBadgeParameter = {
 	}
 }
 
+/** Badge (🚨) for stories demonstrating dangerous or cautionary patterns. */
 export const dangerBadge: TagBadgeParameter = {
 	tags: 'danger',
 	badge: {
@@ -135,6 +143,7 @@ export const dangerBadge: TagBadgeParameter = {
 	}
 }
 
+/** Badge (📋) for stories marked as todo or incomplete. */
 export const todoBadge: TagBadgeParameter = {
 	tags: 'todo',
 	badge: {
@@ -147,6 +156,7 @@ export const todoBadge: TagBadgeParameter = {
 	}
 }
 
+/** Badge (📝) for stories without visual examples (code-only). Hidden in MDX. */
 export const codeOnlyBadge: TagBadgeParameter = {
 	tags: 'code-only',
 	badge: {
@@ -162,6 +172,7 @@ export const codeOnlyBadge: TagBadgeParameter = {
 	}
 }
 
+/** Badge (`</>`) for source-code-focused stories. Hidden in MDX. */
 export const sourceBadge: TagBadgeParameter = {
 	tags: 'source',
 	badge: {
@@ -177,6 +188,7 @@ export const sourceBadge: TagBadgeParameter = {
 	}
 }
 
+/** Badge (📸) for stories with snapshot tests. Shown in toolbar only, not in sidebar. */
 export const snapshotBadge: TagBadgeParameter = {
 	tags: 'snapshot',
 	badge: {
@@ -193,6 +205,7 @@ export const snapshotBadge: TagBadgeParameter = {
 	}
 }
 
+/** Badge (🧪) for stories with unit tests. */
 export const unitBadge: TagBadgeParameter = {
 	tags: 'unit',
 	badge: {
@@ -208,6 +221,7 @@ export const unitBadge: TagBadgeParameter = {
 	}
 }
 
+/** Badge (🔗) for stories with integration tests. Hidden in sidebar. */
 export const integrationBadge: TagBadgeParameter = {
 	tags: 'integration',
 	badge: {
@@ -223,6 +237,7 @@ export const integrationBadge: TagBadgeParameter = {
 	}
 }
 
+/** Badge (⌨️) for stories that demonstrate or test keyboard interaction. */
 export const keyboardBadge: TagBadgeParameter = {
 	tags: 'keyboard',
 	badge: {
@@ -235,6 +250,7 @@ export const keyboardBadge: TagBadgeParameter = {
 	}
 }
 
+/** Badge (🔒) for internal or private-use-only stories. */
 export const internalBadge: TagBadgeParameter = {
 	tags: 'internal',
 	badge: {
@@ -247,6 +263,7 @@ export const internalBadge: TagBadgeParameter = {
 	}
 }
 
+/** Ordered list of all tag badge configs used by the addon (includes version badge). */
 export const tagBadges: TagBadgeParameters = [
 	editorBadge,
 	sourceBadge,
