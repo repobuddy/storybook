@@ -1,19 +1,21 @@
-import type { Args, Meta, StoryObj } from '@storybook/react-vite'
+import type { Args } from '@storybook/react-vite'
 import dedent from 'dedent'
 import type { Component } from 'react'
 import { testType } from 'type-plus'
 import type { ExtendsMeta } from '#repobuddy/storybook'
 import { defineDocsParam, showDocSource } from '#repobuddy/storybook'
+import type { Meta, StoryObj, TagNames } from '#repobuddy/storybook/storybook-addon-tag-badges'
 import type { ExtractStringLiterals } from './_extract_string_literals.js'
 
 const meta = {
 	title: 'types/ExtendMeta',
-	tags: ['new', 'version:2.4'],
+	tags: ['type', 'version:2.4'],
 	decorators: [showDocSource()],
 	render: () => <></>
 } satisfies Meta
 
 export default meta
+
 type Story = StoryObj<typeof meta>
 
 export const ExtendsTagLiterals: Story = {
@@ -43,16 +45,14 @@ export const ExtendsTagLiterals: Story = {
 		}
 	}),
 	async play() {
-		type MyMeta<TCmpOrArgs = Args> = ExtendsMeta<Meta<TCmpOrArgs>, { tag: 'new' | 'beta' | 'deprecated' }>
+		type MyMeta<TCmpOrArgs = Args> = ExtendsMeta<Meta<TCmpOrArgs>, { tag: 'custom' }>
 		const meta: MyMeta<typeof Component> = {
 			title: '',
-			tags: ['new', 'beta', 'deprecated']
+			tags: ['custom']
 		}
-		testType.equal<ExtractStringLiterals<NonNullable<(typeof meta)['tags']>[0]>, 'new' | 'beta' | 'deprecated'>(true)
+		testType.equal<ExtractStringLiterals<NonNullable<(typeof meta)['tags']>[0]>, TagNames | 'custom'>(true)
 
 		type YourMeta<TCmpOrArgs = Args> = ExtendsMeta<MyMeta<TCmpOrArgs>, { tag: 'one-more' }>
-		testType.equal<ExtractStringLiterals<NonNullable<YourMeta['tags']>[0]>, 'new' | 'beta' | 'deprecated' | 'one-more'>(
-			true
-		)
+		testType.equal<ExtractStringLiterals<NonNullable<YourMeta['tags']>[0]>, TagNames | 'custom' | 'one-more'>(true)
 	}
 }

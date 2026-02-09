@@ -4,7 +4,7 @@ import { defineDocsParam, showDocSource } from '#repobuddy/storybook'
 
 const meta = {
 	title: 'storybook-addon-tag-badges/types/StoryObj',
-	tags: ['new', 'version:1.0'],
+	tags: ['type', 'version:1.0'],
 	decorators: [showDocSource()],
 	render: () => <></>
 } satisfies Meta

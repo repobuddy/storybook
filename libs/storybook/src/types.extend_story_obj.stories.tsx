@@ -4,7 +4,7 @@ import { defineDocsParam, showDocSource } from '#repobuddy/storybook'
 
 const meta = {
 	title: 'types/ExtendStoryObj',
-	tags: ['new', 'version:1.1'],
+	tags: ['type', 'version:1.1'],
 	decorators: [showDocSource()],
 	render: () => <></>
 } satisfies Meta
