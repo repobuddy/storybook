@@ -4,7 +4,7 @@ import { defineDocsParam, defineTestParam, showDocSource } from '#repobuddy/stor
 
 const meta = {
 	title: 'Parameters/defineTestParam',
-	tags: ['new', 'version:1.0'],
+	tags: ['func', 'new', 'version:1.0'],
 	parameters: {
 		docs: {
 			description: {

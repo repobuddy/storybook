@@ -3,7 +3,7 @@ import { defineLayoutParam } from '#repobuddy/storybook'
 
 export default {
 	title: 'parameters/defineLayoutParam',
-	tags: ['new', 'version:1.0']
+	tags: ['func', 'new', 'version:1.0']
 } satisfies Meta
 
 export const Padded: StoryObj = {

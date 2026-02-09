@@ -4,7 +4,7 @@ import { defineBackgroundsParam, defineDocsParam, showDocSource } from '#repobud
 
 const meta = {
 	title: 'Parameters/defineBackgroundsParam',
-	tags: ['new', 'version:1.0'],
+	tags: ['func', 'new', 'version:1.0'],
 	decorators: [showDocSource()],
 	render: () => <></>
 } satisfies Meta

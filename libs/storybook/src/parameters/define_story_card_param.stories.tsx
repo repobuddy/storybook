@@ -4,7 +4,7 @@ import { defineDocsParam, defineStoryCardParam, showDocSource, withStoryCard } f
 
 const meta: Meta = {
 	title: 'parameters/defineStoryCard',
-	tags: ['new', 'version:2.9'],
+	tags: ['func', 'new', 'version:2.9'],
 	decorators: [showDocSource()],
 	render: () => <p>This is the story content</p>
 }
