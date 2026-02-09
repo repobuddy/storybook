@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 2.15.0
+
+### Minor Changes
+
+- [`e86ea79`](https://github.com/repobuddy/storybook/commit/e86ea796f15001663ddae2c38f70e3caac0d115e) Thanks [@unional](https://github.com/unional)! - Add type badge to storybook-addon-tag-badges for stories that showcase or document TypeScript types. The badge displays `<T>` in the sidebar and is hidden in MDX docs.
+
 ## 2.14.0
 
 ### Minor Changes
