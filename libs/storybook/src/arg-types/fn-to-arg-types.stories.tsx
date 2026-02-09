@@ -6,7 +6,7 @@ import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-ba
 
 const meta = {
 	title: 'arg-types/FnToArgTypes',
-	tags: ['version:2.6'],
+	tags: ['type', 'version:2.6'],
 	decorators: [showDocSource()],
 	render: () => <></>
 } satisfies Meta
