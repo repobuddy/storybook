@@ -1,5 +1,9 @@
 # @repobuddy/storybook
 
+[![npm version](https://img.shields.io/npm/v/@repobuddy/storybook.svg)](https://www.npmjs.com/package/@repobuddy/storybook)
+[![npm downloads](https://img.shields.io/npm/dm/@repobuddy/storybook.svg)](https://www.npmjs.com/package/@repobuddy/storybook)
+[![GitHub Actions](https://github.com/repobuddy/storybook/actions/workflows/release.yml/badge.svg)](https://github.com/repobuddy/storybook/actions/workflows/release.yml)
+
 Your repository buddy for Storybook.
 
 > [!NOTE]
