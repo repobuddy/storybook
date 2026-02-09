@@ -19,6 +19,7 @@
 		"cs": "changeset",
 		"knip": "knip",
 		"nuke": "turbo nuke && rimraf node_modules",
+		"playwright:i": "pnpm exec playwright install --with-deps chromium",
 		"prepare": "husky",
 		"release": "pnpm build && changeset publish",
 		"sb": "pnpm --filter @repobuddy/storybook",
