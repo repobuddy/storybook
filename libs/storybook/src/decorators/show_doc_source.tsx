@@ -5,7 +5,7 @@ import { addons } from 'storybook/preview-api'
 import { convert, ThemeProvider, themes } from 'storybook/theming'
 import { twJoin } from 'tailwind-merge'
 import { StoryCard, type StoryCardProps } from '../components/story_card'
-import { StoryCardScope } from '../contexts/story_card_scope'
+import { StoryCardScope } from '../contexts/_story_card_scope'
 
 const channel = addons.getChannel()
 

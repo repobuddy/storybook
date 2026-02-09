@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import type { DecoratorFunction, Renderer } from 'storybook/internal/csf'
 import type { StoryCardProps, StoryCardStatus } from '../components/story_card.js'
-import { StoryCardScope } from '../contexts/story_card_scope.js'
+import { StoryCardScope } from '../contexts/_story_card_scope.js'
 import type { StoryCardParam } from '../parameters/define_story_card_param.js'
 
 export type WithStoryCardProps = Omit<StoryCardProps, 'children' | 'className'> & {

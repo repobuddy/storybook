@@ -5,7 +5,7 @@ import {
 	type StoryCardEntry,
 	StoryCardRegistryContext,
 	type StoryCardRegistryContextValue
-} from './story_card_registry_context.js'
+} from './_story_card_registry_context.js'
 
 export type StoryCardScopeProps = { Story: ComponentType } & StoryCardEntry
 
