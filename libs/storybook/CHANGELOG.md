@@ -1,5 +1,15 @@
 # @repobuddy/storybook
 
+## 2.14.0
+
+### Minor Changes
+
+- [`fcee5b1`](https://github.com/repobuddy/storybook/commit/fcee5b178eb96c91747317e5b480ba588b47d53b) Thanks [@unional](https://github.com/unional)! - Add `appearance` prop to StoryCard and story card APIs; deprecate `status`.
+
+  - **StoryCard**: New `appearance` prop with variants `error`, `warn`, `info`, `source`, and `output`. The `status` prop is deprecated in favor of `appearance` but remains supported.
+  - **withStoryCard** and **StoryCardParam**: Support `appearance`; `status` is deprecated.
+  - **className** function state: Now receives `appearance` (and `status` for backward compatibility). Prefer `appearance` in new code.
+
 ## 2.13.0
 
 ### Minor Changes
