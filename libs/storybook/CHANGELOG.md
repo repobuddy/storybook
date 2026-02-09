@@ -1,5 +1,16 @@
 # @repobuddy/storybook
 
+## 2.16.0
+
+### Minor Changes
+
+- [`ea7ef0d`](https://github.com/repobuddy/storybook/commit/ea7ef0de37208f258388dad12dd1d354bcfdafdc) Thanks [@unional](https://github.com/unional)! - Add function and var tag badges to storybook-addon-tag-badges.
+
+  - **functionBadge** (`func`): Badge displays `ƒ(x)` for stories that showcase or document functions; hidden in MDX.
+  - **varBadge** (`var`): Badge displays `var` for stories that describe values and variables.
+  - **typeBadge**: Now shown in MDX (`display.mdx: true`).
+  - **tagBadges**: Reordered and doc comment updated to list all badges.
+
 ## 2.15.0
 
 ### Minor Changes
