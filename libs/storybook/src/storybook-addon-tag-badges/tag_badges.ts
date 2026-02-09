@@ -10,6 +10,7 @@ type TagBadgeParameter = TagBadgeParameters[0]
 export type TagNames =
 	| 'editor'
 	| 'source'
+	| 'type'
 	| 'new'
 	| 'beta'
 	| 'props'
@@ -172,6 +173,22 @@ export const codeOnlyBadge: TagBadgeParameter = {
 	}
 }
 
+/** Badge (<T>) for stories that showcase or document TypeScript types. Hidden in MDX. */
+export const typeBadge: TagBadgeParameter = {
+	tags: 'type',
+	badge: {
+		text: '<T>',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
+		tooltip: 'TypeScript Types'
+	},
+	display: {
+		mdx: false
+	}
+}
+
 /** Badge (`</>`) for source-code-focused stories. Hidden in MDX. */
 export const sourceBadge: TagBadgeParameter = {
 	tags: 'source',
@@ -267,6 +284,7 @@ export const internalBadge: TagBadgeParameter = {
 export const tagBadges: TagBadgeParameters = [
 	editorBadge,
 	sourceBadge,
+	typeBadge,
 	unitBadge,
 	integrationBadge,
 	keyboardBadge,

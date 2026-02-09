@@ -1,0 +1,20 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="storybook-addon-tag-badges/typeBadge" />
+
+# Type badge
+
+Use the **type** badge for stories that showcase or document TypeScript types. The badge displays `<T>` with a "TypeScript Types" tooltip. This badge is hidden in MDX docs.
+
+## Usage
+
+Add the `type` tag to your story.
+
+```tsx
+export const YourStory = {
+	tags: ['type'],
+	render: () => <YourComponent />
+}
+```
+
+Stories tagged with `type` will show the `<T>` badge in the sidebar.
