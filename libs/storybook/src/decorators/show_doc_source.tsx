@@ -58,12 +58,14 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 
 		const showBefore = options?.placement === 'before'
 
-		const sourceCardClassName = (state: Pick<StoryCardProps, 'status'> & { defaultClassName: string }) => {
+		const sourceCardClassName = (
+			state: Pick<StoryCardProps, 'status' | 'appearance'> & { defaultClassName: string }
+		) => {
 			const modifiedState = {
 				...state,
 				defaultClassName: twJoin(
 					state.defaultClassName,
-					isOriginalSource ? 'rbsb:bg-transparent rbsb:dark:bg-transparent' : 'rbsb:bg-gray-100 rbsb:dark:bg-gray-900'
+					isOriginalSource && 'rbsb:bg-transparent rbsb:dark:bg-transparent'
 				)
 			}
 
@@ -78,13 +80,13 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 		if (showBefore) {
 			return (
 				<ThemeProvider theme={theme}>
-					<StoryCardScope Story={Story} content={sourceContent} className={sourceCardClassName} status="info" />
+					<StoryCardScope Story={Story} content={sourceContent} className={sourceCardClassName} appearance="source" />
 				</ThemeProvider>
 			)
 		}
 
 		const storyCard = (
-			<StoryCard className={sourceCardClassName} status="info">
+			<StoryCard className={sourceCardClassName} appearance="source">
 				{sourceContent}
 			</StoryCard>
 		)

@@ -59,7 +59,7 @@ type StoryCardEntryWithKey = StoryCardEntry & { key: string }
 
 interface StoryCardCollectorProps extends StoryCardScopeProps {}
 
-function StoryCardCollector({ Story, title, status, className, content }: StoryCardCollectorProps) {
+function StoryCardCollector({ Story, title, status, appearance, className, content }: StoryCardCollectorProps) {
 	// StoryCardCollector is an internal component. Context is guaranteed to be not null by `StoryCardContainer`.
 	const context = useContext(StoryCardRegistryContext)!
 	const cardIdRef = useRef<string | null>(null)
@@ -68,7 +68,7 @@ function StoryCardCollector({ Story, title, status, className, content }: StoryC
 	useLayoutEffect(() => {
 		// Only add if not already added (handles Strict Mode double-render)
 		if (cardIdRef.current === null) {
-			cardIdRef.current = context.add({ title, status, className, content })
+			cardIdRef.current = context.add({ title, status, appearance, className, content })
 		}
 
 		return () => {

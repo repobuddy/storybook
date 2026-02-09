@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import type { StoryCardProps, StoryCardStatus } from '../components/story_card.js'
+import type { StoryCardAppearance, StoryCardProps, StoryCardStatus } from '../components/story_card.js'
 
 export interface StoryCardParam {
 	storyCard: {
@@ -9,12 +9,13 @@ export interface StoryCardParam {
 		 */
 		title?: ReactNode | undefined
 		/**
-		 * Visual status of the card, affecting its background color.
-		 * - `'error'`: Red background
-		 * - `'warn'`: Yellow background
-		 * - `'info'`: Blue background - default
+		 * @deprecated Use `appearance` instead.
 		 */
 		status?: StoryCardStatus
+		/**
+		 * Appearance of the card (error | warn | info | source | output). Default: `'info'`.
+		 */
+		appearance?: StoryCardAppearance | undefined
 		/**
 		 * Additional CSS classes or a function to compute classes.
 		 *
@@ -22,7 +23,10 @@ export interface StoryCardParam {
 		 * If a function is provided, it receives the card state and default className,
 		 * and should return the final className string.
 		 */
-		className?: ((state: Pick<StoryCardProps, 'status'> & { defaultClassName: string }) => string) | string | undefined
+		className?:
+			| ((state: Pick<StoryCardProps, 'status' | 'appearance'> & { defaultClassName: string }) => string)
+			| string
+			| undefined
 		/**
 		 * Content to display in the card body.
 		 * Can be any React node (string, JSX, etc.).

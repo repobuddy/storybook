@@ -1,10 +1,14 @@
 import type { ReactNode } from 'react'
 import type { DecoratorFunction, Renderer } from 'storybook/internal/csf'
-import type { StoryCardProps } from '../components/story_card.js'
+import type { StoryCardProps, StoryCardStatus } from '../components/story_card.js'
 import { StoryCardScope } from '../contexts/story_card_scope.js'
 import type { StoryCardParam } from '../parameters/define_story_card_param.js'
 
 export type WithStoryCardProps = Omit<StoryCardProps, 'children' | 'className'> & {
+	/**
+	 * @deprecated Use `appearance` instead. When set, behaves like `appearance` for the same value.
+	 */
+	status?: StoryCardStatus
 	/**
 	 * Additional CSS classes or a function to compute classes.
 	 *
@@ -12,7 +16,10 @@ export type WithStoryCardProps = Omit<StoryCardProps, 'children' | 'className'> 
 	 * If a function is provided, it receives the card state and default className,
 	 * and should return the final className string.
 	 */
-	className?: ((state: Pick<StoryCardProps, 'status'> & { defaultClassName: string }) => string) | string | undefined
+	className?:
+		| ((state: Pick<StoryCardProps, 'status' | 'appearance'> & { defaultClassName: string }) => string)
+		| string
+		| undefined
 	/**
 	 * Content to display in the card body.
 	 * Can be any React node (string, JSX, etc.).
@@ -102,10 +109,12 @@ export type WithStoryCardProps = Omit<StoryCardProps, 'children' | 'className'> 
  * - If `content` is not provided, it will automatically use the story description,
  *   or fall back to the component description.
  * - Cards are collected and displayed in the order they are defined in the decorators array.
+ * - The `status` option is deprecated; use `appearance` instead for the same behavior and additional variants (`source`, `output`).
  */
 export function withStoryCard<TRenderer extends Renderer = Renderer>({
 	title,
 	status,
+	appearance,
 	content: contentProp,
 	className,
 	...rest
@@ -118,7 +127,8 @@ export function withStoryCard<TRenderer extends Renderer = Renderer>({
 		// Decorator props override parameter values
 		// Use parameters as fallback when decorator props are not provided
 		const finalTitle = title ?? storyCardParam?.title
-		const finalStatus = status ?? storyCardParam?.status ?? 'info'
+		const finalAppearance = appearance ?? storyCardParam?.appearance ?? status ?? storyCardParam?.status ?? 'info'
+		const finalStatus = status ?? storyCardParam?.status
 		const finalContent = contentProp ?? storyCardParam?.content
 		const finalClassName = className ?? storyCardParam?.className
 
@@ -132,6 +142,7 @@ export function withStoryCard<TRenderer extends Renderer = Renderer>({
 				content={content}
 				title={finalTitle}
 				status={finalStatus}
+				appearance={finalAppearance}
 				className={finalClassName}
 				{...rest}
 			/>
