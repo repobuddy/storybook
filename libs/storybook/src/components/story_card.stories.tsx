@@ -66,7 +66,7 @@ export const WithTitle: Story = {
 
 export const StatusError: Story = {
 	name: 'status: error',
-	tags: ['props', 'deprecated', 'version:next', '!version:2.8'],
+	tags: ['props', 'deprecated', 'version:2.14', '!version:2.8'],
 	parameters: defineDocsParam({
 		description: {
 			story: 'Deprecated: use `appearance: "error"` instead.'
@@ -82,7 +82,7 @@ export const StatusError: Story = {
 
 export const StatusWarn: Story = {
 	name: 'status: warn',
-	tags: ['props', 'deprecated', 'version:next', '!version:2.8'],
+	tags: ['props', 'deprecated', 'version:2.14', '!version:2.8'],
 	parameters: defineDocsParam({
 		description: {
 			story: 'Deprecated: use `appearance: "warn"` instead.'
@@ -98,7 +98,7 @@ export const StatusWarn: Story = {
 
 export const StatusInfo: Story = {
 	name: 'status: info',
-	tags: ['props', 'deprecated', 'version:next', '!version:2.8'],
+	tags: ['props', 'deprecated', 'version:2.14', '!version:2.8'],
 	parameters: defineDocsParam({
 		description: {
 			story: 'Deprecated: use `appearance: "info"` instead.'
@@ -114,7 +114,7 @@ export const StatusInfo: Story = {
 
 export const AppearanceError: Story = {
 	name: 'appearance: error',
-	tags: ['props', 'version:next', '!version:2.8'],
+	tags: ['props', 'version:2.14', '!version:2.8'],
 	parameters: defineDocsParam({
 		description: {
 			story: 'Use for failure states, validation errors, or critical messages that require immediate attention.'
@@ -129,7 +129,7 @@ export const AppearanceError: Story = {
 
 export const AppearanceWarn: Story = {
 	name: 'appearance: warn',
-	tags: ['props', 'version:next', '!version:2.8'],
+	tags: ['props', 'version:2.14', '!version:2.8'],
 	parameters: defineDocsParam({
 		description: {
 			story: 'Use for cautions, deprecation notices, or non-blocking issues the user should be aware of.'
@@ -144,7 +144,7 @@ export const AppearanceWarn: Story = {
 
 export const AppearanceInfo: Story = {
 	name: 'appearance: info',
-	tags: ['props', 'version:next', '!version:2.8'],
+	tags: ['props', 'version:2.14', '!version:2.8'],
 	parameters: defineDocsParam({
 		description: {
 			story: 'Use for general context, tips, or neutral information. Default when neither appearance nor status is set.'
@@ -159,7 +159,7 @@ export const AppearanceInfo: Story = {
 
 export const AppearanceSource: Story = {
 	name: 'appearance: source',
-	tags: ['props', 'version:next', '!version:2.8'],
+	tags: ['props', 'version:2.14', '!version:2.8'],
 	parameters: defineDocsParam({
 		description: {
 			story: 'Use when embedding code or source snippets so the card blends with the page (e.g. with showDocSource).'
@@ -174,7 +174,7 @@ export const AppearanceSource: Story = {
 
 export const AppearanceOutput: Story = {
 	name: 'appearance: output',
-	tags: ['props', 'version:next', '!version:2.8'],
+	tags: ['props', 'version:2.14', '!version:2.8'],
 	parameters: defineDocsParam({
 		description: {
 			story: 'Use when showing results, success feedback, or generated output.'
