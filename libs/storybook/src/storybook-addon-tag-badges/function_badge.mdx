@@ -1,0 +1,24 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="storybook-addon-tag-badges/functionBadge" />
+
+# Function badge
+
+Use the **func** badge for stories that showcase or document functions. The badge displays **ƒ(x)** with a "Function" tooltip. This badge is hidden in MDX docs.
+
+## Usage
+
+Add the `func` tag to your meta (default export). No need to add it to each story.
+
+```tsx
+export default {
+	tags: ['func'],
+	// ...
+} satisfies Meta
+
+export const YourStory = {
+	render: () => <YourComponent />
+}
+```
+
+Stories in a file whose meta is tagged with `func` will show the **ƒ(x)** badge in the sidebar.

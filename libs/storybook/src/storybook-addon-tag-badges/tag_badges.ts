@@ -11,6 +11,8 @@ export type TagNames =
 	| 'editor'
 	| 'source'
 	| 'type'
+	| 'func'
+	| 'var'
 	| 'new'
 	| 'beta'
 	| 'props'
@@ -26,26 +28,6 @@ export type TagNames =
 	| 'internal'
 	| 'usecase'
 	| 'version:next'
-
-/**
- * Configuration for story tag badges that appear in the Storybook sidebar.
- * Each badge is associated with a specific tag and displays an emoji with a tooltip.
- *
- * The badges help visually identify stories with certain characteristics:
- * - ✏️ Editor - Stories with live editor
- * - 🆕 New - Recently added stories
- * - 🅱️ Beta - Stories for features in beta
- * - 🪦 Deprecated - Stories for deprecated features
- * - ⚠️ Outdated - Stories that need updating
- * - 🚨 Danger - Stories demonstrating dangerous patterns
- * - 📋 Todo - Stories marked as todo/incomplete
- * - 📝 Code Only - Stories without visual examples
- * - 📸 Snapshot - Stories with snapshot tests
- * - 🧪 Unit - Stories with unit tests
- * - 🔗 Integration - Stories with integration tests
- *
- * Also includes the default version badge from `storybook-addon-tag-badges`.
- */
 
 /** Badge (✏️) for stories with a live editor. Shown in sidebar on story and inherited. */
 export const editorBadge: TagBadgeParameter = {
@@ -185,7 +167,39 @@ export const typeBadge: TagBadgeParameter = {
 		tooltip: 'TypeScript Types'
 	},
 	display: {
-		mdx: false
+		mdx: true
+	}
+}
+
+/** Badge (ƒ(x)) for stories that showcase or document functions. Hidden in MDX. */
+export const functionBadge: TagBadgeParameter = {
+	tags: 'func',
+	badge: {
+		text: 'ƒ(x)',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
+		tooltip: 'Function'
+	},
+	display: {
+		mdx: true
+	}
+}
+
+/** Badge (var) for stories that describe values and variables. */
+export const varBadge: TagBadgeParameter = {
+	tags: 'var',
+	badge: {
+		text: 'var',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
+		tooltip: 'Variables'
+	},
+	display: {
+		mdx: true
 	}
 }
 
@@ -280,22 +294,49 @@ export const internalBadge: TagBadgeParameter = {
 	}
 }
 
-/** Ordered list of all tag badge configs used by the addon (includes version badge). */
+/**
+ * Configuration for story tag badges that appear in the Storybook sidebar.
+ * Each badge is associated with a specific tag and displays an emoji or symbol with a tooltip.
+ *
+ * The badges help visually identify stories with certain characteristics:
+ * - 🆕 New - Recently added stories
+ * - 🅱️ Beta - Stories for features in beta
+ * - 🪦 Deprecated - Stories for deprecated features
+ * - ⚠️ Outdated - Stories that need updating
+ * - ✏️ Editor - Stories with live editor
+ * - 🧪 Unit - Stories with unit tests
+ * - 🔗 Integration - Stories with integration tests
+ * - ⌨️ Keyboard - Stories that demonstrate or test keyboard interaction
+ * - 🚨 Danger - Stories demonstrating dangerous patterns
+ * - `</>` Source - Source-code-focused stories
+ * - `<T>` Type - Stories that showcase or document TypeScript types
+ * - `ƒ(x)` Function - Stories that showcase or document functions
+ * - `var` Variables - Stories that describe values and variables
+ * - 🔧 Props - Stories that demonstrate props or configuration
+ * - 📝 Code Only - Stories without visual examples
+ * - 📋 Todo - Stories marked as todo/incomplete
+ * - `next` - (`version:next`) The component or function is available in the next version
+ * - `x.y` - (`version:x.y`) The component or function was created or updated in the x.y version
+ * - 🔒 Internal - Internal or private-use-only stories
+ * - 📸 Snapshot - Stories with snapshot tests
+ */
 export const tagBadges: TagBadgeParameters = [
-	editorBadge,
-	sourceBadge,
-	typeBadge,
-	unitBadge,
-	integrationBadge,
-	keyboardBadge,
 	newBadge,
 	betaBadge,
 	deprecatedBadge,
 	outdatedBadge,
+	editorBadge,
+	unitBadge,
+	integrationBadge,
+	keyboardBadge,
 	dangerBadge,
+	sourceBadge,
+	typeBadge,
+	functionBadge,
+	varBadge,
 	propsBadge,
-	todoBadge,
 	codeOnlyBadge,
+	todoBadge,
 	versionBadge,
 	internalBadge,
 	snapshotBadge

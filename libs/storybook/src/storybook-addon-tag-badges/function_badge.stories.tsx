@@ -1,22 +1,20 @@
 import dedent from 'dedent'
-import { defineDocsParam, showDocSource, withStoryCard } from '#repobuddy/storybook'
+import { defineDocsParam, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
 export default {
-	title: 'storybook-addon-tag-badges/sourceBadge',
-	tags: ['var', 'version:2.13'],
+	title: 'storybook-addon-tag-badges/functionBadge',
+	tags: ['var', 'version:next'],
 	render: () => <></>
 } satisfies Meta
 
-export const SourceBadge: StoryObj = {
-	tags: ['source'],
+export const FunctionBadge: StoryObj = {
 	parameters: defineDocsParam({
 		source: {
 			code: dedent`
-			// Use this badge to indicate stories that show source code in the docs
+			// Use this badge for stories that showcase or document functions
 			export const YourStory = {
-				tags: ['source'],
-				decorators: [showDocSource()],
+				tags: ['func'],
 				render: () => <YourComponent />
 			}
 			`
@@ -26,12 +24,11 @@ export const SourceBadge: StoryObj = {
 		withStoryCard({
 			content: (
 				<div>
-					<div>Story with source code visible in docs</div>
-					<code>tags: ['source']</code>
+					<div>Story that showcases or documents functions</div>
+					<code>tags: ['func']</code>
 				</div>
 			)
-		}),
-		showDocSource()
+		})
 	]
 }
 

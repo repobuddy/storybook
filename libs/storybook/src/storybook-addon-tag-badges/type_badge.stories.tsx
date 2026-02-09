@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-ba
 
 export default {
 	title: 'storybook-addon-tag-badges/typeBadge',
-	tags: ['version:2.13'],
+	tags: ['var', 'version:2.15'],
 	render: () => <></>
 } satisfies Meta
 
