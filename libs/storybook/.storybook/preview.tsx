@@ -13,7 +13,18 @@ const preview: Preview = {
 		options: {
 			storySort: {
 				method: 'alphabetical',
-				order: ['components', 'decorators', 'parameters', 'arg-types', 'types', 'manager', 'testing', '*']
+				order: [
+					'Overview',
+					'Changelog',
+					'components',
+					'decorators',
+					'parameters',
+					'arg-types',
+					'types',
+					'manager',
+					'testing',
+					'*'
+				]
 			}
 		},
 		...defineDarkModeParam({
