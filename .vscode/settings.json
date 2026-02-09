@@ -44,14 +44,13 @@
 		"ssim"
 	],
 	"files.associations": {
-		"storybook.css": "tailwindcss",
 		"tailwind.css": "tailwindcss"
 	},
 	"tailwindCSS.classFunctions": [
-		"twMerge", "twJoin"
+		"twMerge", "twJoin", "cva"
 	],
 	"tailwindCSS.experimental.configFile": {
-		"./libs/storybook/tailwind.css": "./libs/storybook/src/**"
+		"./libs/storybook/.storybook/tailwind.css": "./libs/storybook/src/**"
 	},
 	"typescript.tsdk": "node_modules/typescript/lib"
 }
