@@ -1,5 +1,12 @@
 # @repobuddy/storybook
 
+## 2.17.0
+
+### Minor Changes
+
+- [`e7d7eaa`](https://github.com/repobuddy/storybook/commit/e7d7eaa03ac89d8525415ea9f54267c47feffcd7) Thanks [@unional](https://github.com/unional)! - Add `use-case` tag completion.
+  `usecase` is a typo and should be removed.
+
 ## 2.16.0
 
 ### Minor Changes
