@@ -27,6 +27,7 @@ export type TagNames =
 	| 'keyboard'
 	| 'internal'
 	| 'usecase'
+	| 'use-case'
 	| 'version:next'
 
 /** Badge (✏️) for stories with a live editor. Shown in sidebar on story and inherited. */
