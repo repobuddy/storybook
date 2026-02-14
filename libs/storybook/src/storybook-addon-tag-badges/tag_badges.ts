@@ -8,11 +8,15 @@ type TagBadgeParameter = TagBadgeParameters[0]
  * Type representing the names of predefined tags used in Storybook stories.
  */
 export type TagNames =
+	| '!test'
 	| 'editor'
 	| 'source'
 	| 'type'
+	| '!type'
 	| 'func'
+	| '!func'
 	| 'var'
+	| '!var'
 	| 'new'
 	| 'beta'
 	| 'props'
@@ -22,6 +26,7 @@ export type TagNames =
 	| 'todo'
 	| 'code-only'
 	| 'snapshot'
+	| '!snapshot'
 	| 'unit'
 	| 'integration'
 	| 'keyboard'
