@@ -300,6 +300,19 @@ export const internalBadge: TagBadgeParameter = {
 	}
 }
 
+/** Badge (🎯) for stories that demonstrate a specific use case or scenario. */
+export const useCaseBadge: TagBadgeParameter = {
+	tags: 'use-case',
+	badge: {
+		text: '🎯',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
+		tooltip: 'Use Case'
+	}
+}
+
 /**
  * Configuration for story tag badges that appear in the Storybook sidebar.
  * Each badge is associated with a specific tag and displays an emoji or symbol with a tooltip.
@@ -321,6 +334,7 @@ export const internalBadge: TagBadgeParameter = {
  * - 🔧 Props - Stories that demonstrate props or configuration
  * - 📝 Code Only - Stories without visual examples
  * - 📋 Todo - Stories marked as todo/incomplete
+ * - 🎯 Use Case - Stories that demonstrate a specific use case or scenario
  * - `next` - (`version:next`) The component or function is available in the next version
  * - `x.y` - (`version:x.y`) The component or function was created or updated in the x.y version
  * - 🔒 Internal - Internal or private-use-only stories
@@ -343,6 +357,7 @@ export const tagBadges: TagBadgeParameters = [
 	propsBadge,
 	codeOnlyBadge,
 	todoBadge,
+	useCaseBadge,
 	versionBadge,
 	internalBadge,
 	snapshotBadge
