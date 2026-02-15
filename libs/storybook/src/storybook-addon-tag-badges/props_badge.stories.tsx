@@ -1,3 +1,5 @@
+import dedent from 'dedent'
+import { showDocSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
 export default {
@@ -8,10 +10,19 @@ export default {
 
 export const PropsBadge: StoryObj = {
 	tags: ['props'],
-	render: () => (
-		<div>
-			<div>Story focused on props</div>
-			<code>tags: ['props']</code>
-		</div>
-	)
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Story focused on props or configuration. In the sidebar it appears as <code>🔧</code>.
+				</p>
+			)
+		}),
+		showDocSource({
+			source: dedent`export const YourStory = {
+				tags: ['props'],
+				render: () => <YourComponent />
+			}`
+		})
+	]
 }

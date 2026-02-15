@@ -1,3 +1,5 @@
+import dedent from 'dedent'
+import { showDocSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
 export default {
@@ -8,10 +10,19 @@ export default {
 
 export const KeyboardBadge: StoryObj = {
 	tags: ['keyboard'],
-	render: () => (
-		<div>
-			<div>Story with keyboard interactions</div>
-			<code>tags: ['keyboard']</code>
-		</div>
-	)
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Story with keyboard interactions. In the sidebar it appears as <code>⌨️</code>.
+				</p>
+			)
+		}),
+		showDocSource({
+			source: dedent`export const YourStory = {
+				tags: ['keyboard'],
+				render: () => <YourComponent />
+			}`
+		})
+	]
 }

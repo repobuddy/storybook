@@ -1,3 +1,5 @@
+import dedent from 'dedent'
+import { showDocSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
 export default {
@@ -8,10 +10,19 @@ export default {
 
 export const CodeOnlyBadge: StoryObj = {
 	tags: ['code-only'],
-	render: () => (
-		<div>
-			<div>Components that only exist in code, and not in design</div>
-			<code>tags: ['code-only']</code>
-		</div>
-	)
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Components that only exist in code, and not in design. In the sidebar it appears as <code>📝</code>.
+				</p>
+			)
+		}),
+		showDocSource({
+			source: dedent`export const YourStory = {
+				tags: ['code-only'],
+				render: () => <YourComponent />
+			}`
+		})
+	]
 }

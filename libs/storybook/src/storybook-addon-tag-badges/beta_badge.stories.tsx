@@ -1,3 +1,5 @@
+import dedent from 'dedent'
+import { showDocSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
 export default {
@@ -8,10 +10,19 @@ export default {
 
 export const BetaBadge: StoryObj = {
 	tags: ['beta'],
-	render: () => (
-		<div>
-			<div>Warn that a component or prop is not stable yet</div>
-			<code>tags: ['beta']</code>
-		</div>
-	)
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Warn that a component or prop is not stable yet. In the sidebar it appears as <code>🌱</code>.
+				</p>
+			)
+		}),
+		showDocSource({
+			source: dedent`export const YourStory = {
+				tags: ['beta'],
+				render: () => <YourComponent />
+			}`
+		})
+	]
 }

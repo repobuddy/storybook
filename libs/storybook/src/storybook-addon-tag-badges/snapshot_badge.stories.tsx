@@ -1,3 +1,5 @@
+import dedent from 'dedent'
+import { showDocSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
 export default {
@@ -8,10 +10,19 @@ export default {
 
 export const SnapshotBadge: StoryObj = {
 	tags: ['snapshot'],
-	render: () => (
-		<div>
-			<div>Story with snapshot</div>
-			<code>tags: ['snapshot']</code>
-		</div>
-	)
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Story with snapshot test. It appears as <code>📸</code> in the toolbar (not in the sidebar).
+				</p>
+			)
+		}),
+		showDocSource({
+			source: dedent`export const YourStory = {
+				tags: ['snapshot'],
+				render: () => <YourComponent />
+			}`
+		})
+	]
 }

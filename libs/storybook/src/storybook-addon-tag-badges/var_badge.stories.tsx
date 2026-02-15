@@ -1,5 +1,5 @@
 import dedent from 'dedent'
-import { defineDocsParam, withStoryCard } from '#repobuddy/storybook'
+import { showDocSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
 export default {
@@ -9,29 +9,25 @@ export default {
 } satisfies Meta
 
 export const VarBadge: StoryObj = {
-	parameters: defineDocsParam({
-		source: {
-			code: dedent`
-			// Use this badge for stories that describe values and variables
-			export default {
+	name: 'Variable Badge',
+	tags: ['var'],
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Story that describes values and variables. In the sidebar it appears as <code>var</code>.
+				</p>
+			)
+		}),
+		showDocSource({
+			source: dedent`export default {
 				tags: ['var'],
 				// ...
 			} satisfies Meta
 
 			export const YourStory = {
 				render: () => <YourComponent />
-			}
-			`
-		}
-	}),
-	decorators: [
-		withStoryCard({
-			content: (
-				<div>
-					<div>Story that describes values and variables</div>
-					<code>tags: ['var']</code>
-				</div>
-			)
+			}`
 		})
 	]
 }

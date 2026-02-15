@@ -1,3 +1,5 @@
+import dedent from 'dedent'
+import { showDocSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
 export default {
@@ -7,11 +9,21 @@ export default {
 } satisfies Meta
 
 export const TodoBadge: StoryObj = {
+	name: 'To-Do Badge',
 	tags: ['todo'],
-	render: () => (
-		<div>
-			<div>Todo story</div>
-			<code>tags: ['todo']</code>
-		</div>
-	)
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Story marked as todo or incomplete. In the sidebar it appears as <code>📋</code>.
+				</p>
+			)
+		}),
+		showDocSource({
+			source: dedent`export const YourStory = {
+				tags: ['todo'],
+				render: () => <YourComponent />
+			}`
+		})
+	]
 }

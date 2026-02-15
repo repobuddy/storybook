@@ -1,5 +1,5 @@
 import dedent from 'dedent'
-import { defineDocsParam, showDocSource } from '#repobuddy/storybook'
+import { showDocSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
 export default {
@@ -10,28 +10,20 @@ export default {
 
 export const InternalBadge: StoryObj = {
 	tags: ['internal'],
-	parameters: defineDocsParam({
-		source: {
-			code: dedent`
-			// Use this badge to hide stories from the sidebar during production build
-			export const YourStory = {
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Internal or private-use-only stories. Can be hidden from the sidebar in production. In the sidebar it appears
+					as <code>🔒</code>.
+				</p>
+			)
+		}),
+		showDocSource({
+			source: dedent`export const YourStory = {
 				tags: ['internal'],
-			}
-
-			// To set this up, you need to add the following to your .storybook/main.ts file:
-			export default {
-				tags: {
-					internal: {
-						excludeFromSidebar: process.env.NODE_ENV === 'production'
-					}
-				}
-			}
-
-			// And build your storybook with the following command:
-			NODE_ENV=production storybook build
-			`
-		}
-	}),
-	decorators: [showDocSource()],
-	render: () => <></>
+				render: () => <YourComponent />
+			}`
+		})
+	]
 }

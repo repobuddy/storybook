@@ -1,5 +1,5 @@
 import dedent from 'dedent'
-import { defineDocsParam, withStoryCard } from '#repobuddy/storybook'
+import { showDocSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
 export default {
@@ -9,25 +9,20 @@ export default {
 } satisfies Meta
 
 export const FunctionBadge: StoryObj = {
-	parameters: defineDocsParam({
-		source: {
-			code: dedent`
-			// Use this badge for stories that showcase or document functions
-			export const YourStory = {
-				tags: ['func'],
-				render: () => <YourComponent />
-			}
-			`
-		}
-	}),
+	tags: ['func'],
 	decorators: [
 		withStoryCard({
 			content: (
-				<div>
-					<div>Story that showcases or documents functions</div>
-					<code>tags: ['func']</code>
-				</div>
+				<p>
+					Story that showcases or documents functions. In the sidebar it appears as <code>ƒ(x)</code>.
+				</p>
 			)
+		}),
+		showDocSource({
+			source: dedent`export const YourStory = {
+				tags: ['func'],
+				render: () => <YourComponent />
+			}`
 		})
 	]
 }

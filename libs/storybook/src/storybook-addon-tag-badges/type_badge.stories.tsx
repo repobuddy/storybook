@@ -1,5 +1,5 @@
 import dedent from 'dedent'
-import { defineDocsParam, withStoryCard } from '#repobuddy/storybook'
+import { showDocSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
 export default {
@@ -10,25 +10,19 @@ export default {
 
 export const TypeBadge: StoryObj = {
 	tags: ['type'],
-	parameters: defineDocsParam({
-		source: {
-			code: dedent`
-			// Use this badge for stories that showcase or document TypeScript types
-			export const YourStory = {
-				tags: ['type'],
-				render: () => <YourComponent />
-			}
-			`
-		}
-	}),
 	decorators: [
 		withStoryCard({
 			content: (
-				<div>
-					<div>Story that showcases or documents TypeScript types</div>
-					<code>tags: ['type']</code>
-				</div>
+				<p>
+					Story that showcases or documents TypeScript types. In the sidebar it appears as <code>{'<T>'}</code>.
+				</p>
 			)
+		}),
+		showDocSource({
+			source: dedent`export const YourStory = {
+				tags: ['type'],
+				render: () => <YourComponent />
+			}`
 		})
 	]
 }

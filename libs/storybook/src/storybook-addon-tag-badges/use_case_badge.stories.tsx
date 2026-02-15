@@ -1,3 +1,5 @@
+import dedent from 'dedent'
+import { showDocSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
 export default {
@@ -8,10 +10,19 @@ export default {
 
 export const UseCaseBadge: StoryObj = {
 	tags: ['use-case'],
-	render: () => (
-		<div>
-			<div>Story demonstrating a specific use case</div>
-			<code>tags: ['use-case']</code>
-		</div>
-	)
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Story demonstrating a specific use case or scenario. In the sidebar it appears as <code>🎯</code>.
+				</p>
+			)
+		}),
+		showDocSource({
+			source: dedent`export const YourStory = {
+				tags: ['use-case'],
+				render: () => <YourComponent />
+			}`
+		})
+	]
 }

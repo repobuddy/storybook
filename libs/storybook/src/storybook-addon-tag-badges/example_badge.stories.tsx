@@ -1,3 +1,5 @@
+import dedent from 'dedent'
+import { showDocSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
 export default {
@@ -8,10 +10,19 @@ export default {
 
 export const ExampleBadge: StoryObj = {
 	tags: ['example'],
-	render: () => (
-		<div>
-			<div>Story demonstrating the example badge</div>
-			<code>tags: ['example']</code>
-		</div>
-	)
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Example or demo story. In the sidebar it appears as <code>✨</code>.
+				</p>
+			)
+		}),
+		showDocSource({
+			source: dedent`export const YourStory = {
+				tags: ['example'],
+				render: () => <YourComponent />
+			}`
+		})
+	]
 }

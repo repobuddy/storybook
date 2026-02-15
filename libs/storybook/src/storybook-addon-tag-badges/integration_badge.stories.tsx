@@ -1,3 +1,5 @@
+import dedent from 'dedent'
+import { showDocSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
 export default {
@@ -8,10 +10,20 @@ export default {
 
 export const IntegrationTestBadge: StoryObj = {
 	tags: ['integration'],
-	render: () => (
-		<div>
-			<div>Integration test story</div>
-			<code>tags: ['integration']</code>
-		</div>
-	)
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Integration test story. This badge is hidden in the sidebar; it appears as <code>🔗</code> when displayed
+					elsewhere.
+				</p>
+			)
+		}),
+		showDocSource({
+			source: dedent`export const YourStory = {
+				tags: ['integration'],
+				render: () => <YourComponent />
+			}`
+		})
+	]
 }
