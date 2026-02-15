@@ -1,6 +1,6 @@
 import type { setupMonaco } from 'storybook-addon-code-editor'
-import RepobuddyStorybookTypes from './types/repobuddy_storybook/index.d.mts?raw'
-import RepobuddyStorybookTagBadgesTypes from './types/repobuddy_storybook_tag_badges/index.d.mts?raw'
+import RepobuddyStorybookTypes from '../esm/index.d.ts?raw'
+import RepobuddyStorybookTagBadgesTypes from '../esm/storybook-addon-tag-badges/index.d.ts?raw'
 
 export const onMonacoLoad: NonNullable<Parameters<typeof setupMonaco>[0]['onMonacoLoad']> = (monaco) => {
 	monaco.languages.typescript.typescriptDefaults.setDiagnosticsOptions({
