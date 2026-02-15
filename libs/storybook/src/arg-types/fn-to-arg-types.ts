@@ -21,4 +21,4 @@ type ReduceToRecord<Params extends Array<any>, Names extends Array<any>> = Names
 			: never
 		: Names extends [infer K extends string, ...infer Rest]
 			? { [I in K]: Params[0] } & ReduceToRecord<Tail<Params>, Rest>
-			: never
+			: Record<string, any>

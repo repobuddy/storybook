@@ -1,13 +1,16 @@
 import dedent from 'dedent'
+import { makeLiveEditStory } from 'storybook-addon-code-editor'
 import { testType } from 'type-plus'
 import type { FnToArgTypes } from '#repobuddy/storybook'
+import * as repobuddyStorybook from '#repobuddy/storybook'
 import { defineDocsParam, showDocSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
+import * as repobuddyStorybookTagBadges from '#repobuddy/storybook/storybook-addon-tag-badges'
+import variadicCode from './fn-to-arg-types.stories.variadic.tsx?raw'
 
 const meta = {
 	title: 'arg-types/FnToArgTypes',
 	tags: ['type', 'version:2.6'],
-	decorators: [showDocSource()],
 	render: () => <></>
 } satisfies Meta
 
@@ -40,7 +43,8 @@ export const BasicUsage: Story = {
 					Storybook.
 				</p>
 			)
-		})
+		}),
+		showDocSource({ placement: 'before' })
 	],
 	async play() {
 		testType.equal<FnToArgTypes<() => void>, unknown>(true)
@@ -78,5 +82,34 @@ export const BasicUsage: Story = {
 				p: { control: 'text' }
 			}
 		}
+
+		// Variable (rest) arguments: rest is a single parameter of array type
+		const _mRestOnly: Meta<FnToArgTypes<(...args: number[]) => void, ['values']>> = {
+			argTypes: { values: { control: 'object' } }
+		}
+		// Fixed params + rest: FnToArgTypes maps each name to the param at same index (rest = one param)
+		const _mFixedAndRest: Meta<FnToArgTypes<(x: number, ...rest: string[]) => void, ['x', 'rest']>> = {
+			argTypes: {
+				x: { control: 'number' },
+				rest: { control: 'object' }
+			}
+		}
 	}
 }
+
+export const VariadicFunction: Story = {
+	parameters: defineDocsParam({
+		source: {
+			code: variadicCode
+		}
+	}),
+	decorators: [withStoryCard(), showDocSource({ placement: 'before' })]
+}
+
+makeLiveEditStory(VariadicFunction, {
+	availableImports: {
+		'@repobuddy/storybook': repobuddyStorybook,
+		'@repobuddy/storybook/storybook-addon-tag-badges': repobuddyStorybookTagBadges
+	},
+	code: VariadicFunction.parameters?.docs?.source?.code ?? ''
+})

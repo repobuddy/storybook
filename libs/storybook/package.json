@@ -24,7 +24,10 @@
 	},
 	"exports": {
 		".": {
-			"types": "./esm/index.d.ts",
+			"types": [
+				"./esm/index.d.ts",
+				"./src/index.ts"
+			],
 			"default": "./esm/index.js"
 		},
 		"./manager": {
@@ -32,11 +35,17 @@
 			"default": "./esm/manager/index.js"
 		},
 		"./storybook-addon-tag-badges": {
-			"types": "./esm/storybook-addon-tag-badges/index.d.ts",
+			"types": [
+				"./esm/storybook-addon-tag-badges/index.d.ts",
+				"./src/storybook-addon-tag-badges/index.ts"
+			],
 			"default": "./esm/storybook-addon-tag-badges/index.js"
 		},
 		"./storybook-dark-mode": {
-			"types": "./esm/storybook-dark-mode/index.d.ts",
+			"types": [
+				"./esm/storybook-dark-mode/index.d.ts",
+				"./src/storybook-dark-mode/index.ts"
+			],
 			"default": "./esm/storybook-dark-mode/index.js"
 		},
 		"./tailwind": {
@@ -96,6 +105,7 @@
 		"react-dom": "^19.2.0",
 		"rimraf": "^6.1.0",
 		"storybook": "^10.1.10",
+		"storybook-addon-code-editor": "^6.1.3",
 		"storybook-addon-tag-badges": "^3.0.2",
 		"tailwindcss": "^4.1.17",
 		"tsdown": "^0.20.0",
