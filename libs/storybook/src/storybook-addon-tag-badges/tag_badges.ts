@@ -37,7 +37,7 @@ export type TagNames =
 	| 'version:next'
 	| 'remove'
 	| 'remove:next'
-	| `remove:${string}`
+	| 'autodocs'
 
 /** Badge (✏️) for stories with a live editor. Shown in sidebar on story and inherited. */
 export const editorBadge: TagBadgeParameter = {
