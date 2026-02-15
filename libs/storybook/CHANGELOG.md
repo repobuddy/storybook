@@ -1,5 +1,35 @@
 # @repobuddy/storybook
 
+## 2.19.0
+
+### Minor Changes
+
+- [`b440c08`](https://github.com/repobuddy/storybook/commit/b440c087a3df50e24e8750defe945ea1c50ddab8) Thanks [@unional](https://github.com/unional)! - Add example badge to storybook-addon-tag-badges
+
+  - Add `exampleBadge` for the `example` tag (✨ with "Example" tooltip)
+
+- [`836debd`](https://github.com/repobuddy/storybook/commit/836debd18666cb31cb2f746569c308c6d28128e2) Thanks [@unional](https://github.com/unional)! - Add remove badge to storybook-addon-tag-badges
+
+  - Add `removeBadge` (☠️) for features/components scheduled for removal in a future version
+  - Tag format: `remove`, `remove:next` (equivalent), or `remove:<version>` (e.g. `remove:2`) with single version number
+  - Badge displays "☠️ v2" for version or "☠️" for next
+
+- [`57ca9ee`](https://github.com/repobuddy/storybook/commit/57ca9eefe7ebf1f3fa6dcc2ba19fa72198bf3e6e) Thanks [@unional](https://github.com/unional)! - Add alpha and rc badges; use red/yellow/blue for stability stages
+
+  - Add `alphaBadge` for the `alpha` tag (🔴 with "Alpha" tooltip)
+  - Add `rcBadge` for the `rc` tag (🔵 with "Release Candidate" tooltip)
+  - Change `betaBadge` from 🌱 to 🟡 for consistent red/yellow/blue staging
+
+### Patch Changes
+
+- [`555555e`](https://github.com/repobuddy/storybook/commit/555555e11bc74cc348d543280341f8cf67d31b9f) Thanks [@unional](https://github.com/unional)! - Change deprecated badge to use trashcan emoji
+
+  - Replace gravestone (🪦) with trashcan (🗑️) for `deprecatedBadge`
+
+- [`e6c9ddd`](https://github.com/repobuddy/storybook/commit/e6c9ddd0dc55132aed35cf0b2f77df05161ea023) Thanks [@unional](https://github.com/unional)! - Add missing tags to TagNames type
+
+  - Add `autodocs` (Storybook built-in tag used in stories)
+
 ## 2.18.1
 
 ### Patch Changes
