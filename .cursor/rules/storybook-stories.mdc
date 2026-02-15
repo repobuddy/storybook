@@ -15,7 +15,7 @@ This document outlines the standards and best practices for creating Storybook s
 
    const meta: Meta<typeof YourComponent> {
 		 title: 'components/YourComponent',
-		 tags: ['new', 'version:1.0'],
+		 tags: ['new', 'version:next'],
      component: YourComponent,
      // Add parameters if needed
    } satisfies Meta
@@ -28,6 +28,11 @@ This document outlines the standards and best practices for creating Storybook s
      // Story implementation
    }
    ```
+
+2. **Version tags**: When working on Storybook stories, use the `version:next` tag when:
+   - Adding stories for **new components**
+   - Updating or adding stories because **features were updated**
+   - Documenting APIs or behavior that will ship in the next release.
 
 ## Story Organization
 
@@ -229,6 +234,7 @@ export const Disabled: Story = {
 3. Include interactive examples where relevant
 4. Use TypeScript for type safety
 5. Follow the project's component guidelines
+6. When adding or updating stories for new or changed features, add or keep the `version:next` tag so the badge reflects "available in next version" until release
 
 Remember to follow these guidelines when creating new Storybook stories.
 When you use this rule file, let me know this rule file is being used in the chat by mentioning the rule filename.
