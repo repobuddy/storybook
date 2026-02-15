@@ -15,15 +15,15 @@
 		"react-dom": "^19.2.0"
 	},
 	"devDependencies": {
-		"@storybook-community/storybook-dark-mode": "^7.0.1",
-		"@storybook/addon-a11y": "^10.2.4",
-		"@storybook/addon-docs": "^10.2.4",
-		"@storybook/addon-vitest": "^10.1.10",
-		"@storybook/react-vite": "^10.2.4",
+		"@storybook-community/storybook-dark-mode": "^7.1.0",
+		"@storybook/addon-a11y": "^10.2.8",
+		"@storybook/addon-docs": "^10.2.8",
+		"@storybook/addon-vitest": "^10.2.8",
+		"@storybook/react-vite": "^10.2.8",
 		"@types/react": "^19.2.5",
 		"@types/react-dom": "^19.2.3",
 		"@vitejs/plugin-react": "^5.1.1",
-		"storybook": "^10.1.10",
+		"storybook": "^10.2.8",
 		"typescript": "~5.9.3",
 		"vite": "^7.3.0"
 	}
