@@ -76,28 +76,28 @@ addons.setConfig({
 ### `storybook-addon-tag-badges`
 
 If you use [`storybook-addon-tag-badges`][`storybook-addon-tag-badges`],
-we provide a different set of badges that uses emojis:
+we provide a different set of badges that uses emojis (order: first match wins):
 
-- ✏️ `editor` - Live editor stories (with [`storybook-addon-code-editor`][`storybook-addon-code-editor`])
 - 🆕 `new` - Recently added stories
 - 🌱 `beta` - Features in beta
 - 🪦 `deprecated` - Deprecated features
 - ⚠️ `outdated` - Stories that need updating
-- 🔧 `props` - Props or configuration
 - 🚨 `danger` - Dangerous or cautionary patterns
+- 🎯 `use-case` - Specific use case or scenario
+- ⌨️ `keyboard` - Keyboard interaction
 - `</>` `source` - Source-code-focused stories
 - `<T>` `type` - TypeScript types (shown in MDX)
 - `ƒ(x)` `func` - Functions (shown in MDX)
 - `var` `var` - Variables (shown in MDX)
-- 📝 `code-only` - Stories without visual examples (hidden in MDX)
+- 🔧 `props` - Props or configuration
 - 📋 `todo` - Todo or incomplete stories
-- 🎯 `use-case` - Specific use case or scenario
-- ⌨️ `keyboard` - Keyboard interaction
-- 📸 `snapshot` - Snapshot tests (toolbar only, not sidebar)
 - 🧪 `unit` - Unit tests
 - 🔗 `integration` - Integration tests (hidden in sidebar)
-- 🔒 `internal` - Internal or private-use-only stories
+- ✏️ `editor` - Live editor stories (with [`storybook-addon-code-editor`][`storybook-addon-code-editor`])
+- 📝 `code-only` - Stories without visual examples (hidden in MDX)
 - Version indicators (unchanged)
+- 🔒 `internal` - Internal or private-use-only stories
+- 📸 `snapshot` - Snapshot tests (toolbar only, not sidebar)
 
 To use them, add them to your `.storybook/manager.ts`:
 

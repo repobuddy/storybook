@@ -317,24 +317,27 @@ export const useCaseBadge: TagBadgeParameter = {
  * Configuration for story tag badges that appear in the Storybook sidebar.
  * Each badge is associated with a specific tag and displays an emoji or symbol with a tooltip.
  *
- * The badges help visually identify stories with certain characteristics:
+ * Badge order (first match wins): New → Beta → Deprecated → Outdated → Danger → Use Case →
+ * Keyboard → Source → Type → Function → Var → Props → Todo → Unit → Integration → Editor →
+ * Code Only → Version → Internal → Snapshot.
+ *
  * - 🆕 New - Recently added stories
  * - 🌱 Beta - Stories for features in beta
  * - 🪦 Deprecated - Stories for deprecated features
  * - ⚠️ Outdated - Stories that need updating
- * - ✏️ Editor - Stories with live editor
- * - 🧪 Unit - Stories with unit tests
- * - 🔗 Integration - Stories with integration tests
- * - ⌨️ Keyboard - Stories that demonstrate or test keyboard interaction
  * - 🚨 Danger - Stories demonstrating dangerous patterns
+ * - 🎯 Use Case - Stories that demonstrate a specific use case or scenario
+ * - ⌨️ Keyboard - Stories that demonstrate or test keyboard interaction
  * - `</>` Source - Source-code-focused stories
  * - `<T>` Type - Stories that showcase or document TypeScript types
  * - `ƒ(x)` Function - Stories that showcase or document functions
  * - `var` Variables - Stories that describe values and variables
  * - 🔧 Props - Stories that demonstrate props or configuration
- * - 📝 Code Only - Stories without visual examples
  * - 📋 Todo - Stories marked as todo/incomplete
- * - 🎯 Use Case - Stories that demonstrate a specific use case or scenario
+ * - 🧪 Unit - Stories with unit tests
+ * - 🔗 Integration - Stories with integration tests
+ * - ✏️ Editor - Stories with live editor
+ * - 📝 Code Only - Stories without visual examples
  * - `next` - (`version:next`) The component or function is available in the next version
  * - `x.y` - (`version:x.y`) The component or function was created or updated in the x.y version
  * - 🔒 Internal - Internal or private-use-only stories
@@ -345,19 +348,19 @@ export const tagBadges: TagBadgeParameters = [
 	betaBadge,
 	deprecatedBadge,
 	outdatedBadge,
-	editorBadge,
-	unitBadge,
-	integrationBadge,
-	keyboardBadge,
 	dangerBadge,
+	useCaseBadge,
+	keyboardBadge,
 	sourceBadge,
 	typeBadge,
 	functionBadge,
 	varBadge,
 	propsBadge,
-	codeOnlyBadge,
 	todoBadge,
-	useCaseBadge,
+	unitBadge,
+	integrationBadge,
+	editorBadge,
+	codeOnlyBadge,
 	versionBadge,
 	internalBadge,
 	snapshotBadge
