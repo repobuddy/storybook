@@ -12,7 +12,7 @@
 			"cache": false
 		},
 		"coverage": {
-			"dependsOn": ["^build"],
+			"dependsOn": ["build"],
 			"inputs": ["$TURBO_DEFAULT$", ".storybook", "*.ts"],
 			"outputs": ["coverage/**", "__vis__/**"]
 		},
@@ -21,12 +21,12 @@
 			"dependsOn": ["clean"]
 		},
 		"sb:build": {
-			"dependsOn": ["^build"],
+			"dependsOn": ["build"],
 			"inputs": ["$TURBO_DEFAULT$", ".storybook"],
 			"outputs": ["storybook-static/**"]
 		},
 		"t": {
-			"dependsOn": ["^build"],
+			"dependsOn": ["build"],
 			"inputs": ["$TURBO_DEFAULT$", ".storybook", "*.ts"],
 			"outputs": ["__vis__/**"]
 		}
