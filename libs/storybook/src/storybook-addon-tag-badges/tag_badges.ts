@@ -35,6 +35,9 @@ export type TagNames =
 	| 'use-case'
 	| 'example'
 	| 'version:next'
+	| 'remove'
+	| 'remove:next'
+	| `remove:${string}`
 
 /** Badge (✏️) for stories with a live editor. Shown in sidebar on story and inherited. */
 export const editorBadge: TagBadgeParameter = {
@@ -104,6 +107,23 @@ export const deprecatedBadge: TagBadgeParameter = {
 			borderColor: 'transparent'
 		},
 		tooltip: 'Deprecated'
+	}
+}
+
+/** Badge (☠️) for stories documenting features scheduled for removal in a future version. Matches `remove`, `remove:next` (same meaning), or `remove:<version>` (e.g. `remove:2`). */
+export const removeBadge: TagBadgeParameter = {
+	tags: ['remove', { prefix: 'remove' }],
+	badge: ({ getTagSuffix, tag }) => {
+		const version = getTagSuffix(tag) ?? 'next'
+		return {
+			text: version === 'next' ? '☠️' : `☠️ v${version}`,
+			style: {
+				backgroundColor: 'transparent',
+				borderColor: 'transparent'
+			},
+			tooltip:
+				version === 'next' ? 'Will be removed in the next major release' : `Will be removed in version ${version}`
+		}
 	}
 }
 
@@ -331,13 +351,14 @@ export const exampleBadge: TagBadgeParameter = {
  * Configuration for story tag badges that appear in the Storybook sidebar.
  * Each badge is associated with a specific tag and displays an emoji or symbol with a tooltip.
  *
- * Badge order (first match wins): New → Beta → Deprecated → Outdated → Danger → Use Case →
+ * Badge order (first match wins): New → Beta → Deprecated → Remove → Outdated → Danger → Use Case →
  * Example → Keyboard → Source → Type → Function → Var → Props → Todo → Unit → Integration →
  * Editor → Code Only → Version → Internal → Snapshot.
  *
  * - 🆕 New - Recently added stories
  * - 🌱 Beta - Stories for features in beta
  * - 🗑️ Deprecated - Stories for deprecated features
+ * - ☠️ Remove - (`remove` or `remove:next` = next release; `remove:<version>` = specific version) The feature or component will be removed in the specified version
  * - ⚠️ Outdated - Stories that need updating
  * - 🚨 Danger - Stories demonstrating dangerous patterns
  * - 🎯 Use Case - Stories that demonstrate a specific use case or scenario
@@ -362,6 +383,7 @@ export const tagBadges: TagBadgeParameters = [
 	newBadge,
 	betaBadge,
 	deprecatedBadge,
+	removeBadge,
 	outdatedBadge,
 	dangerBadge,
 	useCaseBadge,

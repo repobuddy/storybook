@@ -1,0 +1,41 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="storybook-addon-tag-badges/removeBadge" />
+
+# Remove badge
+
+Use the **remove** badge (☠️) to indicate that a feature, component, or behavior will be removed in a future version.
+
+- **Next release:** `remove` or `remove:next` (same meaning)
+- **Specific version:** `remove:<version>` with a single version number (e.g. `remove:2`)
+
+## Usage
+
+For removal in the next release, use `remove` or `remove:next` (equivalent):
+
+```tsx
+export const YourStory = {
+	tags: ['remove'],
+	render: () => <YourComponent />
+}
+```
+
+Or:
+
+```tsx
+export const YourStory = {
+	tags: ['remove:next'],
+	render: () => <YourComponent />
+}
+```
+
+For removal in a specific version, use a version number:
+
+```tsx
+export const YourStory = {
+	tags: ['remove:2'],
+	render: () => <YourComponent />
+}
+```
+
+The badge displays the version in the sidebar and docs (e.g. "☠️ v2" or "☠️" for next).

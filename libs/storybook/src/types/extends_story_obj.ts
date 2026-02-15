@@ -18,12 +18,12 @@ import type { ExtractStringLiterals } from './_extract_string_literals.js'
  * // Create a generic StoryObj type for your project
  * type StoryObj<TCmpOrArgs = Args> = ExtendsStoryObj<
  *   S<TCmpOrArgs>,
- *   { tag: 'new' | 'beta' | 'deprecated' }
+ *   { tag: 'new' | 'beta' | 'deprecated' | 'remove:next' }
  * >
  *
  * // Use in component stories
  * const story: StoryObj<typeof Component> = {
- *   tags: ['new'], // <--- gets auto-completion for 'new' | 'beta' | 'deprecated'
+ *   tags: ['new'], // <--- gets auto-completion for 'new' | 'beta' | 'deprecated' | 'remove:next'
  *   // ...
  * }
  * ```

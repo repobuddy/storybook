@@ -81,6 +81,7 @@ we provide a different set of badges that uses emojis (order: first match wins):
 - 🆕 `new` - Recently added stories
 - 🌱 `beta` - Features in beta
 - 🗑️ `deprecated` - Deprecated features
+- ☠️ `remove` or `remove:next` (same) or `remove:<version>` - Will be removed in the next or specified version
 - ⚠️ `outdated` - Stories that need updating
 - 🚨 `danger` - Dangerous or cautionary patterns
 - 🎯 `use-case` - Specific use case or scenario

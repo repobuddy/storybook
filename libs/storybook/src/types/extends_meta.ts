@@ -18,12 +18,12 @@ import type { ExtractStringLiterals } from './_extract_string_literals.js'
  * // Create a generic Meta type for your project
  * type Meta<TCmpOrArgs = Args> = ExtendsMeta<
  *   M<TCmpOrArgs>,
- *   { tag: 'new' | 'beta' | 'deprecated' }
+ *   { tag: 'new' | 'beta' | 'deprecated' | 'remove:next' }
  * >
  *
  * // Use in component stories
  * const meta: Meta<typeof Component> = {
- *   tags: ['new'], // <--- gets auto-completion for 'new' | 'beta' | 'deprecated'
+ *   tags: ['new'], // <--- gets auto-completion for 'new' | 'beta' | 'deprecated' | 'remove:next'
  *   // ...
  * }
  * ```
