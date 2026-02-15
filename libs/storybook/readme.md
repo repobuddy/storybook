@@ -80,7 +80,7 @@ we provide a different set of badges that uses emojis (order: first match wins):
 
 - 🆕 `new` - Recently added stories
 - 🌱 `beta` - Features in beta
-- 🪦 `deprecated` - Deprecated features
+- 🗑️ `deprecated` - Deprecated features
 - ⚠️ `outdated` - Stories that need updating
 - 🚨 `danger` - Dangerous or cautionary patterns
 - 🎯 `use-case` - Specific use case or scenario

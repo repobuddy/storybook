@@ -94,11 +94,11 @@ export const propsBadge: TagBadgeParameter = {
 	}
 }
 
-/** Badge (🪦) for stories documenting deprecated features. */
+/** Badge (🗑️) for stories documenting deprecated features. */
 export const deprecatedBadge: TagBadgeParameter = {
 	tags: 'deprecated',
 	badge: {
-		text: '🪦',
+		text: '🗑️',
 		style: {
 			backgroundColor: 'transparent',
 			borderColor: 'transparent'
@@ -337,7 +337,7 @@ export const exampleBadge: TagBadgeParameter = {
  *
  * - 🆕 New - Recently added stories
  * - 🌱 Beta - Stories for features in beta
- * - 🪦 Deprecated - Stories for deprecated features
+ * - 🗑️ Deprecated - Stories for deprecated features
  * - ⚠️ Outdated - Stories that need updating
  * - 🚨 Danger - Stories demonstrating dangerous patterns
  * - 🎯 Use Case - Stories that demonstrate a specific use case or scenario

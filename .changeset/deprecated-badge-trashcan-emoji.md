@@ -1,0 +1,8 @@
+---
+"@repobuddy/storybook": patch
+---
+
+Change deprecated badge to use trashcan emoji
+
+- Replace gravestone (🪦) with trashcan (🗑️) for `deprecatedBadge`
+- Update JSDoc, readme, and deprecated badge MDX docs
