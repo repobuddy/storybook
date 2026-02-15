@@ -43,5 +43,21 @@ export default defineConfig([
 		...commonConfig,
 		entry: ['./src/storybook-dark-mode/index.ts'],
 		outDir: './esm/storybook-dark-mode'
+	},
+	{
+		entry: ['./src/index.ts'],
+		clean: true,
+		outDir: '.storybook/types/repobuddy_storybook',
+		dts: {
+			emitDtsOnly: true
+		}
+	},
+	{
+		entry: ['./src/storybook-addon-tag-badges/index.ts'],
+		clean: true,
+		outDir: '.storybook/types/repobuddy_storybook_tag_badges',
+		dts: {
+			emitDtsOnly: true
+		}
 	}
 ])

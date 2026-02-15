@@ -44,5 +44,8 @@
 		"turbo": "^2.6.1",
 		"typescript": "^5.9.3"
 	},
-	"packageManager": "pnpm@10.29.3"
+	"packageManager": "pnpm@10.29.3",
+	"devDependencies": {
+		"@types/node": "^25.2.3"
+	}
 }

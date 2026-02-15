@@ -9,11 +9,12 @@
 		"moduleResolution": "bundler",
 		"noFallthroughCasesInSwitch": true,
 		"outDir": ".nowhere",
+		"rootDir": ".",
 		"rewriteRelativeImportExtensions": true,
 		"skipLibCheck": true,
 		"strict": true,
 		"target": "esnext",
 		"verbatimModuleSyntax": true
 	},
-	"include": ["src", ".storybook", "*.ts"]
+	"include": [".storybook/*", "src", "types", "*.ts"]
 }

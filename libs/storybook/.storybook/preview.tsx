@@ -1,7 +1,11 @@
 import type { Preview } from '@storybook/react-vite'
+import { setupMonaco } from 'storybook-addon-code-editor'
 import { createDarkModeDocsContainer, defineDarkModeParam } from '#repobuddy/storybook/storybook-dark-mode'
+import { onMonacoLoad } from './code-editor'
 
 import './tailwind.css'
+
+setupMonaco({ onMonacoLoad })
 
 const preview: Preview = {
 	tags: ['snapshot'],
