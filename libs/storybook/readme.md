@@ -79,7 +79,9 @@ If you use [`storybook-addon-tag-badges`][`storybook-addon-tag-badges`],
 we provide a different set of badges that uses emojis (order: first match wins):
 
 - 🆕 `new` - Recently added stories
-- 🌱 `beta` - Features in beta
+- 🔴 `alpha` - Features in alpha
+- 🟡 `beta` - Features in beta
+- 🔵 `rc` - Release candidate
 - 🗑️ `deprecated` - Deprecated features
 - ☠️ `remove` or `remove:next` (same) or `remove:<version>` - Will be removed in the next or specified version
 - ⚠️ `outdated` - Stories that need updating

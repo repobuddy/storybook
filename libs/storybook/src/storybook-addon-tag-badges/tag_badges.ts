@@ -18,7 +18,9 @@ export type TagNames =
 	| 'var'
 	| '!var'
 	| 'new'
+	| 'alpha'
 	| 'beta'
+	| 'rc'
 	| 'props'
 	| 'deprecated'
 	| 'outdated'
@@ -71,16 +73,42 @@ export const newBadge: TagBadgeParameter = {
 	}
 }
 
-/** Badge (🌱) for stories covering features in beta. */
+/** Badge (🔴) for stories covering features in alpha. */
+export const alphaBadge: TagBadgeParameter = {
+	tags: 'alpha',
+	badge: {
+		text: '🔴',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
+		tooltip: 'Alpha'
+	}
+}
+
+/** Badge (🟡) for stories covering features in beta. */
 export const betaBadge: TagBadgeParameter = {
 	tags: 'beta',
 	badge: {
-		text: '🌱',
+		text: '🟡',
 		style: {
 			backgroundColor: 'transparent',
 			borderColor: 'transparent'
 		},
 		tooltip: 'Beta'
+	}
+}
+
+/** Badge (🔵) for stories covering release candidates. */
+export const rcBadge: TagBadgeParameter = {
+	tags: 'rc',
+	badge: {
+		text: '🔵',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
+		tooltip: 'Release Candidate'
 	}
 }
 
@@ -351,12 +379,14 @@ export const exampleBadge: TagBadgeParameter = {
  * Configuration for story tag badges that appear in the Storybook sidebar.
  * Each badge is associated with a specific tag and displays an emoji or symbol with a tooltip.
  *
- * Badge order (first match wins): New → Beta → Deprecated → Remove → Outdated → Danger → Use Case →
+ * Badge order (first match wins): New → Alpha → Beta → RC → Deprecated → Remove → Outdated → Danger → Use Case →
  * Example → Keyboard → Source → Type → Function → Var → Props → Todo → Unit → Integration →
  * Editor → Code Only → Version → Internal → Snapshot.
  *
  * - 🆕 New - Recently added stories
- * - 🌱 Beta - Stories for features in beta
+ * - 🔴 Alpha - Stories for features in alpha
+ * - 🟡 Beta - Stories for features in beta
+ * - 🔵 RC - Release candidate
  * - 🗑️ Deprecated - Stories for deprecated features
  * - ☠️ Remove - (`remove` or `remove:next` = next release; `remove:<version>` = specific version) The feature or component will be removed in the specified version
  * - ⚠️ Outdated - Stories that need updating
@@ -381,7 +411,9 @@ export const exampleBadge: TagBadgeParameter = {
  */
 export const tagBadges: TagBadgeParameters = [
 	newBadge,
+	alphaBadge,
 	betaBadge,
+	rcBadge,
 	deprecatedBadge,
 	removeBadge,
 	outdatedBadge,

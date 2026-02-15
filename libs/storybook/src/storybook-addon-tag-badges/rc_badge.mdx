@@ -1,0 +1,18 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="storybook-addon-tag-badges/rcBadge" />
+
+# RC badge
+
+Use the **rc** badge to mark that a component or prop is a release candidate. The badge displays 🔵 with a "Release Candidate" tooltip.
+
+## Usage
+
+Add the `rc` tag to your story.
+
+```tsx
+export const YourStory = {
+	tags: ['rc'],
+	render: () => <YourComponent />
+}
+```
