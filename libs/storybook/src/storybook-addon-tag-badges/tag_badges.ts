@@ -26,6 +26,7 @@ export type TagNames =
 	| 'outdated'
 	| 'danger'
 	| 'todo'
+	| 'docs'
 	| 'code-only'
 	| 'snapshot'
 	| '!snapshot'
@@ -375,12 +376,25 @@ export const exampleBadge: TagBadgeParameter = {
 	}
 }
 
+/** Badge (📖) for stories that are primarily documentation. */
+export const docsBadge: TagBadgeParameter = {
+	tags: 'docs',
+	badge: {
+		text: '📖',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
+		tooltip: 'Documentation'
+	}
+}
+
 /**
  * Configuration for story tag badges that appear in the Storybook sidebar.
  * Each badge is associated with a specific tag and displays an emoji or symbol with a tooltip.
  *
  * Badge order (first match wins): New → Alpha → Beta → RC → Deprecated → Remove → Outdated → Danger → Use Case →
- * Example → Keyboard → Source → Type → Function → Var → Props → Todo → Unit → Integration →
+ * Example → Docs → Keyboard → Source → Type → Function → Var → Props → Todo → Unit → Integration →
  * Editor → Code Only → Version → Internal → Snapshot.
  *
  * - 🆕 New - Recently added stories
@@ -393,6 +407,7 @@ export const exampleBadge: TagBadgeParameter = {
  * - 🚨 Danger - Stories demonstrating dangerous patterns
  * - 🎯 Use Case - Stories that demonstrate a specific use case or scenario
  * - ✨ Example - Example or demo stories
+ * - 📖 Docs - Stories that are primarily documentation
  * - ⌨️ Keyboard - Stories that demonstrate or test keyboard interaction
  * - `</>` Source - Source-code-focused stories
  * - `<T>` Type - Stories that showcase or document TypeScript types
@@ -427,6 +442,7 @@ export const tagBadges: TagBadgeParameters = [
 	varBadge,
 	propsBadge,
 	todoBadge,
+	docsBadge,
 	unitBadge,
 	integrationBadge,
 	editorBadge,
