@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 2.18.1
+
+### Patch Changes
+
+- [`5f63d09`](https://github.com/repobuddy/storybook/commit/5f63d09a455ad3d3e681edf5f5958643f3902d9b) Thanks [@unional](https://github.com/unional)! - Update JSDoc and readme to reflect tagBadges order (first match wins)
+
 ## 2.18.0
 
 ### Minor Changes
