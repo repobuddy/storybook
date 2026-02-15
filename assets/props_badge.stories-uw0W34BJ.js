@@ -1,0 +1,7 @@
+import{j as r}from"./iframe-Qpe9uMKj.js";import"./preload-helper-PPVm8Dsz.js";const d={title:"storybook-addon-tag-badges/propsBadge",tags:["var","version:0.11"],render:()=>r.jsx(r.Fragment,{})},s={tags:["props"],render:()=>r.jsxs("div",{children:[r.jsx("div",{children:"Story focused on props"}),r.jsx("code",{children:"tags: ['props']"})]})};s.parameters={...s.parameters,docs:{...s.parameters?.docs,source:{originalSource:`{
+  tags: ['props'],
+  render: () => <div>
+            <div>Story focused on props</div>
+            <code>tags: ['props']</code>
+        </div>
+}`,...s.parameters?.docs?.source}}};const a=["PropsBadge"];export{s as PropsBadge,a as __namedExportsOrder,d as default};
