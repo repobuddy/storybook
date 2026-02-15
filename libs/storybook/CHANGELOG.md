@@ -1,5 +1,24 @@
 # @repobuddy/storybook
 
+## 2.18.0
+
+### Minor Changes
+
+- [`24e9234`](https://github.com/repobuddy/storybook/commit/24e92346bd6c6b2353e98b5eda9241c17907876b) Thanks [@unional](https://github.com/unional)! - Add negation-style tag names to tag badges addon
+
+  Extend the `TagNames` type with `!test`, `!type`, `!func`, `!var`, and `!snapshot` for use in Storybook stories.
+
+- [`49679a2`](https://github.com/repobuddy/storybook/commit/49679a2478b96cd5b54b8e04141ce3c44fa762b4) Thanks [@unional](https://github.com/unional)! - Add use-case tag badge and stories
+
+  - Add `useCaseBadge` (🎯) for stories tagged with `use-case`
+  - Add `use_case_badge.stories.tsx` demonstrating the badge
+
+### Patch Changes
+
+- [`66713ea`](https://github.com/repobuddy/storybook/commit/66713eaeee4b545ddcc41afc6856a97c08afe331) Thanks [@unional](https://github.com/unional)! - Update beta tag badge emoji to seedling
+
+  Change the beta badge from 🅱️ to 🌱 for stories covering features in beta.
+
 ## 2.17.0
 
 ### Minor Changes
