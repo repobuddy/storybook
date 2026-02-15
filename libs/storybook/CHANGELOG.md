@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 2.19.1
+
+### Patch Changes
+
+- [#434](https://github.com/repobuddy/storybook/pull/434) [`bd9771e`](https://github.com/repobuddy/storybook/commit/bd9771e07ad658184575ad9564c4296269ab4c0e) Thanks [@unional](https://github.com/unional)! - Fix `FnToArgTypes` type to support variadic functions.
+
 ## 2.19.0
 
 ### Minor Changes
