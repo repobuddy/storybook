@@ -67,11 +67,11 @@ export const newBadge: TagBadgeParameter = {
 	}
 }
 
-/** Badge (🅱️) for stories covering features in beta. */
+/** Badge (🌱) for stories covering features in beta. */
 export const betaBadge: TagBadgeParameter = {
 	tags: 'beta',
 	badge: {
-		text: '🅱️',
+		text: '🌱',
 		style: {
 			backgroundColor: 'transparent',
 			borderColor: 'transparent'
@@ -306,7 +306,7 @@ export const internalBadge: TagBadgeParameter = {
  *
  * The badges help visually identify stories with certain characteristics:
  * - 🆕 New - Recently added stories
- * - 🅱️ Beta - Stories for features in beta
+ * - 🌱 Beta - Stories for features in beta
  * - 🪦 Deprecated - Stories for deprecated features
  * - ⚠️ Outdated - Stories that need updating
  * - ✏️ Editor - Stories with live editor
