@@ -84,6 +84,7 @@ we provide a different set of badges that uses emojis (order: first match wins):
 - ⚠️ `outdated` - Stories that need updating
 - 🚨 `danger` - Dangerous or cautionary patterns
 - 🎯 `use-case` - Specific use case or scenario
+- ✨ `example` - Example or demo stories
 - ⌨️ `keyboard` - Keyboard interaction
 - `</>` `source` - Source-code-focused stories
 - `<T>` `type` - TypeScript types (shown in MDX)
