@@ -16,6 +16,15 @@ BREAKING CHANGE: Description of breaking changes if any.
 - **Multiple packages**: List all affected packages
 - **Important**: **Package names must match exactly as in `package.json` (including scope, if any).**
 
+## When Not to Create a Changeset
+
+Do **not** create a changeset when the change is limited to:
+
+- **Stories** (e.g. `*.stories.tsx`, story files): Story-only changes do not affect the published package.
+- **Documentation** (e.g. `*.mdx`, `*.md`, docs-only updates): Documentation-only changes do not require a version bump.
+
+Do **not** mention or include changes to stories or documentation in the changeset description. Focus the description on public API, behavior, or user-facing functionality only.
+
 ## Validation Steps
 
 ### Pre-Creation Validation
@@ -24,6 +33,7 @@ BREAKING CHANGE: Description of breaking changes if any.
    - Does the change affect public APIs?
    - Is it a user-facing change?
    - Will it require a version bump?
+   - **Skip the changeset** if the only changes are to stories or documentation.
 
 2. **Identify affected packages**:
    - Review `git status --porcelain`
@@ -38,7 +48,8 @@ BREAKING CHANGE: Description of breaking changes if any.
 
 Before creating a changeset, ensure:
 
-- [ ] Changes affect public APIs or user-facing functionality
+- [ ] Changes affect public APIs or user-facing functionality (not stories or documentation only)
+- [ ] Description does not mention changes to stories or documentation
 - [ ] Correct packages are listed in frontmatter
 - [ ] Appropriate version type is selected
 - [ ] Description is clear and concise
