@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  storybook-addon-tag-badges:
+    hash: 9cb806ddc4955991a0032819bf48a9278ca58827b75a6efb8e0502f0f7b58e08
+    path: patches/storybook-addon-tag-badges.patch
+
 importers:
 
   .:
@@ -169,7 +174,7 @@ importers:
         version: 6.1.3(@types/react@19.2.14)(react@19.2.4)(storybook@10.2.8(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
       storybook-addon-tag-badges:
         specifier: ^3.0.6
-        version: 3.0.6(storybook@10.2.8(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
+        version: 3.0.6(patch_hash=9cb806ddc4955991a0032819bf48a9278ca58827b75a6efb8e0502f0f7b58e08)(storybook@10.2.8(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
       tailwindcss:
         specifier: ^4.1.17
         version: 4.1.18
@@ -5315,7 +5320,7 @@ snapshots:
     optionalDependencies:
       '@types/react': 19.2.14
 
-  storybook-addon-tag-badges@3.0.6(storybook@10.2.8(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)):
+  storybook-addon-tag-badges@3.0.6(patch_hash=9cb806ddc4955991a0032819bf48a9278ca58827b75a6efb8e0502f0f7b58e08)(storybook@10.2.8(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)):
     dependencies:
       memoizerific: 1.11.3
       storybook: 10.2.8(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)

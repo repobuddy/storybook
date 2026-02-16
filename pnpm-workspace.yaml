@@ -2,3 +2,6 @@ packages:
   - apps/*
   - libs/*
   - tools/*
+
+patchedDependencies:
+  storybook-addon-tag-badges: patches/storybook-addon-tag-badges.patch
