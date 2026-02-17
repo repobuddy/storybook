@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 2.20.1
+
+### Patch Changes
+
+- [`e2c8703`](https://github.com/repobuddy/storybook/commit/e2c8703cff3757bf371d651c2db7ffe183c8be8f) Thanks [@unional](https://github.com/unional)! - Update badge sidebar display
+
 ## 2.20.0
 
 ### Minor Changes
