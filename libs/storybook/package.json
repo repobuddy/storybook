@@ -115,10 +115,14 @@
 	"peerDependencies": {
 		"@storybook-community/storybook-dark-mode": "^7.0.0",
 		"@storybook/addon-docs": "^10.2.4",
+		"@types/react": ">= 16",
 		"storybook-addon-tag-badges": "^3.0.2"
 	},
 	"peerDependenciesMeta": {
 		"@storybook-community/storybook-dark-mode": {
+			"optional": true
+		},
+		"@types/react": {
 			"optional": true
 		},
 		"storybook-addon-tag-badges": {
