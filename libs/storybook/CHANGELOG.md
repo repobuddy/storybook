@@ -1,5 +1,15 @@
 # @repobuddy/storybook
 
+## 2.20.0
+
+### Minor Changes
+
+- [`54131c1`](https://github.com/repobuddy/storybook/commit/54131c1110918635c827fb56a0e5c01d5a6f65c5) Thanks [@unional](https://github.com/unional)! - Allow `showDocSource` decorator `source` option to be a function that receives the story's original source and returns the code to display.
+
+### Patch Changes
+
+- [`94aeea6`](https://github.com/repobuddy/storybook/commit/94aeea69bcafea6aaf622a22f5ce6b3a263387a5) Thanks [@unional](https://github.com/unional)! - Add `@types/react` as peer deps
+
 ## 2.19.1
 
 ### Patch Changes
