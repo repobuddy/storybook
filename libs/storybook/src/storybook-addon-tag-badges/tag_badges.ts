@@ -152,6 +152,22 @@ export const removeBadge: TagBadgeParameter = {
 			tooltip:
 				version === 'next' ? 'Will be removed in the next major release' : `Will be removed in version ${version}`
 		}
+	},
+	display: {
+		sidebar: [
+			{
+				type: 'component',
+				skipInherited: false
+			},
+			{
+				type: 'story',
+				skipInherited: false
+			},
+			{
+				type: 'docs',
+				skipInherited: false
+			}
+		]
 	}
 }
 
@@ -270,7 +286,11 @@ export const sourceBadge: TagBadgeParameter = {
 		tooltip: 'Source Code'
 	},
 	display: {
-		mdx: false
+		mdx: false,
+		sidebar: {
+			type: 'story',
+			skipInherited: false
+		}
 	}
 }
 
@@ -303,7 +323,10 @@ export const unitBadge: TagBadgeParameter = {
 		tooltip: 'Unit Test'
 	},
 	display: {
-		sidebar: true
+		sidebar: {
+			type: 'story',
+			skipInherited: false
+		}
 	}
 }
 
@@ -319,7 +342,10 @@ export const integrationBadge: TagBadgeParameter = {
 		tooltip: 'Integration Test'
 	},
 	display: {
-		sidebar: false
+		sidebar: {
+			type: 'story',
+			skipInherited: false
+		}
 	}
 }
 
@@ -359,6 +385,12 @@ export const useCaseBadge: TagBadgeParameter = {
 			borderColor: 'transparent'
 		},
 		tooltip: 'Use Case'
+	},
+	display: {
+		sidebar: {
+			type: 'story',
+			skipInherited: false
+		}
 	}
 }
 
@@ -372,6 +404,12 @@ export const exampleBadge: TagBadgeParameter = {
 			borderColor: 'transparent'
 		},
 		tooltip: 'Example'
+	},
+	display: {
+		sidebar: {
+			type: 'story',
+			skipInherited: false
+		}
 	}
 }
 
