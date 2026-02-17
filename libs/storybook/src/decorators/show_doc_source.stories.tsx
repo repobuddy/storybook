@@ -216,6 +216,33 @@ export const WithSourceString: Story = {
 	render: () => <DemoComponent text="Hello World" />
 }
 
+export const WithSourceFunction: Story = {
+	name: 'source: function',
+	tags: ['props', 'version:2.7', '!version:2.4'],
+	parameters: defineDocsParam({
+		source: {
+			code: '() => <DemoComponent text="Hello World" />'
+		},
+		description: {
+			story: 'Pass source as a function (originalSource) => string to transform the story source before displaying.'
+		}
+	}),
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Pass <code>source</code> as a function to transform the original source. The function receives the
+					story&apos;s source and returns the code to display.
+				</p>
+			)
+		}),
+		showDocSource({
+			source: (original) => `// Wrapped by source function\n${original ?? ''}\n// End of transformed source`
+		})
+	],
+	render: () => <DemoComponent text="Hello World" />
+}
+
 export const PlacementBefore: Story = {
 	name: "placement: 'before'",
 	tags: ['props', 'version:2.12', '!version:2.4'],

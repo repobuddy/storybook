@@ -16,13 +16,13 @@ const channel = addons.getChannel()
  * @param options - Options for the showDocSource decorator
  * @param options.showOriginalSource - Whether to show the original source code in a card
  * @param options.className - Class name to apply to the card
- * @param options.source - Source code to show if provided.
+ * @param options.source - Source code to show. Can be a string, or a function `(originalSource) => string` that receives the story's original source and returns the code to display.
  * @param options.placement - Where to show the source code relative to the story.
  * @returns A decorator function that shows the source code of a story above or below the rendered story
  */
 export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Args>(
 	options?: Pick<StoryCardProps, 'className'> & {
-		source?: string | undefined
+		source?: ((source: string | undefined) => string) | string | undefined
 		showOriginalSource?: boolean | undefined
 		/**
 		 * Where to show the source code relative to the story.
@@ -44,11 +44,12 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 			return () => channel.off('DARK_MODE', setIsDark)
 		}, [])
 
+		const originalSource = options?.showOriginalSource
+			? docs?.source?.originalSource
+			: (docs?.source?.code ?? docs?.source?.originalSource)
+
 		const code =
-			options?.source ??
-			(options?.showOriginalSource
-				? docs?.source?.originalSource
-				: (docs?.source?.code ?? docs?.source?.originalSource))
+			typeof options?.source === 'function' ? options?.source(originalSource) : (options?.source ?? originalSource)
 
 		const language = code === docs?.source?.originalSource ? undefined : docs?.source?.language
 
