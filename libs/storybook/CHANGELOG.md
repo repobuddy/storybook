@@ -1,5 +1,23 @@
 # @repobuddy/storybook
 
+## 2.21.0
+
+### Minor Changes
+
+- [`62d0ff1`](https://github.com/repobuddy/storybook/commit/62d0ff187cc869b3028ddb26441c90a2eaab5d76) Thanks [@unional](https://github.com/unional)! - Add `update` to story card registry context and stabilize decorator scope props
+
+  - Story card registry context now exposes `update(id, card)` for in-place card updates
+  - Story card scope uses update instead of remove+add when entry props change, reducing re-mount churn
+  - `showDocSource` and `withStoryCard` memoize scope props for stable references
+
+  Skip `withStoryCard` when running in tests
+
+### Patch Changes
+
+- [`e946d7f`](https://github.com/repobuddy/storybook/commit/e946d7f516c894821eb7771c68f0b87bd5df8b9b) Thanks [@unional](https://github.com/unional)! - Improve StoryCardScope and StoryCard performance with memoization to reduce re-renders during card registration and container updates.
+
+- [`b22433d`](https://github.com/repobuddy/storybook/commit/b22433d7b87fa140721133808849eb00ac0abdb8) Thanks [@unional](https://github.com/unional)! - Remove default flex layout classes from StoryCard base styles
+
 ## 2.20.1
 
 ### Patch Changes
