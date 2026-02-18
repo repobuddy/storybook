@@ -18,38 +18,8 @@ export const DOC_SOURCE_ROOT_ATTR = 'data-doc-source-root'
 export const DOC_SOURCE_READY_SELECTOR = `[${DOC_SOURCE_ROOT_ATTR}]`
 
 export type WaitForDocSourceContentOptions = {
-	/** Give up waiting for any root after this (ms). Default 80. */
-	noDocSourceTimeoutMs?: number
 	/** When roots exist, wait for all to have data-content at most this long (ms). Default 1500. */
 	contentReadyTimeoutMs?: number
-}
-
-/**
- * Wait for one or more elements matching a selector to appear using MutationObserver.
- * Resolves with the list of current matching elements, or [] on timeout.
- */
-function waitForElements(doc: Document, selector: string, timeoutMs: number): Promise<Element[]> {
-	return new Promise((resolve) => {
-		const existing = doc.querySelectorAll(selector)
-		if (existing.length > 0) {
-			resolve(Array.from(existing))
-			return
-		}
-		let settled = false
-		const settle = (elements: Element[]) => {
-			if (settled) return
-			settled = true
-			observer.disconnect()
-			clearTimeout(t)
-			resolve(elements)
-		}
-		const observer = new MutationObserver(() => {
-			const list = doc.querySelectorAll(selector)
-			if (list.length > 0) settle(Array.from(list))
-		})
-		observer.observe(doc.body, { childList: true, subtree: true })
-		const t = setTimeout(() => settle(Array.from(doc.querySelectorAll(selector))), timeoutMs)
-	})
 }
 
 /**
@@ -86,28 +56,26 @@ function waitForAllContentReady(roots: Element[], timeoutMs: number): Promise<vo
 }
 
 function isWaitForDocSourceContentOptions(x: unknown): x is WaitForDocSourceContentOptions {
-	return typeof x === 'object' && x !== null && ('noDocSourceTimeoutMs' in x || 'contentReadyTimeoutMs' in x)
+	return typeof x === 'object' && x !== null && 'contentReadyTimeoutMs' in x
 }
 
 /**
  * Play helper: wait for showDocSource content to be ready (SyntaxHighlighter has rendered).
+ * The StoryCard is already in the DOM when play runs; this only waits for content to be ready.
  * Use in story play when the story uses showDocSource so snapshots capture the source.
- * Queries the current document.
  * When used as a story play function, the play context is passed as first argument and ignored.
  *
  * @param contextOrOptions - When called as play, story context (ignored). Otherwise options.
- * @param contextOrOptions.noDocSourceTimeoutMs - Give up waiting for any root after this (ms). Default 80.
- * @param contextOrOptions.contentReadyTimeoutMs - When roots exist, wait for all to have data-content at most this long (ms). Default 1500.
+ * @param contextOrOptions.contentReadyTimeoutMs - Wait for all roots to have data-content at most this long (ms). Default 1500.
  * @see DOC_SOURCE_READY_SELECTOR - selector to find doc-source roots in the document
  */
 export async function waitForDocSourceContent(
 	contextOrOptions?: WaitForDocSourceContentOptions | unknown
 ): Promise<void> {
 	const options = isWaitForDocSourceContentOptions(contextOrOptions) ? contextOrOptions : undefined
-	const noDocSourceMs = options?.noDocSourceTimeoutMs ?? 80
 	const contentReadyMs = options?.contentReadyTimeoutMs ?? 1500
 
-	const roots = await waitForElements(document, DOC_SOURCE_READY_SELECTOR, noDocSourceMs)
+	const roots = Array.from(document.querySelectorAll(DOC_SOURCE_READY_SELECTOR))
 	if (roots.length === 0) return
 
 	await waitForAllContentReady(roots, contentReadyMs)
