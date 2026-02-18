@@ -114,14 +114,14 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 			useEffect(() => {
 				const root = rootRef.current
 				if (!root) return
+				const element = root.querySelector('pre code, [class*="syntax"]')
 				const check = () => {
-					const hasText = root.querySelector('pre code, [class*="syntax"]')?.textContent?.trim().length ?? 0
-					if (hasText >= 20) {
+					if (element?.textContent?.trim()) {
 						root.setAttribute('data-content', 'ready')
 					}
 				}
 				check()
-				const t = setInterval(check, 50)
+				const t = setInterval(check, 100)
 				return () => clearInterval(t)
 			}, [])
 			return (
