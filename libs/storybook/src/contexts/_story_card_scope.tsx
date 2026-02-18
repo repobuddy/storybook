@@ -1,4 +1,4 @@
-import { type ComponentType, type ReactNode, useContext, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { type ComponentType, memo, type ReactNode, useContext, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { StoryCard } from '../components/story_card.js'
 import { generateKey } from '../utils/generate_key.js'
 import {
@@ -59,14 +59,19 @@ type StoryCardEntryWithKey = StoryCardEntry & { key: string }
 
 interface StoryCardCollectorProps extends StoryCardScopeProps {}
 
-function StoryCardCollector({ Story, title, status, appearance, className, content }: StoryCardCollectorProps) {
-	// StoryCardCollector is an internal component. Context is guaranteed to be not null by `StoryCardContainer`.
+const StoryCardCollector = memo(function StoryCardCollector({
+	Story,
+	title,
+	status,
+	appearance,
+	className,
+	content
+}: StoryCardCollectorProps) {
 	const context = useContext(StoryCardRegistryContext)!
 	const cardIdRef = useRef<string | null>(null)
 
 	// Collect this card once into the collection
 	useLayoutEffect(() => {
-		// Only add if not already added (handles Strict Mode double-render)
 		if (cardIdRef.current === null) {
 			cardIdRef.current = context.add({ title, status, appearance, className, content })
 		}
@@ -80,4 +85,4 @@ function StoryCardCollector({ Story, title, status, appearance, className, conte
 	}, [])
 
 	return <Story />
-}
+})

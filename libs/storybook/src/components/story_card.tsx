@@ -1,5 +1,5 @@
 import { cva } from 'class-variance-authority'
-import type { ReactNode } from 'react'
+import { memo, type ReactNode } from 'react'
 import { twJoin, twMerge } from 'tailwind-merge'
 
 /**
@@ -90,7 +90,7 @@ const storyCardVariants = cva(
  * @param props - StoryCard component props
  * @returns A section element containing the card content
  */
-export function StoryCard({ status, appearance, className, children, title }: StoryCardProps) {
+export const StoryCard = memo(function StoryCard({ status, appearance, className, children, title }: StoryCardProps) {
 	const resolvedAppearance = resolveAppearance(appearance, status)
 	const state: StoryCardThemeState = {
 		status,
@@ -103,4 +103,4 @@ export function StoryCard({ status, appearance, className, children, title }: St
 			{children}
 		</section>
 	)
-}
+})
