@@ -3,7 +3,7 @@ import { makeLiveEditStory } from 'storybook-addon-code-editor'
 import { testType } from 'type-plus'
 import type { FnToArgTypes } from '#repobuddy/storybook'
 import * as repobuddyStorybook from '#repobuddy/storybook'
-import { defineDocsParam, showDocSource, withStoryCard } from '#repobuddy/storybook'
+import { defineDocsParam, showDocSource, waitForDocSourceContent, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 import * as repobuddyStorybookTagBadges from '#repobuddy/storybook/storybook-addon-tag-badges'
 import variadicCode from './fn-to-arg-types.stories.variadic.tsx?raw'
@@ -11,7 +11,8 @@ import variadicCode from './fn-to-arg-types.stories.variadic.tsx?raw'
 const meta = {
 	title: 'arg-types/FnToArgTypes',
 	tags: ['type', 'version:2.6'],
-	render: () => <></>
+	render: () => <></>,
+	play: waitForDocSourceContent
 } satisfies Meta
 
 export default meta
@@ -46,7 +47,8 @@ export const BasicUsage: Story = {
 		}),
 		showDocSource({ placement: 'before' })
 	],
-	async play() {
+	async play(ctx) {
+		await waitForDocSourceContent(ctx)
 		testType.equal<FnToArgTypes<() => void>, unknown>(true)
 		testType.equal<keyof FnToArgTypes<() => void>, never>(true)
 		const _m0: Meta<FnToArgTypes<() => void, []>> = { argTypes: {} }

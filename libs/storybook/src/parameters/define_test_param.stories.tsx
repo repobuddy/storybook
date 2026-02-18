@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
-import { defineDocsParam, defineTestParam, showDocSource } from '#repobuddy/storybook'
+import { defineDocsParam, defineTestParam, showDocSource, waitForDocSourceContent } from '#repobuddy/storybook'
 
 const meta = {
 	title: 'Parameters/defineTestParam',
@@ -13,7 +13,8 @@ const meta = {
 		}
 	},
 	decorators: [showDocSource()],
-	render: () => <></>
+	render: () => <></>,
+	play: waitForDocSourceContent
 } satisfies Meta
 
 export default meta

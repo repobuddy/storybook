@@ -12,31 +12,68 @@ const channel = addons.getChannel()
 /** Selector for the doc-source root element that receives data-content when source text is present. */
 export const DOC_SOURCE_READY_SELECTOR = '[data-doc-source-root]'
 
+export type WaitForDocSourceContentOptions = {
+	/** Give up waiting for root element after this (ms). Default 400. */
+	noDocSourceTimeoutMs?: number
+	/** When root exists, wait for data-content at most this long (ms). Default 2000. */
+	contentReadyTimeoutMs?: number
+}
+
 /**
  * Play helper: wait for showDocSource content to be ready (SyntaxHighlighter has rendered).
  * Use in story play when the story uses showDocSource so snapshots capture the source.
  *
  * @param context - Story play context; uses canvasElement's ownerDocument when provided
- * @param options - timeoutMs (default 3000)
+ * @param options - noDocSourceTimeoutMs (default 400), contentReadyTimeoutMs (default 2000)
  */
+function findDocSourceRoot(doc: Document): Element | null {
+	const el = doc.querySelector(DOC_SOURCE_READY_SELECTOR)
+	if (el) return el
+	// Story may be in an iframe (e.g. addon-vitest); try main document's iframe
+	const iframe = doc.querySelector('iframe')
+	return iframe?.contentDocument?.querySelector(DOC_SOURCE_READY_SELECTOR) ?? null
+}
+
 export async function waitForDocSourceContent(
 	context?: { canvasElement?: HTMLElement },
-	options?: { timeoutMs?: number }
+	options?: WaitForDocSourceContentOptions
 ): Promise<void> {
 	const doc = context?.canvasElement?.ownerDocument ?? document
-	const timeoutMs = options?.timeoutMs ?? 3000
+	const noDocSourceMs = options?.noDocSourceTimeoutMs ?? 400
+	const contentReadyMs = options?.contentReadyTimeoutMs ?? 2000
+	// Brief delay so initial render can mount [data-doc-source-root] (play can run before React commit)
+	await new Promise((r) => setTimeout(r, 150))
 	const start = Date.now()
-	return new Promise((resolve) => {
-		function check() {
-			const el = doc.querySelector(`${DOC_SOURCE_READY_SELECTOR}[data-content]`)
+
+	// Fast-path: if no [data-doc-source-root] after a short time, resolve (story doesn't use showDocSource)
+	const root = await new Promise<Element | null>((resolveRoot) => {
+		function checkRoot() {
+			const el = findDocSourceRoot(doc)
 			if (el) {
+				resolveRoot(el)
+				return
+			}
+			if (Date.now() - start >= noDocSourceMs) resolveRoot(null)
+			else setTimeout(checkRoot, 20)
+		}
+		checkRoot()
+	})
+
+	if (!root) return
+
+	// Wait for data-content on the root
+	const rootEl = root
+	const contentStart = Date.now()
+	return new Promise((resolve) => {
+		function checkContent() {
+			if (rootEl.hasAttribute('data-content')) {
 				resolve()
 				return
 			}
-			if (Date.now() - start >= timeoutMs) resolve()
-			else setTimeout(check, 50)
+			if (Date.now() - contentStart >= contentReadyMs) resolve()
+			else setTimeout(checkContent, 50)
 		}
-		check()
+		checkContent()
 	})
 }
 
@@ -114,14 +151,18 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 			useEffect(() => {
 				const root = rootRef.current
 				if (!root) return
-				const element = root.querySelector('pre code, [class*="syntax"]')
 				const check = () => {
+					const element = root.querySelector('pre code, [class*="syntax"]')
 					if (element?.textContent?.trim()) {
 						root.setAttribute('data-content', 'ready')
+						return true
 					}
+					return false
 				}
-				check()
-				const t = setInterval(check, 100)
+				if (check()) return
+				const t = setInterval(() => {
+					if (check()) clearInterval(t)
+				}, 50)
 				return () => clearInterval(t)
 			}, [])
 			return (

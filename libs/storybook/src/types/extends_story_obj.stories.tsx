@@ -3,14 +3,15 @@ import dedent from 'dedent'
 import type { Component } from 'react'
 import { testType } from 'type-plus'
 import type { ExtendsStoryObj } from '#repobuddy/storybook'
-import { defineDocsParam, showDocSource } from '#repobuddy/storybook'
+import { defineDocsParam, showDocSource, waitForDocSourceContent } from '#repobuddy/storybook'
 import type { ExtractStringLiterals } from './_extract_string_literals.js'
 
 const meta = {
 	title: 'types/ExtendStoryObj',
 	tags: ['type', 'version:2.4'],
 	decorators: [showDocSource()],
-	render: () => <></>
+	render: () => <></>,
+	play: waitForDocSourceContent
 } satisfies Meta
 
 export default meta
@@ -42,7 +43,8 @@ export const ExtendsTagLiterals: Story = {
 				`
 		}
 	}),
-	async play() {
+	async play(ctx) {
+		await waitForDocSourceContent(ctx)
 		type MyStoryObj<TCmpOrArgs = Args> = ExtendsStoryObj<StoryObj<TCmpOrArgs>, { tag: 'new' | 'beta' | 'deprecated' }>
 		const story: MyStoryObj<typeof Component> = {
 			tags: ['new', 'beta', 'deprecated']

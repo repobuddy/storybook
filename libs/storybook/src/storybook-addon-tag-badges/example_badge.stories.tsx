@@ -1,11 +1,12 @@
 import dedent from 'dedent'
-import { showDocSource, withStoryCard } from '#repobuddy/storybook'
+import { showDocSource, waitForDocSourceContent, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
 export default {
 	title: 'storybook-addon-tag-badges/exampleBadge',
 	tags: ['var', 'version:2.18'],
-	render: () => <></>
+	render: () => <></>,
+	play: waitForDocSourceContent
 } satisfies Meta
 
 export const ExampleBadge: StoryObj = {
