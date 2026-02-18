@@ -157,10 +157,10 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 			useEffect(() => {
 				const root = rootRef.current
 				if (!root) return
-				let codeEl: Element | null = null
 				const check = () => {
-					codeEl ??= root.querySelector('[data-testid="source-content"] pre code')
-					if (codeEl?.textContent?.trim()) {
+					const container = root.querySelector('[data-testid="source-content"]')
+					const div = container?.firstElementChild
+					if (div && div.childElementCount > 0) {
 						root.setAttribute('data-content', 'ready')
 						return true
 					}
@@ -175,7 +175,7 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 						if (check()) observer.disconnect()
 					})
 				})
-				observer.observe(root, { childList: true, subtree: true })
+				observer.observe(root, { childList: true })
 				return () => {
 					if (rafId) cancelAnimationFrame(rafId)
 					observer.disconnect()
