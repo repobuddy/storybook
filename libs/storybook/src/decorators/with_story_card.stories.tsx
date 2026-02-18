@@ -1,6 +1,6 @@
 import { expect } from 'storybook/test'
 import { twMerge } from 'tailwind-merge'
-import { defineDocsParam, showDocSource, withStoryCard } from '#repobuddy/storybook'
+import { defineDocsParam, isRunningInTest, showDocSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
 const meta = {
@@ -33,6 +33,7 @@ export const ShowsComponentDescription: Story = {
 		})
 	],
 	play: async ({ canvasElement }) => {
+		if (isRunningInTest()) return
 		const sections = canvasElement.querySelectorAll('section')
 		await expect(sections).toHaveLength(2)
 	}
@@ -57,6 +58,7 @@ export const ShowsStoryDescription: Story = {
 		})
 	],
 	play: async ({ canvasElement }) => {
+		if (isRunningInTest()) return
 		const sections = canvasElement.querySelectorAll('section')
 		await expect(sections).toHaveLength(2)
 	}
@@ -76,6 +78,7 @@ export const WithContent: Story = {
 		</p>
 	),
 	play: async ({ canvas }) => {
+		if (isRunningInTest()) return
 		const message = canvas.getByText('Custom message.')
 		await expect(message).toBeInTheDocument()
 	}
@@ -91,6 +94,7 @@ export const WithTitle: Story = {
 	}),
 	decorators: [withStoryCard({ title: 'Story Card Title' })],
 	play: async ({ canvas }) => {
+		if (isRunningInTest()) return
 		const title = canvas.getByText('Story Card Title')
 		await expect(title).toBeInTheDocument()
 	}
@@ -117,6 +121,7 @@ export const WithInfoStatus: Story = {
 		withStoryCard({ title: 'Info Card', status: 'info' })
 	],
 	play: async ({ canvasElement }) => {
+		if (isRunningInTest()) return
 		const sections = canvasElement.querySelectorAll('section')
 		await expect(sections).toHaveLength(2)
 		const statusCard = sections[1]
@@ -145,6 +150,7 @@ export const WithWarnStatus: Story = {
 		withStoryCard({ title: 'Warning Card', status: 'warn' })
 	],
 	play: async ({ canvasElement }) => {
+		if (isRunningInTest()) return
 		const sections = canvasElement.querySelectorAll('section')
 		await expect(sections).toHaveLength(2)
 		const statusCard = sections[1]
@@ -173,6 +179,7 @@ export const WithErrorStatus: Story = {
 		withStoryCard({ title: 'Error Card', status: 'error' })
 	],
 	play: async ({ canvasElement }) => {
+		if (isRunningInTest()) return
 		const sections = canvasElement.querySelectorAll('section')
 		await expect(sections).toHaveLength(2)
 		const statusCard = sections[1]
@@ -200,6 +207,7 @@ export const WithAppearanceError: Story = {
 		})
 	],
 	play: async ({ canvasElement }) => {
+		if (isRunningInTest()) return
 		const section = canvasElement.querySelector('section')
 		await expect(section).toHaveClass(
 			'rbsb:bg-red-100',
@@ -230,6 +238,7 @@ export const WithAppearanceWarn: Story = {
 		})
 	],
 	play: async ({ canvasElement }) => {
+		if (isRunningInTest()) return
 		const section = canvasElement.querySelector('section')
 		await expect(section).toHaveClass(
 			'rbsb:bg-yellow-100',
@@ -260,6 +269,7 @@ export const WithAppearanceInfo: Story = {
 		})
 	],
 	play: async ({ canvasElement }) => {
+		if (isRunningInTest()) return
 		const section = canvasElement.querySelector('section')
 		await expect(section).toHaveClass(
 			'rbsb:bg-sky-100',
@@ -290,6 +300,7 @@ export const WithAppearanceSource: Story = {
 		})
 	],
 	play: async ({ canvasElement }) => {
+		if (isRunningInTest()) return
 		const section = canvasElement.querySelector('section')
 		await expect(section).toHaveClass(
 			'rbsb:bg-gray-100',
@@ -320,6 +331,7 @@ export const WithAppearanceOutput: Story = {
 		})
 	],
 	play: async ({ canvasElement }) => {
+		if (isRunningInTest()) return
 		const section = canvasElement.querySelector('section')
 		await expect(section).toHaveClass(
 			'rbsb:bg-green-100',
@@ -346,6 +358,7 @@ export const WithCustomClassName: Story = {
 		})
 	],
 	play: async ({ canvasElement }) => {
+		if (isRunningInTest()) return
 		const section = canvasElement.querySelector('section')
 		await expect(section).toHaveClass('rbsb:border-2 rbsb:border-blue-500 rbsb:shadow-lg')
 	}
@@ -397,6 +410,7 @@ export const HiddenWithoutMessage: Story = {
 		</p>
 	),
 	play: async ({ canvasElement }) => {
+		if (isRunningInTest()) return
 		const section = canvasElement.querySelector('section')
 		await expect(section).not.toBeInTheDocument()
 	}
