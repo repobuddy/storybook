@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { type ReactNode, useEffect, useRef, useState } from 'react'
 import { SyntaxHighlighter } from 'storybook/internal/components'
 import type { Args, DecoratorFunction, Renderer } from 'storybook/internal/csf'
 import { addons } from 'storybook/preview-api'
@@ -8,6 +8,37 @@ import { StoryCard, type StoryCardProps } from '../components/story_card'
 import { StoryCardScope } from '../contexts/_story_card_scope'
 
 const channel = addons.getChannel()
+
+/** Selector for the doc-source root element that receives data-content when source text is present. */
+export const DOC_SOURCE_READY_SELECTOR = '[data-doc-source-root]'
+
+/**
+ * Play helper: wait for showDocSource content to be ready (SyntaxHighlighter has rendered).
+ * Use in story play when the story uses showDocSource so snapshots capture the source.
+ *
+ * @param context - Story play context; uses canvasElement's ownerDocument when provided
+ * @param options - timeoutMs (default 3000)
+ */
+export async function waitForDocSourceContent(
+	context?: { canvasElement?: HTMLElement },
+	options?: { timeoutMs?: number }
+): Promise<void> {
+	const doc = context?.canvasElement?.ownerDocument ?? document
+	const timeoutMs = options?.timeoutMs ?? 3000
+	const start = Date.now()
+	return new Promise((resolve) => {
+		function check() {
+			const el = doc.querySelector(`${DOC_SOURCE_READY_SELECTOR}[data-content]`)
+			if (el) {
+				resolve()
+				return
+			}
+			if (Date.now() - start >= timeoutMs) resolve()
+			else setTimeout(check, 50)
+		}
+		check()
+	})
+}
 
 /**
  * A decorator that shows the source code of a story above the rendered story.
@@ -78,17 +109,44 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 
 		const theme = convert(docs?.theme ?? (isDark ? themes.dark : themes.light))
 
+		function DocSourceCard({ children }: { children: ReactNode }) {
+			const rootRef = useRef<HTMLDivElement>(null)
+			useEffect(() => {
+				const root = rootRef.current
+				if (!root) return
+				const check = () => {
+					const hasText = root.querySelector('pre code, [class*="syntax"]')?.textContent?.trim().length ?? 0
+					if (hasText >= 20) {
+						root.setAttribute('data-content', 'ready')
+					}
+				}
+				check()
+				const t = setInterval(check, 50)
+				return () => clearInterval(t)
+			}, [])
+			return (
+				<div ref={rootRef} data-doc-source-root>
+					{children}
+				</div>
+			)
+		}
+
 		if (showBefore) {
 			return (
 				<ThemeProvider theme={theme}>
-					<StoryCardScope Story={Story} content={sourceContent} className={sourceCardClassName} appearance="source" />
+					<StoryCardScope
+						Story={Story}
+						content={<DocSourceCard>{sourceContent}</DocSourceCard>}
+						className={sourceCardClassName}
+						appearance="source"
+					/>
 				</ThemeProvider>
 			)
 		}
 
 		const storyCard = (
 			<StoryCard className={sourceCardClassName} appearance="source">
-				{sourceContent}
+				<DocSourceCard>{sourceContent}</DocSourceCard>
 			</StoryCard>
 		)
 

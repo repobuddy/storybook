@@ -12,29 +12,8 @@ export default {
 		'@storybook/addon-vitest',
 		'storybook-addon-tag-badges',
 		'@storybook-community/storybook-dark-mode',
-		'storybook-addon-code-editor'
-		// {
-		// 	name: getAbsolutePath('storybook-addon-vis'),
-		// 	options: defineStorybookVisOptions({
-		// 		visProjects: [
-		// 			{
-		// 				snapshotRootDir({ ci, platform }) {
-		// 					return ci ? `__vis__/${platform}/dark` : '__vis__/local/dark'
-		// 				}
-		// 			},
-		// 			{
-		// 				snapshotRootDir({ ci, platform }) {
-		// 					return ci ? `__vis__/${platform}/light` : '__vis__/local/light'
-		// 				}
-		// 			},
-		// 			{
-		// 				snapshotRootDir({ ci, platform }) {
-		// 					return ci ? `__vis__/${platform}/theme` : '__vis__/local/theme'
-		// 				}
-		// 			}
-		// 		]
-		// 	})
-		// }
+		'storybook-addon-code-editor',
+		'storybook-addon-vis'
 		// '#repobuddy/storybook/variants'
 	],
 	framework: {
