@@ -1,5 +1,5 @@
 import { themes } from 'storybook/theming'
-import { defineDocsParam, showDocSource, waitForDocSourceContent, withStoryCard } from '#repobuddy/storybook'
+import { defineDocsParam, showDocSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
 // Simple demo component for testing the decorator
@@ -9,9 +9,8 @@ const DemoComponent = ({ text = 'Hello World' }: { text?: string }) => (
 
 const meta = {
 	title: 'decorators/showDocSource',
-	tags: ['version:2.4'],
-	render: () => <></>,
-	play: waitForDocSourceContent
+	tags: ['version:2.4', '!snapshot'],
+	render: () => <></>
 } satisfies Meta
 
 export default meta

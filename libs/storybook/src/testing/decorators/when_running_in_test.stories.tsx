@@ -1,6 +1,6 @@
 import { isRunningInTest } from '@repobuddy/vitest'
 import { expect } from 'storybook/test'
-import { showDocSource, waitForDocSourceContent, whenRunningInTest } from '#repobuddy/storybook'
+import { showDocSource, whenRunningInTest } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 import { ctx } from './when_running_in_text.ctx.js'
 
@@ -12,7 +12,6 @@ export default {
 	},
 	decorators: [showDocSource()],
 	render: () => <></>,
-	play: waitForDocSourceContent,
 	afterEach: () => {
 		ctx.isRunningInTest = isRunningInTest
 	}
@@ -38,7 +37,6 @@ export const AcceptHandler: StoryObj = {
 	],
 	render: () => <div>When passing in a handler (which returns nothing), the story will be rendered</div>,
 	play: async (ctx) => {
-		await waitForDocSourceContent()
 		const {
 			canvas,
 			loaded: { state }

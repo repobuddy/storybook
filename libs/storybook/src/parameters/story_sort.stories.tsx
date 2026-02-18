@@ -1,18 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
-import {
-	defineDocsParam,
-	defineParameters,
-	type StorySortParam,
-	showDocSource,
-	waitForDocSourceContent
-} from '#repobuddy/storybook'
+import { defineDocsParam, defineParameters, type StorySortParam, showDocSource } from '#repobuddy/storybook'
 
 export default {
 	title: 'parameters/StorySortParam',
 	tags: ['new', 'version:1.0', 'autodocs'],
 	decorators: [showDocSource()],
-	play: waitForDocSourceContent,
 	parameters: defineParameters({
 		docs: {
 			description: {

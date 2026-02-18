@@ -1,6 +1,6 @@
 import { expect } from 'storybook/test'
 import { twMerge } from 'tailwind-merge'
-import { defineDocsParam, showDocSource, waitForDocSourceContent, withStoryCard } from '#repobuddy/storybook'
+import { defineDocsParam, showDocSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
 const meta = {
@@ -379,8 +379,7 @@ export const WithClassNameFunction: Story = {
 		showDocSource({
 			source: 'className: ({ appearance, defaultClassName }) => string'
 		})
-	],
-	play: waitForDocSourceContent
+	]
 }
 
 export const HiddenWithoutMessage: Story = {

@@ -1,14 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
-import { defineDocsParam, showDocSource, waitForDocSourceContent } from '#repobuddy/storybook'
+import { defineDocsParam, showDocSource } from '#repobuddy/storybook'
 import { defineDarkModeParam } from '#repobuddy/storybook/storybook-dark-mode'
 
 const meta = {
 	title: 'storybook-dark-mode/defineDarkModeParam',
 	tags: ['new', 'version:1.0', 'autodocs'],
 	decorators: [showDocSource()],
-	render: () => <></>,
-	play: waitForDocSourceContent
+	render: () => <></>
 } satisfies Meta
 
 export default meta

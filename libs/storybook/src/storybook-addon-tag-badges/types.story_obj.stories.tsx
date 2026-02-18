@@ -1,13 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
-import { defineDocsParam, showDocSource, waitForDocSourceContent } from '#repobuddy/storybook'
+import { defineDocsParam, showDocSource } from '#repobuddy/storybook'
 
 const meta = {
 	title: 'storybook-addon-tag-badges/types/StoryObj',
 	tags: ['type', 'version:1.0'],
 	decorators: [showDocSource()],
-	render: () => <></>,
-	play: waitForDocSourceContent
+	render: () => <></>
 } satisfies Meta
 
 export default meta

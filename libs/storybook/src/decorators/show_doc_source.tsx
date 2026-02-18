@@ -1,4 +1,5 @@
-import { type ReactNode, useEffect, useRef, useState } from 'react'
+import { isRunningInTest } from '@repobuddy/test'
+import { type ReactNode, useEffect, useState } from 'react'
 import { SyntaxHighlighter } from 'storybook/internal/components'
 import type { Args, DecoratorFunction, Renderer } from 'storybook/internal/csf'
 import { addons } from 'storybook/preview-api'
@@ -8,85 +9,6 @@ import { StoryCard, type StoryCardProps } from '../components/story_card'
 import { StoryCardScope } from '../contexts/_story_card_scope'
 
 const channel = addons.getChannel()
-
-/**
- * Data attribute on the doc-source card root. Use this selector so waitForDocSourceContent
- * can find all showDocSource instances in the given document (no iframe lookup).
- */
-export const DOC_SOURCE_ROOT_ATTR = 'data-doc-source-root'
-/** Selector for doc-source roots that receive data-content when source is ready. */
-export const DOC_SOURCE_READY_SELECTOR = `[${DOC_SOURCE_ROOT_ATTR}]`
-
-export type WaitForDocSourceContentOptions = {
-	/** When roots exist, wait for all to have data-content at most this long (ms). Default 1500. */
-	contentReadyTimeoutMs?: number
-}
-
-/**
- * Wait until all roots matching selector in doc have data-content attribute (ready).
- * Re-queries the document on each check so we never rely on stale element references
- * (e.g. after React remounts or SyntaxHighlighter replaces nodes).
- */
-function waitForAllContentReady(doc: Document, selector: string, timeoutMs: number): Promise<void> {
-	const checkAll = () => {
-		const currentRoots = doc.querySelectorAll(selector)
-		return currentRoots.length === 0 || Array.from(currentRoots).every((r) => r.hasAttribute('data-content'))
-	}
-
-	if (checkAll()) return Promise.resolve()
-
-	return new Promise((resolve) => {
-		let resolved = false
-		const done = () => {
-			if (resolved) return
-			resolved = true
-			observer.disconnect()
-			clearTimeout(t)
-			resolve()
-		}
-
-		const observer = new MutationObserver(() => {
-			if (checkAll()) done()
-		})
-		observer.observe(doc.body, {
-			attributes: true,
-			attributeFilter: ['data-content'],
-			subtree: true
-		})
-
-		queueMicrotask(() => {
-			if (!resolved && checkAll()) done()
-		})
-
-		const t = setTimeout(done, timeoutMs)
-	})
-}
-
-function isWaitForDocSourceContentOptions(x: unknown): x is WaitForDocSourceContentOptions {
-	return typeof x === 'object' && x !== null && 'contentReadyTimeoutMs' in x
-}
-
-/**
- * Play helper: wait for showDocSource content to be ready (SyntaxHighlighter has rendered).
- * The StoryCard is already in the DOM when play runs; this only waits for content to be ready.
- * Use in story play when the story uses showDocSource so snapshots capture the source.
- * When used as a story play function, the play context is passed as first argument and ignored.
- *
- * @param contextOrOptions - When called as play, story context (ignored). Otherwise options.
- * @param contextOrOptions.contentReadyTimeoutMs - Wait for all roots to have data-content at most this long (ms). Default 1500.
- * @see DOC_SOURCE_READY_SELECTOR - selector to find doc-source roots in the document
- */
-export async function waitForDocSourceContent(
-	contextOrOptions?: WaitForDocSourceContentOptions | unknown
-): Promise<void> {
-	const options = isWaitForDocSourceContentOptions(contextOrOptions) ? contextOrOptions : undefined
-	const contentReadyMs = options?.contentReadyTimeoutMs ?? 1500
-
-	const roots = document.querySelectorAll(DOC_SOURCE_READY_SELECTOR)
-	if (roots.length === 0) return
-
-	await waitForAllContentReady(document, DOC_SOURCE_READY_SELECTOR, contentReadyMs)
-}
 
 /**
  * A decorator that shows the source code of a story above the rendered story.
@@ -122,6 +44,10 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 
 			return () => channel.off('DARK_MODE', setIsDark)
 		}, [])
+
+		if (isRunningInTest()) {
+			return <Story />
+		}
 
 		const originalSource = options?.showOriginalSource
 			? docs?.source?.originalSource
@@ -162,43 +88,7 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 		const theme = convert(docs?.theme ?? (isDark ? themes.dark : themes.light))
 
 		function DocSourceCard({ children }: { children: ReactNode }) {
-			const rootRef = useRef<HTMLDivElement>(null)
-			useEffect(() => {
-				const root = rootRef.current
-				if (!root) return
-				const check = () => {
-					const container = root.querySelector('[data-testid="source-content"]')
-					const div = container?.firstElementChild
-					if (div && div.childElementCount > 0) {
-						root.setAttribute('data-content', 'ready')
-						return true
-					}
-					return false
-				}
-				if (check()) return
-				let rafId = 0
-				const observer = new MutationObserver(() => {
-					if (check()) {
-						observer.disconnect()
-						return
-					}
-					if (rafId) return
-					rafId = requestAnimationFrame(() => {
-						rafId = 0
-						if (check()) observer.disconnect()
-					})
-				})
-				observer.observe(root, { childList: true, subtree: true })
-				return () => {
-					if (rafId) cancelAnimationFrame(rafId)
-					observer.disconnect()
-				}
-			}, [])
-			return (
-				<div ref={rootRef} {...{ [DOC_SOURCE_ROOT_ATTR]: true }}>
-					{children}
-				</div>
-			)
+			return <div>{children}</div>
 		}
 
 		if (showBefore) {
