@@ -23,11 +23,15 @@ export type WaitForDocSourceContentOptions = {
 }
 
 /**
- * Wait until all roots have data-content attribute (ready), using MutationObserver.
- * Resolves when every element has data-content, or after timeout.
+ * Wait until all roots matching selector in doc have data-content attribute (ready).
+ * Re-queries the document on each check so we never rely on stale element references
+ * (e.g. after React remounts or SyntaxHighlighter replaces nodes).
  */
-function waitForAllContentReady(roots: Element[], timeoutMs: number): Promise<void> {
-	const checkAll = () => roots.every((r) => r.hasAttribute('data-content'))
+function waitForAllContentReady(doc: Document, selector: string, timeoutMs: number): Promise<void> {
+	const checkAll = () => {
+		const currentRoots = doc.querySelectorAll(selector)
+		return currentRoots.length === 0 || Array.from(currentRoots).every((r) => r.hasAttribute('data-content'))
+	}
 
 	if (checkAll()) return Promise.resolve()
 
@@ -36,17 +40,22 @@ function waitForAllContentReady(roots: Element[], timeoutMs: number): Promise<vo
 		const done = () => {
 			if (resolved) return
 			resolved = true
-			for (const o of observers) o.disconnect()
+			observer.disconnect()
 			clearTimeout(t)
 			resolve()
 		}
 
-		const observers = roots.map((root) => {
-			const ob = new MutationObserver(() => {
-				if (checkAll()) done()
-			})
-			ob.observe(root, { attributes: true, attributeFilter: ['data-content'] })
-			return ob
+		const observer = new MutationObserver(() => {
+			if (checkAll()) done()
+		})
+		observer.observe(doc.body, {
+			attributes: true,
+			attributeFilter: ['data-content'],
+			subtree: true
+		})
+
+		queueMicrotask(() => {
+			if (!resolved && checkAll()) done()
 		})
 
 		const t = setTimeout(done, timeoutMs)
@@ -73,10 +82,10 @@ export async function waitForDocSourceContent(
 	const options = isWaitForDocSourceContentOptions(contextOrOptions) ? contextOrOptions : undefined
 	const contentReadyMs = options?.contentReadyTimeoutMs ?? 1500
 
-	const roots = Array.from(document.querySelectorAll(DOC_SOURCE_READY_SELECTOR))
+	const roots = document.querySelectorAll(DOC_SOURCE_READY_SELECTOR)
 	if (roots.length === 0) return
 
-	await waitForAllContentReady(roots, contentReadyMs)
+	await waitForAllContentReady(document, DOC_SOURCE_READY_SELECTOR, contentReadyMs)
 }
 
 /**
@@ -169,13 +178,17 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 				if (check()) return
 				let rafId = 0
 				const observer = new MutationObserver(() => {
+					if (check()) {
+						observer.disconnect()
+						return
+					}
 					if (rafId) return
 					rafId = requestAnimationFrame(() => {
 						rafId = 0
 						if (check()) observer.disconnect()
 					})
 				})
-				observer.observe(root, { childList: true })
+				observer.observe(root, { childList: true, subtree: true })
 				return () => {
 					if (rafId) cancelAnimationFrame(rafId)
 					observer.disconnect()
