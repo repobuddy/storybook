@@ -5,7 +5,7 @@ import { defineDarkModeParam } from '#repobuddy/storybook/storybook-dark-mode'
 
 const meta = {
 	title: 'storybook-dark-mode/defineDarkModeParam',
-	tags: ['new', 'version:1.0', 'autodocs'],
+	tags: ['new', '!snapshot', 'version:1.0', 'autodocs'],
 	decorators: [showDocSource()],
 	render: () => <></>
 } satisfies Meta

@@ -4,7 +4,7 @@ import { type ActionsParam, defineParameters, showDocSource } from '#repobuddy/s
 
 export default {
 	title: 'parameters/defineParameters',
-	tags: ['autodocs', 'func', 'new', 'version:1.0'],
+	tags: ['autodocs', '!snapshot', 'func', 'new', 'version:1.0'],
 	decorators: [showDocSource()],
 	parameters: defineParameters({
 		docs: {

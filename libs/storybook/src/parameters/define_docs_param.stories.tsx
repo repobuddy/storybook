@@ -4,7 +4,7 @@ import { defineDocsParam, showDocSource } from '#repobuddy/storybook'
 
 const meta = {
 	title: 'Parameters/defineDocsParam',
-	tags: ['autodocs', 'func', 'new', 'version:1.0'],
+	tags: ['autodocs', 'func', '!snapshot', 'new', 'version:1.0'],
 	parameters: defineDocsParam({
 		description: {
 			component:

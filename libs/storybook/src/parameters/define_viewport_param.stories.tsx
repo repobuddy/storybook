@@ -4,7 +4,7 @@ import { defineDocsParam, defineViewportParam, showDocSource } from '#repobuddy/
 
 const meta = {
 	title: 'Parameters/defineViewportParam',
-	tags: ['autodocs', 'func', 'new', 'version:1.0'],
+	tags: ['autodocs', '!snapshot', 'func', 'new', 'version:1.0'],
 	decorators: [showDocSource()],
 	render: () => <></>
 } satisfies Meta

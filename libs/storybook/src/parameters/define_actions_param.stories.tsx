@@ -5,7 +5,7 @@ import { defineActionsParam, defineDocsParam, showDocSource } from '#repobuddy/s
 
 const meta: Meta = {
 	title: 'Parameters/defineActionsParam',
-	tags: ['func', 'new', 'version:1.0'],
+	tags: ['func', '!snapshot', 'new', 'version:1.0'],
 	decorators: [showDocSource()],
 	args: {
 		onClick: fn()

@@ -9,7 +9,7 @@ import type { ExtractStringLiterals } from './_extract_string_literals.js'
 
 const meta = {
 	title: 'types/ExtendMeta',
-	tags: ['type', 'version:2.4'],
+	tags: ['type', '!snapshot', 'version:2.4'],
 	decorators: [showDocSource()],
 	render: () => <></>
 } satisfies Meta

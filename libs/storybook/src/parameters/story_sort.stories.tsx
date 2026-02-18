@@ -4,7 +4,7 @@ import { defineDocsParam, defineParameters, type StorySortParam, showDocSource }
 
 export default {
 	title: 'parameters/StorySortParam',
-	tags: ['new', 'version:1.0', 'autodocs'],
+	tags: ['new', '!snapshot', 'version:1.0', 'autodocs'],
 	decorators: [showDocSource()],
 	parameters: defineParameters({
 		docs: {

@@ -10,7 +10,7 @@ import variadicCode from './fn-to-arg-types.stories.variadic.tsx?raw'
 
 const meta = {
 	title: 'arg-types/FnToArgTypes',
-	tags: ['type', 'version:2.6'],
+	tags: ['type', '!snapshot', 'version:2.6'],
 	render: () => <></>
 } satisfies Meta
 
