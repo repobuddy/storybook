@@ -9,72 +9,108 @@ import { StoryCardScope } from '../contexts/_story_card_scope'
 
 const channel = addons.getChannel()
 
-/** Selector for the doc-source root element that receives data-content when source text is present. */
-export const DOC_SOURCE_READY_SELECTOR = '[data-doc-source-root]'
+/**
+ * Data attribute on the doc-source card root. Use this selector so waitForDocSourceContent
+ * can find all showDocSource instances in the given document (no iframe lookup).
+ */
+export const DOC_SOURCE_ROOT_ATTR = 'data-doc-source-root'
+/** Selector for doc-source roots that receive data-content when source is ready. */
+export const DOC_SOURCE_READY_SELECTOR = `[${DOC_SOURCE_ROOT_ATTR}]`
 
 export type WaitForDocSourceContentOptions = {
-	/** Give up waiting for root element after this (ms). Default 400. */
+	/** Give up waiting for any root after this (ms). Default 80. */
 	noDocSourceTimeoutMs?: number
-	/** When root exists, wait for data-content at most this long (ms). Default 2000. */
+	/** When roots exist, wait for all to have data-content at most this long (ms). Default 1500. */
 	contentReadyTimeoutMs?: number
+}
+
+/**
+ * Wait for one or more elements matching a selector to appear using MutationObserver.
+ * Resolves with the list of current matching elements, or [] on timeout.
+ */
+function waitForElements(doc: Document, selector: string, timeoutMs: number): Promise<Element[]> {
+	return new Promise((resolve) => {
+		const existing = doc.querySelectorAll(selector)
+		if (existing.length > 0) {
+			resolve(Array.from(existing))
+			return
+		}
+		let settled = false
+		const settle = (elements: Element[]) => {
+			if (settled) return
+			settled = true
+			observer.disconnect()
+			clearTimeout(t)
+			resolve(elements)
+		}
+		const observer = new MutationObserver(() => {
+			const list = doc.querySelectorAll(selector)
+			if (list.length > 0) settle(Array.from(list))
+		})
+		observer.observe(doc.body, { childList: true, subtree: true })
+		const t = setTimeout(() => settle(Array.from(doc.querySelectorAll(selector))), timeoutMs)
+	})
+}
+
+/**
+ * Wait until all roots have data-content attribute (ready), using MutationObserver.
+ * Resolves when every element has data-content, or after timeout.
+ */
+function waitForAllContentReady(roots: Element[], timeoutMs: number): Promise<void> {
+	if (roots.length === 0) return Promise.resolve()
+
+	const checkAll = () => roots.every((r) => r.hasAttribute('data-content'))
+
+	if (checkAll()) return Promise.resolve()
+
+	return new Promise((resolve) => {
+		let resolved = false
+		const done = () => {
+			if (resolved) return
+			resolved = true
+			for (const o of observers) o.disconnect()
+			clearTimeout(t)
+			resolve()
+		}
+
+		const observers = roots.map((root) => {
+			const ob = new MutationObserver(() => {
+				if (checkAll()) done()
+			})
+			ob.observe(root, { attributes: true, attributeFilter: ['data-content'] })
+			return ob
+		})
+
+		const t = setTimeout(done, timeoutMs)
+	})
+}
+
+function isWaitForDocSourceContentOptions(x: unknown): x is WaitForDocSourceContentOptions {
+	return typeof x === 'object' && x !== null && ('noDocSourceTimeoutMs' in x || 'contentReadyTimeoutMs' in x)
 }
 
 /**
  * Play helper: wait for showDocSource content to be ready (SyntaxHighlighter has rendered).
  * Use in story play when the story uses showDocSource so snapshots capture the source.
+ * Queries the current document.
+ * When used as a story play function, the play context is passed as first argument and ignored.
  *
- * @param context - Story play context; uses canvasElement's ownerDocument when provided
- * @param options - noDocSourceTimeoutMs (default 400), contentReadyTimeoutMs (default 2000)
+ * @param contextOrOptions - When called as play, story context (ignored). Otherwise options.
+ * @param contextOrOptions.noDocSourceTimeoutMs - Give up waiting for any root after this (ms). Default 80.
+ * @param contextOrOptions.contentReadyTimeoutMs - When roots exist, wait for all to have data-content at most this long (ms). Default 1500.
+ * @see DOC_SOURCE_READY_SELECTOR - selector to find doc-source roots in the document
  */
-function findDocSourceRoot(doc: Document): Element | null {
-	const el = doc.querySelector(DOC_SOURCE_READY_SELECTOR)
-	if (el) return el
-	// Story may be in an iframe (e.g. addon-vitest); try main document's iframe
-	const iframe = doc.querySelector('iframe')
-	return iframe?.contentDocument?.querySelector(DOC_SOURCE_READY_SELECTOR) ?? null
-}
-
 export async function waitForDocSourceContent(
-	context?: { canvasElement?: HTMLElement },
-	options?: WaitForDocSourceContentOptions
+	contextOrOptions?: WaitForDocSourceContentOptions | unknown
 ): Promise<void> {
-	const doc = context?.canvasElement?.ownerDocument ?? document
-	const noDocSourceMs = options?.noDocSourceTimeoutMs ?? 400
-	const contentReadyMs = options?.contentReadyTimeoutMs ?? 2000
-	// Brief delay so initial render can mount [data-doc-source-root] (play can run before React commit)
-	await new Promise((r) => setTimeout(r, 150))
-	const start = Date.now()
+	const options = isWaitForDocSourceContentOptions(contextOrOptions) ? contextOrOptions : undefined
+	const noDocSourceMs = options?.noDocSourceTimeoutMs ?? 80
+	const contentReadyMs = options?.contentReadyTimeoutMs ?? 1500
 
-	// Fast-path: if no [data-doc-source-root] after a short time, resolve (story doesn't use showDocSource)
-	const root = await new Promise<Element | null>((resolveRoot) => {
-		function checkRoot() {
-			const el = findDocSourceRoot(doc)
-			if (el) {
-				resolveRoot(el)
-				return
-			}
-			if (Date.now() - start >= noDocSourceMs) resolveRoot(null)
-			else setTimeout(checkRoot, 20)
-		}
-		checkRoot()
-	})
+	const roots = await waitForElements(document, DOC_SOURCE_READY_SELECTOR, noDocSourceMs)
+	if (roots.length === 0) return
 
-	if (!root) return
-
-	// Wait for data-content on the root
-	const rootEl = root
-	const contentStart = Date.now()
-	return new Promise((resolve) => {
-		function checkContent() {
-			if (rootEl.hasAttribute('data-content')) {
-				resolve()
-				return
-			}
-			if (Date.now() - contentStart >= contentReadyMs) resolve()
-			else setTimeout(checkContent, 50)
-		}
-		checkContent()
-	})
+	await waitForAllContentReady(roots, contentReadyMs)
 }
 
 /**
@@ -160,13 +196,14 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 					return false
 				}
 				if (check()) return
-				const t = setInterval(() => {
-					if (check()) clearInterval(t)
-				}, 50)
-				return () => clearInterval(t)
+				const observer = new MutationObserver(() => {
+					if (check()) observer.disconnect()
+				})
+				observer.observe(root, { childList: true, subtree: true, characterData: true })
+				return () => observer.disconnect()
 			}, [])
 			return (
-				<div ref={rootRef} data-doc-source-root>
+				<div ref={rootRef} {...{ [DOC_SOURCE_ROOT_ATTR]: true }}>
 					{children}
 				</div>
 			)

@@ -43,8 +43,8 @@ export const ExtendsTagLiterals: Story = {
 				`
 		}
 	}),
-	async play(ctx) {
-		await waitForDocSourceContent(ctx)
+	async play() {
+		await waitForDocSourceContent()
 		type MyStoryObj<TCmpOrArgs = Args> = ExtendsStoryObj<StoryObj<TCmpOrArgs>, { tag: 'new' | 'beta' | 'deprecated' }>
 		const story: MyStoryObj<typeof Component> = {
 			tags: ['new', 'beta', 'deprecated']

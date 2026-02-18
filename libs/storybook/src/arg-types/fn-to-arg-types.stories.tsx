@@ -47,8 +47,8 @@ export const BasicUsage: Story = {
 		}),
 		showDocSource({ placement: 'before' })
 	],
-	async play(ctx) {
-		await waitForDocSourceContent(ctx)
+	async play() {
+		await waitForDocSourceContent()
 		testType.equal<FnToArgTypes<() => void>, unknown>(true)
 		testType.equal<keyof FnToArgTypes<() => void>, never>(true)
 		const _m0: Meta<FnToArgTypes<() => void, []>> = { argTypes: {} }

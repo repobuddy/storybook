@@ -45,8 +45,8 @@ export const ExtendsTagLiterals: Story = {
 				`
 		}
 	}),
-	async play(ctx) {
-		await waitForDocSourceContent(ctx)
+	async play() {
+		await waitForDocSourceContent()
 		type MyMeta<TCmpOrArgs = Args> = ExtendsMeta<Meta<TCmpOrArgs>, { tag: 'custom' }>
 		const meta: MyMeta<typeof Component> = {
 			title: '',

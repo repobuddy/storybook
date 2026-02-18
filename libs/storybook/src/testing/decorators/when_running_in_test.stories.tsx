@@ -38,7 +38,7 @@ export const AcceptHandler: StoryObj = {
 	],
 	render: () => <div>When passing in a handler (which returns nothing), the story will be rendered</div>,
 	play: async (ctx) => {
-		await waitForDocSourceContent(ctx)
+		await waitForDocSourceContent()
 		const {
 			canvas,
 			loaded: { state }
