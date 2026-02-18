@@ -27,8 +27,6 @@ export type WaitForDocSourceContentOptions = {
  * Resolves when every element has data-content, or after timeout.
  */
 function waitForAllContentReady(roots: Element[], timeoutMs: number): Promise<void> {
-	if (roots.length === 0) return Promise.resolve()
-
 	const checkAll = () => roots.every((r) => r.hasAttribute('data-content'))
 
 	if (checkAll()) return Promise.resolve()
@@ -127,7 +125,11 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 
 		const isOriginalSource = code === docs?.source?.originalSource
 
-		const sourceContent = <SyntaxHighlighter language={language}>{code}</SyntaxHighlighter>
+		const sourceContent = (
+			<SyntaxHighlighter data-testid="source-content" language={language}>
+				{code}
+			</SyntaxHighlighter>
+		)
 
 		const showBefore = options?.placement === 'before'
 
@@ -155,20 +157,29 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 			useEffect(() => {
 				const root = rootRef.current
 				if (!root) return
+				let codeEl: Element | null = null
 				const check = () => {
-					const element = root.querySelector('pre code, [class*="syntax"]')
-					if (element?.textContent?.trim()) {
+					codeEl ??= root.querySelector('[data-testid="source-content"] pre code')
+					if (codeEl?.textContent?.trim()) {
 						root.setAttribute('data-content', 'ready')
 						return true
 					}
 					return false
 				}
 				if (check()) return
+				let rafId = 0
 				const observer = new MutationObserver(() => {
-					if (check()) observer.disconnect()
+					if (rafId) return
+					rafId = requestAnimationFrame(() => {
+						rafId = 0
+						if (check()) observer.disconnect()
+					})
 				})
-				observer.observe(root, { childList: true, subtree: true, characterData: true })
-				return () => observer.disconnect()
+				observer.observe(root, { childList: true, subtree: true })
+				return () => {
+					if (rafId) cancelAnimationFrame(rafId)
+					observer.disconnect()
+				}
 			}, [])
 			return (
 				<div ref={rootRef} {...{ [DOC_SOURCE_ROOT_ATTR]: true }}>
