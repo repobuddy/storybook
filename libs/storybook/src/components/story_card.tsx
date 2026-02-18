@@ -67,7 +67,7 @@ function storyCardTheme(state: StoryCardThemeState, className: StoryCardProps['c
 }
 
 const storyCardVariants = cva(
-	'rbsb:flex rbsb:flex-col rbsb:gap-1 rbsb:py-3 rbsb:px-4 rbsb:rounded rbsb:border rbsb:border-solid rbsb:text-black rbsb:dark:text-gray-100',
+	'rbsb:py-3 rbsb:px-4 rbsb:rounded rbsb:border rbsb:border-solid rbsb:text-black rbsb:dark:text-gray-100',
 	{
 		variants: {
 			appearance: {
