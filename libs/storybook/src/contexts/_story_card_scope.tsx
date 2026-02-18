@@ -13,7 +13,7 @@ export type StoryCardScopeProps = { Story: ComponentType } & StoryCardEntry
  * Ensures a story-card collection scope: creates the root container when no context exists,
  * otherwise renders the collector so this card participates in the existing scope.
  */
-export function StoryCardScope(props: StoryCardScopeProps) {
+export const StoryCardScope = memo(function StoryCardScope(props: StoryCardScopeProps) {
 	const context = useContext(StoryCardRegistryContext)
 	const collector = <StoryCardCollector {...props} />
 
@@ -22,7 +22,7 @@ export function StoryCardScope(props: StoryCardScopeProps) {
 	}
 
 	return collector
-}
+})
 
 function StoryCardContainer({ children }: { children: ReactNode }) {
 	const [cards, setCards] = useState<StoryCardEntryWithKey[]>([])
@@ -36,6 +36,9 @@ function StoryCardContainer({ children }: { children: ReactNode }) {
 			},
 			remove(key) {
 				setCards((cards) => cards.filter((card) => card.key !== key))
+			},
+			update(key, card) {
+				setCards((cards) => cards.map((c) => (c.key === key ? { ...card, key } : c)))
 			}
 		}),
 		[]
@@ -59,30 +62,35 @@ type StoryCardEntryWithKey = StoryCardEntry & { key: string }
 
 interface StoryCardCollectorProps extends StoryCardScopeProps {}
 
-const StoryCardCollector = memo(function StoryCardCollector({
-	Story,
-	title,
-	status,
-	appearance,
-	className,
-	content
-}: StoryCardCollectorProps) {
-	const context = useContext(StoryCardRegistryContext)!
-	const cardIdRef = useRef<string | null>(null)
+const StoryCardCollector = memo(
+	function StoryCardCollector({ Story, title, status, appearance, className, content }: StoryCardCollectorProps) {
+		const context = useContext(StoryCardRegistryContext)!
+		const cardIdRef = useRef<string | null>(null)
 
-	// Collect this card once into the collection
-	useLayoutEffect(() => {
-		if (cardIdRef.current === null) {
-			cardIdRef.current = context.add({ title, status, appearance, className, content })
-		}
+		const entry = useMemo(
+			() => ({ title, status, appearance, className, content }),
+			[title, status, appearance, className, content]
+		)
 
-		return () => {
-			if (cardIdRef.current !== null) {
-				context.remove(cardIdRef.current)
-				cardIdRef.current = null
+		// Register on mount, unregister on unmount only
+		useLayoutEffect(() => {
+			cardIdRef.current = context.add(entry)
+			return () => {
+				if (cardIdRef.current !== null) {
+					context.remove(cardIdRef.current)
+					cardIdRef.current = null
+				}
 			}
-		}
-	}, [])
+		}, [context])
 
-	return <Story />
-})
+		// Update registry when entry changes (avoids remove+add churn)
+		useLayoutEffect(() => {
+			if (cardIdRef.current !== null) {
+				context.update(cardIdRef.current, entry)
+			}
+		}, [context, entry])
+
+		return <Story />
+	},
+	(prev, next) => prev.Story === next.Story
+)

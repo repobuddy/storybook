@@ -1,5 +1,5 @@
 import { isRunningInTest } from '@repobuddy/test'
-import { type ReactNode, useEffect, useState } from 'react'
+import { type ReactNode, useCallback, useEffect, useMemo, useState } from 'react'
 import { SyntaxHighlighter } from 'storybook/internal/components'
 import type { Args, DecoratorFunction, Renderer } from 'storybook/internal/csf'
 import { addons } from 'storybook/preview-api'
@@ -33,6 +33,10 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 		placement?: 'before' | 'after' | undefined
 	}
 ): DecoratorFunction<TRenderer, TArgs> {
+	if (isRunningInTest()) {
+		return (Story) => <Story />
+	}
+
 	return (Story, { parameters: { docs, darkMode } }) => {
 		// This is a workaround to get the current dark mode from `@storybook-community/storybook-dark-mode` without referencing it.
 		const storedItem = window.localStorage.getItem('sb-addon-themes-3')
@@ -45,10 +49,6 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 			return () => channel.off('DARK_MODE', setIsDark)
 		}, [])
 
-		if (isRunningInTest()) {
-			return <Story />
-		}
-
 		const originalSource = options?.showOriginalSource
 			? docs?.source?.originalSource
 			: (docs?.source?.code ?? docs?.source?.originalSource)
@@ -60,30 +60,34 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 
 		const isOriginalSource = code === docs?.source?.originalSource
 
-		const sourceContent = (
-			<SyntaxHighlighter data-testid="source-content" language={language}>
-				{code}
-			</SyntaxHighlighter>
+		const sourceContent = useMemo(
+			() => (
+				<SyntaxHighlighter data-testid="source-content" language={language}>
+					{code}
+				</SyntaxHighlighter>
+			),
+			[code, language]
 		)
 
 		const showBefore = options?.placement === 'before'
 
-		const sourceCardClassName = (
-			state: Pick<StoryCardProps, 'status' | 'appearance'> & { defaultClassName: string }
-		) => {
-			const modifiedState = {
-				...state,
-				defaultClassName: twJoin(
-					state.defaultClassName,
-					isOriginalSource && 'rbsb:bg-transparent rbsb:dark:bg-transparent'
-				)
-			}
+		const sourceCardClassName = useCallback(
+			(state: Pick<StoryCardProps, 'status' | 'appearance'> & { defaultClassName: string }) => {
+				const modifiedState = {
+					...state,
+					defaultClassName: twJoin(
+						state.defaultClassName,
+						isOriginalSource && 'rbsb:bg-transparent rbsb:dark:bg-transparent'
+					)
+				}
 
-			const className = options?.className
-			return typeof className === 'function'
-				? className(modifiedState)
-				: twJoin(modifiedState.defaultClassName, className)
-		}
+				const className = options?.className
+				return typeof className === 'function'
+					? className(modifiedState)
+					: twJoin(modifiedState.defaultClassName, className)
+			},
+			[options?.className, isOriginalSource]
+		)
 
 		const theme = convert(docs?.theme ?? (isDark ? themes.dark : themes.light))
 
@@ -91,15 +95,26 @@ export function showDocSource<TRenderer extends Renderer = Renderer, TArgs = Arg
 			return <div>{children}</div>
 		}
 
+		const scopeContent = useMemo(() => <DocSourceCard>{sourceContent}</DocSourceCard>, [sourceContent])
+
+		const scopeProps = useMemo(
+			() => ({
+				Story,
+				content: scopeContent,
+				className: sourceCardClassName,
+				appearance: 'source' as const
+			}),
+			[Story, scopeContent, sourceCardClassName]
+		)
+
+		if (isRunningInTest()) {
+			return <Story />
+		}
+
 		if (showBefore) {
 			return (
 				<ThemeProvider theme={theme}>
-					<StoryCardScope
-						Story={Story}
-						content={<DocSourceCard>{sourceContent}</DocSourceCard>}
-						className={sourceCardClassName}
-						appearance="source"
-					/>
+					<StoryCardScope {...scopeProps} />
 				</ThemeProvider>
 			)
 		}

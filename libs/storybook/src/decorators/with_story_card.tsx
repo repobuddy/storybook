@@ -1,4 +1,5 @@
-import type { ReactNode } from 'react'
+import { isRunningInTest } from '@repobuddy/test'
+import { type ReactNode, useMemo } from 'react'
 import type { DecoratorFunction, Renderer } from 'storybook/internal/csf'
 import type { StoryCardProps, StoryCardStatus } from '../components/story_card.js'
 import { StoryCardScope } from '../contexts/_story_card_scope.js'
@@ -119,9 +120,10 @@ export function withStoryCard<TRenderer extends Renderer = Renderer>({
 	className,
 	...rest
 }: WithStoryCardProps = {}): DecoratorFunction<TRenderer> {
+	if (isRunningInTest()) {
+		return (Story) => <Story />
+	}
 	return (Story, { parameters, viewMode }) => {
-		if (viewMode === 'docs') return <Story />
-
 		// Get story card config from parameters if available
 		const storyCardParam = (parameters as Partial<StoryCardParam>).storyCard
 		// Decorator props override parameter values
@@ -134,18 +136,23 @@ export function withStoryCard<TRenderer extends Renderer = Renderer>({
 
 		// Fallback to docs description if no content provided
 		const content = finalContent ?? parameters.docs?.description?.story ?? parameters.docs?.description?.component
+
+		const scopeProps = useMemo(
+			() => ({
+				Story,
+				content,
+				title: finalTitle,
+				status: finalStatus,
+				appearance: finalAppearance,
+				className: finalClassName,
+				...rest
+			}),
+			[Story, content, finalTitle, finalStatus, finalAppearance, finalClassName, rest]
+		)
+
+		if (viewMode === 'docs') return <Story />
 		if (!content && !finalTitle) return <Story />
 
-		return (
-			<StoryCardScope
-				Story={Story}
-				content={content}
-				title={finalTitle}
-				status={finalStatus}
-				appearance={finalAppearance}
-				className={finalClassName}
-				{...rest}
-			/>
-		)
+		return <StoryCardScope {...scopeProps} />
 	}
 }

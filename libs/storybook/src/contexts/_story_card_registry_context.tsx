@@ -11,6 +11,7 @@ export type StoryCardEntry = Omit<StoryCardProps, 'children'> & { content?: Reac
 export interface StoryCardRegistryContextValue {
 	add: (card: StoryCardEntry) => string
 	remove: (id: string) => void
+	update: (id: string, card: StoryCardEntry) => void
 }
 
 export const StoryCardRegistryContext = createContext<StoryCardRegistryContextValue | null>(null)
