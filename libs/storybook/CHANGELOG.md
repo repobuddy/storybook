@@ -1,5 +1,13 @@
 # @repobuddy/storybook
 
+## 2.21.1
+
+### Patch Changes
+
+- [`a36bcf5`](https://github.com/repobuddy/storybook/commit/a36bcf54ac1012a949591f8b81b7c2edf003e47e) Thanks [@unional](https://github.com/unional)! - Optimize story card scope rendering with memoized components
+
+  Add `StoryCardList` and `StableScopeChildren` memoized components to prevent cascade re-renders when registry state updates. Fix `StoryCardCollector` to compare all relevant props (not just Story reference) for proper memoization. Remove unnecessary `useMemo` from decorator.
+
 ## 2.21.0
 
 ### Minor Changes
