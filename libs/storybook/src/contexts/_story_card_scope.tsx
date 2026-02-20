@@ -24,6 +24,24 @@ export const StoryCardScope = memo(function StoryCardScope(props: StoryCardScope
 	return collector
 })
 
+/** Renders cards from registry state without re-rendering when only children change (avoids cascade). */
+const StoryCardList = memo(function StoryCardList({ cards }: { cards: StoryCardEntryWithKey[] }) {
+	return (
+		<>
+			{cards.map(({ content, key, ...rest }) => (
+				<StoryCard key={key} {...rest}>
+					{content}
+				</StoryCard>
+			))}
+		</>
+	)
+})
+
+/** Keeps container children from re-rendering when container state (cards) updates. */
+const StableScopeChildren = memo(function StableScopeChildren({ children }: { children: ReactNode }) {
+	return <>{children}</>
+})
+
 function StoryCardContainer({ children }: { children: ReactNode }) {
 	const [cards, setCards] = useState<StoryCardEntryWithKey[]>([])
 
@@ -47,12 +65,8 @@ function StoryCardContainer({ children }: { children: ReactNode }) {
 	return (
 		<StoryCardRegistryContext.Provider value={contextValue}>
 			<div className="rbsb:flex rbsb:flex-col rbsb:gap-2">
-				{cards.map(({ content, key, ...rest }) => (
-					<StoryCard key={key} {...rest}>
-						{content}
-					</StoryCard>
-				))}
-				{children}
+				<StoryCardList cards={cards} />
+				<StableScopeChildren>{children}</StableScopeChildren>
 			</div>
 		</StoryCardRegistryContext.Provider>
 	)
@@ -62,35 +76,50 @@ type StoryCardEntryWithKey = StoryCardEntry & { key: string }
 
 interface StoryCardCollectorProps extends StoryCardScopeProps {}
 
-const StoryCardCollector = memo(
-	function StoryCardCollector({ Story, title, status, appearance, className, content }: StoryCardCollectorProps) {
-		const context = useContext(StoryCardRegistryContext)!
-		const cardIdRef = useRef<string | null>(null)
+function entryPropsEqual(a: StoryCardCollectorProps, b: StoryCardCollectorProps): boolean {
+	return (
+		a.Story === b.Story &&
+		a.title === b.title &&
+		a.status === b.status &&
+		a.appearance === b.appearance &&
+		a.className === b.className &&
+		a.content === b.content
+	)
+}
 
-		const entry = useMemo(
-			() => ({ title, status, appearance, className, content }),
-			[title, status, appearance, className, content]
-		)
+const StoryCardCollector = memo(function StoryCardCollector({
+	Story,
+	title,
+	status,
+	appearance,
+	className,
+	content
+}: StoryCardCollectorProps) {
+	const context = useContext(StoryCardRegistryContext)!
+	const cardIdRef = useRef<string | null>(null)
 
-		// Register on mount, unregister on unmount only
-		useLayoutEffect(() => {
-			cardIdRef.current = context.add(entry)
-			return () => {
-				if (cardIdRef.current !== null) {
-					context.remove(cardIdRef.current)
-					cardIdRef.current = null
-				}
-			}
-		}, [context])
+	const entry = useMemo(
+		() => ({ title, status, appearance, className, content }),
+		[title, status, appearance, className, content]
+	)
 
-		// Update registry when entry changes (avoids remove+add churn)
-		useLayoutEffect(() => {
+	// Register on mount, unregister on unmount only
+	useLayoutEffect(() => {
+		cardIdRef.current = context.add(entry)
+		return () => {
 			if (cardIdRef.current !== null) {
-				context.update(cardIdRef.current, entry)
+				context.remove(cardIdRef.current)
+				cardIdRef.current = null
 			}
-		}, [context, entry])
+		}
+	}, [context])
 
-		return <Story />
-	},
-	(prev, next) => prev.Story === next.Story
-)
+	// Update registry when entry changes (avoids remove+add churn)
+	useLayoutEffect(() => {
+		if (cardIdRef.current !== null) {
+			context.update(cardIdRef.current, entry)
+		}
+	}, [context, entry])
+
+	return <Story />
+}, entryPropsEqual)
