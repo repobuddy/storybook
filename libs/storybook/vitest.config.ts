@@ -6,7 +6,13 @@ export default defineConfig({
 	test: {
 		coverage: {
 			include: buddyConfigDefaults.include.source,
-			exclude: [...buddyConfigDefaults.exclude.test, 'src/manager.tsx', 'src/preset.ts']
+			exclude: [
+				...buddyConfigDefaults.exclude.test,
+				'src/types',
+				'src/**/types.ts',
+				'src/**/*.types.ts',
+				'src/**/*.stories.*.tsx'
+			]
 		},
 		projects: ['vitest.config.*.ts']
 	}

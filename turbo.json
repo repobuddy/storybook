@@ -11,7 +11,7 @@
 		"clean": {
 			"cache": false
 		},
-		"coverage": {
+		"cov": {
 			"dependsOn": ["build"],
 			"inputs": ["$TURBO_DEFAULT$", ".storybook", "*.ts"],
 			"outputs": ["coverage/**", "__vis__/**"]

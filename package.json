@@ -16,7 +16,7 @@
 		"check": "biome check",
 		"check:fix": "biome check --fix",
 		"clean": "turbo clean",
-		"cov": "turbo coverage",
+		"cov": "turbo cov",
 		"cs": "changeset",
 		"knip": "knip",
 		"nuke": "turbo nuke && rimraf node_modules",
@@ -25,9 +25,9 @@
 		"release": "pnpm build && changeset publish",
 		"sb": "pnpm --filter @repobuddy/storybook",
 		"t": "turbo test",
-		"v": "turbo check build coverage",
-		"verify": "turbo check build coverage",
-		"verify:ci": "turbo check build coverage --concurrency=1",
+		"v": "turbo check build cov",
+		"verify": "turbo check build cov",
+		"verify:ci": "turbo check build cov --concurrency=1",
 		"version": "changeset version && node scripts/update-version-tags.mjs"
 	},
 	"dependencies": {

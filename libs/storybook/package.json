@@ -70,7 +70,7 @@
 		"build:code": "tsdown",
 		"build:css": "tailwindcss -i ./tailwind.css -o ./styles.css",
 		"clean": "rimraf .turbo coverage cjs esm storybook-static *.tsbuildinfo",
-		"coverage": "vitest run --coverage",
+		"cov": "vitest run --coverage",
 		"sb": "storybook dev -p 6006",
 		"sb:build": "storybook build",
 		"test": "vitest run",

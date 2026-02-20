@@ -6,7 +6,7 @@ import * as repobuddyStorybook from '#repobuddy/storybook'
 import { defineDocsParam, showDocSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 import * as repobuddyStorybookTagBadges from '#repobuddy/storybook/storybook-addon-tag-badges'
-import variadicCode from './fn-to-arg-types.stories.variadic.tsx?raw'
+import variadicCode from './fn-to-arg.types.stories.variadic.tsx?raw'
 
 const meta = {
 	title: 'arg-types/FnToArgTypes',
