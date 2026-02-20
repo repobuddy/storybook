@@ -16,6 +16,7 @@
 		"check": "biome check",
 		"check:fix": "biome check --fix",
 		"clean": "turbo clean",
+		"cov": "turbo coverage",
 		"cs": "changeset",
 		"knip": "knip",
 		"nuke": "turbo nuke && rimraf node_modules",
