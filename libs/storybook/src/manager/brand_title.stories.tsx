@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
-import { brandTitle } from './index.ts'
+import { brandTitle } from '#repobuddy/storybook/manager'
 
 const meta = {
 	title: 'Manager/brandTitle',
