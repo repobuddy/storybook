@@ -88,6 +88,7 @@ we provide a different set of badges that uses emojis (order: first match wins):
 - 🚨 `danger` - Dangerous or cautionary patterns
 - 🎯 `use-case` - Specific use case or scenario
 - ✨ `example` - Example or demo stories
+- ⚡ `perf` - Performance (stories that demonstrate or test performance)
 - ⌨️ `keyboard` - Keyboard interaction
 - `</>` `source` - Source-code-focused stories
 - `<T>` `type` - TypeScript types (shown in MDX)

@@ -36,6 +36,7 @@ export type TagNames =
 	| 'usecase'
 	| 'use-case'
 	| 'example'
+	| 'perf'
 	| 'version:next'
 	| 'remove'
 	| 'remove:next'
@@ -413,12 +414,31 @@ export const exampleBadge: TagBadgeParameter = {
 	}
 }
 
+/** Badge (⚡) for stories that demonstrate or test performance. */
+export const perfBadge: TagBadgeParameter = {
+	tags: 'perf',
+	badge: {
+		text: '⚡',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
+		tooltip: 'Performance'
+	},
+	display: {
+		sidebar: {
+			type: 'story',
+			skipInherited: false
+		}
+	}
+}
+
 /**
  * Configuration for story tag badges that appear in the Storybook sidebar.
  * Each badge is associated with a specific tag and displays an emoji or symbol with a tooltip.
  *
  * Badge order (first match wins): New → Alpha → Beta → RC → Deprecated → Remove → Outdated → Danger → Use Case →
- * Example → Keyboard → Source → Type → Function → Var → Props → Todo → Unit → Integration →
+ * Example → Perf → Keyboard → Source → Type → Function → Var → Props → Todo → Unit → Integration →
  * Editor → Code Only → Version → Internal → Snapshot.
  *
  * - 🆕 New - Recently added stories
@@ -431,6 +451,7 @@ export const exampleBadge: TagBadgeParameter = {
  * - 🚨 Danger - Stories demonstrating dangerous patterns
  * - 🎯 Use Case - Stories that demonstrate a specific use case or scenario
  * - ✨ Example - Example or demo stories
+ * - ⚡ Perf - Stories that demonstrate or test performance
  * - ⌨️ Keyboard - Stories that demonstrate or test keyboard interaction
  * - `</>` Source - Source-code-focused stories
  * - `<T>` Type - Stories that showcase or document TypeScript types
@@ -458,6 +479,7 @@ export const tagBadges: TagBadgeParameters = [
 	dangerBadge,
 	useCaseBadge,
 	exampleBadge,
+	perfBadge,
 	keyboardBadge,
 	sourceBadge,
 	typeBadge,
