@@ -25,10 +25,10 @@ export default {
 			excludeFromSidebar: process.env.NODE_ENV === 'production'
 		},
 		unit: {
-			defaultFilterSelection: 'exclude'
+			defaultFilterSelection: process.env.NODE_ENV === 'production' ? 'exclude' : undefined
 		},
 		internal: {
-			defaultFilterSelection: 'exclude'
+			defaultFilterSelection: process.env.NODE_ENV === 'production' ? 'exclude' : undefined
 		}
 	}
 } satisfies StorybookConfig
