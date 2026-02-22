@@ -78,31 +78,33 @@ addons.setConfig({
 If you use [`storybook-addon-tag-badges`][`storybook-addon-tag-badges`],
 we provide a different set of badges that uses emojis (order: first match wins):
 
-- 🆕 `new` - Recently added stories
-- 🔴 `alpha` - Features in alpha
-- 🟡 `beta` - Features in beta
-- 🔵 `rc` - Release candidate
-- 🗑️ `deprecated` - Deprecated features
-- ☠️ `remove` or `remove:next` (same) or `remove:<version>` - Will be removed in the next or specified version
-- ⚠️ `outdated` - Stories that need updating
-- 🚨 `danger` - Dangerous or cautionary patterns
-- 🎯 `use-case` - Specific use case or scenario
-- ✨ `example` - Example or demo stories
-- ⚡ `perf` - Performance (stories that demonstrate or test performance)
-- ⌨️ `keyboard` - Keyboard interaction
-- `</>` `source` - Source-code-focused stories
-- `<T>` `type` - TypeScript types (shown in MDX)
-- `ƒ(x)` `func` - Functions (shown in MDX)
-- `var` `var` - Variables (shown in MDX)
-- 🔧 `props` - Props or configuration
-- 📋 `todo` - Todo or incomplete stories
-- 🧪 `unit` - Unit tests
-- 🔗 `integration` - Integration tests (hidden in sidebar)
-- ✏️ `editor` - Live editor stories (with [`storybook-addon-code-editor`][`storybook-addon-code-editor`])
-- 📝 `code-only` - Stories without visual examples (hidden in MDX)
-- Version indicators (unchanged)
-- 🔒 `internal` - Internal or private-use-only stories
-- 📸 `snapshot` - Snapshot tests (toolbar only, not sidebar)
+| Badge   | Tag                                                      | Description                                                                               |
+| :-----  | :------------------------------------------------------- | :---------------------------------------------------------------------------------------- |
+| 🆕      | `new`                                                    | Recently added stories                                                                    |
+| 🔴      | `alpha`                                                  | Features in alpha                                                                         |
+| 🟡      | `beta`                                                   | Features in beta                                                                          |
+| 🔵      | `rc`                                                     | Release candidate                                                                         |
+| 🗑️      | `deprecated`                                             | Deprecated features                                                                       |
+| ☠️      | `remove`<br/>`remove:next` (same)<br/>`remove:<version>` | Will be removed in the next or specified version                                          |
+| ⚠️      | `outdated`                                               | Stories that need updating                                                                |
+| 🚨      | `danger`                                                 | Dangerous or cautionary patterns                                                          |
+| 🎯      | `use-case`                                               | Specific use case or scenario                                                             |
+| ✨      | `example`                                                | Example or demo stories                                                                   |
+| ⚡      | `perf`                                                   | Performance (stories that demonstrate or test performance)                                |
+| ⌨️      | `keyboard`                                               | Keyboard interaction                                                                      |
+| `</>`   | `source`                                                 | Source-code-focused stories                                                               |
+| `<T>`   | `type`                                                   | TypeScript types (shown in MDX)                                                           |
+| `ƒ(x)`  | `func`                                                   | Functions (shown in MDX)                                                                  |
+| `var`   | `var`                                                    | Variables (shown in MDX)                                                                  |
+| 🔧      | `props`                                                  | Props or configuration                                                                    |
+| 📋      | `todo`                                                   | Todo or incomplete stories                                                                |
+| 🧪      | `unit`                                                   | Unit tests                                                                                |
+| 🔗      | `integration`                                            | Integration tests (hidden in sidebar)                                                     |
+| ✏️      | `editor`                                                 | Live editor stories (with [`storybook-addon-code-editor`][`storybook-addon-code-editor`]) |
+| 📝      | `code-only`                                              | Stories without visual examples (hidden in MDX)                                           |
+|         | Version indicators                                       | (unchanged)                                                                               |
+| 🔒      | `internal`                                               | Internal or private-use-only stories                                                      |
+| 📸      | `snapshot`                                               | Snapshot tests (toolbar only, not sidebar)                                                |
 
 To use them, add them to your `.storybook/manager.ts`:
 
