@@ -9,7 +9,7 @@ const DemoComponent = ({ text = 'Hello World' }: { text?: string }) => (
 
 const meta = {
 	title: 'decorators/showDocSource',
-	tags: ['deprecated', 'version:next', '!snapshot'],
+	tags: ['deprecated', 'version:2.22', '!snapshot'],
 	decorators: [
 		withStoryCard({
 			appearance: 'warn',
