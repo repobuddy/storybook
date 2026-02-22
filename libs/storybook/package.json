@@ -7,6 +7,15 @@
 		"testing",
 		"documentation"
 	],
+	"homepage": "https://github.com/repobuddy/storybook",
+	"bugs": {
+		"url": "https://github.com/repobuddy/storybook/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/repobuddy/storybook.git",
+		"directory": "libs/storybook"
+	},
 	"license": "MIT",
 	"author": {
 		"name": "Homa Wong",
