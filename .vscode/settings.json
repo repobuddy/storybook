@@ -47,7 +47,7 @@
 		"tailwind.css": "tailwindcss"
 	},
 	"tailwindCSS.classFunctions": [
-		"twMerge", "twJoin", "cva"
+		"twMerge", "twJoin", "cva", "classNames", "clsx"
 	],
 	"tailwindCSS.experimental.configFile": {
 		"./libs/storybook/.storybook/tailwind.css": "./libs/storybook/src/**"
