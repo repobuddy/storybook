@@ -11,7 +11,7 @@ const DemoComponent = ({ text = 'Hello World' }: { text?: string }) => (
 
 const meta = {
 	title: 'decorators/showSource',
-	tags: ['version:next', '!snapshot'],
+	tags: ['version:2.22', '!snapshot'],
 	render: () => <></>
 } satisfies Meta
 

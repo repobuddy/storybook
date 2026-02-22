@@ -1,5 +1,13 @@
 # @repobuddy/storybook
 
+## 2.22.0
+
+### Minor Changes
+
+- [`49e424f`](https://github.com/repobuddy/storybook/commit/49e424f3add4167373040289a1923cf55919bc84) Thanks [@unional](https://github.com/unional)! - Add `perf` tag and `perfBadge` for stories that demonstrate or test performance. The badge displays ⚡ with a "Performance" tooltip in the Storybook sidebar.
+
+- [`6f278ff`](https://github.com/repobuddy/storybook/commit/6f278ff1f9a2af3b99ab3d37ae8705ae3a9c8206) Thanks [@unional](https://github.com/unional)! - Add `showSource` decorator for displaying story source above or below the rendered story. Deprecate `showDocSource` in favor of `showSource({ placement: 'after' })`.
+
 ## 2.21.1
 
 ### Patch Changes
