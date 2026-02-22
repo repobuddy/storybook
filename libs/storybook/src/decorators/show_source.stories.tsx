@@ -1,5 +1,7 @@
+import dedent from 'dedent'
 import { themes } from 'storybook/theming'
-import { defineDocsParam, showDocSource, withStoryCard } from '#repobuddy/storybook'
+import { twJoin } from 'tailwind-merge'
+import { defineDocsParam, showSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
 // Simple demo component for testing the decorator
@@ -8,18 +10,8 @@ const DemoComponent = ({ text = 'Hello World' }: { text?: string }) => (
 )
 
 const meta = {
-	title: 'decorators/showDocSource',
-	tags: ['deprecated', 'version:next', '!snapshot'],
-	decorators: [
-		withStoryCard({
-			appearance: 'warn',
-			content: (
-				<p>
-					This decorator is deprecated. Use <code>showSource</code> instead.
-				</p>
-			)
-		})
-	],
+	title: 'decorators/showSource',
+	tags: ['version:next', '!snapshot'],
 	render: () => <></>
 } satisfies Meta
 
@@ -28,6 +20,8 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const ShowDocsSourceCode: Story = {
+	name: 'Show docs.source.code',
+	tags: ['use-case'],
 	parameters: {
 		docs: {
 			source: {
@@ -43,19 +37,28 @@ export const ShowDocsSourceCode: Story = {
 				</p>
 			)
 		}),
-		showDocSource()
-	],
-	render: () => <DemoComponent text="Hello World" />
+		showSource({
+			source: dedent`{
+			parameters: defineDocsParam({
+				source: {
+					code: '() => /* from docs.source.code */ <DemoComponent text="Hello World" />'
+				}
+			}),
+			decorators: [showSource()]
+		}`
+		}),
+		showSource()
+	]
 }
 
 export const ShowStorySource: Story = {
+	tags: ['use-case'],
 	decorators: [
 		withStoryCard({
 			content: <p>When no `source` is provided, the decorator will use the original source code of the story.</p>
 		}),
-		showDocSource()
-	],
-	render: () => <DemoComponent text="Hello World" />
+		showSource()
+	]
 }
 
 export const WithLanguageJson: Story = {
@@ -74,8 +77,18 @@ export const WithLanguageJson: Story = {
 				</p>
 			)
 		}),
-		showDocSource(),
-		showDocSource({ showOriginalSource: true })
+		showSource({
+			source: dedent`{
+			  parameters: defineDocsParam({
+				source: {
+					code: '{ "hello": "world" }',
+					language: 'json'
+				}
+			  }),
+			  decorators: [showSource()]
+			}`
+		}),
+		showSource()
 	]
 }
 
@@ -95,8 +108,18 @@ export const WithLanguageMd: Story = {
 				</p>
 			)
 		}),
-		showDocSource(),
-		showDocSource({ showOriginalSource: true })
+		showSource({
+			source: dedent`{
+				parameters: defineDocsParam({
+					source: {
+						code: 'This is a \`markdown\` text',
+						language: 'md'
+					}
+				}),
+				decorators: [showSource()]
+			}`
+		}),
+		showSource()
 	]
 }
 
@@ -116,12 +139,22 @@ export const WithDocsTheme: Story = {
 				</p>
 			)
 		}),
-		showDocSource(),
-		showDocSource({ showOriginalSource: true })
+		showSource({
+			source: dedent`{
+				parameters: defineDocsParam({
+					source: {
+						code: '<div>Hello, World!</div>',
+						theme: themes.dark
+					}
+				}),
+				decorators: [showSource()]
+			}`
+		}),
+		showSource()
 	]
 }
 
-export const ShowDocsSource: Story = {
+export const ShowOriginalSource: Story = {
 	name: 'showOriginalSource: true',
 	tags: ['props'],
 	parameters: {
@@ -140,7 +173,7 @@ export const ShowDocsSource: Story = {
 				</p>
 			)
 		}),
-		showDocSource({ showOriginalSource: true })
+		showSource({ showOriginalSource: true })
 	]
 }
 
@@ -156,11 +189,17 @@ export const WithClassNameString: Story = {
 		}
 	}),
 	decorators: [
-		showDocSource({
+		withStoryCard({
+			content: (
+				<p>
+					Use <code>className</code> as a string to add custom styling to the source code card.
+				</p>
+			)
+		}),
+		showSource({
 			className: 'rbsb:bg-blue-500 rbsb:dark:bg-blue-900'
 		})
-	],
-	render: () => <DemoComponent text="Custom border and shadow" />
+	]
 }
 
 export const WithClassNameFunction: Story = {
@@ -175,13 +214,19 @@ export const WithClassNameFunction: Story = {
 		}
 	}),
 	decorators: [
-		showDocSource({
+		withStoryCard({
+			content: (
+				<p>
+					Use <code>className</code> as a function to add custom styling to the source code card.
+				</p>
+			)
+		}),
+		showSource({
 			className: ({ defaultClassName }) => {
-				return `${defaultClassName} rbsb:border-2 rbsb:border-purple-500 rbsb:rounded-lg`
+				return `${defaultClassName} rbsb:border-2 rbsb:border-purple-500 rbsb:dark:border-purple-400 rbsb:rounded-full`
 			}
 		})
-	],
-	render: () => <DemoComponent text="Function-based styling" />
+	]
 }
 
 export const WithClassNameConditional: Story = {
@@ -196,23 +241,29 @@ export const WithClassNameConditional: Story = {
 		}
 	}),
 	decorators: [
-		showDocSource({
-			className: ({ defaultClassName, status }) => {
-				// Status will be 'info' by default since showDocSource doesn't set it
-				const additionalStyles =
-					status === 'info'
+		withStoryCard({
+			content: (
+				<p>
+					Use <code>className</code> as a function to add custom styling to the source code card.
+				</p>
+			)
+		}),
+		showSource({
+			className: ({ defaultClassName, appearance }) => {
+				return twJoin(
+					defaultClassName,
+					appearance === 'source'
 						? 'rbsb:border-2 rbsb:border-blue-500 rbsb:ring-2 rbsb:ring-blue-200 rbsb:dark:ring-blue-800'
 						: 'rbsb:border-2 rbsb:rounded-lg'
-				return `${defaultClassName} ${additionalStyles}`
+				)
 			}
 		})
-	],
-	render: () => <DemoComponent text="Conditional styling with function" />
+	]
 }
 
 export const WithSourceString: Story = {
 	name: 'source: string',
-	tags: ['props'],
+	tags: ['use-case', 'props'],
 	decorators: [
 		withStoryCard({
 			content: (
@@ -221,14 +272,13 @@ export const WithSourceString: Story = {
 				</p>
 			)
 		}),
-		showDocSource({ source: '() => <DemoComponent text="Hello World" />' })
-	],
-	render: () => <DemoComponent text="Hello World" />
+		showSource({ source: `() => 'custom source'` })
+	]
 }
 
 export const WithSourceFunction: Story = {
 	name: 'source: function',
-	tags: ['props'],
+	tags: ['use-case', 'props'],
 	parameters: defineDocsParam({
 		source: {
 			code: '() => <DemoComponent text="Hello World" />'
@@ -246,39 +296,68 @@ export const WithSourceFunction: Story = {
 				</p>
 			)
 		}),
-		showDocSource({
-			source: (original) => `// Wrapped by source function\n${original ?? ''}\n// End of transformed source`
+		showSource({
+			source: dedent`{
+				parameters: defineDocsParam({
+					source: {
+						code: '() => <DemoComponent text="Hello World" />'
+					}
+				}),
+				decorators: [showSource({
+					source: (original) => \`
+					// Wrapped by source function
+					$\{original ?? ''}
+					// End of transformed source\`
+				})]
+			}`
+		}),
+		showSource({
+			source: (original) => dedent`// Wrapped by source function
+			${original ?? ''}
+			// End of transformed source`
 		})
-	],
-	render: () => <DemoComponent text="Hello World" />
+	]
 }
 
 export const PlacementBefore: Story = {
-	name: "placement: 'before'",
+	name: 'placement: before',
+	tags: ['props'],
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Use <code>placement: 'before'</code> (default) to display the source code card above the story output.
+				</p>
+			)
+		}),
+		showSource({ placement: 'before', source: 'Source shown before the story' })
+	],
+	render: () => <DemoComponent text="Story content" />
+}
+
+export const PlacementAfter: Story = {
+	name: 'placement: after',
 	tags: ['props'],
 	parameters: defineDocsParam({
-		source: {
-			code: '() => <DemoComponent text="Rendered below the source" />'
-		},
 		description: {
-			story: "Use `placement: 'before'` to show the source code above the rendered story instead of below."
+			story: "Use `placement: 'after'` to show the source code below the rendered story."
 		}
 	}),
 	decorators: [
 		withStoryCard({
 			content: (
 				<p>
-					Use <code>placement: 'before'</code> to display the source code card above the story output.
+					Use <code>placement: 'after'</code> to display the source code card below the story output.
 				</p>
 			)
 		}),
-		showDocSource({ placement: 'before' })
+		showSource({ placement: 'after', source: 'Source shown after the story' })
 	],
-	render: () => <DemoComponent text="Rendered below the source" />
+	render: () => <DemoComponent text="Story content" />
 }
 
-export const TwoShowDocSourceBefore: Story = {
-	name: "two showDocSource (placement: 'before')",
+export const TwoShowSourceBefore: Story = {
+	name: "two showSource (placement: 'before')",
 	tags: ['unit', 'snapshot'],
 	parameters: defineDocsParam({
 		source: {
@@ -286,18 +365,18 @@ export const TwoShowDocSourceBefore: Story = {
 		},
 		description: {
 			story:
-				"With two showDocSource(placement: 'before'), cards are rendered in decorator order: first source card, second source card, then the story."
+				"With two showSource(placement: 'before'), cards are rendered in decorator order: first source card, second source card, then the story."
 		}
 	}),
 	decorators: [
-		showDocSource({ placement: 'before', source: '// First source block' }),
-		showDocSource({ placement: 'before', source: '// Second source block' })
+		showSource({ source: '// First source block before the story' }),
+		showSource({ source: '// Second source block before the story' })
 	],
 	render: () => <DemoComponent text="Story content" />
 }
 
-export const TwoShowDocSourceAfter: Story = {
-	name: "two showDocSource (placement: 'after' / default)",
+export const TwoShowSourceAfter: Story = {
+	name: "two showSource (placement: 'after')",
 	tags: ['unit', 'snapshot'],
 	parameters: defineDocsParam({
 		source: {
@@ -305,15 +384,18 @@ export const TwoShowDocSourceAfter: Story = {
 		},
 		description: {
 			story:
-				"With two showDocSource() (placement defaults to 'after'), order is: story first, then first source card, then second source card."
+				"With two showSource({ placement: 'after' }), order is: story first, then first source card, then second source card."
 		}
 	}),
-	decorators: [showDocSource({ source: '// First source block' }), showDocSource({ source: '// Second source block' })],
+	decorators: [
+		showSource({ source: '// First source block after the story', placement: 'after' }),
+		showSource({ source: '// Second source block after the story', placement: 'after' })
+	],
 	render: () => <DemoComponent text="Story content" />
 }
 
-export const TwoWithStoryCardTwoShowDocSource: Story = {
-	name: 'two withStoryCard + two showDocSource',
+export const TwoWithStoryCardTwoShowSource: Story = {
+	name: 'two withStoryCard + two showSource',
 	tags: ['unit', 'snapshot'],
 	parameters: defineDocsParam({
 		source: {
@@ -321,14 +403,14 @@ export const TwoWithStoryCardTwoShowDocSource: Story = {
 		},
 		description: {
 			story:
-				"Cards render in decorator order: First card (withStoryCard), source before (showDocSource placement: 'before'), second card (withStoryCard), story, then source after (showDocSource)."
+				"Cards render in decorator order: First card (withStoryCard), source before (showSource placement: 'before'), second card (withStoryCard), story, then source after (showSource placement: 'after')."
 		}
 	}),
 	decorators: [
 		withStoryCard({ title: 'First card', content: <p>This card should appear first.</p> }),
-		showDocSource({ placement: 'before', source: '// Source shown before the story' }),
+		showSource({ source: '// Source shown before the Second card' }),
 		withStoryCard({ title: 'Second card', content: <p>This card should appear after the first source.</p> }),
-		showDocSource({ source: '// Source shown after the story' })
+		showSource({ source: '// Source shown after the Second card' })
 	],
 	render: () => <DemoComponent text="Story content" />
 }
