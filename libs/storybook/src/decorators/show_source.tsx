@@ -18,7 +18,7 @@ const channel = addons.getChannel()
  * @property showOriginalSource - When true, use the story's original (untransformed) source instead of the rendered source.
  * @property placement - Where to show the source code relative to the story. Defaults to `'before'`.
  */
-export type ShowSourceOptions = Pick<StoryCardProps, 'className'> & {
+export type ShowSourceOptions = Pick<StoryCardProps, 'className' | 'data-testid'> & {
 	source?: ((source: string | undefined) => string) | string | undefined
 	showOriginalSource?: boolean | undefined
 	placement?: 'before' | 'after' | undefined
@@ -35,9 +35,13 @@ export type ShowSourceOptions = Pick<StoryCardProps, 'className'> & {
  * @param options.placement - Where to show the source code relative to the story.
  * @returns A decorator function that shows the source code of a story above or below the rendered story
  */
-export function showSource<TRenderer extends Renderer = Renderer, TArgs = Args>(
-	options?: ShowSourceOptions
-): DecoratorFunction<TRenderer, TArgs> {
+export function showSource<TRenderer extends Renderer = Renderer, TArgs = Args>({
+	className,
+	placement,
+	showOriginalSource,
+	source,
+	...options
+}: ShowSourceOptions = {}): DecoratorFunction<TRenderer, TArgs> {
 	if (isRunningInTest()) {
 		return (Story) => <Story />
 	}
@@ -54,12 +58,11 @@ export function showSource<TRenderer extends Renderer = Renderer, TArgs = Args>(
 			return () => channel.off('DARK_MODE', setIsDark)
 		}, [])
 
-		const originalSource = options?.showOriginalSource
+		const originalSource = showOriginalSource
 			? docs?.source?.originalSource
 			: (docs?.source?.code ?? docs?.source?.originalSource)
 
-		const code =
-			typeof options?.source === 'function' ? options?.source(originalSource) : (options?.source ?? originalSource)
+		const code = typeof source === 'function' ? source(originalSource) : (source ?? originalSource)
 
 		const language = code === docs?.source?.originalSource ? undefined : docs?.source?.language
 
@@ -74,7 +77,7 @@ export function showSource<TRenderer extends Renderer = Renderer, TArgs = Args>(
 			[code, language]
 		)
 
-		const showBefore = (options?.placement ?? 'before') === 'before'
+		const showBefore = (placement ?? 'before') === 'before'
 
 		const sourceCardClassName = useCallback(
 			(state: Pick<StoryCardProps, 'status' | 'appearance'> & { defaultClassName: string }) => {
@@ -86,12 +89,11 @@ export function showSource<TRenderer extends Renderer = Renderer, TArgs = Args>(
 					)
 				}
 
-				const className = options?.className
 				return typeof className === 'function'
 					? className(modifiedState)
 					: twJoin(modifiedState.defaultClassName, className)
 			},
-			[options?.className, isOriginalSource]
+			[className, isOriginalSource]
 		)
 
 		const theme = convert(docs?.theme ?? (isDark ? themes.dark : themes.light))
@@ -116,7 +118,7 @@ export function showSource<TRenderer extends Renderer = Renderer, TArgs = Args>(
 		}
 
 		const storyCard = (
-			<StoryCard className={sourceCardClassName} appearance="source">
+			<StoryCard className={sourceCardClassName} appearance="source" {...options}>
 				<DocSourceCard>{sourceContent}</DocSourceCard>
 			</StoryCard>
 		)

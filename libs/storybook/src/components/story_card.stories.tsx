@@ -1,3 +1,4 @@
+import { expect } from 'storybook/test'
 import { defineDocsParam, StoryCard, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
@@ -33,6 +34,11 @@ const meta: Meta<typeof StoryCard> = {
 			}
 		},
 		className: {
+			control: {
+				type: 'text'
+			}
+		},
+		'data-testid': {
 			control: {
 				type: 'text'
 			}
@@ -251,4 +257,23 @@ export const CustomClassNameFunction: Story = {
 			This card uses a function to compute className based on the card state.
 		</StoryCard>
 	)
+}
+
+export const DataTestId: Story = {
+	name: 'data-testid',
+	tags: ['props', 'unit'],
+	parameters: defineDocsParam({
+		description: {
+			story: 'StoryCard forwards the `data-testid` prop to the root section for testing and automation.'
+		}
+	}),
+	args: {
+		'data-testid': 'story-card-example',
+		title: 'Card with data-testid',
+		children: 'This card has data-testid="story-card-example" on the root section for testing.'
+	},
+	play: async ({ canvas }) => {
+		const section = canvas.getByTestId('story-card-example')
+		await expect(section).toBeInTheDocument()
+	}
 }

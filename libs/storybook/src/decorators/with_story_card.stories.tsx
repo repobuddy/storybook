@@ -100,6 +100,28 @@ export const WithTitle: Story = {
 	}
 }
 
+export const DataTestId: Story = {
+	name: 'data-testid: provided',
+	tags: ['props'],
+	parameters: defineDocsParam({
+		description: {
+			story: 'withStoryCard forwards the `data-testid` prop to the card root for testing and automation.'
+		}
+	}),
+	decorators: [
+		withStoryCard({
+			'data-testid': 'with-story-card-example',
+			title: 'Card with data-testid',
+			content: <p>This card has data-testid on the root section for testing.</p>
+		})
+	],
+	play: async ({ canvas }) => {
+		if (isRunningInTest()) return
+		const section = canvas.getByTestId('with-story-card-example')
+		await expect(section).toBeInTheDocument()
+	}
+}
+
 export const WithInfoStatus: Story = {
 	name: 'status: info',
 	tags: ['props', 'deprecated', 'version:2.14', '!version:2.2'],

@@ -48,6 +48,10 @@ export type StoryCardProps = {
 	 * Can be any React node (string, JSX, etc.).
 	 */
 	children?: ReactNode | undefined
+	/**
+	 * Test identifier for the card.
+	 */
+	'data-testid'?: string | undefined
 }
 
 export type StoryCardThemeState = Pick<StoryCardProps, 'status' | 'appearance'> & { defaultClassName: string }
@@ -90,7 +94,14 @@ const storyCardVariants = cva(
  * @param props - StoryCard component props
  * @returns A section element containing the card content
  */
-export const StoryCard = memo(function StoryCard({ status, appearance, className, children, title }: StoryCardProps) {
+export const StoryCard = memo(function StoryCard({
+	status,
+	appearance,
+	className,
+	children,
+	title,
+	...rest
+}: StoryCardProps) {
 	const resolvedAppearance = resolveAppearance(appearance, status)
 	const state: StoryCardThemeState = {
 		status,
@@ -98,7 +109,7 @@ export const StoryCard = memo(function StoryCard({ status, appearance, className
 		defaultClassName: storyCardVariants({ appearance: resolvedAppearance })
 	}
 	return (
-		<section className={storyCardTheme(state, className)}>
+		<section className={storyCardTheme(state, className)} {...rest}>
 			{title && <h2 className="rbsb:text-lg rbsb:font-bold">{title}</h2>}
 			{children}
 		</section>

@@ -1,4 +1,5 @@
 import dedent from 'dedent'
+import { expect } from 'storybook/test'
 import { themes } from 'storybook/theming'
 import { twJoin } from 'tailwind-merge'
 import { defineDocsParam, showSource, withStoryCard } from '#repobuddy/storybook'
@@ -354,6 +355,29 @@ export const PlacementAfter: Story = {
 		showSource({ placement: 'after', source: 'Source shown after the story' })
 	],
 	render: () => <DemoComponent text="Story content" />
+}
+
+export const DataTestId: Story = {
+	name: 'data-testid',
+	tags: ['props', 'unit', '!test'],
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Use <code>data-testid</code> to add a test identifier to the source card.
+				</p>
+			)
+		}),
+		showSource({
+			source: 'Source card with data-testid',
+			'data-testid': 'show-source-card'
+		})
+	],
+	render: () => <DemoComponent text="Story content" />,
+	play: async ({ canvas }) => {
+		const section = canvas.getByTestId('show-source-card')
+		await expect(section).toBeInTheDocument()
+	}
 }
 
 export const TwoShowSourceBefore: Story = {
