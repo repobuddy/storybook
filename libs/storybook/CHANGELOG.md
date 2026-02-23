@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 2.23.0
+
+### Minor Changes
+
+- [`233aa64`](https://github.com/repobuddy/storybook/commit/233aa64a034f71d3912cb07d8d19079e418628db) Thanks [@unional](https://github.com/unional)! - Add `data-testid` support to `StoryCard`, `showSource` decorator, and `withStoryCard` decorator.
+
 ## 2.22.0
 
 ### Minor Changes
