@@ -120,6 +120,9 @@ importers:
       tailwind-merge:
         specifier: ^3.4.0
         version: 3.5.0
+      tailwindcss:
+        specifier: ^4.2.1
+        version: 4.2.1
       type-plus:
         specifier: 8.0.0-beta.8
         version: 8.0.0-beta.8(typescript@5.9.3)
@@ -181,9 +184,6 @@ importers:
       storybook-addon-vis:
         specifier: ^3.1.2
         version: 3.1.2(@storybook/addon-vitest@10.2.12(@vitest/browser-playwright@4.0.18)(@vitest/browser@4.0.18(vite@7.3.1(@types/node@25.3.0)(jiti@2.6.1)(lightningcss@1.31.1))(vitest@4.0.18))(@vitest/runner@4.0.18)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(storybook@10.2.12(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(vitest@4.0.18))(@vitest/browser-playwright@4.0.18)(@vitest/browser@4.0.18(vite@7.3.1(@types/node@25.3.0)(jiti@2.6.1)(lightningcss@1.31.1))(vitest@4.0.18))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(storybook@10.2.12(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(vitest@4.0.18)
-      tailwindcss:
-        specifier: ^4.1.17
-        version: 4.2.1
       tsdown:
         specifier: ^0.20.0
         version: 0.20.3(oxc-resolver@11.18.0)(typescript@5.9.3)
