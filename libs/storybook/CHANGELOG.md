@@ -1,5 +1,12 @@
 # @repobuddy/storybook
 
+## 2.23.1
+
+### Patch Changes
+
+- [`419cfae`](https://github.com/repobuddy/storybook/commit/419cfae8895724b919f49f91215ebb77b668374d) Thanks [@unional](https://github.com/unional)! - Update `tailwindcss` to 4.2.1 and change it to direct dependency.
+  This is needed to support composing Tailwind config using `@repobuddy/storybook/tailwind.css`.
+
 ## 2.23.0
 
 ### Minor Changes
