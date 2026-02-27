@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 2.24.0
+
+### Minor Changes
+
+- [`330db7d`](https://github.com/repobuddy/storybook/commit/330db7d6b99ba36032091fb055957a05349dd42d) Thanks [@unional](https://github.com/unional)! - Add `playgroundBadge` for the `playground` tag. Use `tags: ['playground']` to mark high-quality interactive stories where users can explore and interact with the component. The badge displays ▶️ with a "Playground" tooltip in the Storybook sidebar.
+
 ## 2.23.1
 
 ### Patch Changes
