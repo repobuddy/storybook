@@ -35,6 +35,7 @@ export type TagNames =
 	| 'internal'
 	| 'usecase'
 	| 'use-case'
+	| 'playground'
 	| 'example'
 	| 'perf'
 	| 'version:next'
@@ -395,6 +396,25 @@ export const useCaseBadge: TagBadgeParameter = {
 	}
 }
 
+/** Badge (▶️) for high-quality interactive playground stories where users can explore and interact with the component. */
+export const playgroundBadge: TagBadgeParameter = {
+	tags: 'playground',
+	badge: {
+		text: '▶️',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
+		tooltip: 'Playground'
+	},
+	display: {
+		sidebar: {
+			type: 'story',
+			skipInherited: false
+		}
+	}
+}
+
 /** Badge (✨) for example or demo stories. */
 export const exampleBadge: TagBadgeParameter = {
 	tags: 'example',
@@ -438,7 +458,7 @@ export const perfBadge: TagBadgeParameter = {
  * Each badge is associated with a specific tag and displays an emoji or symbol with a tooltip.
  *
  * Badge order (first match wins): New → Alpha → Beta → RC → Deprecated → Remove → Outdated → Danger → Use Case →
- * Example → Perf → Keyboard → Source → Type → Function → Var → Props → Todo → Unit → Integration →
+ * Playground → Example → Perf → Keyboard → Source → Type → Function → Var → Props → Todo → Unit → Integration →
  * Editor → Code Only → Version → Internal → Snapshot.
  *
  * - 🆕 New - Recently added stories
@@ -450,6 +470,7 @@ export const perfBadge: TagBadgeParameter = {
  * - ⚠️ Outdated - Stories that need updating
  * - 🚨 Danger - Stories demonstrating dangerous patterns
  * - 🎯 Use Case - Stories that demonstrate a specific use case or scenario
+ * - ▶️ Playground - High-quality interactive stories for users to explore and interact with the component
  * - ✨ Example - Example or demo stories
  * - ⚡ Perf - Stories that demonstrate or test performance
  * - ⌨️ Keyboard - Stories that demonstrate or test keyboard interaction
@@ -478,6 +499,7 @@ export const tagBadges: TagBadgeParameters = [
 	outdatedBadge,
 	dangerBadge,
 	useCaseBadge,
+	playgroundBadge,
 	exampleBadge,
 	perfBadge,
 	keyboardBadge,

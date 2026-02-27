@@ -89,6 +89,7 @@ we provide a different set of badges that uses emojis (order: first match wins):
 | ⚠️      | `outdated`                                               | Stories that need updating                                                                |
 | 🚨      | `danger`                                                 | Dangerous or cautionary patterns                                                          |
 | 🎯      | `use-case`                                               | Specific use case or scenario                                                             |
+| ▶️      | `playground`                                             | High-quality interactive stories for users to explore and interact with the component     |
 | ✨      | `example`                                                | Example or demo stories                                                                   |
 | ⚡      | `perf`                                                   | Performance (stories that demonstrate or test performance)                                |
 | ⌨️      | `keyboard`                                               | Keyboard interaction                                                                      |
