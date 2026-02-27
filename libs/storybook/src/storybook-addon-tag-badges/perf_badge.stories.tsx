@@ -1,5 +1,5 @@
 import dedent from 'dedent'
-import { showDocSource, withStoryCard } from '#repobuddy/storybook'
+import { showSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
 export default {
@@ -20,7 +20,7 @@ export const PerfBadge: StoryObj = {
 				</>
 			)
 		}),
-		showDocSource({
+		showSource({
 			placement: 'before',
 			source: dedent`export const YourStory = {
 				tags: ['perf'],
@@ -43,7 +43,7 @@ export const PerfBadge: StoryObj = {
 				</>
 			)
 		}),
-		showDocSource({
+		showSource({
 			placement: 'before',
 			source: dedent`
 			// vitest.config.ts

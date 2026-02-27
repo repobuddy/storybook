@@ -1,5 +1,5 @@
 import dedent from 'dedent'
-import { showDocSource, withStoryCard } from '#repobuddy/storybook'
+import { showSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
 export default {
@@ -18,10 +18,10 @@ export const SourceBadge: StoryObj = {
 				</p>
 			)
 		}),
-		showDocSource({
+		showSource({
 			source: dedent`export const YourStory = {
 				tags: ['source'],
-				decorators: [showDocSource()],
+				decorators: [showSource()],
 				render: () => <YourComponent />
 			}`
 		})

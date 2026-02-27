@@ -8,14 +8,14 @@ Use the **source** badge to indicate stories that show source code in the docs. 
 
 ## Usage
 
-Add the `source` tag to your story and use the `showDocSource()` decorator so the story's source is visible in the docs.
+Add the `source` tag to your story and use the `showSource()` decorator so the story's source is visible in the docs.
 
 ```tsx
-import { showDocSource } from '#repobuddy/storybook'
+import { showSource } from '#repobuddy/storybook'
 
 export const YourStory = {
 	tags: ['source'],
-	decorators: [showDocSource()],
+	decorators: [showSource()],
 	render: () => <YourComponent />
 }
 ```

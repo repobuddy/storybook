@@ -1,5 +1,5 @@
 import dedent from 'dedent'
-import { showDocSource, withStoryCard } from '#repobuddy/storybook'
+import { showSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
 export default {
@@ -18,7 +18,7 @@ export const RemoveInVersion: StoryObj = {
 				</p>
 			)
 		}),
-		showDocSource({
+		showSource({
 			source: dedent`export const YourStory = {
 				tags: ['remove:2'],
 				render: () => <YourComponent />
@@ -38,7 +38,7 @@ export const RemovePlain: StoryObj = {
 				</p>
 			)
 		}),
-		showDocSource({
+		showSource({
 			source: dedent`export const YourStory = {
 				tags: ['remove'],
 				render: () => <YourComponent />
@@ -58,7 +58,7 @@ export const RemoveInNext: StoryObj = {
 				</p>
 			)
 		}),
-		showDocSource({
+		showSource({
 			source: dedent`export const YourStory = {
 				tags: ['remove:next'],
 				render: () => <YourComponent />
