@@ -1,0 +1,139 @@
+---
+description: How to add a new tag badge to storybook-addon-tag-badges
+globs:
+alwaysApply: false
+---
+# Adding a New Tag Badge
+
+When creating a new badge for the `storybook-addon-tag-badges` addon, follow these steps. Use this rule when adding badges such as `playgroundBadge`, `exampleBadge`, or similar.
+
+When you use this rule file, let me know this rule file is being used in the chat by mentioning the rule filename.
+
+## Checklist
+
+1. Add the tag to `TagNames` in `libs/storybook/src/storybook-addon-tag-badges/tag_badges.ts`
+2. Create the badge constant and add it to `tagBadges`
+3. Update the JSDoc block comment
+4. Create the badge story file
+5. Create a changeset
+6. Update `libs/storybook/readme.md`
+
+---
+
+## 1. Add Tag to TagNames
+
+Add the new tag string literal to the `TagNames` union type in alphabetical or logical order:
+
+```ts
+export type TagNames =
+  | 'playground'
+  | 'example'
+  // ...
+```
+
+---
+
+## 2. Create the Badge Constant
+
+Define the badge following the `TagBadgeParameter` pattern. Place it near similar badges (e.g., before `exampleBadge` if it is semantically related).
+
+```ts
+/** Badge (▶️) for high-quality interactive playground stories where users can explore and interact with the component. */
+export const playgroundBadge: TagBadgeParameter = {
+  tags: 'playground',
+  badge: {
+    text: '▶️',
+    style: {
+      backgroundColor: 'transparent',
+      borderColor: 'transparent'
+    },
+    tooltip: 'Playground'
+  },
+  display: {
+    sidebar: {
+      type: 'story',
+      skipInherited: false
+    }
+  }
+}
+```
+
+**Naming convention:** `{tagName}Badge` in camelCase (e.g., `playgroundBadge`, `exampleBadge`). Use the full tag name, not an abbreviation (prefer `playground` over `play` to avoid confusion with Storybook's `play` property).
+
+**Display options:** Most badges use `sidebar: { type: 'story', skipInherited: false }`. See existing badges for variants (e.g., `snapshotBadge` uses `toolbar` only, `codeOnlyBadge` has `mdx: false`).
+
+Add the badge to the `tagBadges` array in the **correct order** (first match wins). Reference the JSDoc for the intended order.
+
+---
+
+## 3. Update JSDoc Block Comment
+
+Update the `tagBadges` export JSDoc:
+
+1. Add the badge to the "Badge order" line in the correct position
+2. Add a bullet item: `- [emoji] [Tag] - [Description]`
+
+---
+
+## 4. Create the Badge Story File
+
+Create `libs/storybook/src/storybook-addon-tag-badges/{tag_name}_badge.stories.tsx` using snake_case for the filename.
+
+**Template:**
+
+```tsx
+import dedent from 'dedent'
+import { showSource, withStoryCard } from '#repobuddy/storybook'
+import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
+
+export default {
+  title: 'storybook-addon-tag-badges/{badgeName}Badge',
+  tags: ['var', '!snapshot', 'version:next'],
+  render: () => <></>
+} satisfies Meta
+
+export const {BadgeName}Badge: StoryObj = {
+  tags: ['{tag}'],
+  decorators: [
+    withStoryCard({
+      content: (
+        <p>
+          [Description]. In the sidebar it appears as <code>[emoji]</code>.
+        </p>
+      )
+    }),
+    showSource({
+      source: dedent`export const YourStory: Story = {
+        tags: ['{tag}'],
+        render: () => <YourComponent />
+      }`
+    })
+  ]
+}
+```
+
+Replace `{badgeName}`, `{BadgeName}`, `{tag}`, `[Description]`, and `[emoji]` with your badge details.
+
+---
+
+## 5. Create a Changeset
+
+Create a changeset in `.changeset/` with a descriptive filename (e.g., `silver-playground.md`).
+
+- **Version type:** `minor` (new badge is a new feature)
+- **Package:** `@repobuddy/storybook`
+- **Description:** Focus on the public API (badge and tag). Do **not** mention the story file or documentation.
+
+See [generate_changeset.mdc](mdc:.cursor/rules/commands/generate_changeset.mdc) for full changeset guidelines.
+
+---
+
+## 6. Update Readme
+
+Add a row to the badges table in `libs/storybook/readme.md` (in the `storybook-addon-tag-badges` section). Maintain the same order as in `tagBadges` and match the table formatting.
+
+---
+
+## Reference: Badge Order
+
+Current order (first match wins): New → Alpha → Beta → RC → Deprecated → Remove → Outdated → Danger → Use Case → Playground → Example → Perf → Keyboard → Source → Type → Function → Var → Props → Todo → Unit → Integration → Editor → Code Only → Version → Internal → Snapshot.

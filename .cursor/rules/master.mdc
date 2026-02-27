@@ -17,6 +17,10 @@ This document serves as the central reference for all rules in the project.
    - Explains how to add and edit Cursor rules in the project
    - Contains guidelines for rule file structure and location
 
+3. [Add Tag Badge](mdc:.cursor/rules/add-tag-badge.mdc)
+   - Step-by-step guide for adding a new tag badge to storybook-addon-tag-badges
+   - Covers TagNames, badge definition, story file, changeset, and readme updates
+
 ## How to Use Rules
 
 1. Each rule file contains specific guidelines for a particular aspect of development
