@@ -27,6 +27,7 @@ export type TagNames =
 	| 'danger'
 	| 'todo'
 	| 'code-only'
+	| 'spec'
 	| 'snapshot'
 	| '!snapshot'
 	| 'unit'
@@ -196,6 +197,25 @@ export const dangerBadge: TagBadgeParameter = {
 			borderColor: 'transparent'
 		},
 		tooltip: 'Dangerous'
+	}
+}
+
+/** Badge (📜) for stories that serve as the specification of the component or code. */
+export const specBadge: TagBadgeParameter = {
+	tags: 'spec',
+	badge: {
+		text: '📜',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
+		tooltip: 'Specification'
+	},
+	display: {
+		sidebar: {
+			type: 'story',
+			skipInherited: false
+		}
 	}
 }
 
@@ -458,8 +478,8 @@ export const perfBadge: TagBadgeParameter = {
  * Each badge is associated with a specific tag and displays an emoji or symbol with a tooltip.
  *
  * Badge order (first match wins): New → Alpha → Beta → RC → Deprecated → Remove → Outdated → Danger → Use Case →
- * Playground → Example → Perf → Keyboard → Source → Type → Function → Var → Props → Todo → Unit → Integration →
- * Editor → Code Only → Version → Internal → Snapshot.
+ * Spec → Playground → Example → Perf → Keyboard → Source → Type → Function → Var → Props → Todo → Unit →
+ * Integration → Editor → Code Only → Version → Internal → Snapshot.
  *
  * - 🆕 New - Recently added stories
  * - 🔴 Alpha - Stories for features in alpha
@@ -470,6 +490,7 @@ export const perfBadge: TagBadgeParameter = {
  * - ⚠️ Outdated - Stories that need updating
  * - 🚨 Danger - Stories demonstrating dangerous patterns
  * - 🎯 Use Case - Stories that demonstrate a specific use case or scenario
+ * - 📜 Spec - Stories that serve as the specification of the component or code
  * - ▶️ Playground - High-quality interactive stories for users to explore and interact with the component
  * - ✨ Example - Example or demo stories
  * - ⚡ Perf - Stories that demonstrate or test performance
@@ -499,6 +520,7 @@ export const tagBadges: TagBadgeParameters = [
 	outdatedBadge,
 	dangerBadge,
 	useCaseBadge,
+	specBadge,
 	playgroundBadge,
 	exampleBadge,
 	perfBadge,
