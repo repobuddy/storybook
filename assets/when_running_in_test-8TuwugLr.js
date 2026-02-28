@@ -1,1 +1,0 @@
-import{j as s}from"./iframe-C9kpuA6j.js";import{i as e}from"./show_source-CT_A95FG.js";const u={isRunningInTest:e};function c(t){return function(n,i){return u.isRunningInTest()?t(n,i)??s.jsx(n,{}):s.jsx(n,{})}}export{u as c,c as w};
