@@ -112,6 +112,8 @@ export const {BadgeName}Badge: StoryObj = {
 }
 ```
 
+**Version tag:** Use `version:next` in the template—new badges are not yet released. After release, update the story to `version:x.y` where `x.y` is the version that introduced the badge. Do not copy `version:x.y` from existing badge stories when creating a new one; follow this template.
+
 Replace `{badgeName}`, `{BadgeName}`, `{tag}`, `[Description]`, and `[emoji]` with your badge details.
 
 ---
