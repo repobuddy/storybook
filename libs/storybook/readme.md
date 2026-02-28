@@ -93,6 +93,7 @@ we provide a different set of badges that uses emojis (order: first match wins):
 | ▶️      | `playground`                                             | High-quality interactive stories for users to explore and interact with the component     |
 | ✨      | `example`                                                | Example or demo stories                                                                   |
 | ⚡      | `perf`                                                   | Performance (stories that demonstrate or test performance)                                |
+| ♿      | `a11y`                                                   | Accessibility (stories that demonstrate or test accessibility)                            |
 | ⌨️      | `keyboard`                                               | Keyboard interaction                                                                      |
 | `</>`   | `source`                                                 | Source-code-focused stories                                                               |
 | `<T>`   | `type`                                                   | TypeScript types (shown in MDX)                                                           |

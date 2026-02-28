@@ -18,6 +18,7 @@ export type TagNames =
 	| 'var'
 	| '!var'
 	| 'new'
+	| 'a11y'
 	| 'alpha'
 	| 'beta'
 	| 'rc'
@@ -371,6 +372,25 @@ export const integrationBadge: TagBadgeParameter = {
 	}
 }
 
+/** Badge (♿) for stories that demonstrate or test accessibility. */
+export const a11yBadge: TagBadgeParameter = {
+	tags: 'a11y',
+	badge: {
+		text: '♿',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
+		tooltip: 'Accessibility'
+	},
+	display: {
+		sidebar: {
+			type: 'story',
+			skipInherited: false
+		}
+	}
+}
+
 /** Badge (⌨️) for stories that demonstrate or test keyboard interaction. */
 export const keyboardBadge: TagBadgeParameter = {
 	tags: 'keyboard',
@@ -478,7 +498,7 @@ export const perfBadge: TagBadgeParameter = {
  * Each badge is associated with a specific tag and displays an emoji or symbol with a tooltip.
  *
  * Badge order (first match wins): New → Alpha → Beta → RC → Deprecated → Remove → Outdated → Danger → Use Case →
- * Spec → Playground → Example → Perf → Keyboard → Source → Type → Function → Var → Props → Todo → Unit →
+ * Spec → Playground → Example → Perf → A11y → Keyboard → Source → Type → Function → Var → Props → Todo → Unit →
  * Integration → Editor → Code Only → Version → Internal → Snapshot.
  *
  * - 🆕 New - Recently added stories
@@ -494,6 +514,7 @@ export const perfBadge: TagBadgeParameter = {
  * - ▶️ Playground - High-quality interactive stories for users to explore and interact with the component
  * - ✨ Example - Example or demo stories
  * - ⚡ Perf - Stories that demonstrate or test performance
+ * - ♿ A11y - Stories that demonstrate or test accessibility
  * - ⌨️ Keyboard - Stories that demonstrate or test keyboard interaction
  * - `</>` Source - Source-code-focused stories
  * - `<T>` Type - Stories that showcase or document TypeScript types
@@ -524,6 +545,7 @@ export const tagBadges: TagBadgeParameters = [
 	playgroundBadge,
 	exampleBadge,
 	perfBadge,
+	a11yBadge,
 	keyboardBadge,
 	sourceBadge,
 	typeBadge,
