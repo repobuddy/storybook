@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 2.25.0
+
+### Minor Changes
+
+- [`f5cdb20`](https://github.com/repobuddy/storybook/commit/f5cdb203d316649881c10b7ce470df8e054bf822) Thanks [@unional](https://github.com/unional)! - Add `specBadge` for the `spec` tag. Use `tags: ['spec']` to mark stories that serve as the specification of the component or code. The badge displays 📜 with a "Specification" tooltip in the Storybook sidebar.
+
 ## 2.24.0
 
 ### Minor Changes
