@@ -13,6 +13,8 @@ export type TagNames =
 	| 'source'
 	| 'type'
 	| '!type'
+	| 'class'
+	| '!class'
 	| 'func'
 	| '!func'
 	| 'var'
@@ -265,6 +267,22 @@ export const typeBadge: TagBadgeParameter = {
 	}
 }
 
+/** Badge (🔷) for stories that showcase or document classes. Hidden in MDX. */
+export const classBadge: TagBadgeParameter = {
+	tags: 'class',
+	badge: {
+		text: '🔷',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
+		tooltip: 'Class'
+	},
+	display: {
+		mdx: true
+	}
+}
+
 /** Badge (ƒ(x)) for stories that showcase or document functions. Hidden in MDX. */
 export const functionBadge: TagBadgeParameter = {
 	tags: 'func',
@@ -498,7 +516,7 @@ export const perfBadge: TagBadgeParameter = {
  * Each badge is associated with a specific tag and displays an emoji or symbol with a tooltip.
  *
  * Badge order (first match wins): New → Alpha → Beta → RC → Deprecated → Remove → Outdated → Danger → Use Case →
- * Spec → Playground → Example → Perf → A11y → Keyboard → Source → Type → Function → Var → Props → Todo → Unit →
+ * Spec → Playground → Example → Perf → A11y → Keyboard → Source → Type → Class → Function → Var → Props → Todo → Unit →
  * Integration → Editor → Code Only → Version → Internal → Snapshot.
  *
  * - 🆕 New - Recently added stories
@@ -519,6 +537,7 @@ export const perfBadge: TagBadgeParameter = {
  * - `</>` Source - Source-code-focused stories
  * - 🔧 Props - Stories that demonstrate props or configuration
  * - `<T>` Type - Stories that showcase or document TypeScript types
+ * - 🔷 Class - Stories that showcase or document classes
  * - `ƒ(x)` Function - Stories that showcase or document functions
  * - `var` Variables - Stories that describe values and variables
  * - 📋 Todo - Stories marked as todo/incomplete
@@ -550,6 +569,7 @@ export const tagBadges: TagBadgeParameters = [
 	keyboardBadge,
 	propsBadge,
 	typeBadge,
+	classBadge,
 	functionBadge,
 	varBadge,
 	todoBadge,

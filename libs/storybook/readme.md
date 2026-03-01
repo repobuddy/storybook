@@ -97,6 +97,7 @@ we provide a different set of badges that uses emojis (order: first match wins):
 | ⌨️      | `keyboard`                                               | Keyboard interaction                                                                      |
 | `</>`   | `source`                                                 | Source-code-focused stories                                                               |
 | `<T>`   | `type`                                                   | TypeScript types (shown in MDX)                                                           |
+| 🔷      | `class`                                                  | Classes (shown in MDX)                                                                    |
 | `ƒ(x)`  | `func`                                                   | Functions (shown in MDX)                                                                  |
 | `var`   | `var`                                                    | Variables (shown in MDX)                                                                  |
 | 🔧      | `props`                                                  | Props or configuration                                                                    |
