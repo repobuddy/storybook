@@ -1,5 +1,15 @@
 # @repobuddy/storybook
 
+## 2.27.0
+
+### Minor Changes
+
+- [`508aafd`](https://github.com/repobuddy/storybook/commit/508aafd54a18594fe292409989597494aa8bdde1) Thanks [@unional](https://github.com/unional)! - Add `class` tag and `classBadge` for stories that showcase or document classes. Displays 🔷 in the sidebar.
+
+### Patch Changes
+
+- [`ab33ab8`](https://github.com/repobuddy/storybook/commit/ab33ab8f0bd09c6a1c242920673a9174a127c982) Thanks [@unional](https://github.com/unional)! - Increase the priority of `propsBadge` above `typeBadge` and `functionBadge` in the sidebar.
+
 ## 2.26.0
 
 ### Minor Changes
