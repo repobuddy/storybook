@@ -517,10 +517,10 @@ export const perfBadge: TagBadgeParameter = {
  * - ♿ A11y - Stories that demonstrate or test accessibility
  * - ⌨️ Keyboard - Stories that demonstrate or test keyboard interaction
  * - `</>` Source - Source-code-focused stories
+ * - 🔧 Props - Stories that demonstrate props or configuration
  * - `<T>` Type - Stories that showcase or document TypeScript types
  * - `ƒ(x)` Function - Stories that showcase or document functions
  * - `var` Variables - Stories that describe values and variables
- * - 🔧 Props - Stories that demonstrate props or configuration
  * - 📋 Todo - Stories marked as todo/incomplete
  * - 🧪 Unit - Stories with unit tests
  * - 🔗 Integration - Stories with integration tests
@@ -545,13 +545,13 @@ export const tagBadges: TagBadgeParameters = [
 	playgroundBadge,
 	exampleBadge,
 	perfBadge,
+	sourceBadge,
 	a11yBadge,
 	keyboardBadge,
-	sourceBadge,
+	propsBadge,
 	typeBadge,
 	functionBadge,
 	varBadge,
-	propsBadge,
 	todoBadge,
 	unitBadge,
 	integrationBadge,
