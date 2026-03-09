@@ -47,6 +47,6 @@
 	},
 	"packageManager": "pnpm@10.31.0",
 	"devDependencies": {
-		"@types/node": "^25.3.3"
+		"@types/node": "^25.3.5"
 	}
 }
