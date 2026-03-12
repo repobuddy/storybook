@@ -1,0 +1,1 @@
+var e=new Proxy({},{get(e,t,n){return e=>e}});export{e as t};
