@@ -1,1 +1,0 @@
-import{it as e}from"./components-OkAEeoog.js";import{r as t}from"./chunk-RD3KTAHR-CpZzRFti.js";e();export{t as createCopyToClipboardFunction};
