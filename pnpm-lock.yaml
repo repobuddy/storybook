@@ -180,7 +180,7 @@ importers:
         version: 6.1.3(@types/react@19.2.14)(react@19.2.4)(storybook@10.3.0(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
       storybook-addon-tag-badges:
         specifier: ^3.0.6
-        version: 3.0.6(patch_hash=9cb806ddc4955991a0032819bf48a9278ca58827b75a6efb8e0502f0f7b58e08)(storybook@10.3.0(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
+        version: 3.1.0(patch_hash=9cb806ddc4955991a0032819bf48a9278ca58827b75a6efb8e0502f0f7b58e08)(storybook@10.3.0(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
       storybook-addon-vis:
         specifier: ^3.1.2
         version: 3.1.2(@storybook/addon-vitest@10.3.0(@vitest/browser-playwright@4.1.0)(@vitest/browser@4.1.0(vite@8.0.1(@types/node@25.5.0)(esbuild@0.27.4)(jiti@2.6.1)(yaml@2.8.2))(vitest@4.1.0))(@vitest/runner@4.1.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(storybook@10.3.0(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(vitest@4.1.0))(@vitest/browser-playwright@4.1.0)(@vitest/browser@4.1.0(vite@8.0.1(@types/node@25.5.0)(esbuild@0.27.4)(jiti@2.6.1)(yaml@2.8.2))(vitest@4.1.0))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(storybook@10.3.0(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(vitest@4.1.0)
@@ -2889,8 +2889,8 @@ packages:
       '@types/react':
         optional: true
 
-  storybook-addon-tag-badges@3.0.6:
-    resolution: {integrity: sha512-UQ9kaBqcKYgMsu2fkoLwcKJt83r7y1fzAtjrU9BUhkpILK1Jp0BbzQzeyno9opl5nWhYT57XXSAWDMeXH6dMlw==}
+  storybook-addon-tag-badges@3.1.0:
+    resolution: {integrity: sha512-sVWVyUT8woEmSKDsePJtSFCP9RFojrmsibD11dL0/+pkn7HrkhaJC96uz3mnqt78OuO7qflFMLF1Bqg3JwnrJA==}
     engines: {node: '>=20'}
     peerDependencies:
       storybook: ^10.0.0
@@ -5733,7 +5733,7 @@ snapshots:
     optionalDependencies:
       '@types/react': 19.2.14
 
-  storybook-addon-tag-badges@3.0.6(patch_hash=9cb806ddc4955991a0032819bf48a9278ca58827b75a6efb8e0502f0f7b58e08)(storybook@10.3.0(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)):
+  storybook-addon-tag-badges@3.1.0(patch_hash=9cb806ddc4955991a0032819bf48a9278ca58827b75a6efb8e0502f0f7b58e08)(storybook@10.3.0(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)):
     dependencies:
       memoizerific: 1.11.3
       storybook: 10.3.0(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
