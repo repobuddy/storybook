@@ -47,17 +47,27 @@
 		"tailwind.css": "tailwindcss"
 	},
 	"tailwindCSS.classFunctions": [
-		"twMerge", "twJoin", "cva", "classNames", "clsx"
+		"twMerge",
+		"twJoin",
+		"cva",
+		"classNames",
+		"clsx"
 	],
-	"tailwindCSS.experimental.configFile": {
-		"./libs/storybook/.storybook/tailwind.css": "./libs/storybook/src/**"
-	},
 	"tailwindCSS.experimental.classRegex": [
 		"tw`([^`]*)",
 		"twm`([^`]*)",
 		"'@apply([^']*)':",
-		["toComparableClassName\\(([^\\)]*)\\)","'([^']*)'"],
-		["toHaveClass\\(([^\\)]*)\\)","'([^']*)'"]
+		[
+			"toComparableClassName\\(([^\\)]*)\\)",
+			"'([^']*)'"
+		],
+		[
+			"toHaveClass\\(([^\\)]*)\\)",
+			"'([^']*)'"
+		]
 	],
+	"tailwindCSS.experimental.configFile": {
+		"./libs/storybook/.storybook/tailwind.css": "./libs/storybook/src/**"
+	},
 	"typescript.tsdk": "node_modules/typescript/lib"
 }
