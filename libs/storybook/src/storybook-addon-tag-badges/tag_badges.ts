@@ -331,7 +331,8 @@ export const sourceBadge: TagBadgeParameter = {
 		sidebar: {
 			type: 'story',
 			skipInherited: false
-		}
+		},
+		toolbar: ['story']
 	}
 }
 
@@ -555,29 +556,20 @@ export const tagBadges: TagBadgeParameters = [
 	alphaBadge,
 	betaBadge,
 	rcBadge,
-	deprecatedBadge,
-	removeBadge,
-	outdatedBadge,
-	dangerBadge,
+	[deprecatedBadge, removeBadge, outdatedBadge, dangerBadge],
 	useCaseBadge,
 	specBadge,
 	playgroundBadge,
 	exampleBadge,
 	perfBadge,
 	sourceBadge,
-	a11yBadge,
-	keyboardBadge,
-	propsBadge,
-	typeBadge,
-	classBadge,
-	functionBadge,
-	varBadge,
+	[a11yBadge, keyboardBadge],
+	[propsBadge, typeBadge, classBadge, functionBadge, varBadge],
 	todoBadge,
 	unitBadge,
 	integrationBadge,
 	editorBadge,
 	codeOnlyBadge,
 	versionBadge,
-	internalBadge,
-	snapshotBadge
-]
+	[internalBadge, snapshotBadge]
+].flat()
