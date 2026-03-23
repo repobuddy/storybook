@@ -102,7 +102,7 @@
 		"@repobuddy/vitest": "^2.1.1",
 		"@storybook-community/storybook-dark-mode": "^7.1.0",
 		"@storybook/addon-docs": "^10.2.8",
-		"@storybook/addon-vitest": "^10.2.8",
+		"@storybook/addon-vitest": "^10.3.3",
 		"@storybook/react-vite": "^10.2.8",
 		"@tailwindcss/cli": "^4.1.17",
 		"@tailwindcss/vite": "^4.1.17",
