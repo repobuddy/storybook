@@ -4,6 +4,20 @@ const [, , , , , , versionBadge] = defaultConfig
 
 type TagBadgeParameter = TagBadgeParameters[0]
 
+const componentDisplay: TagBadgeParameter['display'] = {
+	mdx: true,
+	sidebar: [
+		{
+			type: 'component',
+			skipInherited: false
+		},
+		{
+			type: 'story',
+			skipInherited: false
+		}
+	]
+}
+
 /**
  * Type representing the names of predefined tags used in Storybook stories.
  */
@@ -262,9 +276,7 @@ export const typeBadge: TagBadgeParameter = {
 		},
 		tooltip: 'TypeScript Types'
 	},
-	display: {
-		mdx: true
-	}
+	display: componentDisplay
 }
 
 /** Badge (🔷) for stories that showcase or document classes. Hidden in MDX. */
@@ -278,9 +290,7 @@ export const classBadge: TagBadgeParameter = {
 		},
 		tooltip: 'Class'
 	},
-	display: {
-		mdx: true
-	}
+	display: componentDisplay
 }
 
 /** Badge (ƒ(x)) for stories that showcase or document functions. Hidden in MDX. */
@@ -294,9 +304,7 @@ export const functionBadge: TagBadgeParameter = {
 		},
 		tooltip: 'Function'
 	},
-	display: {
-		mdx: true
-	}
+	display: componentDisplay
 }
 
 /** Badge (var) for stories that describe values and variables. */
@@ -310,9 +318,7 @@ export const varBadge: TagBadgeParameter = {
 		},
 		tooltip: 'Variables'
 	},
-	display: {
-		mdx: true
-	}
+	display: componentDisplay
 }
 
 /** Badge (`</>`) for source-code-focused stories. Hidden in MDX. */
