@@ -1,7 +1,9 @@
 name: release
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - releases/*
 
 permissions:
   id-token: write
@@ -60,5 +62,6 @@ jobs:
       contents: write
     uses: repobuddy/.github/.github/workflows/pnpm-docs.yml@main
     needs: release
+    if: github.ref == 'refs/heads/main' && needs.release.outputs.published == 'true'
     with:
       publish-dir: ./libs/storybook/storybook-static
