@@ -1,5 +1,17 @@
 # @repobuddy/storybook
 
+## 2.28.0
+
+### Minor Changes
+
+- [`27d3c21`](https://github.com/repobuddy/storybook/commit/27d3c218174eefdabc8916c8f186cc90746cf8b9) Thanks [@unional](https://github.com/unional)! - Add `bug` tag and `bugBadge` for stories that document or reproduce a known bug
+
+### Patch Changes
+
+- [#541](https://github.com/repobuddy/storybook/pull/541) [`a853db7`](https://github.com/repobuddy/storybook/commit/a853db729fb60d6f2bbd336af09d2719a6ddf7f8) Thanks [@unional](https://github.com/unional)! - Fix `sourceBadge` from showing in document
+
+- [#546](https://github.com/repobuddy/storybook/pull/546) [`6eef43c`](https://github.com/repobuddy/storybook/commit/6eef43c5dca270f20b60ed366bbef11fc7a7597b) Thanks [@unional](https://github.com/unional)! - Update type, class, function, and var badges to display in sidebar for both component and story entries
+
 ## 2.27.0
 
 ### Minor Changes
