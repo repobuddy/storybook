@@ -16,6 +16,7 @@ it('improves StoryObj[tags]', () => {
 			'remove:next',
 			'outdated',
 			'danger',
+			'bug',
 			'todo',
 			'code-only',
 			'snapshot',

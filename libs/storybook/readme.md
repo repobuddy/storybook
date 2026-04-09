@@ -88,6 +88,7 @@ we provide a different set of badges that uses emojis (order: first match wins):
 | ☠️      | `remove`<br/>`remove:next` (same)<br/>`remove:<version>` | Will be removed in the next or specified version                                          |
 | ⚠️      | `outdated`                                               | Stories that need updating                                                                |
 | 🚨      | `danger`                                                 | Dangerous or cautionary patterns                                                          |
+| 🐛      | `bug`                                                    | Known bug (documents or reproduces the issue)                                             |
 | 🎯      | `use-case`                                               | Specific use case or scenario                                                             |
 | 📜      | `spec`                                                    | Specification of the component or code                                                    |
 | ▶️      | `playground`                                             | High-quality interactive stories for users to explore and interact with the component     |

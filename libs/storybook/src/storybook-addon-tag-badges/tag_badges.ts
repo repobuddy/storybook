@@ -37,6 +37,7 @@ export type TagNames =
 	| 'a11y'
 	| 'alpha'
 	| 'beta'
+	| 'bug'
 	| 'rc'
 	| 'props'
 	| 'deprecated'
@@ -214,6 +215,25 @@ export const dangerBadge: TagBadgeParameter = {
 			borderColor: 'transparent'
 		},
 		tooltip: 'Dangerous'
+	}
+}
+
+/** Badge (🐛) for stories that document or reproduce a known bug. */
+export const bugBadge: TagBadgeParameter = {
+	tags: 'bug',
+	badge: {
+		text: '🐛',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
+		tooltip: 'Known bug'
+	},
+	display: {
+		sidebar: {
+			type: 'story',
+			skipInherited: false
+		}
 	}
 }
 
@@ -522,7 +542,7 @@ export const perfBadge: TagBadgeParameter = {
  * Configuration for story tag badges that appear in the Storybook sidebar.
  * Each badge is associated with a specific tag and displays an emoji or symbol with a tooltip.
  *
- * Badge order (first match wins): New → Alpha → Beta → RC → Deprecated → Remove → Outdated → Danger → Use Case →
+ * Badge order (first match wins): New → Alpha → Beta → RC → Deprecated → Remove → Outdated → Danger → Bug → Use Case →
  * Spec → Playground → Example → Perf → A11y → Keyboard → Source → Type → Class → Function → Var → Props → Todo → Unit →
  * Integration → Editor → Code Only → Version → Internal → Snapshot.
  *
@@ -534,6 +554,7 @@ export const perfBadge: TagBadgeParameter = {
  * - ☠️ Remove - (`remove` or `remove:next` = next release; `remove:<version>` = specific version) The feature or component will be removed in the specified version
  * - ⚠️ Outdated - Stories that need updating
  * - 🚨 Danger - Stories demonstrating dangerous patterns
+ * - 🐛 Bug - Stories that document or reproduce a known bug
  * - 🎯 Use Case - Stories that demonstrate a specific use case or scenario
  * - 📜 Spec - Stories that serve as the specification of the component or code
  * - ▶️ Playground - High-quality interactive stories for users to explore and interact with the component
@@ -558,10 +579,10 @@ export const perfBadge: TagBadgeParameter = {
  * - 📸 Snapshot - Stories with snapshot tests
  */
 export const tagBadges: TagBadgeParameters = [
+	// Story states
+	[bugBadge, todoBadge],
 	newBadge,
-	alphaBadge,
-	betaBadge,
-	rcBadge,
+	[alphaBadge, betaBadge, rcBadge],
 	[deprecatedBadge, removeBadge, outdatedBadge, dangerBadge],
 	useCaseBadge,
 	specBadge,
@@ -571,7 +592,6 @@ export const tagBadges: TagBadgeParameters = [
 	sourceBadge,
 	[a11yBadge, keyboardBadge],
 	[propsBadge, typeBadge, classBadge, functionBadge, varBadge],
-	todoBadge,
 	unitBadge,
 	integrationBadge,
 	editorBadge,
