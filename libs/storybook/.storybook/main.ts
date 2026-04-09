@@ -14,7 +14,6 @@ export default {
 		'@storybook-community/storybook-dark-mode',
 		'storybook-addon-code-editor',
 		'storybook-addon-vis'
-		// '#repobuddy/storybook/variants'
 	],
 	framework: {
 		name: '@storybook/react-vite',

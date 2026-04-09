@@ -1,41 +1,13 @@
 diff --git a/dist/manager-helpers.js b/dist/manager-helpers.js
-index fc99c2a728bb2f126dcc37c244488562a738c81d..e0a0ab341c7bb1c0fe31ed3f4f82cc4b5f3c6836 100644
+index ff31444cee1331fd65b2d4e74da7355ed2343500..5ee515e4478fafa04ee9cf4fdd09115f4386b1db 100644
 --- a/dist/manager-helpers.js
 +++ b/dist/manager-helpers.js
-@@ -4,14 +4,14 @@ import './chunk-OKJE4C2V.js';
- import React9, { lazy, createContext, Component, cloneElement, useState, useContext, useCallback, Children, useRef, useEffect } from 'react';
- import { withReset, SyntaxHighlighter, Form, ToggleButton, codeCommon, Button, Toolbar as Toolbar$1, TabsView, components, Zoom, ActionBar, nameSpaceClassNames, H2 } from 'storybook/internal/components';
- import { styled, ignoreSsrWarning, useTheme, themes, ThemeProvider, convert } from 'storybook/theming';
--import 'storybook/internal/client-logger';
-+// import 'storybook/internal/client-logger';
- import 'storybook/internal/csf';
- import { ChevronSmallUpIcon, ChevronSmallDownIcon, ChevronDownIcon, ChevronRightIcon, ZoomIcon, ZoomOutIcon, ZoomResetIcon, ShareAltIcon, LinkIcon } from '@storybook/icons';
- import { NAVIGATE_URL } from 'storybook/internal/core-events';
--import 'storybook/preview-api';
-+// import 'storybook/preview-api';
- import 'storybook/internal/docs-tools';
- import { addons } from 'storybook/internal/preview-api';
+@@ -13,7 +13,7 @@ import { NAVIGATE_URL, GLOBALS_UPDATED, STORY_ARGS_UPDATED, UPDATE_STORY_ARGS, R
+ import { filterArgTypes } from 'storybook/preview-api';
+ import { SourceType } from 'storybook/internal/docs-tools';
+ import { addons, Tag } from 'storybook/internal/preview-api';
 -import 'storybook/internal/channels';
 +// import 'storybook/internal/channels';
  
  var CustomBadge = (props) => {
-   return /* @__PURE__ */ React9.createElement(Badge, { context: "mdx", ...props });
-@@ -2492,12 +2492,12 @@ styled(Form.Textarea)(({ theme }) => ({
- styled.input(
-   ({ theme, min, max, value: value2, disabled }) => {
-     let trackBaseStyles = {
--      background: theme.base === "light" ? `linear-gradient(to right, 
--          ${theme.color.green} 0%, ${theme.color.green} ${(value2 - min) / (max - min) * 100}%, 
--          ${curriedDarken$1(0.02, theme.input.background)} ${(value2 - min) / (max - min) * 100}%, 
--          ${curriedDarken$1(0.02, theme.input.background)} 100%)` : `linear-gradient(to right, 
--          ${theme.color.green} 0%, ${theme.color.green} ${(value2 - min) / (max - min) * 100}%, 
--          ${curriedLighten$1(0.02, theme.input.background)} ${(value2 - min) / (max - min) * 100}%, 
-+      background: theme.base === "light" ? `linear-gradient(to right,
-+          ${theme.color.green} 0%, ${theme.color.green} ${(value2 - min) / (max - min) * 100}%,
-+          ${curriedDarken$1(0.02, theme.input.background)} ${(value2 - min) / (max - min) * 100}%,
-+          ${curriedDarken$1(0.02, theme.input.background)} 100%)` : `linear-gradient(to right,
-+          ${theme.color.green} 0%, ${theme.color.green} ${(value2 - min) / (max - min) * 100}%,
-+          ${curriedLighten$1(0.02, theme.input.background)} ${(value2 - min) / (max - min) * 100}%,
-           ${curriedLighten$1(0.02, theme.input.background)} 100%)`,
-       borderRadius: 6,
-       boxShadow: `${theme.base == "dark" ? "hsl(0 0 100 / 0.4)" : "hsl(0 0 0 / 0.44)"} 0 0 0 1px inset`,
+   return /* @__PURE__ */ React9__default.createElement(Badge, { context: "mdx", ...props });
