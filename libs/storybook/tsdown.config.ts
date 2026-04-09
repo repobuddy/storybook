@@ -5,15 +5,17 @@ const commonConfig: UserConfig = {
 	format: 'esm',
 	target: 'esnext',
 	tsconfig: './tsconfig.build.json',
-	external: [
-		/^@storybook-community\/.*$/,
-		/^@storybook\/.*$/,
-		'react',
-		/^react\/.*$/,
-		'storybook',
-		/^storybook\/.*$/,
-		'storybook-addon-tag-badges'
-	],
+	deps: {
+		neverBundle: [
+			/^@storybook-community\/.*$/,
+			/^@storybook\/.*$/,
+			'react',
+			/^react\/.*$/,
+			'storybook',
+			/^storybook\/.*$/,
+			'storybook-addon-tag-badges'
+		]
+	},
 	banner: ({ format }) => {
 		if (format === 'esm')
 			return {
