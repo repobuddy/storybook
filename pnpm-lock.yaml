@@ -183,7 +183,7 @@ importers:
         version: 3.1.0(patch_hash=879ed697b2eb31a0235c15156202359903ceddd61960bf87e9c66385eecd0dc8)(storybook@10.3.5(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))
       storybook-addon-vis:
         specifier: ^3.1.4
-        version: 3.1.4(@storybook/addon-vitest@10.3.5(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(@vitest/runner@4.1.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(storybook@10.3.5(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vitest@4.1.3))(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(storybook@10.3.5(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(typescript@6.0.2)(vitest@4.1.3)
+        version: 3.1.5(@storybook/addon-vitest@10.3.5(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(@vitest/runner@4.1.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(storybook@10.3.5(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vitest@4.1.3))(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(storybook@10.3.5(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(typescript@6.0.2)(vitest@4.1.3)
       tsdown:
         specifier: ^0.21.4
         version: 0.21.7(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(oxc-resolver@11.19.1(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2))(typescript@6.0.2)
@@ -2527,8 +2527,8 @@ packages:
   loupe@3.2.1:
     resolution: {integrity: sha512-CdzqowRJCeLU72bHvWqwRBBlLcMEtIvGrlvef74kMnV2AolS9Y8xUv1I0U/MNAWMhBlKIoyuEgoJ0t/bbwHbLQ==}
 
-  lru-cache@11.3.2:
-    resolution: {integrity: sha512-wgWa6FWQ3QRRJbIjbsldRJZxdxYngT/dO0I5Ynmlnin8qy7tC6xYzbcJjtN4wHLXtkbVwHzk0C+OejVw1XM+DQ==}
+  lru-cache@11.3.3:
+    resolution: {integrity: sha512-JvNw9Y81y33E+BEYPr0U7omo+U9AySnsMsEiXgwT6yqd31VQWTLNQqmT4ou5eqPFUrTfIDFta2wKhB1hyohtAQ==}
     engines: {node: 20 || >=22}
 
   lru-cache@5.1.1:
@@ -2974,8 +2974,8 @@ packages:
     peerDependencies:
       storybook: ^10.0.0
 
-  storybook-addon-vis@3.1.4:
-    resolution: {integrity: sha512-rbO+fM3JOaaNdZrwhfYBavKNuJA29Nrvxay6xhu4CHIQIvwSP+Sx28NeW8fZlu57qmU+Kaphc3s08zZsBpmqCg==}
+  storybook-addon-vis@3.1.5:
+    resolution: {integrity: sha512-NE5NlnLqCtrWF82ZyF4YVG5TKJTPYRV8QRRhzNCjOQpTLVqiIPlN2QR1xjWp9SaYEamuMbSXNcYSOGdeRy3IUA==}
     peerDependencies:
       '@storybook/addon-vitest': ^10.1.10
       '@vitest/browser': ^4
@@ -3223,8 +3223,8 @@ packages:
       yaml:
         optional: true
 
-  vitest-plugin-vis@4.2.1:
-    resolution: {integrity: sha512-duex8uFckqecgefBwOKsaaLQPTsnanA0xPpY3rHuWp8oZSg1HR5kkX18RDjmLOdAuChDE7o4cOW2eElTJqwATg==}
+  vitest-plugin-vis@4.2.2:
+    resolution: {integrity: sha512-j4komd9ZUZwQppOGr0v+rBWx47pZ92g+Ps+pWmvPwkIR5W5cAZIOJDMR80EFhtluy+Cpp850FAq4QZUmE4+fCw==}
     peerDependencies:
       '@vitest/browser': ^4
       '@vitest/browser-playwright': ^4
@@ -5398,7 +5398,7 @@ snapshots:
 
   loupe@3.2.1: {}
 
-  lru-cache@11.3.2: {}
+  lru-cache@11.3.3: {}
 
   lru-cache@5.1.1:
     dependencies:
@@ -5592,7 +5592,7 @@ snapshots:
 
   path-scurry@2.0.2:
     dependencies:
-      lru-cache: 11.3.2
+      lru-cache: 11.3.3
       minipass: 7.1.3
 
   path-type@4.0.0: {}
@@ -5883,7 +5883,7 @@ snapshots:
       memoizerific: 1.11.3
       storybook: 10.3.5(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
 
-  storybook-addon-vis@3.1.4(@storybook/addon-vitest@10.3.5(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(@vitest/runner@4.1.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(storybook@10.3.5(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vitest@4.1.3))(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(storybook@10.3.5(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(typescript@6.0.2)(vitest@4.1.3):
+  storybook-addon-vis@3.1.5(@storybook/addon-vitest@10.3.5(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(@vitest/runner@4.1.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(storybook@10.3.5(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vitest@4.1.3))(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(storybook@10.3.5(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(typescript@6.0.2)(vitest@4.1.3):
     dependencies:
       '@storybook/addon-vitest': 10.3.5(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(@vitest/runner@4.1.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(storybook@10.3.5(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vitest@4.1.3)
       '@storybook/icons': 2.0.1(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
@@ -5895,7 +5895,7 @@ snapshots:
       storybook: 10.3.5(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       type-plus: 8.0.0-beta.8(typescript@6.0.2)
       vitest: 4.1.3(@types/node@25.5.2)(@vitest/browser-playwright@4.1.3)(@vitest/coverage-v8@4.1.3)(vite@8.0.8(@types/node@25.5.2)(esbuild@0.27.7)(jiti@2.6.1)(yaml@2.8.3))
-      vitest-plugin-vis: 4.2.1(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(typescript@6.0.2)(vitest@4.1.3)
+      vitest-plugin-vis: 4.2.2(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(typescript@6.0.2)(vitest@4.1.3)
     transitivePeerDependencies:
       - '@vitest/browser-playwright'
       - '@vitest/browser-webdriverio'
@@ -6107,7 +6107,7 @@ snapshots:
       jiti: 2.6.1
       yaml: 2.8.3
 
-  vitest-plugin-vis@4.2.1(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(typescript@6.0.2)(vitest@4.1.3):
+  vitest-plugin-vis@4.2.2(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(typescript@6.0.2)(vitest@4.1.3):
     dependencies:
       '@vitest/browser': 4.1.3(vite@8.0.8(@types/node@25.5.2)(esbuild@0.27.7)(jiti@2.6.1)(yaml@2.8.3))(vitest@4.1.3)
       dedent: 1.7.2
