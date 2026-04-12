@@ -27,9 +27,7 @@
 		"#repobuddy/storybook": "./src/index.ts",
 		"#repobuddy/storybook/manager": "./src/manager/index.ts",
 		"#repobuddy/storybook/storybook-addon-tag-badges": "./src/storybook-addon-tag-badges/index.ts",
-		"#repobuddy/storybook/storybook-dark-mode": "./src/storybook-dark-mode/index.ts",
-		"#repobuddy/storybook/variants": "./src/variants/index.ts",
-		"#repobuddy/storybook/variants/package.json": "./src/variants/package.json"
+		"#repobuddy/storybook/storybook-dark-mode": "./src/storybook-dark-mode/index.ts"
 	},
 	"exports": {
 		".": {
@@ -124,18 +122,29 @@
 	},
 	"peerDependencies": {
 		"@storybook-community/storybook-dark-mode": "^7.0.0",
-		"@storybook/addon-docs": "^10.3.5",
+		"@storybook/addon-docs": "^10.2.4",
 		"@types/react": ">= 16",
-		"storybook-addon-tag-badges": "^3.0.2"
+		"react": ">= 16",
+		"storybook-addon-tag-badges": "^3.0.2",
+		"storybook": "^10.2.4"
 	},
 	"peerDependenciesMeta": {
 		"@storybook-community/storybook-dark-mode": {
 			"optional": true
 		},
+		"@storybook/addon-docs": {
+			"optional": true
+		},
 		"@types/react": {
 			"optional": true
 		},
+		"react": {
+			"optional": true
+		},
 		"storybook-addon-tag-badges": {
+			"optional": true
+		},
+		"storybook": {
 			"optional": true
 		}
 	}
