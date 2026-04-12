@@ -7,7 +7,7 @@ import {
 	type StoryCardRegistryContextValue
 } from './_story_card_registry_context.js'
 
-export type StoryCardScopeProps = { Story: ComponentType } & StoryCardEntry
+type StoryCardScopeProps = { Story: ComponentType } & StoryCardEntry
 
 /**
  * Ensures a story-card collection scope: creates the root container when no context exists,
