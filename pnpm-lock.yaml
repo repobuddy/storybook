@@ -56,6 +56,9 @@ importers:
       '@types/node':
         specifier: ^25.5.2
         version: 25.5.2
+      npm-run-all2:
+        specifier: ^8.0.4
+        version: 8.0.4
 
   apps/app:
     dependencies:

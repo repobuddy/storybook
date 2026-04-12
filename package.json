@@ -13,12 +13,15 @@
 		"app": "pnpm --filter ./apps/app",
 		"build": "turbo run build",
 		"build:doc": "turbo run sb:build",
-		"check": "biome check",
-		"check:fix": "biome check --fix",
+		"biome:check": "biome check",
+		"biome:check:fix": "biome check --fix",
+		"check": "run-p biome:check knip",
+		"check:fix": "run-p biome:check:fix knip:fix",
 		"clean": "turbo clean",
 		"cov": "turbo cov",
 		"cs": "changeset",
 		"knip": "knip",
+		"knip:fix": "knip --fix",
 		"nuke": "turbo nuke && rimraf node_modules",
 		"playwright:i": "pnpm exec playwright install --with-deps chromium",
 		"prepare": "husky",
@@ -45,8 +48,9 @@
 		"turbo": "^2.9.0",
 		"typescript": "^6.0.0"
 	},
-	"packageManager": "pnpm@10.33.0",
 	"devDependencies": {
-		"@types/node": "^25.5.2"
-	}
+		"@types/node": "^25.5.2",
+		"npm-run-all2": "^8.0.4"
+	},
+	"packageManager": "pnpm@10.33.0"
 }
