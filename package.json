@@ -27,7 +27,7 @@
 		"prepare": "husky",
 		"release": "pnpm build && changeset publish",
 		"sb": "pnpm --filter @repobuddy/storybook",
-		"t": "turbo test",
+		"test": "turbo test",
 		"v": "turbo check build cov",
 		"verify": "turbo check build cov",
 		"verify:ci": "turbo check build cov --concurrency=1",
