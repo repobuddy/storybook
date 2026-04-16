@@ -45,7 +45,7 @@
       window.LOGLEVEL = 'info';
       window.FRAMEWORK_OPTIONS = {};
       window.CHANNEL_OPTIONS = {};
-      window.FEATURES = {"argTypeTargetsV7":true,"legacyDecoratorFileOrder":false,"disallowImplicitActionsInRenderV8":true,"viewport":true,"highlight":true,"controls":true,"interactions":true,"actions":true,"backgrounds":true,"outline":true,"measure":true,"sidebarOnboardingChecklist":true,"componentsManifest":true};
+      window.FEATURES = {"argTypeTargetsV7":true,"legacyDecoratorFileOrder":false,"disallowImplicitActionsInRenderV8":true,"viewport":true,"highlight":true,"controls":true,"interactions":true,"actions":true,"backgrounds":true,"outline":true,"measure":true,"sidebarOnboardingChecklist":true,"componentsManifest":false};
       window.STORIES = [{"titlePrefix":"","directory":"./src","files":"**/*.mdx","importPathMatcher":"^\\.[\\\\/](?:src(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.mdx)$"},{"titlePrefix":"","directory":"./src","files":"**/*.stories.tsx","importPathMatcher":"^\\.[\\\\/](?:src(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)\\/|\\/|$)(?!\\.)(?=.)[^/]*?\\.stories\\.tsx)$"}];
       window.DOCS_OPTIONS = {"defaultName":"Docs"};
       window.TAGS_OPTIONS = {"internal-sp":{"excludeFromSidebar":true},"unit":{"defaultFilterSelection":"exclude"},"internal":{"defaultFilterSelection":"exclude"}};
@@ -547,21 +547,23 @@
   }
 </script>
 
-    <script type="module" crossorigin src="./assets/iframe-BolwlBfs.js"></script>
+    <script type="module" crossorigin src="./assets/iframe-BkvqZ1Pe.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/chunk-BneVvdWh.js">
     <link rel="modulepreload" crossorigin href="./assets/preload-helper-CV6hqhE5.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-D1sJ83FZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-C5Ar8u5Z.js">
     <link rel="modulepreload" crossorigin href="./assets/chunk-CYSK6WYR-C7GGD6Sc.js">
-    <link rel="modulepreload" crossorigin href="./assets/react-B_0iYUWB.js">
-    <link rel="modulepreload" crossorigin href="./assets/react-s010c3SE.js">
-    <link rel="modulepreload" crossorigin href="./assets/react-dom-ClzxV3Cp.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-dom-h-Z6p3Eb.js">
     <link rel="modulepreload" crossorigin href="./assets/jsx-runtime-6sF1Ejqi.js">
     <link rel="modulepreload" crossorigin href="./assets/chunk-242VQQM5-BHHKbgg-.js">
     <link rel="modulepreload" crossorigin href="./assets/chunk-3LY4VQVK-DCNlYdu3.js">
-    <link rel="modulepreload" crossorigin href="./assets/theming-C-zxXIei.js">
-    <link rel="modulepreload" crossorigin href="./assets/chunk-RD3KTAHR-DRqy_jn0.js">
-    <link rel="modulepreload" crossorigin href="./assets/components-DRDApJAV.js">
-    <link rel="modulepreload" crossorigin href="./assets/docs-tools-CI1gsONh.js">
-    <link rel="modulepreload" crossorigin href="./assets/blocks-11DoeNPv.js">
+    <link rel="modulepreload" crossorigin href="./assets/theming-DfBkP5YF.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-RD3KTAHR-Chrko_s0.js">
+    <link rel="modulepreload" crossorigin href="./assets/components-CVLwXtc8.js">
+    <link rel="modulepreload" crossorigin href="./assets/docs-tools-BmHe4XGK.js">
+    <link rel="modulepreload" crossorigin href="./assets/blocks-HtkV8Oo4.js">
+    <link rel="modulepreload" crossorigin href="./assets/storybook-dark-mode-BmM6ykV0.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-D8ZIs7Z7.js">
     <link rel="stylesheet" crossorigin href="./assets/iframe-DuRy4kng.css">
   </head>
 
@@ -694,10 +696,10 @@
         if (hostname !== 'localhost' && globalThis.CONFIG_TYPE === 'DEVELOPMENT') {
           const message = `Failed to load the Storybook preview file 'vite-app.js':
 
-It looks like you're visiting the Storybook development server on another hostname than localhost: '${hostname}', but you haven't configured the necessary security features to support this.
-Please re-run your Storybook development server with the '--host ${hostname}' flag, or manually configure your Vite allowedHosts configuration with viteFinal.
+      It looks like you're visiting the Storybook development server on another hostname than localhost: '${hostname}', but you haven't configured the necessary security features to support this.
+      Please re-run your Storybook development server with the '--host ${hostname}' flag, or manually configure your Vite allowedHosts configuration with viteFinal.
 
-See:`;
+      See:`;
           const docs = [
             'https://storybook.js.org/docs/api/cli-options#dev',
             'https://storybook.js.org/docs/api/main-config/main-config-vite-final',
@@ -709,7 +711,7 @@ See:`;
             `<p style="color: red; max-width: 70ch">${message.replaceAll(
               '\n',
               '<br/>'
-            )}<ul>${docs.map((doc) => `<li><a href='${doc}' target='_blank'>${doc}</a></li>`).join('')}<ul></p>`;
+            )}<ul>${docs.map((doc) => `<li><a href='${doc}' target='_blank'>${doc}</a></li>`).join('')}</ul></p>`;
           return;
         }
       }
