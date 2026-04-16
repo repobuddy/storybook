@@ -1,97 +1,3 @@
----
-lockfileVersion: '9.0'
-
-importers:
-
-  .:
-    configDependencies: {}
-    packageManagerDependencies:
-      '@pnpm/exe':
-        specifier: 10.33.0
-        version: 10.33.0
-      pnpm:
-        specifier: 10.33.0
-        version: 10.33.0
-
-packages:
-
-  '@pnpm/exe@10.33.0':
-    resolution: {integrity: sha512-sGsjztJBelzVMd0RhceDJ3p8Hk7eBcpu4G/TF6REzIvNdkKyxDT0czc1BWyo8Kbg+U0OBtK/TAGXN7Art4rTdg==}
-    hasBin: true
-
-  '@pnpm/linux-arm64@10.33.0':
-    resolution: {integrity: sha512-oYb5NxEyImqaTkLVX/7jL59m9Vfmd07iLWzr4Pg2LIk4XEtAllNcnksNHcp5Uf+lFk/BggtpOdvC84TG3VnbFw==}
-    cpu: [arm64]
-    os: [linux]
-    hasBin: true
-
-  '@pnpm/linux-x64@10.33.0':
-    resolution: {integrity: sha512-JYD2GXDF2roKpvTg5s032lYcUcT9lMedYlzxoqitWTjKlkMhl2gXRYpiDHdi2mWC5nFOJYlgYbUuy6jh3rXhng==}
-    cpu: [x64]
-    os: [linux]
-    hasBin: true
-
-  '@pnpm/macos-arm64@10.33.0':
-    resolution: {integrity: sha512-3w9Pqpw0swnAbnEdAKumMuKj+TPaGratnqC49bC41vjR1pNs0UMwVdOxiIROUMQy5OHKPx0IH/wOOP0hkhJd+g==}
-    cpu: [arm64]
-    os: [darwin]
-    hasBin: true
-
-  '@pnpm/macos-x64@10.33.0':
-    resolution: {integrity: sha512-SBeiLjU/9ORMIXAMsD6+Ltaaesniwh49FeFcG6kA64Zxr30U9SyzeZDnNOyWCGFjHeCmGfzCnSpNEN4VNo827g==}
-    cpu: [x64]
-    os: [darwin]
-    hasBin: true
-
-  '@pnpm/win-arm64@10.33.0':
-    resolution: {integrity: sha512-8X3NQqmfNVZ+dCu+EfD7ZkAgDgIKKdAgBBKcvhvMoMJq/nWHOfqDLxewE9TQ7qzVLuUKG/9b/xBVRVjdtDOm0w==}
-    cpu: [arm64]
-    os: [win32]
-    hasBin: true
-
-  '@pnpm/win-x64@10.33.0':
-    resolution: {integrity: sha512-wiPVvxmTuB6FFn+rZ4FfSk1WTn+cxiQ7MTJEEz1k9VZLN/yZujGrv/WLYH2JcwzVTgObfmQuBKeNgEUavEL0Qg==}
-    cpu: [x64]
-    os: [win32]
-    hasBin: true
-
-  pnpm@10.33.0:
-    resolution: {integrity: sha512-EFaLtKavtYyes2MNqQzJUWQXq+vT+rvmc58K55VyjaFJHp21pUTHatjrdXD1xLs9bGN7LLQb/c20f6gjyGSTGQ==}
-    engines: {node: '>=18.12'}
-    hasBin: true
-
-snapshots:
-
-  '@pnpm/exe@10.33.0':
-    optionalDependencies:
-      '@pnpm/linux-arm64': 10.33.0
-      '@pnpm/linux-x64': 10.33.0
-      '@pnpm/macos-arm64': 10.33.0
-      '@pnpm/macos-x64': 10.33.0
-      '@pnpm/win-arm64': 10.33.0
-      '@pnpm/win-x64': 10.33.0
-
-  '@pnpm/linux-arm64@10.33.0':
-    optional: true
-
-  '@pnpm/linux-x64@10.33.0':
-    optional: true
-
-  '@pnpm/macos-arm64@10.33.0':
-    optional: true
-
-  '@pnpm/macos-x64@10.33.0':
-    optional: true
-
-  '@pnpm/win-arm64@10.33.0':
-    optional: true
-
-  '@pnpm/win-x64@10.33.0':
-    optional: true
-
-  pnpm@10.33.0: {}
-
----
 lockfileVersion: '9.0'
 
 settings:
@@ -279,8 +185,8 @@ importers:
         specifier: ^3.1.0
         version: 3.1.0(patch_hash=879ed697b2eb31a0235c15156202359903ceddd61960bf87e9c66385eecd0dc8)(storybook@10.3.5(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))
       storybook-addon-vis:
-        specifier: ^3.1.4
-        version: 3.1.4(@storybook/addon-vitest@10.3.5(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(@vitest/runner@4.1.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(storybook@10.3.5(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vitest@4.1.3))(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(storybook@10.3.5(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(typescript@6.0.2)(vitest@4.1.3)
+        specifier: ^4.0.0
+        version: 4.0.0(@storybook/addon-vitest@10.3.5(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(@vitest/runner@4.1.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(storybook@10.3.5(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vitest@4.1.3))(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(storybook@10.3.5(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(typescript@6.0.2)(vitest@4.1.3)
       tsdown:
         specifier: ^0.21.4
         version: 0.21.7(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)(oxc-resolver@11.19.1(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2))(typescript@6.0.2)
@@ -3071,8 +2977,8 @@ packages:
     peerDependencies:
       storybook: ^10.0.0
 
-  storybook-addon-vis@3.1.4:
-    resolution: {integrity: sha512-rbO+fM3JOaaNdZrwhfYBavKNuJA29Nrvxay6xhu4CHIQIvwSP+Sx28NeW8fZlu57qmU+Kaphc3s08zZsBpmqCg==}
+  storybook-addon-vis@4.0.0:
+    resolution: {integrity: sha512-7Fstm5T+/BggJ4CqPcnsjU1210x2mGMPZSAS+7FHpIEBEZuf94fuYca4hHqIKokaKi3vDbiI+5Dptt6tBsf8nA==}
     peerDependencies:
       '@storybook/addon-vitest': ^10.1.10
       '@vitest/browser': ^4
@@ -3320,8 +3226,8 @@ packages:
       yaml:
         optional: true
 
-  vitest-plugin-vis@4.2.1:
-    resolution: {integrity: sha512-duex8uFckqecgefBwOKsaaLQPTsnanA0xPpY3rHuWp8oZSg1HR5kkX18RDjmLOdAuChDE7o4cOW2eElTJqwATg==}
+  vitest-plugin-vis@5.0.0:
+    resolution: {integrity: sha512-rWH2uk0hksuLJq+R+q8/UmFMNFmz2qGnn0a5UNQLWj9IX2o/j+AAqSrEJ5PAje3uGYKFRQzaR8NE4Gzc4aGwfg==}
     peerDependencies:
       '@vitest/browser': ^4
       '@vitest/browser-playwright': ^4
@@ -5980,7 +5886,7 @@ snapshots:
       memoizerific: 1.11.3
       storybook: 10.3.5(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
 
-  storybook-addon-vis@3.1.4(@storybook/addon-vitest@10.3.5(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(@vitest/runner@4.1.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(storybook@10.3.5(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vitest@4.1.3))(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(storybook@10.3.5(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(typescript@6.0.2)(vitest@4.1.3):
+  storybook-addon-vis@4.0.0(@storybook/addon-vitest@10.3.5(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(@vitest/runner@4.1.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(storybook@10.3.5(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vitest@4.1.3))(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(storybook@10.3.5(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(typescript@6.0.2)(vitest@4.1.3):
     dependencies:
       '@storybook/addon-vitest': 10.3.5(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(@vitest/runner@4.1.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(storybook@10.3.5(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vitest@4.1.3)
       '@storybook/icons': 2.0.1(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
@@ -5992,7 +5898,7 @@ snapshots:
       storybook: 10.3.5(@testing-library/dom@10.4.1)(prettier@2.8.8)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       type-plus: 8.0.0-beta.8(typescript@6.0.2)
       vitest: 4.1.3(@types/node@25.5.2)(@vitest/browser-playwright@4.1.3)(@vitest/coverage-v8@4.1.3)(vite@8.0.8(@types/node@25.5.2)(esbuild@0.27.7)(jiti@2.6.1)(yaml@2.8.3))
-      vitest-plugin-vis: 4.2.1(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(typescript@6.0.2)(vitest@4.1.3)
+      vitest-plugin-vis: 5.0.0(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(typescript@6.0.2)(vitest@4.1.3)
     transitivePeerDependencies:
       - '@vitest/browser-playwright'
       - '@vitest/browser-webdriverio'
@@ -6204,7 +6110,7 @@ snapshots:
       jiti: 2.6.1
       yaml: 2.8.3
 
-  vitest-plugin-vis@4.2.1(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(typescript@6.0.2)(vitest@4.1.3):
+  vitest-plugin-vis@5.0.0(@vitest/browser-playwright@4.1.3)(@vitest/browser@4.1.3)(typescript@6.0.2)(vitest@4.1.3):
     dependencies:
       '@vitest/browser': 4.1.3(vite@8.0.8(@types/node@25.5.2)(esbuild@0.27.7)(jiti@2.6.1)(yaml@2.8.3))(vitest@4.1.3)
       dedent: 1.7.2
