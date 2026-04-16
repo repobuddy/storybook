@@ -105,7 +105,7 @@
 		"@tailwindcss/cli": "^4.1.17",
 		"@tailwindcss/vite": "^4.1.17",
 		"@vitest/browser": "^4.0.16",
-		"@vitest/browser-playwright": "^4.0.16",
+		"@vitest/browser-playwright": "^4.1.4",
 		"@vitest/coverage-v8": "^4.0.16",
 		"dedent": "^1.7.0",
 		"npm-run-all2": "^8.0.4",
