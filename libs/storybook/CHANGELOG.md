@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 2.28.1
+
+### Patch Changes
+
+- [`2d7d275`](https://github.com/repobuddy/storybook/commit/2d7d275139b52a7ff5437fb31310c9ddfeb455ee) Thanks [@unional](https://github.com/unional)! - Declare optional `react` and `storybook` peer dependencies, mark `@storybook/addon-docs` as optional, and widen its range to `^10.2.4` for better compatibility with Storybook 10.2.x hosts.
+
 ## 2.28.0
 
 ### Minor Changes
