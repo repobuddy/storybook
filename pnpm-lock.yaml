@@ -110,7 +110,7 @@ importers:
         version: 0.8.3
       '@repobuddy/test':
         specifier: ^1.0.0
-        version: 1.0.0
+        version: 1.0.1
       '@types/react':
         specifier: '>= 16'
         version: 19.2.14
@@ -1084,6 +1084,9 @@ packages:
 
   '@repobuddy/test@1.0.0':
     resolution: {integrity: sha512-sXIAH4qO6qN/cIpYK6ZYcQrfmUT5QrALgd8YZZ7e2KiteaWgkRUv5NP++5AlaS6L7GQ6AYT+QXXlTwl+FPq9og==}
+
+  '@repobuddy/test@1.0.1':
+    resolution: {integrity: sha512-eNXZ6Cfs18EGQtPS/H68E0GQyQeB+al5sPcMgb70553CE0vs5Y7jDdO8Csgk/CHiuPy/rCKdN33OvvkSiGaG+A==}
 
   '@repobuddy/vitest@2.1.1':
     resolution: {integrity: sha512-omkGtAWJXsxqoUTXmD6HGRljoJsspiYqXl4rnbfWA7aC53YS8Oc8vmxzaL1tdBITndFySfdiAlvKYm07FhYaMg==}
@@ -4199,6 +4202,8 @@ snapshots:
       '@biomejs/biome': 2.4.12
 
   '@repobuddy/test@1.0.0': {}
+
+  '@repobuddy/test@1.0.1': {}
 
   '@repobuddy/vitest@2.1.1(@vitest/browser-playwright@4.1.5)(vitest@4.1.5)':
     dependencies:
