@@ -157,7 +157,7 @@ export const WithDocsTheme: Story = {
 
 export const LanguageJson: Story = {
 	name: 'language: json',
-	tags: ['props', 'version:next', '!version:2.22'],
+	tags: ['props', 'version:2.29', '!version:2.22'],
 	parameters: defineDocsParam({
 		description: {
 			story:
@@ -181,7 +181,7 @@ export const LanguageJson: Story = {
 
 export const LanguageMd: Story = {
 	name: 'language: md',
-	tags: ['props', 'version:next', '!version:2.22'],
+	tags: ['props', 'version:2.29', '!version:2.22'],
 	parameters: defineDocsParam({
 		description: {
 			story: 'Use the `language` option on `showSource()` to render source with Markdown syntax highlighting.'
@@ -204,7 +204,7 @@ export const LanguageMd: Story = {
 
 export const LanguageHtml: Story = {
 	name: 'language: html',
-	tags: ['props', 'version:next', '!version:2.22'],
+	tags: ['props', 'version:2.29', '!version:2.22'],
 	parameters: defineDocsParam({
 		description: {
 			story: 'Use the `language` option on `showSource()` to render source with HTML syntax highlighting.'
@@ -227,7 +227,7 @@ export const LanguageHtml: Story = {
 
 export const LanguageCss: Story = {
 	name: 'language: css',
-	tags: ['props', 'version:next', '!version:2.22'],
+	tags: ['props', 'version:2.29', '!version:2.22'],
 	parameters: defineDocsParam({
 		description: {
 			story: 'Use the `language` option on `showSource()` to render source with CSS syntax highlighting.'
@@ -250,7 +250,7 @@ export const LanguageCss: Story = {
 
 export const LanguageJs: Story = {
 	name: 'language: js',
-	tags: ['props', 'version:next', '!version:2.22'],
+	tags: ['props', 'version:2.29', '!version:2.22'],
 	parameters: defineDocsParam({
 		description: {
 			story: 'Use the `language` option on `showSource()` to render source with JavaScript syntax highlighting.'
@@ -273,7 +273,7 @@ export const LanguageJs: Story = {
 
 export const LanguageTs: Story = {
 	name: 'language: ts',
-	tags: ['props', 'version:next', '!version:2.22'],
+	tags: ['props', 'version:2.29', '!version:2.22'],
 	parameters: defineDocsParam({
 		description: {
 			story: 'Use the `language` option on `showSource()` to render source with TypeScript syntax highlighting.'

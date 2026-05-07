@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 2.29.0
+
+### Minor Changes
+
+- [`aec3cf3`](https://github.com/repobuddy/storybook/commit/aec3cf308c8b61db6fa7994f0d1a312a57629242) Thanks [@unional](https://github.com/unional)! - Add `language` option to `showSource` decorator to allow explicitly specifying the syntax highlighting language for the source code display.
+
 ## 2.28.1
 
 ### Patch Changes
