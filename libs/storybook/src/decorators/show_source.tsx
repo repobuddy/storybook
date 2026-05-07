@@ -22,6 +22,7 @@ export type ShowSourceOptions = Pick<StoryCardProps, 'className' | 'data-testid'
 	source?: ((source: string | undefined) => string) | string | undefined
 	showOriginalSource?: boolean | undefined
 	placement?: 'before' | 'after' | undefined
+	language?: 'json' | 'md' | 'html' | 'css' | 'js' | 'ts' | (string & {}) | undefined
 }
 
 /**
@@ -40,6 +41,7 @@ export function showSource<TRenderer extends Renderer = Renderer, TArgs = Args>(
 	placement,
 	showOriginalSource,
 	source,
+	language,
 	...options
 }: ShowSourceOptions = {}): DecoratorFunction<TRenderer, TArgs> {
 	if (isRunningInTest()) {
@@ -64,17 +66,17 @@ export function showSource<TRenderer extends Renderer = Renderer, TArgs = Args>(
 
 		const code = typeof source === 'function' ? source(originalSource) : (source ?? originalSource)
 
-		const language = code === docs?.source?.originalSource ? undefined : docs?.source?.language
+		const lang = language ?? (code === docs?.source?.originalSource ? undefined : docs?.source?.language)
 
 		const isOriginalSource = code === docs?.source?.originalSource
 
 		const sourceContent = useMemo(
 			() => (
-				<SyntaxHighlighter data-testid="source-content" language={language}>
+				<SyntaxHighlighter data-testid="source-content" language={lang}>
 					{code}
 				</SyntaxHighlighter>
 			),
-			[code, language]
+			[code, lang]
 		)
 
 		const showBefore = (placement ?? 'before') === 'before'

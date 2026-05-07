@@ -155,6 +155,145 @@ export const WithDocsTheme: Story = {
 	]
 }
 
+export const LanguageJson: Story = {
+	name: 'language: json',
+	tags: ['props', 'version:next', '!version:2.22'],
+	parameters: defineDocsParam({
+		description: {
+			story:
+				'Use the `language` option on `showSource()` to override the syntax highlighting language, regardless of `docs.source.language`.'
+		}
+	}),
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Use <code>language</code> to override the syntax highlighting language for the source code card.
+				</p>
+			)
+		}),
+		showSource({
+			source: `showSource({ language: 'json', source: '{ "hello": "world" }' })`
+		}),
+		showSource({ language: 'json', source: '{ "hello": "world" }' })
+	]
+}
+
+export const LanguageMd: Story = {
+	name: 'language: md',
+	tags: ['props', 'version:next', '!version:2.22'],
+	parameters: defineDocsParam({
+		description: {
+			story: 'Use the `language` option on `showSource()` to render source with Markdown syntax highlighting.'
+		}
+	}),
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Use <code>language: 'md'</code> to highlight Markdown source.
+				</p>
+			)
+		}),
+		showSource({
+			source: `showSource({ language: 'md', source: '# Hello\\n\\nThis is **markdown**.' })`
+		}),
+		showSource({ language: 'md', source: '# Hello\n\nThis is **markdown**.' })
+	]
+}
+
+export const LanguageHtml: Story = {
+	name: 'language: html',
+	tags: ['props', 'version:next', '!version:2.22'],
+	parameters: defineDocsParam({
+		description: {
+			story: 'Use the `language` option on `showSource()` to render source with HTML syntax highlighting.'
+		}
+	}),
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Use <code>language: 'html'</code> to highlight HTML source.
+				</p>
+			)
+		}),
+		showSource({
+			source: `showSource({ language: 'html', source: '<div class="hello">Hello, World!</div>' })`
+		}),
+		showSource({ language: 'html', source: '<div class="hello">Hello, World!</div>' })
+	]
+}
+
+export const LanguageCss: Story = {
+	name: 'language: css',
+	tags: ['props', 'version:next', '!version:2.22'],
+	parameters: defineDocsParam({
+		description: {
+			story: 'Use the `language` option on `showSource()` to render source with CSS syntax highlighting.'
+		}
+	}),
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Use <code>language: 'css'</code> to highlight CSS source.
+				</p>
+			)
+		}),
+		showSource({
+			source: `showSource({ language: 'css', source: '.hello { color: red; font-size: 1rem; }' })`
+		}),
+		showSource({ language: 'css', source: '.hello { color: red; font-size: 1rem; }' })
+	]
+}
+
+export const LanguageJs: Story = {
+	name: 'language: js',
+	tags: ['props', 'version:next', '!version:2.22'],
+	parameters: defineDocsParam({
+		description: {
+			story: 'Use the `language` option on `showSource()` to render source with JavaScript syntax highlighting.'
+		}
+	}),
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Use <code>language: 'js'</code> to highlight JavaScript source.
+				</p>
+			)
+		}),
+		showSource({
+			source: `showSource({ language: 'js', source: 'const greet = (name) => "Hello, " + name + "!"' })`
+		}),
+		showSource({ language: 'js', source: 'const greet = (name) => "Hello, " + name + "!"' })
+	]
+}
+
+export const LanguageTs: Story = {
+	name: 'language: ts',
+	tags: ['props', 'version:next', '!version:2.22'],
+	parameters: defineDocsParam({
+		description: {
+			story: 'Use the `language` option on `showSource()` to render source with TypeScript syntax highlighting.'
+		}
+	}),
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Use <code>language: 'ts'</code> to highlight TypeScript source.
+				</p>
+			)
+		}),
+		showSource({
+			source: `showSource({ language: 'ts', source: 'const greet = (name: string): string => "Hello, " + name + "!"' })`
+		}),
+		showSource({ language: 'ts', source: 'const greet = (name: string): string => "Hello, " + name + "!"' })
+	]
+}
+
 export const ShowOriginalSource: Story = {
 	name: 'showOriginalSource: true',
 	tags: ['props'],
