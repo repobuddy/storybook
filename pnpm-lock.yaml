@@ -5,9 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 patchedDependencies:
-  storybook-addon-tag-badges:
-    hash: 879ed697b2eb31a0235c15156202359903ceddd61960bf87e9c66385eecd0dc8
-    path: patches/storybook-addon-tag-badges.patch
+  storybook-addon-tag-badges: 879ed697b2eb31a0235c15156202359903ceddd61960bf87e9c66385eecd0dc8
 
 importers:
 
