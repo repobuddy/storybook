@@ -11,6 +11,7 @@ type Story = {
 	importPath: string
 	name: string
 	title: string
+	tags?: string[] | undefined
 }
 
 type StorySortFn = (a: Story, b: Story) => number

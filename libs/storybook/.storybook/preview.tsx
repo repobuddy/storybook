@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react-vite'
 import { setupMonaco } from 'storybook-addon-code-editor'
+import { sortStoryWithTag } from '#repobuddy/storybook'
 import { defineDarkModeParam } from '#repobuddy/storybook/storybook-dark-mode'
 import { onMonacoLoad } from './code-editor'
 
@@ -13,8 +14,7 @@ const preview: Preview = {
 			codePanel: true
 		},
 		options: {
-			storySort: {
-				method: 'alphabetical',
+			storySort: sortStoryWithTag({
 				order: [
 					'Overview',
 					'Changelog',
@@ -26,8 +26,9 @@ const preview: Preview = {
 					'manager',
 					'testing',
 					'*'
-				]
-			}
+				],
+				tag: ['playground', 'use-case', 'example', 'spec', 'props', 'edge-case', 'unit']
+			})
 		},
 		...defineDarkModeParam({
 			current: 'dark',
