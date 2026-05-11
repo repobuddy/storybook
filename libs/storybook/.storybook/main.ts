@@ -1,3 +1,5 @@
+// This file has been automatically migrated to valid ESM format by Storybook.
+import { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import type { StorybookConfig } from '@storybook/react-vite'
 import { getCodeEditorStaticDirs } from 'storybook-addon-code-editor/getStaticDirs'
@@ -8,15 +10,15 @@ export default {
 	stories: ['../src/**/*.mdx', '../src/**/*.stories.tsx'],
 	staticDirs: [...getCodeEditorStaticDirs(__filename)],
 	addons: [
-		'@storybook/addon-docs',
-		'@storybook/addon-vitest',
-		'storybook-addon-tag-badges',
-		'@storybook-community/storybook-dark-mode',
-		'storybook-addon-code-editor',
-		'storybook-addon-vis'
+		getAbsolutePath('@storybook/addon-docs'),
+		getAbsolutePath('@storybook/addon-vitest'),
+		getAbsolutePath('storybook-addon-tag-badges'),
+		getAbsolutePath('@storybook-community/storybook-dark-mode'),
+		getAbsolutePath('storybook-addon-code-editor'),
+		getAbsolutePath('storybook-addon-vis')
 	],
 	framework: {
-		name: '@storybook/react-vite',
+		name: getAbsolutePath('@storybook/react-vite'),
 		options: {}
 	},
 	tags: {
@@ -31,3 +33,7 @@ export default {
 		}
 	}
 } satisfies StorybookConfig
+
+function getAbsolutePath(value: string): any {
+	return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)))
+}
