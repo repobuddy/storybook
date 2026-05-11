@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { sortStoryWithTag } from './sort_story_with_tag.js'
+import { createStorySort } from './create_story_sort.js'
 
 function makeStory(overrides: { title: string; name: string; tags?: string[] }) {
 	return {
@@ -9,10 +9,10 @@ function makeStory(overrides: { title: string; name: string; tags?: string[] }) 
 	}
 }
 
-describe('sortStoryWithTag', () => {
+describe('createStorySort', () => {
 	describe('no options (default)', () => {
 		it('sorts alphabetically by title then name', () => {
-			const sort = sortStoryWithTag()
+			const sort = createStorySort()
 			const a = makeStory({ title: 'Components/Button', name: 'Primary' })
 			const b = makeStory({ title: 'Components/Input', name: 'Default' })
 			expect(sort(a, b)).toBeLessThan(0)
@@ -20,7 +20,7 @@ describe('sortStoryWithTag', () => {
 		})
 
 		it('sorts alphabetically by name when titles are the same', () => {
-			const sort = sortStoryWithTag()
+			const sort = createStorySort()
 			const a = makeStory({ title: 'Components/Button', name: 'Alpha' })
 			const b = makeStory({ title: 'Components/Button', name: 'Beta' })
 			expect(sort(a, b)).toBeLessThan(0)
@@ -28,7 +28,7 @@ describe('sortStoryWithTag', () => {
 		})
 
 		it('returns 0 for identical entries', () => {
-			const sort = sortStoryWithTag()
+			const sort = createStorySort()
 			const a = makeStory({ title: 'Components/Button', name: 'Primary' })
 			expect(sort(a, a)).toBe(0)
 		})
@@ -36,7 +36,7 @@ describe('sortStoryWithTag', () => {
 
 	describe('order (flat)', () => {
 		it('sorts by explicit order position', () => {
-			const sort = sortStoryWithTag({ order: ['Overview', 'Components', 'Hooks'] })
+			const sort = createStorySort({ order: ['Overview', 'Components', 'Hooks'] })
 			const a = makeStory({ title: 'Components/Button', name: 'Primary' })
 			const b = makeStory({ title: 'Overview/Intro', name: 'Default' })
 			expect(sort(a, b)).toBeGreaterThan(0)
@@ -44,14 +44,14 @@ describe('sortStoryWithTag', () => {
 		})
 
 		it('unlisted items sort after listed ones', () => {
-			const sort = sortStoryWithTag({ order: ['Overview', 'Components'] })
+			const sort = createStorySort({ order: ['Overview', 'Components'] })
 			const a = makeStory({ title: 'Zzz/Unknown', name: 'Test' })
 			const b = makeStory({ title: 'Components/Button', name: 'Primary' })
 			expect(sort(a, b)).toBeGreaterThan(0)
 		})
 
 		it('unlisted items sort alphabetically among themselves', () => {
-			const sort = sortStoryWithTag({ order: ['Overview'] })
+			const sort = createStorySort({ order: ['Overview'] })
 			const a = makeStory({ title: 'Banana/Foo', name: 'Test' })
 			const b = makeStory({ title: 'Apple/Bar', name: 'Test' })
 			expect(sort(a, b)).toBeGreaterThan(0)
@@ -61,7 +61,7 @@ describe('sortStoryWithTag', () => {
 
 	describe('order (wildcard)', () => {
 		it('* places unlisted items at the wildcard position', () => {
-			const sort = sortStoryWithTag({ order: ['First', '*', 'Last'] })
+			const sort = createStorySort({ order: ['First', '*', 'Last'] })
 			const first = makeStory({ title: 'First/A', name: 'Story' })
 			const middle = makeStory({ title: 'Middle/B', name: 'Story' })
 			const last = makeStory({ title: 'Last/C', name: 'Story' })
@@ -72,7 +72,7 @@ describe('sortStoryWithTag', () => {
 		})
 
 		it('multiple unlisted items at wildcard position sort alphabetically', () => {
-			const sort = sortStoryWithTag({ order: ['First', '*', 'Last'] })
+			const sort = createStorySort({ order: ['First', '*', 'Last'] })
 			const alpha = makeStory({ title: 'Alpha/A', name: 'Story' })
 			const beta = makeStory({ title: 'Beta/B', name: 'Story' })
 			expect(sort(alpha, beta)).toBeLessThan(0)
@@ -82,7 +82,7 @@ describe('sortStoryWithTag', () => {
 
 	describe('order (nested)', () => {
 		it('sorts second-level segments using nested order', () => {
-			const sort = sortStoryWithTag({
+			const sort = createStorySort({
 				order: [['Components', ['Button', 'Input', 'Select']]]
 			})
 			const button = makeStory({ title: 'Components/Button', name: 'Primary' })
@@ -95,7 +95,7 @@ describe('sortStoryWithTag', () => {
 		})
 
 		it('nested wildcard positions unlisted children', () => {
-			const sort = sortStoryWithTag({
+			const sort = createStorySort({
 				order: [['Pages', ['Home', '*', 'Admin']]]
 			})
 			const home = makeStory({ title: 'Pages/Home', name: 'Default' })
@@ -108,7 +108,7 @@ describe('sortStoryWithTag', () => {
 		})
 
 		it('deeply nested ordering works', () => {
-			const sort = sortStoryWithTag({
+			const sort = createStorySort({
 				order: [['Components', [['Buttons', ['IconButton', 'Button']]]]]
 			})
 			const icon = makeStory({ title: 'Components/Buttons/IconButton', name: 'Default' })
@@ -120,7 +120,7 @@ describe('sortStoryWithTag', () => {
 
 	describe('tag (basic)', () => {
 		it('sorts stories with same title by tag priority', () => {
-			const sort = sortStoryWithTag({
+			const sort = createStorySort({
 				tag: ['playground', 'use-case', 'spec', 'props', 'unit']
 			})
 			const playground = makeStory({ title: 'Button', name: 'Playground', tags: ['playground'] })
@@ -133,7 +133,7 @@ describe('sortStoryWithTag', () => {
 		})
 
 		it('stories without tags sort after tagged stories', () => {
-			const sort = sortStoryWithTag({
+			const sort = createStorySort({
 				tag: ['playground', 'spec']
 			})
 			const tagged = makeStory({ title: 'Button', name: 'Playground', tags: ['playground'] })
@@ -144,7 +144,7 @@ describe('sortStoryWithTag', () => {
 		})
 
 		it('stories with no matching tags sort after matched ones', () => {
-			const sort = sortStoryWithTag({
+			const sort = createStorySort({
 				tag: ['playground', 'spec']
 			})
 			const matched = makeStory({ title: 'Button', name: 'Sizes', tags: ['spec'] })
@@ -154,7 +154,7 @@ describe('sortStoryWithTag', () => {
 		})
 
 		it('uses highest-priority tag when story has multiple matching tags', () => {
-			const sort = sortStoryWithTag({
+			const sort = createStorySort({
 				tag: ['playground', 'use-case', 'spec', 'props']
 			})
 			const multiTag = makeStory({ title: 'Button', name: 'Combined', tags: ['props', 'spec'] })
@@ -167,7 +167,7 @@ describe('sortStoryWithTag', () => {
 
 	describe('tag (wildcard)', () => {
 		it('* positions unlisted tags at the wildcard slot', () => {
-			const sort = sortStoryWithTag({
+			const sort = createStorySort({
 				tag: ['playground', 'spec', '*', 'unit', 'integration']
 			})
 			const spec = makeStory({ title: 'Button', name: 'Sizes', tags: ['spec'] })
@@ -179,7 +179,7 @@ describe('sortStoryWithTag', () => {
 		})
 
 		it('stories without tags sort to wildcard position', () => {
-			const sort = sortStoryWithTag({
+			const sort = createStorySort({
 				tag: ['playground', '*', 'unit']
 			})
 			const playground = makeStory({ title: 'Button', name: 'Playground', tags: ['playground'] })
@@ -193,7 +193,7 @@ describe('sortStoryWithTag', () => {
 
 	describe('order + tag combined', () => {
 		it('order takes precedence over tag for different titles', () => {
-			const sort = sortStoryWithTag({
+			const sort = createStorySort({
 				order: ['Overview', 'Components'],
 				tag: ['playground', 'spec']
 			})
@@ -208,7 +208,7 @@ describe('sortStoryWithTag', () => {
 		})
 
 		it('tag applies within same title after order resolves', () => {
-			const sort = sortStoryWithTag({
+			const sort = createStorySort({
 				order: ['Components'],
 				tag: ['playground', 'use-case', 'spec', 'props']
 			})
@@ -226,14 +226,14 @@ describe('sortStoryWithTag', () => {
 
 	describe('numeric sorting', () => {
 		it('sorts numerically in titles', () => {
-			const sort = sortStoryWithTag()
+			const sort = createStorySort()
 			const a = makeStory({ title: 'Step 2', name: 'Default' })
 			const b = makeStory({ title: 'Step 10', name: 'Default' })
 			expect(sort(a, b)).toBeLessThan(0)
 		})
 
 		it('sorts numerically in names', () => {
-			const sort = sortStoryWithTag()
+			const sort = createStorySort()
 			const a = makeStory({ title: 'Button', name: 'Size 2' })
 			const b = makeStory({ title: 'Button', name: 'Size 10' })
 			expect(sort(a, b)).toBeLessThan(0)

@@ -135,44 +135,82 @@ function getWildcardOrEnd(order: OrderList): number {
 }
 
 /**
- * Creates a story sort function for Storybook that sorts by kind (title hierarchy)
+ * Creates a story sort comparator for Storybook that sorts by kind (title hierarchy)
  * and then by tag category within the same component.
+ *
+ * In Storybook 10+, `storySort` must be defined as an inline function.
+ * Assign the result to a variable and delegate from the inline function:
  *
  * @example
  * ```ts
- * import { sortStoryWithTag } from '@repobuddy/storybook'
+ * import { createStorySort } from '@repobuddy/storybook'
  *
- * const preview = {
+ * const compare = createStorySort({
+ *   order: ['Overview', 'components', 'hooks', '*', 'widgets'],
+ *   tag: ['playground', 'use-case', 'example', 'spec', 'props', '*', 'edge-case', 'unit']
+ * })
+ *
+ * export default {
  *   parameters: {
  *     options: {
- *       storySort: sortStoryWithTag({
- *         order: ['Overview', 'components', 'hooks', '*', 'widgets'],
- *         tag: ['playground', 'use-case', 'example', 'spec', 'props', '*', 'edge-case', 'unit', 'integration']
- *       })
+ *       storySort(a, b) {
+ *         return compare(a, b)
+ *       }
  *     }
  *   }
  * }
  * ```
  */
-export function sortStoryWithTag(options: StorySortOptions = {}): StorySortFn {
+export function createStorySort(options: StorySortOptions = {}): StorySortFn {
+	return (a, b) => compareStories(a, b, options)
+}
+
+/**
+ * Compares two stories for sorting by kind (title hierarchy)
+ * and then by tag category within the same component.
+ *
+ * Use this directly inside an inline `storySort` function in Storybook 10+,
+ * which requires `storySort` to be defined as an inline function.
+ *
+ * @example
+ * ```ts
+ * import { compareStories, type OrderList } from '@repobuddy/storybook'
+ *
+ * const order: OrderList = ['Overview', 'components', '*']
+ * const tag: OrderList = ['playground', 'use-case', '*', 'unit']
+ *
+ * export default {
+ *   parameters: {
+ *     options: {
+ *       storySort(a, b) {
+ *         return compareStories(a, b, { order, tag })
+ *       }
+ *     }
+ *   }
+ * }
+ * ```
+ */
+function compareStories(
+	a: { title: string; name: string; tags?: string[] },
+	b: { title: string; name: string; tags?: string[] },
+	options: StorySortOptions = {}
+): number {
 	const { order: kindOrder, tag: tagOrder } = options
 
-	return (a, b) => {
-		if (kindOrder && a.title !== b.title) {
-			const kindResult = compareByKindOrder(a.title, b.title, kindOrder)
-			if (kindResult !== 0) return kindResult
-		}
-
-		if (a.title !== b.title) {
-			return a.title.localeCompare(b.title, undefined, { numeric: true })
-		}
-
-		if (tagOrder) {
-			const aPriority = getTagPriority(a.tags, tagOrder)
-			const bPriority = getTagPriority(b.tags, tagOrder)
-			if (aPriority !== bPriority) return aPriority - bPriority
-		}
-
-		return a.name.localeCompare(b.name, undefined, { numeric: true })
+	if (kindOrder && a.title !== b.title) {
+		const kindResult = compareByKindOrder(a.title, b.title, kindOrder)
+		if (kindResult !== 0) return kindResult
 	}
+
+	if (a.title !== b.title) {
+		return a.title.localeCompare(b.title, undefined, { numeric: true })
+	}
+
+	if (tagOrder) {
+		const aPriority = getTagPriority(a.tags, tagOrder)
+		const bPriority = getTagPriority(b.tags, tagOrder)
+		if (aPriority !== bPriority) return aPriority - bPriority
+	}
+
+	return a.name.localeCompare(b.name, undefined, { numeric: true })
 }
