@@ -27,6 +27,7 @@
 		"#repobuddy/storybook": "./src/index.ts",
 		"#repobuddy/storybook/manager": "./src/manager/index.ts",
 		"#repobuddy/storybook/storybook-addon-tag-badges": "./src/storybook-addon-tag-badges/index.ts",
+		"#storybook-addon-tag-badges": "./src/storybook-addon-tag-badges/index.ts",
 		"#repobuddy/storybook/storybook-dark-mode": "./src/storybook-dark-mode/index.ts"
 	},
 	"exports": {
