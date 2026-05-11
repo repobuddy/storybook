@@ -100,7 +100,7 @@
 		"@storybook-community/storybook-dark-mode": "^7.1.0",
 		"@storybook/addon-docs": "^10.3.5",
 		"@storybook/addon-vitest": "^10.3.6",
-		"@storybook/react-vite": "^10.3.5",
+		"@storybook/react-vite": "^10.3.6",
 		"@tailwindcss/cli": "^4.1.17",
 		"@tailwindcss/vite": "^4.3.0",
 		"@vitest/browser": "^4.1.4",
