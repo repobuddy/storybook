@@ -1,6 +1,5 @@
 {
 	"name": "@repobuddy/storybook-monorepo",
-	"version": "0.0.0",
 	"private": true,
 	"keywords": [],
 	"license": "MIT",
