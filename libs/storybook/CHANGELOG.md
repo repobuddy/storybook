@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 2.30.0
+
+### Minor Changes
+
+- [#656](https://github.com/repobuddy/storybook/pull/656) [`31ea5b2`](https://github.com/repobuddy/storybook/commit/31ea5b21561da9f10579a978e7aa88839bc92865) Thanks [@unional](https://github.com/unional)! - Add `sortStoryWithTag` for sorting stories by title hierarchy and tag priority.
+
 ## 2.29.0
 
 ### Minor Changes
