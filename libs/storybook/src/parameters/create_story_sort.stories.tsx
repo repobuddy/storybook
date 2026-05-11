@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '#storybook-addon-tag-badges'
 
 export default {
 	title: 'parameters/createStorySort',
-	tags: ['version:next', 'autodocs'],
+	tags: ['version:2.30', 'autodocs'],
 	decorators: [withStoryCard(), showSource()],
 	parameters: defineParameters({
 		docs: {
