@@ -1,5 +1,13 @@
 # @repobuddy/storybook
 
+## 2.30.2
+
+### Patch Changes
+
+- [`056cce3`](https://github.com/repobuddy/storybook/commit/056cce3019b9eb107a51a8de20842f593cc4f35f) Thanks [@unional](https://github.com/unional)! - fix `withStoryCard`: changing Storybook controls now triggers a rerender.
+
+  Previously the memoization chain inside `StoryCardScope`/`StoryCardCollector` held stable references across control changes, so `<Story />` was never re-called and the canvas did not update. The decorator now threads the current story `args` object through as a prop; because Storybook creates a new `args` object on every control change, the reference-equality check in `entryPropsEqual` fails and the memoization is correctly invalidated.
+
 ## 2.30.1
 
 ### Patch Changes
