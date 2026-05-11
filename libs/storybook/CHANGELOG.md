@@ -1,5 +1,17 @@
 # @repobuddy/storybook
 
+## 2.30.1
+
+### Patch Changes
+
+- [`f55f513`](https://github.com/repobuddy/storybook/commit/f55f5138c1bd4f4dcea3d4367690d0e129b573be) Thanks [@unional](https://github.com/unional)! - remove `createStorySort` from public exports.
+
+  `createStorySort` has been removed. It does not work.
+
+  Storybook performs static AST analysis on the `storySort` value and rejects function-call results or variable references — it must be a self-contained inline function literal.
+
+  Copy the inline `storySort` implementation directly into your `.storybook/preview.ts` instead.
+
 ## 2.30.0
 
 ### Minor Changes
