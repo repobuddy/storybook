@@ -437,3 +437,28 @@ export const HiddenWithoutMessage: Story = {
 		await expect(section).not.toBeInTheDocument()
 	}
 }
+
+export const ControlsRedrawnWhenArgsChange: Story = {
+	name: 'Controls: rerenders on args change',
+	tags: ['edgecase'],
+	args: { label: 'Initial label — change me in the Controls panel' },
+	argTypes: { label: { control: 'text' } },
+	parameters: defineDocsParam({
+		description: {
+			story:
+				'Manual test for the memoization fix. Change the `label` control — the paragraph text should update immediately. If it does not, the bug is still present.'
+		}
+	}),
+	decorators: [
+		withStoryCard({
+			title: 'Manual test: controls trigger rerender',
+			content: (
+				<p>
+					Change the <code>label</code> control below. The paragraph text should update immediately — if it does not,
+					the memoization bug is still present.
+				</p>
+			)
+		})
+	],
+	render: (args) => <p data-testid="label">{String((args as { label: string }).label)}</p>
+}

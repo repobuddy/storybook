@@ -7,7 +7,7 @@ import {
 	type StoryCardRegistryContextValue
 } from './_story_card_registry_context.js'
 
-type StoryCardScopeProps = { Story: ComponentType } & StoryCardEntry
+type StoryCardScopeProps = { Story: ComponentType; args?: Record<string, unknown> | undefined } & StoryCardEntry
 
 /**
  * Ensures a story-card collection scope: creates the root container when no context exists,
@@ -79,6 +79,7 @@ interface StoryCardCollectorProps extends StoryCardScopeProps {}
 function entryPropsEqual(a: StoryCardCollectorProps, b: StoryCardCollectorProps): boolean {
 	return (
 		a.Story === b.Story &&
+		a.args === b.args &&
 		a.title === b.title &&
 		a.status === b.status &&
 		a.appearance === b.appearance &&
@@ -89,6 +90,9 @@ function entryPropsEqual(a: StoryCardCollectorProps, b: StoryCardCollectorProps)
 
 const StoryCardCollector = memo(function StoryCardCollector({
 	Story,
+	// args is intentionally unused here; it is only present so that entryPropsEqual
+	// can compare it and invalidate the memo when Storybook controls change.
+	args: _args,
 	title,
 	status,
 	appearance,

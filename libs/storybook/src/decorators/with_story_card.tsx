@@ -123,7 +123,7 @@ export function withStoryCard<TRenderer extends Renderer = Renderer>({
 	if (isRunningInTest()) {
 		return (Story) => <Story />
 	}
-	return (Story, { parameters, viewMode }) => {
+	return (Story, { parameters, viewMode, args }) => {
 		if (viewMode === 'docs') return <Story />
 
 		// Get story card config from parameters if available
@@ -144,6 +144,7 @@ export function withStoryCard<TRenderer extends Renderer = Renderer>({
 		return (
 			<StoryCardScope
 				Story={Story}
+				args={args}
 				content={content}
 				title={finalTitle}
 				status={finalStatus}
