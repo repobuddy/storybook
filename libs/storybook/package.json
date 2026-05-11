@@ -102,7 +102,7 @@
 		"@storybook/addon-vitest": "^10.3.5",
 		"@storybook/react-vite": "^10.3.5",
 		"@tailwindcss/cli": "^4.1.17",
-		"@tailwindcss/vite": "^4.1.17",
+		"@tailwindcss/vite": "^4.3.0",
 		"@vitest/browser": "^4.1.4",
 		"@vitest/browser-playwright": "^4.1.4",
 		"@vitest/coverage-v8": "^4.1.4",
