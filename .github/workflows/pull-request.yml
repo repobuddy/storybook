@@ -12,9 +12,8 @@ jobs:
         os:
           - ubuntu-latest
         node-version:
-          - 20
-          - 22
           - 24
+          - 26
     runs-on: ${{ matrix.os }}
     env:
       PLAYWRIGHT_PATH: ${{ matrix.os == 'windows-latest' && 'C:\\Users\\runneradmin\\AppData\\Local\\ms-playwright' || '~/.cache/ms-playwright' }}
