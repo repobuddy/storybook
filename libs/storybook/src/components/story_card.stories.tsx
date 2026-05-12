@@ -168,7 +168,7 @@ export const AppearanceSource: Story = {
 	tags: ['props', 'version:2.14', '!version:2.8'],
 	parameters: defineDocsParam({
 		description: {
-			story: 'Use when embedding code or source snippets so the card blends with the page (e.g. with showDocSource).'
+			story: 'Use when embedding code or source snippets so the card blends with the page (e.g. with showSource).'
 		}
 	}),
 	args: {

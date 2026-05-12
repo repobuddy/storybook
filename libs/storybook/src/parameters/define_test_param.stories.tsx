@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
-import { defineDocsParam, defineTestParam, showDocSource } from '#repobuddy/storybook'
+import { defineDocsParam, defineTestParam, showSource } from '#repobuddy/storybook'
 
 const meta = {
 	title: 'Parameters/defineTestParam',
@@ -12,7 +12,7 @@ const meta = {
 			}
 		}
 	},
-	decorators: [showDocSource()],
+	decorators: [showSource()],
 	render: () => <></>
 } satisfies Meta
 

@@ -3,7 +3,7 @@ import { makeLiveEditStory } from 'storybook-addon-code-editor'
 import { testType } from 'type-plus'
 import type { FnToArgTypes } from '#repobuddy/storybook'
 import * as repobuddyStorybook from '#repobuddy/storybook'
-import { defineDocsParam, showDocSource, withStoryCard } from '#repobuddy/storybook'
+import { defineDocsParam, showSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 import * as repobuddyStorybookTagBadges from '#repobuddy/storybook/storybook-addon-tag-badges'
 import variadicCode from './fn-to-arg.types.stories.variadic.tsx?raw'
@@ -44,7 +44,7 @@ export const BasicUsage: Story = {
 				</p>
 			)
 		}),
-		showDocSource({ placement: 'before' })
+		showSource({ placement: 'before' })
 	],
 	async play() {
 		testType.equal<FnToArgTypes<() => void>, unknown>(true)
@@ -103,7 +103,7 @@ export const VariadicFunction: Story = {
 			code: variadicCode
 		}
 	}),
-	decorators: [withStoryCard(), showDocSource({ placement: 'before' })]
+	decorators: [withStoryCard(), showSource({ placement: 'before' })]
 }
 
 makeLiveEditStory(VariadicFunction, {

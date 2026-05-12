@@ -1,6 +1,6 @@
 import { expect } from 'storybook/test'
 import { twMerge } from 'tailwind-merge'
-import { defineDocsParam, isRunningInTest, showDocSource, withStoryCard } from '#repobuddy/storybook'
+import { defineDocsParam, isRunningInTest, showSource, withStoryCard } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 
 const meta = {
@@ -307,7 +307,7 @@ export const WithAppearanceSource: Story = {
 	tags: ['props', 'version:2.14', '!version:2.2'],
 	parameters: defineDocsParam({
 		description: {
-			story: 'Use when embedding code or source snippets so the card blends with the page (e.g. with showDocSource).'
+			story: 'Use when embedding code or source snippets so the card blends with the page (e.g. with showSource).'
 		}
 	}),
 	decorators: [
@@ -316,7 +316,7 @@ export const WithAppearanceSource: Story = {
 			appearance: 'source',
 			content: (
 				<p>
-					Use <code>appearance="source"</code> for code/source blocks (e.g. with <code>showDocSource</code>).
+					Use <code>appearance="source"</code> for code/source blocks (e.g. with <code>showSource</code>).
 				</p>
 			)
 		})
@@ -411,7 +411,7 @@ export const WithClassNameFunction: Story = {
 					}[appearance ?? 'info']
 				)
 		}),
-		showDocSource({
+		showSource({
 			source: 'className: ({ appearance, defaultClassName }) => string'
 		})
 	]

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
-import { defineBackgroundsParam, defineDocsParam, showDocSource } from '#repobuddy/storybook'
+import { defineBackgroundsParam, defineDocsParam, showSource } from '#repobuddy/storybook'
 
 const meta = {
 	title: 'Parameters/defineBackgroundsParam',
 	tags: ['func', '!snapshot', 'new', 'version:1.0'],
-	decorators: [showDocSource()],
+	decorators: [showSource()],
 	render: () => <></>
 } satisfies Meta
 

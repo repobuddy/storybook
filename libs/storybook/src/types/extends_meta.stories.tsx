@@ -3,14 +3,14 @@ import dedent from 'dedent'
 import type { Component } from 'react'
 import { testType } from 'type-plus'
 import type { ExtendsMeta } from '#repobuddy/storybook'
-import { defineDocsParam, showDocSource } from '#repobuddy/storybook'
+import { defineDocsParam, showSource } from '#repobuddy/storybook'
 import type { Meta, StoryObj, TagNames } from '#repobuddy/storybook/storybook-addon-tag-badges'
 import type { ExtractStringLiterals } from './_extract_string_literals.js'
 
 const meta = {
 	title: 'types/ExtendMeta',
 	tags: ['type', '!snapshot', 'version:2.4'],
-	decorators: [showDocSource()],
+	decorators: [showSource()],
 	render: () => <></>
 } satisfies Meta
 

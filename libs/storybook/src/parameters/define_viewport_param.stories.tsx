@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
-import { defineDocsParam, defineViewportParam, showDocSource } from '#repobuddy/storybook'
+import { defineDocsParam, defineViewportParam, showSource } from '#repobuddy/storybook'
 
 const meta = {
 	title: 'Parameters/defineViewportParam',
 	tags: ['autodocs', '!snapshot', 'func', 'new', 'version:1.0'],
-	decorators: [showDocSource()],
+	decorators: [showSource()],
 	render: () => <></>
 } satisfies Meta
 

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
-import { defineDocsParam, defineStoryCardParam, showDocSource, withStoryCard } from '#repobuddy/storybook'
+import { defineDocsParam, defineStoryCardParam, showSource, withStoryCard } from '#repobuddy/storybook'
 
 const meta: Meta = {
 	title: 'parameters/defineStoryCard',
 	tags: ['func', 'new', 'version:2.9'],
-	decorators: [showDocSource()],
+	decorators: [showSource()],
 	render: () => <p>This is the story content</p>
 }
 

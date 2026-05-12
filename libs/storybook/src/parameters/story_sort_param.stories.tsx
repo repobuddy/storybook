@@ -1,11 +1,11 @@
 import dedent from 'dedent'
-import { defineDocsParam, defineParameters, type StorySortParam, showDocSource } from '#repobuddy/storybook'
+import { defineDocsParam, defineParameters, type StorySortParam, showSource } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#storybook-addon-tag-badges'
 
 export default {
 	title: 'parameters/StorySortParam',
 	tags: ['type', '!snapshot', 'version:1.0', 'autodocs'],
-	decorators: [showDocSource()],
+	decorators: [showSource()],
 	parameters: defineParameters({
 		docs: {
 			description: {

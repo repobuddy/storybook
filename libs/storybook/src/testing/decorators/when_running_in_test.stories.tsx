@@ -1,6 +1,6 @@
 import { isRunningInTest } from '@repobuddy/vitest'
 import { expect } from 'storybook/test'
-import { showDocSource, whenRunningInTest } from '#repobuddy/storybook'
+import { showSource, whenRunningInTest } from '#repobuddy/storybook'
 import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
 import { ctx } from './when_running_in_text.ctx.js'
 
@@ -10,7 +10,7 @@ export default {
 	beforeEach: () => {
 		ctx.isRunningInTest = () => true
 	},
-	decorators: [showDocSource()],
+	decorators: [showSource()],
 	render: () => <></>,
 	afterEach: () => {
 		ctx.isRunningInTest = isRunningInTest

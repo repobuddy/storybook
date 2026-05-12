@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
-import { defineDocsParam, showDocSource } from '#repobuddy/storybook'
+import { defineDocsParam, showSource } from '#repobuddy/storybook'
 
 const meta = {
 	title: 'types/ExtendStoryObj',
 	tags: ['type', '!snapshot', 'version:1.1'],
-	decorators: [showDocSource()],
+	decorators: [showSource()],
 	render: () => <></>
 } satisfies Meta
 

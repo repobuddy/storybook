@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
-import { defineDocsParam, showDocSource } from '#repobuddy/storybook'
+import { defineDocsParam, showSource } from '#repobuddy/storybook'
 
 const meta = {
 	title: 'Parameters/defineDocsParam',
@@ -11,7 +11,7 @@ const meta = {
 				'`docs.description.component` can be used to describe the component in meta. It has no effect on the stories.'
 		}
 	}),
-	decorators: [showDocSource()],
+	decorators: [showSource()],
 	render: () => <></>
 } satisfies Meta
 
