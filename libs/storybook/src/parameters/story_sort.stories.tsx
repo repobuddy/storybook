@@ -113,7 +113,7 @@ const fullImpl = dedent`// storySort must be a self-contained inline function â€
 
 export default {
 	title: 'parameters/storySort',
-	tags: ['version:2.30', 'autodocs', 'func'],
+	tags: ['version:2.30', 'func'],
 	decorators: [withStoryCard(), showSource()],
 	parameters: defineParameters({
 		docs: {

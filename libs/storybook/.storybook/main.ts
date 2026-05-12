@@ -17,6 +17,7 @@ export default {
 		getAbsolutePath('storybook-addon-code-editor'),
 		getAbsolutePath('storybook-addon-vis')
 	],
+	docs: { defaultName: 'Overview' },
 	framework: {
 		name: getAbsolutePath('@storybook/react-vite'),
 		options: {}

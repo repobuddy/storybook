@@ -35,8 +35,8 @@ const preview: Preview = {
 				const tag = ['playground', 'use-case', 'example', 'spec', 'props', 'edge-case', 'unit']
 
 				return (
-					compareByTitle(a.title, b.title) ??
 					compareByType(a.type, b.type) ??
+					compareByTitle(a.title, b.title) ??
 					compareByTag(a.tags, b.tags) ??
 					a.name.localeCompare(b.name, undefined, { numeric: true })
 				)
