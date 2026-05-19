@@ -1,4 +1,0 @@
-import{n as e}from"./chunk-BneVvdWh.js";import{t}from"./jsx-runtime-6sF1Ejqi.js";import{o as n,s as r}from"./blocks-DpobB22-.js";import{r as i}from"./react-C5Ar8u5Z.js";import{t as a}from"./mdx-react-shim-DEzP97PB.js";function o(e){let t={code:`code`,h1:`h1`,p:`p`,...i(),...e.components};return(0,c.jsxs)(c.Fragment,{children:[(0,c.jsx)(n,{title:`parameters/storySort/migration`}),`
-`,(0,c.jsx)(t.h1,{id:`storysort--migration`,children:`storySort – migration`}),`
-`,(0,c.jsxs)(t.p,{children:[`A sub-path of `,(0,c.jsx)(t.code,{children:`parameters/storySort`}),`. Sorts after `,(0,c.jsx)(t.code,{children:`examples`}),` and before
-`,(0,c.jsx)(t.code,{children:`wip`}),` alphabetically.`]})]})}function s(e={}){let{wrapper:t}={...i(),...e.components};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(o,{...e})}):o(e)}var c;e((()=>{c=t(),a(),r()}))();export{s as default};

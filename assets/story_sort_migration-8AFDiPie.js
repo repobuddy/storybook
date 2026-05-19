@@ -1,0 +1,4 @@
+import{i as e}from"./preload-helper-Cs4UwXAW.js";import{d as t,f as n,lt as r,m as i}from"./iframe-cIlh6n6x.js";import{t as a}from"./mdx-react-shim-DHnxoV1S.js";function o(e){let n={code:`code`,h1:`h1`,p:`p`,...i(),...e.components};return(0,c.jsxs)(c.Fragment,{children:[(0,c.jsx)(t,{title:`parameters/storySort/migration`}),`
+`,(0,c.jsx)(n.h1,{id:`storysort--migration`,children:`storySort – migration`}),`
+`,(0,c.jsxs)(n.p,{children:[`A sub-path of `,(0,c.jsx)(n.code,{children:`parameters/storySort`}),`. Sorts after `,(0,c.jsx)(n.code,{children:`examples`}),` and before
+`,(0,c.jsx)(n.code,{children:`wip`}),` alphabetically.`]})]})}function s(e={}){let{wrapper:t}={...i(),...e.components};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(o,{...e})}):o(e)}var c;e((()=>{c=r(),a(),n()}))();export{s as default};
