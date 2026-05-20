@@ -5,5 +5,6 @@ packages:
 allowBuilds:
   '@parcel/watcher': true
   esbuild: true
+  fsevents: true
 patchedDependencies:
   storybook-addon-tag-badges: patches/storybook-addon-tag-badges.patch
