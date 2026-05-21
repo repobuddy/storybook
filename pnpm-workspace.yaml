@@ -4,3 +4,7 @@ packages:
   - tools/*
 patchedDependencies:
   storybook-addon-tag-badges: patches/storybook-addon-tag-badges.patch
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - esbuild
+  - fsevents
