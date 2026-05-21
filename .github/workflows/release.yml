@@ -10,51 +10,14 @@ permissions:
   contents: read
 
 jobs:
-  verify:
-    strategy:
-      matrix:
-        os:
-          - ubuntu-latest
-        node-version:
-          - lts/-1
-          - lts/*
-    runs-on: ${{ matrix.os }}
-    env:
-      PLAYWRIGHT_PATH: ${{ matrix.os == 'windows-latest' && 'C:\\Users\\runneradmin\\AppData\\Local\\ms-playwright' || '~/.cache/ms-playwright' }}
-    steps:
-      - uses: actions/checkout@v6
-      - uses: pnpm/action-setup@v6
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: pnpm
-
-      - name: Install Dependencies
-        run: pnpm install
-
-      - name: Install playwright browsers
-        uses: repobuddy/.github/.github/actions/setup-playwright@main
-
-      - name: Verify
-        uses: nick-fields/retry@v4
-        with:
-          timeout_minutes: 10
-          max_attempts: 3
-          command: pnpm verify:ci
-
-      - name: Archive snapshots
-        if: failure()
-        uses: actions/upload-artifact@v7
-        with:
-          name: snapshots
-          path: |
-            **/__vis__/**/__diffs__
-            **/__vis__/**/__results__
+  code:
+    uses: repobuddy/.github/.github/workflows/pnpm-verify.yml@main
+    with:
+      os: '["ubuntu-latest"]'
 
   release:
     uses: repobuddy/.github/.github/workflows/pnpm-release-changeset.yml@main
-    needs: verify
+    needs: code
     secrets: inherit
 
   docgen:
