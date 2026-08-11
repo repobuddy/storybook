@@ -1,0 +1,18 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="storybook-addon-tag-badges/experimentBadge" />
+
+# Experiment badge
+
+Use the **experiment** badge to mark a component or prop as an early-stage experiment that may change significantly. The badge displays 🔬 with an "Experiment" tooltip.
+
+## Usage
+
+Add the `experiment` tag to your story.
+
+```tsx
+export const YourStory = {
+	tags: ['experiment'],
+	render: () => <YourComponent />
+}
+```

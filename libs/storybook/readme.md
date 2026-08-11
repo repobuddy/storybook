@@ -81,6 +81,7 @@ we provide a different set of badges that uses emojis (order: first match wins):
 | Badge   | Tag                                                      | Description                                                                               |
 | :-----  | :------------------------------------------------------- | :---------------------------------------------------------------------------------------- |
 | 🆕      | `new`                                                    | Recently added stories                                                                    |
+| 🔬      | `experiment`                                             | Features in experiment                                                                    |
 | 🔴      | `alpha`                                                  | Features in alpha                                                                         |
 | 🟡      | `beta`                                                   | Features in beta                                                                          |
 | 🔵      | `rc`                                                     | Release candidate                                                                         |
