@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 2.31.0
+
+### Minor Changes
+
+- [#699](https://github.com/repobuddy/storybook/pull/699) [`9e17304`](https://github.com/repobuddy/storybook/commit/9e17304983ffa6c6f5ed25cac90dbdf2ec831f2e) Thanks [@unional](https://github.com/unional)! - Add `experiment` tag and `experimentBadge` (🔬) for stories covering features in early-stage experimentation.
+
 ## 2.30.2
 
 ### Patch Changes
