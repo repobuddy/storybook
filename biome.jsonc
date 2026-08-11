@@ -9,7 +9,17 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"includes": ["!node_modules", "!**/.sb-themes", "!dist", "!build", "!coverage", "!*.mdx", "!*.md", "!.vscode"]
+		"includes": [
+			"!node_modules",
+			"!**/.sb-themes",
+			"!dist",
+			"!build",
+			"!coverage",
+			"!*.mdx",
+			"!*.md",
+			"!.vscode",
+			"!.claude"
+		]
 	},
 	"formatter": {
 		"enabled": true,
