@@ -9,6 +9,7 @@ it('improves StoryObj[tags]', () => {
 			'new',
 			'alpha',
 			'beta',
+			'experiment',
 			'rc',
 			'props',
 			'deprecated',
