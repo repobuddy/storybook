@@ -49,7 +49,7 @@
 	},
 	"devDependencies": {
 		"@types/node": "^25.6.0",
-		"npm-run-all2": "^8.0.4"
+		"npm-run-all2": "^9.0.1"
 	},
 	"packageManager": "pnpm@11.1.3"
 }
