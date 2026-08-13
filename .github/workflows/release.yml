@@ -11,19 +11,19 @@ permissions:
 
 jobs:
   code:
-    uses: repobuddy/.github/.github/workflows/pnpm-verify.yml@main
+    uses: repobuddy/.github/.github/workflows/pnpm-verify.yml@v1
     with:
       os: '["ubuntu-latest"]'
 
   release:
-    uses: repobuddy/.github/.github/workflows/pnpm-release-changeset.yml@main
+    uses: repobuddy/.github/.github/workflows/pnpm-release-changeset.yml@v1
     needs: code
     secrets: inherit
 
   docgen:
     permissions:
       contents: write
-    uses: repobuddy/.github/.github/workflows/pnpm-docs.yml@main
+    uses: repobuddy/.github/.github/workflows/pnpm-docs.yml@v1
     needs: release
     if: github.ref == 'refs/heads/main'
     with:
