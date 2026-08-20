@@ -184,7 +184,7 @@ importers:
         version: 3.1.0(patch_hash=879ed697b2eb31a0235c15156202359903ceddd61960bf87e9c66385eecd0dc8)(storybook@10.5.8(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))
       storybook-addon-vis:
         specifier: ^4.2.2
-        version: 4.2.3(@storybook/addon-vitest@10.5.8(@vitest/browser-playwright@4.1.10)(@vitest/browser@4.1.10)(@vitest/runner@4.1.10)(react@19.2.8)(storybook@10.5.8(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))(vitest@4.1.10))(@vitest/browser-playwright@4.1.10)(@vitest/browser@4.1.10)(react@19.2.8)(storybook@10.5.8(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))(typescript@7.0.2)(vitest@4.1.10)
+        version: 4.2.4(@storybook/addon-vitest@10.5.8(@vitest/browser-playwright@4.1.10)(@vitest/browser@4.1.10)(@vitest/runner@4.1.10)(react@19.2.8)(storybook@10.5.8(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))(vitest@4.1.10))(@vitest/browser-playwright@4.1.10)(@vitest/browser@4.1.10)(react@19.2.8)(storybook@10.5.8(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))(typescript@7.0.2)(vitest@4.1.10)
       tsdown:
         specifier: ^0.22.0
         version: 0.22.14(oxc-resolver@11.24.2)(typescript@7.0.2)(unrun@0.2.34(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2))
@@ -3323,8 +3323,8 @@ packages:
     peerDependencies:
       storybook: ^10.0.0
 
-  storybook-addon-vis@4.2.3:
-    resolution: {integrity: sha512-G3uZf9f1uNUWXrreuR6szz/Bs0X8PLh0Hz/VrBdhxjTIBrraAi7u1hY/2+BQtCP86lUlHPSKpYxB/Por0MLBXA==}
+  storybook-addon-vis@4.2.4:
+    resolution: {integrity: sha512-FYVrkLmUEOOCcCDEX+L8YN3+9ekiPDHgbjAQrAG36fnmAoPBDjV3PE2ALYxph60sXvotwSHn7oGcLmRYF2rKJQ==}
     peerDependencies:
       '@storybook/addon-vitest': ^10.1.10
       '@vitest/browser': ^4
@@ -6308,9 +6308,8 @@ snapshots:
       memoizerific: 1.11.3
       storybook: 10.5.8(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8)
 
-  storybook-addon-vis@4.2.3(@storybook/addon-vitest@10.5.8(@vitest/browser-playwright@4.1.10)(@vitest/browser@4.1.10)(@vitest/runner@4.1.10)(react@19.2.8)(storybook@10.5.8(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))(vitest@4.1.10))(@vitest/browser-playwright@4.1.10)(@vitest/browser@4.1.10)(react@19.2.8)(storybook@10.5.8(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))(typescript@7.0.2)(vitest@4.1.10):
+  storybook-addon-vis@4.2.4(@storybook/addon-vitest@10.5.8(@vitest/browser-playwright@4.1.10)(@vitest/browser@4.1.10)(@vitest/runner@4.1.10)(react@19.2.8)(storybook@10.5.8(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))(vitest@4.1.10))(@vitest/browser-playwright@4.1.10)(@vitest/browser@4.1.10)(react@19.2.8)(storybook@10.5.8(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))(typescript@7.0.2)(vitest@4.1.10):
     dependencies:
-      '@repobuddy/test': 1.0.1
       '@storybook/addon-vitest': 10.5.8(@vitest/browser-playwright@4.1.10)(@vitest/browser@4.1.10)(@vitest/runner@4.1.10)(react@19.2.8)(storybook@10.5.8(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))(vitest@4.1.10)
       '@storybook/icons': 2.1.0(react@19.2.8)
       '@vitest/browser': 4.1.10(vite@8.2.1(@types/node@25.6.2)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0))(vitest@4.1.10)
