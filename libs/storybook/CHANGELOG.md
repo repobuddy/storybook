@@ -1,5 +1,15 @@
 # @repobuddy/storybook
 
+## 2.32.0
+
+### Minor Changes
+
+- [#730](https://github.com/repobuddy/storybook/pull/730) [`14ab083`](https://github.com/repobuddy/storybook/commit/14ab0837a731537063781fba324f2e91b461e30f) Thanks [@unional](https://github.com/unional)! - Raise the `storybook` and `@storybook/addon-docs` peer ranges to `^10.5.10`, and `@storybook-community/storybook-dark-mode` to `^7.1.3`.
+
+### Patch Changes
+
+- [#730](https://github.com/repobuddy/storybook/pull/730) [`7eb5c6a`](https://github.com/repobuddy/storybook/commit/7eb5c6a8b03ea8d4941aba22c5e1e6c16cc9c469) Thanks [@unional](https://github.com/unional)! - Fix `createDarkModeDocsContainer` rendering the dark theme on first paint regardless of the active mode. It now seeds from the mode `@storybook-community/storybook-dark-mode` persisted, falling back to `prefers-color-scheme`, instead of waiting for the first `DARK_MODE` event.
+
 ## 2.31.0
 
 ### Minor Changes
