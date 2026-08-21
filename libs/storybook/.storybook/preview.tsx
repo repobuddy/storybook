@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react-vite'
 import { setupMonaco } from 'storybook-addon-code-editor'
-import { defineDarkModeParam } from '#repobuddy/storybook/storybook-dark-mode'
+import { createDarkModeDocsContainer, defineDarkModeParam } from '#repobuddy/storybook/storybook-dark-mode'
 import { onMonacoLoad } from './code-editor'
 
 import './tailwind.css'
@@ -10,7 +10,8 @@ setupMonaco({ onMonacoLoad })
 const preview: Preview = {
 	parameters: {
 		docs: {
-			codePanel: true
+			codePanel: true,
+			container: createDarkModeDocsContainer()
 		},
 		options: {
 			// storySort must be a self-contained inline function — Storybook 10+ performs
