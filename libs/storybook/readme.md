@@ -147,7 +147,7 @@ export const preview: Preview = {
 		docs: {
 			container: createDarkModeDocsContainer()
 		},
-		darkMode: defineDarkModeParam({
+		...defineDarkModeParam({
 			classTarget: 'html',
 			darkClass: 'dark',
 			stylePreview: true
