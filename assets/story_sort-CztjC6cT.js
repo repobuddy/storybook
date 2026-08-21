@@ -1,0 +1,5 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{t}from"./jsx-runtime-DeHZSEgm.js";import{c as n,s as r}from"./blocks-Bp49M7Nq.js";import{i,r as a}from"./react-Bl2r1tuC.js";function o(e){let t={code:`code`,h1:`h1`,p:`p`,...i(),...e.components};return(0,c.jsxs)(c.Fragment,{children:[(0,c.jsx)(r,{title:`parameters/storySort`}),`
+`,(0,c.jsx)(t.h1,{id:`storysort`,children:`storySort`}),`
+`,(0,c.jsxs)(t.p,{children:[`This MDX page shares the same title as `,(0,c.jsx)(t.code,{children:`story_sort.stories.tsx`}),`.
+Because its type is `,(0,c.jsx)(t.code,{children:`docs`}),`, `,(0,c.jsx)(t.code,{children:`compareByType`}),` places it before every
+`,(0,c.jsx)(t.code,{children:`story`}),`-type entry in this group.`]})]})}function s(e={}){let{wrapper:t}={...i(),...e.components};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(o,{...e})}):o(e)}var c;function l(){return(l=e((()=>{c=t(),a(),n()})))()}l();export{s as default};
