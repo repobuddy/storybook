@@ -1,6 +1,6 @@
 {
     "name": "@types/react",
-    "version": "19.2.14",
+    "version": "19.2.18",
     "description": "TypeScript definitions for react",
     "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react",
     "license": "MIT",
@@ -205,6 +205,6 @@
         "csstype": "^3.2.2"
     },
     "peerDependencies": {},
-    "typesPublisherContentHash": "daae8d23e06b3d45da3803abb3f0bad661cffb4c40282d6886d8dfde7d5eea01",
-    "typeScriptVersion": "5.2"
+    "typesPublisherContentHash": "7694d96d924f28718f57b029b2c1a3dd61c406fa6ac1ef2619887840a17bfc33",
+    "typeScriptVersion": "5.6"
 }
