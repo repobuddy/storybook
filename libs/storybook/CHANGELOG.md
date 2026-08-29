@@ -1,5 +1,12 @@
 # @repobuddy/storybook
 
+## 2.32.1
+
+### Patch Changes
+
+- [`9675970`](https://github.com/repobuddy/storybook/commit/9675970f32974c2e744b3ed9a611bbb4b3f002cf) Thanks [@unional](https://github.com/unional)! - Stop forcing a transparent card background in the `showSource` decorator when displaying the original source.
+  It causes a11y issues due to insufficient contrast depending on the background color used by the user.
+
 ## 2.32.0
 
 ### Minor Changes
