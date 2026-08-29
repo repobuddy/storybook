@@ -1,22 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import { defineLayoutParam } from '#repobuddy/storybook'
+import preview from '../../.storybook/preview'
 
-export default {
+const meta = preview.meta({
 	title: 'parameters/defineLayoutParam',
 	tags: ['func', 'new', 'version:1.0']
-} satisfies Meta
+})
 
-export const Padded: StoryObj = {
+export const Padded = meta.story({
 	parameters: defineLayoutParam('padded'),
 	render: () => <div>Story with padded layout</div>
-}
+})
 
-export const Fullscreen: StoryObj = {
+export const Fullscreen = meta.story({
 	parameters: defineLayoutParam('fullscreen'),
 	render: () => <div>Story with fullscreen layout</div>
-}
+})
 
-export const Centered: StoryObj = {
+export const Centered = meta.story({
 	parameters: defineLayoutParam('centered'),
 	render: () => <div>Story with centered layout</div>
-}
+})

@@ -1,12 +1,12 @@
 // This file has been automatically migrated to valid ESM format by Storybook.
 import { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import type { StorybookConfig } from '@storybook/react-vite'
+import { defineMain } from '@storybook/react-vite/node'
 import { getCodeEditorStaticDirs } from 'storybook-addon-code-editor/getStaticDirs'
 
 const __filename = fileURLToPath(import.meta.url)
 
-export default {
+export default defineMain({
 	stories: ['../src/**/*.mdx', '../src/**/*.stories.tsx'],
 	staticDirs: [...getCodeEditorStaticDirs(__filename)],
 	addons: [
@@ -33,7 +33,7 @@ export default {
 			defaultFilterSelection: process.env.NODE_ENV === 'production' ? 'exclude' : undefined
 		}
 	}
-} satisfies StorybookConfig
+})
 
 function getAbsolutePath(value: string): any {
 	return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)))

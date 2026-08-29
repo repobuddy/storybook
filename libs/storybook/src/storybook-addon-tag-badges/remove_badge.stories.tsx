@@ -1,14 +1,14 @@
 import dedent from 'dedent'
 import { showSource, withStoryCard } from '#repobuddy/storybook'
-import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
+import preview from '../../.storybook/preview'
 
-export default {
+const meta = preview.meta({
 	title: 'storybook-addon-tag-badges/removeBadge',
 	tags: ['var', '!snapshot', 'version:2.19'],
 	render: () => <></>
-} satisfies Meta
+})
 
-export const RemoveInVersion: StoryObj = {
+export const RemoveInVersion = meta.story({
 	tags: ['remove:2'],
 	decorators: [
 		withStoryCard({
@@ -25,10 +25,10 @@ export const RemoveInVersion: StoryObj = {
 			}`
 		})
 	]
-}
+})
 
 /** Same badge as RemoveInNext; `remove` and `remove:next` are equivalent. */
-export const RemovePlain: StoryObj = {
+export const RemovePlain = meta.story({
 	tags: ['remove'],
 	decorators: [
 		withStoryCard({
@@ -45,10 +45,10 @@ export const RemovePlain: StoryObj = {
 			}`
 		})
 	]
-}
+})
 
 /** Same badge as RemovePlain; `remove` and `remove:next` are equivalent. */
-export const RemoveInNext: StoryObj = {
+export const RemoveInNext = meta.story({
 	tags: ['remove:next'],
 	decorators: [
 		withStoryCard({
@@ -65,4 +65,4 @@ export const RemoveInNext: StoryObj = {
 			}`
 		})
 	]
-}
+})

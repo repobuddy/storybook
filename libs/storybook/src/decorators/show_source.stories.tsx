@@ -3,24 +3,20 @@ import { expect } from 'storybook/test'
 import { themes } from 'storybook/theming'
 import { twJoin } from 'tailwind-merge'
 import { defineDocsParam, showSource, withStoryCard } from '#repobuddy/storybook'
-import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
+import preview from '../../.storybook/preview'
 
 // Simple demo component for testing the decorator
 const DemoComponent = ({ text = 'Hello World' }: { text?: string }) => (
 	<div className="rbsb:p-4 rbsb:bg-gray-100 rbsb:dark:bg-gray-500 rbsb:rounded">{text}</div>
 )
 
-const meta = {
+const meta = preview.meta({
 	title: 'decorators/showSource',
 	tags: ['version:2.22', '!snapshot'],
 	render: () => <></>
-} satisfies Meta
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const ShowDocsSourceCode: Story = {
+export const ShowDocsSourceCode = meta.story({
 	name: 'Show docs.source.code',
 	tags: ['use-case'],
 	parameters: {
@@ -50,9 +46,9 @@ export const ShowDocsSourceCode: Story = {
 		}),
 		showSource()
 	]
-}
+})
 
-export const ShowStorySource: Story = {
+export const ShowStorySource = meta.story({
 	tags: ['use-case'],
 	decorators: [
 		withStoryCard({
@@ -60,9 +56,9 @@ export const ShowStorySource: Story = {
 		}),
 		showSource()
 	]
-}
+})
 
-export const WithLanguageJson: Story = {
+export const WithLanguageJson = meta.story({
 	name: 'With docs.source.language: json',
 	parameters: defineDocsParam({
 		source: {
@@ -91,9 +87,9 @@ export const WithLanguageJson: Story = {
 		}),
 		showSource()
 	]
-}
+})
 
-export const WithLanguageMd: Story = {
+export const WithLanguageMd = meta.story({
 	name: 'With docs.source.language: md',
 	parameters: defineDocsParam({
 		source: {
@@ -122,9 +118,9 @@ export const WithLanguageMd: Story = {
 		}),
 		showSource()
 	]
-}
+})
 
-export const WithDocsTheme: Story = {
+export const WithDocsTheme = meta.story({
 	name: 'With docs.theme: dark',
 	parameters: defineDocsParam({
 		source: {
@@ -153,9 +149,9 @@ export const WithDocsTheme: Story = {
 		}),
 		showSource()
 	]
-}
+})
 
-export const LanguageJson: Story = {
+export const LanguageJson = meta.story({
 	name: 'language: json',
 	tags: ['props', 'version:2.29', '!version:2.22'],
 	parameters: defineDocsParam({
@@ -177,9 +173,9 @@ export const LanguageJson: Story = {
 		}),
 		showSource({ language: 'json', source: '{ "hello": "world" }' })
 	]
-}
+})
 
-export const LanguageMd: Story = {
+export const LanguageMd = meta.story({
 	name: 'language: md',
 	tags: ['props', 'version:2.29', '!version:2.22'],
 	parameters: defineDocsParam({
@@ -200,9 +196,9 @@ export const LanguageMd: Story = {
 		}),
 		showSource({ language: 'md', source: '# Hello\n\nThis is **markdown**.' })
 	]
-}
+})
 
-export const LanguageHtml: Story = {
+export const LanguageHtml = meta.story({
 	name: 'language: html',
 	tags: ['props', 'version:2.29', '!version:2.22'],
 	parameters: defineDocsParam({
@@ -221,11 +217,14 @@ export const LanguageHtml: Story = {
 		showSource({
 			source: `showSource({ language: 'html', source: '<div class="hello">Hello, World!</div>' })`
 		}),
-		showSource({ language: 'html', source: '<div class="hello">Hello, World!</div>' })
+		showSource({
+			language: 'html',
+			source: '<div class="hello">Hello, World!</div>'
+		})
 	]
-}
+})
 
-export const LanguageCss: Story = {
+export const LanguageCss = meta.story({
 	name: 'language: css',
 	tags: ['props', 'version:2.29', '!version:2.22'],
 	parameters: defineDocsParam({
@@ -244,11 +243,14 @@ export const LanguageCss: Story = {
 		showSource({
 			source: `showSource({ language: 'css', source: '.hello { color: red; font-size: 1rem; }' })`
 		}),
-		showSource({ language: 'css', source: '.hello { color: red; font-size: 1rem; }' })
+		showSource({
+			language: 'css',
+			source: '.hello { color: red; font-size: 1rem; }'
+		})
 	]
-}
+})
 
-export const LanguageJs: Story = {
+export const LanguageJs = meta.story({
 	name: 'language: js',
 	tags: ['props', 'version:2.29', '!version:2.22'],
 	parameters: defineDocsParam({
@@ -267,11 +269,14 @@ export const LanguageJs: Story = {
 		showSource({
 			source: `showSource({ language: 'js', source: 'const greet = (name) => "Hello, " + name + "!"' })`
 		}),
-		showSource({ language: 'js', source: 'const greet = (name) => "Hello, " + name + "!"' })
+		showSource({
+			language: 'js',
+			source: 'const greet = (name) => "Hello, " + name + "!"'
+		})
 	]
-}
+})
 
-export const LanguageTs: Story = {
+export const LanguageTs = meta.story({
 	name: 'language: ts',
 	tags: ['props', 'version:2.29', '!version:2.22'],
 	parameters: defineDocsParam({
@@ -290,11 +295,14 @@ export const LanguageTs: Story = {
 		showSource({
 			source: `showSource({ language: 'ts', source: 'const greet = (name: string): string => "Hello, " + name + "!"' })`
 		}),
-		showSource({ language: 'ts', source: 'const greet = (name: string): string => "Hello, " + name + "!"' })
+		showSource({
+			language: 'ts',
+			source: 'const greet = (name: string): string => "Hello, " + name + "!"'
+		})
 	]
-}
+})
 
-export const ShowOriginalSource: Story = {
+export const ShowOriginalSource = meta.story({
 	name: 'showOriginalSource: true',
 	tags: ['props'],
 	parameters: {
@@ -315,9 +323,9 @@ export const ShowOriginalSource: Story = {
 		}),
 		showSource({ showOriginalSource: true })
 	]
-}
+})
 
-export const WithClassNameString: Story = {
+export const WithClassNameString = meta.story({
 	name: 'className: string',
 	tags: ['props'],
 	parameters: defineDocsParam({
@@ -340,9 +348,9 @@ export const WithClassNameString: Story = {
 			className: 'rbsb:bg-blue-500 rbsb:dark:bg-blue-900'
 		})
 	]
-}
+})
 
-export const WithClassNameFunction: Story = {
+export const WithClassNameFunction = meta.story({
 	name: 'className: function',
 	tags: ['props'],
 	parameters: defineDocsParam({
@@ -367,9 +375,9 @@ export const WithClassNameFunction: Story = {
 			}
 		})
 	]
-}
+})
 
-export const WithClassNameConditional: Story = {
+export const WithClassNameConditional = meta.story({
 	name: 'className: conditional function',
 	tags: ['props'],
 	parameters: defineDocsParam({
@@ -399,9 +407,9 @@ export const WithClassNameConditional: Story = {
 			}
 		})
 	]
-}
+})
 
-export const WithSourceString: Story = {
+export const WithSourceString = meta.story({
 	name: 'source: string',
 	tags: ['use-case', 'props'],
 	decorators: [
@@ -414,9 +422,9 @@ export const WithSourceString: Story = {
 		}),
 		showSource({ source: `() => 'custom source'` })
 	]
-}
+})
 
-export const WithSourceFunction: Story = {
+export const WithSourceFunction = meta.story({
 	name: 'source: function',
 	tags: ['use-case', 'props'],
 	parameters: defineDocsParam({
@@ -457,9 +465,9 @@ export const WithSourceFunction: Story = {
 			// End of transformed source`
 		})
 	]
-}
+})
 
-export const PlacementBefore: Story = {
+export const PlacementBefore = meta.story({
 	name: 'placement: before',
 	tags: ['props'],
 	decorators: [
@@ -470,12 +478,15 @@ export const PlacementBefore: Story = {
 				</p>
 			)
 		}),
-		showSource({ placement: 'before', source: 'Source shown before the story' })
+		showSource({
+			placement: 'before',
+			source: 'Source shown before the story'
+		})
 	],
 	render: () => <DemoComponent text="Story content" />
-}
+})
 
-export const PlacementAfter: Story = {
+export const PlacementAfter = meta.story({
 	name: 'placement: after',
 	tags: ['props'],
 	parameters: defineDocsParam({
@@ -494,9 +505,9 @@ export const PlacementAfter: Story = {
 		showSource({ placement: 'after', source: 'Source shown after the story' })
 	],
 	render: () => <DemoComponent text="Story content" />
-}
+})
 
-export const DataTestId: Story = {
+export const DataTestId = meta.story({
 	name: 'data-testid',
 	tags: ['props', 'unit', '!test'],
 	decorators: [
@@ -517,9 +528,9 @@ export const DataTestId: Story = {
 		const section = canvas.getByTestId('show-source-card')
 		await expect(section).toBeInTheDocument()
 	}
-}
+})
 
-export const TwoShowSourceBefore: Story = {
+export const TwoShowSourceBefore = meta.story({
 	name: "two showSource (placement: 'before')",
 	tags: ['unit', 'snapshot'],
 	parameters: defineDocsParam({
@@ -536,9 +547,9 @@ export const TwoShowSourceBefore: Story = {
 		showSource({ source: '// Second source block before the story' })
 	],
 	render: () => <DemoComponent text="Story content" />
-}
+})
 
-export const TwoShowSourceAfter: Story = {
+export const TwoShowSourceAfter = meta.story({
 	name: "two showSource (placement: 'after')",
 	tags: ['unit', 'snapshot'],
 	parameters: defineDocsParam({
@@ -551,13 +562,19 @@ export const TwoShowSourceAfter: Story = {
 		}
 	}),
 	decorators: [
-		showSource({ source: '// First source block after the story', placement: 'after' }),
-		showSource({ source: '// Second source block after the story', placement: 'after' })
+		showSource({
+			source: '// First source block after the story',
+			placement: 'after'
+		}),
+		showSource({
+			source: '// Second source block after the story',
+			placement: 'after'
+		})
 	],
 	render: () => <DemoComponent text="Story content" />
-}
+})
 
-export const TwoWithStoryCardTwoShowSource: Story = {
+export const TwoWithStoryCardTwoShowSource = meta.story({
 	name: 'two withStoryCard + two showSource',
 	tags: ['unit', 'snapshot'],
 	parameters: defineDocsParam({
@@ -570,10 +587,16 @@ export const TwoWithStoryCardTwoShowSource: Story = {
 		}
 	}),
 	decorators: [
-		withStoryCard({ title: 'First card', content: <p>This card should appear first.</p> }),
+		withStoryCard({
+			title: 'First card',
+			content: <p>This card should appear first.</p>
+		}),
 		showSource({ source: '// Source shown before the Second card' }),
-		withStoryCard({ title: 'Second card', content: <p>This card should appear after the first source.</p> }),
+		withStoryCard({
+			title: 'Second card',
+			content: <p>This card should appear after the first source.</p>
+		}),
 		showSource({ source: '// Source shown after the Second card' })
 	],
 	render: () => <DemoComponent text="Story content" />
-}
+})

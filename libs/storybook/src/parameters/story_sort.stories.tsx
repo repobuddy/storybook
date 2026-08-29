@@ -1,6 +1,10 @@
+// These stories document the legacy parameter shapes accepted by the `define*Param` helpers.
+// CSF factories type `parameters` strictly against Storybook 10's own parameter types, so each
+// `parameters` object is widened with `as Parameters`.
+import type { Parameters } from '@storybook/react-vite'
 import dedent from 'dedent'
 import { defineDocsParam, defineParameters, showSource, withStoryCard } from '#repobuddy/storybook'
-import type { Meta, StoryObj } from '#storybook-addon-tag-badges'
+import preview from '../../.storybook/preview'
 
 const fullImpl = dedent`// storySort must be a self-contained inline function — Storybook 10+ performs
 	// static AST analysis and rejects variable references and function-call results.
@@ -111,7 +115,7 @@ const fullImpl = dedent`// storySort must be a self-contained inline function �
 		}
 	}`
 
-export default {
+const meta = preview.meta({
 	title: 'parameters/storySort',
 	tags: ['version:2.30', 'func'],
 	decorators: [withStoryCard(), showSource()],
@@ -126,13 +130,11 @@ export default {
 				- **\`tag\`** — story tags in the desired order within a component; \`'*'\` is the wildcard for unlisted tags`
 			}
 		}
-	}),
+	}) as Parameters,
 	render: () => <></>
-} satisfies Meta
+})
 
-type Story = StoryObj
-
-export const BasicUsage: Story = {
+export const BasicUsage = meta.story({
 	tags: ['use-case'],
 	parameters: {
 		...defineDocsParam({
@@ -142,10 +144,10 @@ export const BasicUsage: Story = {
 			},
 			source: { code: fullImpl }
 		})
-	}
-}
+	} as Parameters
+})
 
-export const OrderOnly: Story = {
+export const OrderOnly = meta.story({
 	tags: ['use-case'],
 	parameters: {
 		...defineDocsParam({
@@ -158,10 +160,10 @@ export const OrderOnly: Story = {
 				const tag   = []`
 			}
 		})
-	}
-}
+	} as Parameters
+})
 
-export const TagOnly: Story = {
+export const TagOnly = meta.story({
 	tags: ['use-case'],
 	parameters: {
 		...defineDocsParam({
@@ -174,10 +176,10 @@ export const TagOnly: Story = {
 				const tag   = ['playground', 'use-case', 'example', 'spec', 'props', '*', 'edge-case', 'unit', 'integration']`
 			}
 		})
-	}
-}
+	} as Parameters
+})
 
-export const NestedOrder: Story = {
+export const NestedOrder = meta.story({
 	tags: ['use-case'],
 	parameters: {
 		...defineDocsParam({
@@ -189,10 +191,10 @@ export const NestedOrder: Story = {
 				const tag   = ['playground', 'use-case', '*']`
 			}
 		})
-	}
-}
+	} as Parameters
+})
 
-export const WildcardPositioning: Story = {
+export const WildcardPositioning = meta.story({
 	tags: ['use-case'],
 	parameters: {
 		...defineDocsParam({
@@ -205,5 +207,5 @@ export const WildcardPositioning: Story = {
 				const tag   = ['playground', 'spec', '*', 'unit', 'integration']`
 			}
 		})
-	}
-}
+	} as Parameters
+})

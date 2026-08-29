@@ -1,14 +1,14 @@
 import dedent from 'dedent'
 import { showSource, withStoryCard } from '#repobuddy/storybook'
-import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
+import preview from '../../.storybook/preview'
 
-export default {
+const meta = preview.meta({
 	title: 'storybook-addon-tag-badges/perfBadge',
 	tags: ['var', '!snapshot', 'version:2.22'],
 	render: () => <></>
-} satisfies Meta
+})
 
-export const PerfBadge: StoryObj = {
+export const PerfBadge = meta.story({
 	tags: ['perf'],
 	decorators: [
 		withStoryCard({
@@ -61,4 +61,4 @@ export const PerfBadge: StoryObj = {
 			})`
 		})
 	]
-}
+})

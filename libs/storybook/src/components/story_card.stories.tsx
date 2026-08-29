@@ -1,8 +1,8 @@
 import { expect } from 'storybook/test'
 import { defineDocsParam, StoryCard, withStoryCard } from '#repobuddy/storybook'
-import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
+import preview from '../../.storybook/preview'
 
-const meta: Meta<typeof StoryCard> = {
+const meta = preview.meta({
 	title: 'components/StoryCard',
 	tags: ['new', 'version:2.8', 'autodocs'],
 	component: StoryCard,
@@ -44,19 +44,15 @@ const meta: Meta<typeof StoryCard> = {
 			}
 		}
 	}
-}
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const BasicUsage: Story = {
+export const BasicUsage = meta.story({
 	args: {
 		children: 'This is a basic story card with default info status.'
 	}
-}
+})
 
-export const WithTitle: Story = {
+export const WithTitle = meta.story({
 	name: 'title: provided',
 	tags: ['props'],
 	parameters: defineDocsParam({
@@ -68,9 +64,9 @@ export const WithTitle: Story = {
 		title: 'Card Title',
 		children: 'This card has a title displayed as a heading.'
 	}
-}
+})
 
-export const StatusError: Story = {
+export const StatusError = meta.story({
 	name: 'status: error',
 	tags: ['props', 'deprecated', 'version:2.14', '!version:2.8'],
 	parameters: defineDocsParam({
@@ -84,9 +80,9 @@ export const StatusError: Story = {
 		children: 'This card displays an error status with red background styling.'
 	},
 	decorators: [withStoryCard({ appearance: 'warn' })]
-}
+})
 
-export const StatusWarn: Story = {
+export const StatusWarn = meta.story({
 	name: 'status: warn',
 	tags: ['props', 'deprecated', 'version:2.14', '!version:2.8'],
 	parameters: defineDocsParam({
@@ -100,9 +96,9 @@ export const StatusWarn: Story = {
 		children: 'This card displays a warning status with yellow background styling.'
 	},
 	decorators: [withStoryCard({ appearance: 'warn' })]
-}
+})
 
-export const StatusInfo: Story = {
+export const StatusInfo = meta.story({
 	name: 'status: info',
 	tags: ['props', 'deprecated', 'version:2.14', '!version:2.8'],
 	parameters: defineDocsParam({
@@ -116,9 +112,9 @@ export const StatusInfo: Story = {
 		children: 'This card displays an info status with blue background styling.'
 	},
 	decorators: [withStoryCard({ appearance: 'warn' })]
-}
+})
 
-export const AppearanceError: Story = {
+export const AppearanceError = meta.story({
 	name: 'appearance: error',
 	tags: ['props', 'version:2.14', '!version:2.8'],
 	parameters: defineDocsParam({
@@ -131,9 +127,9 @@ export const AppearanceError: Story = {
 		title: 'Error Card',
 		children: 'Use appearance="error" when the card conveys a failure or critical message.'
 	}
-}
+})
 
-export const AppearanceWarn: Story = {
+export const AppearanceWarn = meta.story({
 	name: 'appearance: warn',
 	tags: ['props', 'version:2.14', '!version:2.8'],
 	parameters: defineDocsParam({
@@ -146,9 +142,9 @@ export const AppearanceWarn: Story = {
 		title: 'Warning Card',
 		children: 'Use appearance="warn" when the card conveys a caution or deprecation.'
 	}
-}
+})
 
-export const AppearanceInfo: Story = {
+export const AppearanceInfo = meta.story({
 	name: 'appearance: info',
 	tags: ['props', 'version:2.14', '!version:2.8'],
 	parameters: defineDocsParam({
@@ -161,9 +157,9 @@ export const AppearanceInfo: Story = {
 		title: 'Info Card',
 		children: 'Use appearance="info" for neutral context or tips (default).'
 	}
-}
+})
 
-export const AppearanceSource: Story = {
+export const AppearanceSource = meta.story({
 	name: 'appearance: source',
 	tags: ['props', 'version:2.14', '!version:2.8'],
 	parameters: defineDocsParam({
@@ -176,9 +172,9 @@ export const AppearanceSource: Story = {
 		title: 'Source Card',
 		children: 'Use appearance="source" for code/source blocks that should blend in.'
 	}
-}
+})
 
-export const AppearanceOutput: Story = {
+export const AppearanceOutput = meta.story({
 	name: 'appearance: output',
 	tags: ['props', 'version:2.14', '!version:2.8'],
 	parameters: defineDocsParam({
@@ -191,9 +187,9 @@ export const AppearanceOutput: Story = {
 		title: 'Output Card',
 		children: 'Use appearance="output" for results or success feedback.'
 	}
-}
+})
 
-export const WithComplexContent: Story = {
+export const WithComplexContent = meta.story({
 	name: 'children: complex content',
 	tags: ['props'],
 	parameters: defineDocsParam({
@@ -219,9 +215,9 @@ export const WithComplexContent: Story = {
 			</div>
 		</StoryCard>
 	)
-}
+})
 
-export const CustomClassName: Story = {
+export const CustomClassName = meta.story({
 	name: 'className: custom',
 	tags: ['props'],
 	parameters: defineDocsParam({
@@ -234,9 +230,9 @@ export const CustomClassName: Story = {
 		className: 'rbsb:border-2 rbsb:border-sky-500',
 		children: 'This card has custom border styling applied via className.'
 	}
-}
+})
 
-export const CustomClassNameFunction: Story = {
+export const CustomClassNameFunction = meta.story({
 	name: 'className: function',
 	tags: ['props'],
 	parameters: defineDocsParam({
@@ -257,9 +253,9 @@ export const CustomClassNameFunction: Story = {
 			This card uses a function to compute className based on the card state.
 		</StoryCard>
 	)
-}
+})
 
-export const DataTestId: Story = {
+export const DataTestId = meta.story({
 	name: 'data-testid',
 	tags: ['props', 'unit'],
 	parameters: defineDocsParam({
@@ -276,4 +272,4 @@ export const DataTestId: Story = {
 		const section = canvas.getByTestId('story-card-example')
 		await expect(section).toBeInTheDocument()
 	}
-}
+})

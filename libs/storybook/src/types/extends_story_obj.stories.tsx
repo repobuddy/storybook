@@ -1,22 +1,20 @@
-import type { Args, Meta, StoryObj } from '@storybook/react-vite'
+import type { Args, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
 import type { Component } from 'react'
 import { testType } from 'type-plus'
 import type { ExtendsStoryObj } from '#repobuddy/storybook'
 import { defineDocsParam, showSource } from '#repobuddy/storybook'
+import preview from '../../.storybook/preview'
 import type { ExtractStringLiterals } from './_extract_string_literals.js'
 
-const meta = {
+const meta = preview.meta({
 	title: 'types/ExtendStoryObj',
 	tags: ['type', '!snapshot', 'version:2.4'],
 	decorators: [showSource()],
 	render: () => <></>
-} satisfies Meta
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const ExtendsTagLiterals: Story = {
+export const ExtendsTagLiterals = meta.story({
 	parameters: defineDocsParam({
 		source: {
 			code: dedent`
@@ -55,4 +53,4 @@ export const ExtendsTagLiterals: Story = {
 			'new' | 'beta' | 'deprecated' | 'one-more'
 		>(true)
 	}
-}
+})

@@ -4,20 +4,18 @@ import { testType } from 'type-plus'
 import type { FnToArgTypes } from '#repobuddy/storybook'
 import * as repobuddyStorybook from '#repobuddy/storybook'
 import { defineDocsParam, showSource, withStoryCard } from '#repobuddy/storybook'
-import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
+import type { Meta } from '#repobuddy/storybook/storybook-addon-tag-badges'
 import * as repobuddyStorybookTagBadges from '#repobuddy/storybook/storybook-addon-tag-badges'
+import preview from '../../.storybook/preview'
 import variadicCode from './fn-to-arg.types.stories.variadic.tsx?raw'
 
-const meta = {
+const meta = preview.meta({
 	title: 'arg-types/FnToArgTypes',
 	tags: ['type', '!snapshot', 'version:2.6'],
 	render: () => <></>
-} satisfies Meta
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const BasicUsage: Story = {
+export const BasicUsage = meta.story({
 	parameters: defineDocsParam({
 		source: {
 			code: dedent`
@@ -51,7 +49,9 @@ export const BasicUsage: Story = {
 		testType.equal<keyof FnToArgTypes<() => void>, never>(true)
 		const _m0: Meta<FnToArgTypes<() => void, []>> = { argTypes: {} }
 
-		const _m0X: Meta<FnToArgTypes<() => void>> = { argTypes: { x: { control: 'text' } } }
+		const _m0X: Meta<FnToArgTypes<() => void>> = {
+			argTypes: { x: { control: 'text' } }
+		}
 
 		testType.equal<FnToArgTypes<(a: number) => void, ['x']>, { x: number }>(true)
 		const _m1: Meta<FnToArgTypes<(a: number) => void>> = {
@@ -95,21 +95,21 @@ export const BasicUsage: Story = {
 			}
 		}
 	}
-}
+})
 
-export const VariadicFunction: Story = {
+export const VariadicFunction = meta.story({
 	parameters: defineDocsParam({
 		source: {
 			code: variadicCode
 		}
 	}),
 	decorators: [withStoryCard(), showSource({ placement: 'before' })]
-}
+})
 
-makeLiveEditStory(VariadicFunction, {
+makeLiveEditStory(VariadicFunction.input, {
 	availableImports: {
 		'@repobuddy/storybook': repobuddyStorybook,
 		'@repobuddy/storybook/storybook-addon-tag-badges': repobuddyStorybookTagBadges
 	},
-	code: VariadicFunction.parameters?.docs?.source?.code ?? ''
+	code: variadicCode
 })

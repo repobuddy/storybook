@@ -1,14 +1,14 @@
 import dedent from 'dedent'
 import { showSource, withStoryCard } from '#repobuddy/storybook'
-import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
+import preview from '../../.storybook/preview'
 
-export default {
+const meta = preview.meta({
 	title: 'storybook-addon-tag-badges/bugBadge',
 	tags: ['var', '!snapshot', 'version:2.28'],
 	render: () => <></>
-} satisfies Meta
+})
 
-export const BugBadge: StoryObj = {
+export const BugBadge = meta.story({
 	tags: ['bug'],
 	decorators: [
 		withStoryCard({
@@ -25,4 +25,4 @@ export const BugBadge: StoryObj = {
 			}`
 		})
 	]
-}
+})

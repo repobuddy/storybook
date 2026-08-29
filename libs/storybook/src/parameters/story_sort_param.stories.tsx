@@ -1,8 +1,12 @@
+// These stories document the legacy parameter shapes accepted by the `define*Param` helpers.
+// CSF factories type `parameters` strictly against Storybook 10's own parameter types, so each
+// `parameters` object is widened with `as Parameters`.
+import type { Parameters } from '@storybook/react-vite'
 import dedent from 'dedent'
 import { defineDocsParam, defineParameters, type StorySortParam, showSource } from '#repobuddy/storybook'
-import type { Meta, StoryObj } from '#storybook-addon-tag-badges'
+import preview from '../../.storybook/preview'
 
-export default {
+const meta = preview.meta({
 	title: 'parameters/StorySortParam',
 	tags: ['type', '!snapshot', 'version:1.0', 'autodocs'],
 	decorators: [showSource()],
@@ -13,11 +17,11 @@ export default {
 					'`StorySortParam` is used to define how stories should be sorted in the navigation sidebar. It is used in `preview.ts`.'
 			}
 		}
-	}),
+	}) as Parameters,
 	render: () => <></>
-} satisfies Meta
+})
 
-export const AlphabeticalSort: StoryObj = {
+export const AlphabeticalSort = meta.story({
 	parameters: {
 		options: {
 			options: {
@@ -33,14 +37,17 @@ export const AlphabeticalSort: StoryObj = {
 				}`
 			}
 		})
-	}
-}
+	} as Parameters
+})
 
-export const CustomSort: StoryObj = {
+export const CustomSort = meta.story({
 	parameters: {
 		options: {
 			options: {
-				storySort: { method: 'custom', order: ['Introduction', 'Components', '*', 'Examples'] }
+				storySort: {
+					method: 'custom',
+					order: ['Introduction', 'Components', '*', 'Examples']
+				}
 			} satisfies StorySortParam
 		},
 		...defineDocsParam({
@@ -52,10 +59,10 @@ export const CustomSort: StoryObj = {
 				}`
 			}
 		})
-	}
-}
+	} as Parameters
+})
 
-export const AlphabeticalByKindSort: StoryObj = {
+export const AlphabeticalByKindSort = meta.story({
 	parameters: {
 		options: {
 			options: {
@@ -71,10 +78,10 @@ export const AlphabeticalByKindSort: StoryObj = {
 				}`
 			}
 		})
-	}
-}
+	} as Parameters
+})
 
-export const CustomSortFunction: StoryObj = {
+export const CustomSortFunction = meta.story({
 	parameters: {
 		options: {
 			storySort: (a, b) => {
@@ -98,5 +105,5 @@ export const CustomSortFunction: StoryObj = {
 				}`
 			}
 		})
-	}
-}
+	} as Parameters
+})

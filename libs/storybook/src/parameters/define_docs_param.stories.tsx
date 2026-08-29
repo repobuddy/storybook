@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
 import { defineDocsParam, showSource } from '#repobuddy/storybook'
+import preview from '../../.storybook/preview'
 
-const meta = {
+const meta = preview.meta({
 	title: 'Parameters/defineDocsParam',
 	tags: ['autodocs', 'func', '!snapshot', 'new', 'version:1.0'],
 	parameters: defineDocsParam({
@@ -13,15 +13,12 @@ const meta = {
 	}),
 	decorators: [showSource()],
 	render: () => <></>
-} satisfies Meta
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * Storybook uses JSDoc to generate documentation for the story.
  */
-export const JSDoc: Story = {
+export const JSDoc = meta.story({
 	parameters: defineDocsParam({
 		source: {
 			code: dedent`
@@ -32,9 +29,9 @@ export const JSDoc: Story = {
 			`
 		}
 	})
-}
+})
 
-export const WithStoryDescription: Story = {
+export const WithStoryDescription = meta.story({
 	parameters: {
 		...defineDocsParam({
 			description: {
@@ -49,12 +46,12 @@ export const WithStoryDescription: Story = {
 			}
 		})
 	}
-}
+})
 
 /**
  * `docs.source.code` can be used to define the source code of the story.
  */
-export const SourceCode: Story = {
+export const SourceCode = meta.story({
 	parameters: defineDocsParam({
 		source: {
 			code: dedent`defineDocsParam({
@@ -64,4 +61,4 @@ export const SourceCode: Story = {
 			})`
 		}
 	})
-}
+})

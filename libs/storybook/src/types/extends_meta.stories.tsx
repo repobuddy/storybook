@@ -4,21 +4,18 @@ import type { Component } from 'react'
 import { testType } from 'type-plus'
 import type { ExtendsMeta } from '#repobuddy/storybook'
 import { defineDocsParam, showSource } from '#repobuddy/storybook'
-import type { Meta, StoryObj, TagNames } from '#repobuddy/storybook/storybook-addon-tag-badges'
+import type { Meta, TagNames } from '#repobuddy/storybook/storybook-addon-tag-badges'
+import preview from '../../.storybook/preview'
 import type { ExtractStringLiterals } from './_extract_string_literals.js'
 
-const meta = {
+const meta = preview.meta({
 	title: 'types/ExtendMeta',
 	tags: ['type', '!snapshot', 'version:2.4'],
 	decorators: [showSource()],
 	render: () => <></>
-} satisfies Meta
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const ExtendsTagLiterals: Story = {
+export const ExtendsTagLiterals = meta.story({
 	parameters: defineDocsParam({
 		source: {
 			code: dedent`
@@ -55,4 +52,4 @@ export const ExtendsTagLiterals: Story = {
 		type YourMeta<TCmpOrArgs = Args> = ExtendsMeta<MyMeta<TCmpOrArgs>, { tag: 'one-more' }>
 		testType.equal<ExtractStringLiterals<NonNullable<YourMeta['tags']>[0]>, TagNames | 'custom' | 'one-more'>(true)
 	}
-}
+})

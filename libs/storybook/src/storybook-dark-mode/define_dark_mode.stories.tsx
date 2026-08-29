@@ -1,19 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
 import { defineDocsParam, showSource } from '#repobuddy/storybook'
 import { defineDarkModeParam } from '#repobuddy/storybook/storybook-dark-mode'
+import preview from '../../.storybook/preview'
 
-const meta = {
+const meta = preview.meta({
 	title: 'storybook-dark-mode/defineDarkModeParam',
 	tags: ['new', '!snapshot', 'version:1.0', 'autodocs'],
 	decorators: [showSource()],
 	render: () => <></>
-} satisfies Meta
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const TypicalTailwindCSSUsage: Story = {
+export const TypicalTailwindCSSUsage = meta.story({
 	parameters: {
 		...defineDarkModeParam({
 			classTarget: 'html',
@@ -37,4 +34,4 @@ export const TypicalTailwindCSSUsage: Story = {
 			}
 		})
 	}
-}
+})

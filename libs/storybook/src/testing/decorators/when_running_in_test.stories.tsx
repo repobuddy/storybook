@@ -1,10 +1,10 @@
 import { isRunningInTest } from '@repobuddy/vitest'
 import { expect } from 'storybook/test'
 import { showSource, whenRunningInTest } from '#repobuddy/storybook'
-import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
+import preview from '../../../.storybook/preview'
 import { ctx } from './when_running_in_text.ctx.js'
 
-export default {
+const meta = preview.meta({
 	title: 'testing/whenRunningInTest',
 	tags: ['new', 'version:1.0'],
 	beforeEach: () => {
@@ -15,9 +15,9 @@ export default {
 	afterEach: () => {
 		ctx.isRunningInTest = isRunningInTest
 	}
-} satisfies Meta
+})
 
-export const BasicUsage: StoryObj = {
+export const BasicUsage = meta.story({
 	decorators: [
 		whenRunningInTest((Story) => (
 			<div>
@@ -26,9 +26,9 @@ export const BasicUsage: StoryObj = {
 			</div>
 		))
 	]
-}
+})
 
-export const AcceptHandler: StoryObj = {
+export const AcceptHandler = meta.story({
 	loaders: [() => ({ state: { counter: 0 } })],
 	decorators: [
 		whenRunningInTest((_, { loaded: { state } }) => {
@@ -44,9 +44,9 @@ export const AcceptHandler: StoryObj = {
 		await expect(state.counter).toBe(1)
 		await expect(canvas.getByText(/When passing in a handler/)).toBeInTheDocument()
 	}
-}
+})
 
-export const SkipDecorator: StoryObj = {
+export const SkipDecorator = meta.story({
 	tags: ['unit'],
 	beforeEach: () => {
 		ctx.isRunningInTest = () => false
@@ -57,4 +57,4 @@ export const SkipDecorator: StoryObj = {
 		})
 	],
 	render: () => <>should not run decorator when not in test</>
-}
+})

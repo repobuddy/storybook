@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import { defineDocsParam, ShowHtml, withStoryCard } from '#repobuddy/storybook'
+import preview from '../../.storybook/preview'
 
-const meta: Meta<typeof ShowHtml> = {
+const meta = preview.meta({
 	title: 'components/ShowHtml',
 	tags: ['new', 'version:1.0', 'autodocs'],
 	component: ShowHtml,
@@ -21,11 +21,9 @@ const meta: Meta<typeof ShowHtml> = {
 			}
 		}
 	}
-}
+})
 
-export default meta
-
-export const DefaultSubject: StoryObj = {
+export const DefaultSubject = meta.story({
 	parameters: defineDocsParam({
 		description: {
 			story: 'The `selector` prop is default to `[data-testid="subject"]`.'
@@ -42,18 +40,18 @@ export const DefaultSubject: StoryObj = {
 			<ShowHtml />
 		</div>
 	)
-}
+})
 
-export const NoSubjectFound: StoryObj = {
+export const NoSubjectFound = meta.story({
 	render: () => <ShowHtml selector="not-exist" />
-}
+})
 
-export const CustomizeWithClassName: StoryObj = {
+export const CustomizeWithClassName = meta.story({
 	tags: ['props'],
 	render: () => <ShowHtml className="rbsb:bg-sky-500 rbsb:text-white rbsb:rounded rbsb:p-2" />
-}
+})
 
-export const CustomizeWithStyle: StoryObj = {
+export const CustomizeWithStyle = meta.story({
 	tags: ['props'],
 	render: () => <ShowHtml style={{ backgroundColor: 'red', color: 'white' }} />
-}
+})

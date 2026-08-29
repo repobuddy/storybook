@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
 import { defineDocsParam, defineTestParam, showSource } from '#repobuddy/storybook'
+import preview from '../../.storybook/preview'
 
-const meta = {
+const meta = preview.meta({
 	title: 'Parameters/defineTestParam',
 	tags: ['func', '!snapshot', 'new', 'version:1.0'],
 	parameters: {
@@ -14,12 +14,9 @@ const meta = {
 	},
 	decorators: [showSource()],
 	render: () => <></>
-} satisfies Meta
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
 	parameters: {
 		...defineTestParam({
 			clearMocks: true,
@@ -36,9 +33,9 @@ export const Default: Story = {
 			}
 		})
 	}
-}
+})
 
-export const WithDangerouslyIgnoreUnhandledErrors: Story = {
+export const WithDangerouslyIgnoreUnhandledErrors = meta.story({
 	parameters: {
 		...defineTestParam({
 			clearMocks: true,
@@ -57,9 +54,9 @@ export const WithDangerouslyIgnoreUnhandledErrors: Story = {
 			}
 		})
 	}
-}
+})
 
-export const MinimalConfig: Story = {
+export const MinimalConfig = meta.story({
 	parameters: {
 		...defineTestParam({
 			clearMocks: true
@@ -72,4 +69,4 @@ export const MinimalConfig: Story = {
 			}
 		})
 	}
-}
+})

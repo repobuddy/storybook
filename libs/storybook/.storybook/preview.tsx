@@ -1,5 +1,8 @@
-import type { Preview } from '@storybook/react-vite'
+import addonDocs from '@storybook/addon-docs'
+import { definePreview } from '@storybook/react-vite'
+import darkModeAddon from '@storybook-community/storybook-dark-mode/preview'
 import { setupMonaco } from 'storybook-addon-code-editor'
+import tagBadgesAddon from 'storybook-addon-tag-badges/preview'
 import { createDarkModeDocsContainer, defineDarkModeParam } from '#repobuddy/storybook/storybook-dark-mode'
 import { onMonacoLoad } from './code-editor'
 
@@ -7,7 +10,7 @@ import './tailwind.css'
 
 setupMonaco({ onMonacoLoad })
 
-const preview: Preview = {
+export default definePreview({
 	parameters: {
 		docs: {
 			codePanel: true,
@@ -19,7 +22,6 @@ const preview: Preview = {
 			// TypeScript annotations are intentionally omitted from the helpers below:
 			// Storybook parses this function body in plain Node.js, which does not understand
 			// TypeScript syntax.
-			// @ts-expect-error -- `a.type` is not in Storybook's public sort entry type
 			storySort: (a, b) => {
 				const order = [
 					'Overview',
@@ -138,7 +140,7 @@ const preview: Preview = {
 			stylePreview: true,
 			darkClass: ['dark', 'rbsb:text-white', 'rbsb:bg-black']
 		})
-	}
-}
+	},
 
-export default preview
+	addons: [addonDocs(), tagBadgesAddon, darkModeAddon]
+})

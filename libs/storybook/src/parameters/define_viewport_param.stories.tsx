@@ -1,21 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+// These stories document the legacy parameter shapes accepted by the `define*Param` helpers.
+// CSF factories type `parameters` strictly against Storybook 10's own parameter types, so each
+// `parameters` object is widened with `as Parameters`.
+import type { Parameters } from '@storybook/react-vite'
 import dedent from 'dedent'
 import { defineDocsParam, defineViewportParam, showSource } from '#repobuddy/storybook'
+import preview from '../../.storybook/preview'
 
-const meta = {
+const meta = preview.meta({
 	title: 'Parameters/defineViewportParam',
 	tags: ['autodocs', '!snapshot', 'func', 'new', 'version:1.0'],
 	decorators: [showSource()],
 	render: () => <></>
-} satisfies Meta
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * Basic example showing how to configure viewport parameters with custom viewports
  */
-export const CustomViewports: Story = {
+export const CustomViewports = meta.story({
 	parameters: {
 		...defineViewportParam({
 			defaultViewport: 'mobile1',
@@ -51,13 +52,13 @@ export const CustomViewports: Story = {
 				})`
 			}
 		})
-	}
-}
+	} as Parameters
+})
 
 /**
  * Example showing how to set a default viewport orientation
  */
-export const DefaultOrientation: Story = {
+export const DefaultOrientation = meta.story({
 	parameters: {
 		...defineViewportParam({
 			defaultOrientation: 'landscape'
@@ -69,13 +70,13 @@ export const DefaultOrientation: Story = {
 				})`
 			}
 		})
-	}
-}
+	} as Parameters
+})
 
 /**
  * Example showing how to disable the viewport addon for a specific story
  */
-export const DisabledViewport: Story = {
+export const DisabledViewport = meta.story({
 	parameters: {
 		...defineViewportParam({
 			disable: true
@@ -87,13 +88,13 @@ export const DisabledViewport: Story = {
 				})`
 			}
 		})
-	}
-}
+	} as Parameters
+})
 
 /**
  * Example showing how to set a specific default viewport
  */
-export const SpecificViewport: Story = {
+export const SpecificViewport = meta.story({
 	parameters: {
 		...defineViewportParam({
 			defaultViewport: 'tablet1'
@@ -105,5 +106,5 @@ export const SpecificViewport: Story = {
 				})`
 			}
 		})
-	}
-}
+	} as Parameters
+})

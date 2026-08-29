@@ -1,18 +1,19 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+// These stories document the legacy parameter shapes accepted by the `define*Param` helpers.
+// CSF factories type `parameters` strictly against Storybook 10's own parameter types, so each
+// `parameters` object is widened with `as Parameters`.
+import type { Parameters } from '@storybook/react-vite'
 import dedent from 'dedent'
 import { defineBackgroundsParam, defineDocsParam, showSource } from '#repobuddy/storybook'
+import preview from '../../.storybook/preview'
 
-const meta = {
+const meta = preview.meta({
 	title: 'Parameters/defineBackgroundsParam',
 	tags: ['func', '!snapshot', 'new', 'version:1.0'],
 	decorators: [showSource()],
 	render: () => <></>
-} satisfies Meta
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const SetDefaultBackground: Story = {
+export const SetDefaultBackground = meta.story({
 	parameters: {
 		...defineBackgroundsParam({
 			default: 'light'
@@ -24,10 +25,10 @@ export const SetDefaultBackground: Story = {
 				})`
 			}
 		})
-	}
-}
+	} as Parameters
+})
 
-export const SetBackgroundOptions: Story = {
+export const SetBackgroundOptions = meta.story({
 	parameters: {
 		...defineBackgroundsParam({
 			options: [
@@ -48,5 +49,5 @@ export const SetBackgroundOptions: Story = {
 				})`
 			}
 		})
-	}
-}
+	} as Parameters
+})

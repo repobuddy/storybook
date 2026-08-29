@@ -1,14 +1,14 @@
 import dedent from 'dedent'
 import { showSource, withStoryCard } from '#repobuddy/storybook'
-import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
+import preview from '../../.storybook/preview'
 
-export default {
+const meta = preview.meta({
 	title: 'storybook-addon-tag-badges/useCaseBadge',
 	tags: ['var', '!snapshot', 'version:2.18'],
 	render: () => <></>
-} satisfies Meta
+})
 
-export const UseCaseBadge: StoryObj = {
+export const UseCaseBadge = meta.story({
 	tags: ['use-case'],
 	decorators: [
 		withStoryCard({
@@ -25,4 +25,4 @@ export const UseCaseBadge: StoryObj = {
 			}`
 		})
 	]
-}
+})

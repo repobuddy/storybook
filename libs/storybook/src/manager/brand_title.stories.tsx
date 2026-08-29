@@ -1,19 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
 import { brandTitle } from '#repobuddy/storybook/manager'
+import preview from '../../.storybook/preview'
 
-const meta = {
+const meta = preview.meta({
 	title: 'Manager/brandTitle',
 	tags: ['new', 'version:1.0', 'autodocs']
-} satisfies Meta
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * Basic example showing how to create a brand title with just text
  */
-export const SimpleString: Story = {
+export const SimpleString = meta.story({
 	parameters: {
 		docs: {
 			source: {
@@ -33,9 +30,9 @@ export const SimpleString: Story = {
 			}}
 		/>
 	)
-}
+})
 
-export const InHtml: Story = {
+export const InHtml = meta.story({
 	parameters: {
 		docs: {
 			source: {
@@ -55,9 +52,9 @@ export const InHtml: Story = {
 			}}
 		/>
 	)
-}
+})
 
-export const WithEmoji: Story = {
+export const WithEmoji = meta.story({
 	parameters: {
 		docs: {
 			source: {
@@ -77,12 +74,12 @@ export const WithEmoji: Story = {
 			}}
 		/>
 	)
-}
+})
 
 /**
  * Example showing how to add an icon to the brand title
  */
-export const WithSvgIcon: Story = {
+export const WithSvgIcon = meta.story({
 	parameters: {
 		docs: {
 			source: {
@@ -104,4 +101,4 @@ export const WithSvgIcon: Story = {
 			}}
 		/>
 	)
-}
+})

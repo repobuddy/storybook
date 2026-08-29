@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
 import { fn } from 'storybook/test'
 import { defineActionsParam, defineDocsParam, showSource } from '#repobuddy/storybook'
+import preview from '../../.storybook/preview'
 
-const meta: Meta = {
+const meta = preview.meta({
 	title: 'Parameters/defineActionsParam',
 	tags: ['func', '!snapshot', 'new', 'version:1.0'],
 	decorators: [showSource()],
@@ -11,16 +11,13 @@ const meta: Meta = {
 		onClick: fn()
 	},
 	render: () => <></>
-}
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * Basic example showing how to configure actions parameters with `argTypesRegex`
  * to automatically match event handler props.
  */
-export const WithArgTypesRegex: Story = {
+export const WithArgTypesRegex = meta.story({
 	parameters: {
 		...defineActionsParam({
 			argTypesRegex: '^on[A-Z].*'
@@ -33,12 +30,12 @@ export const WithArgTypesRegex: Story = {
 			}
 		})
 	}
-}
+})
 
 /**
  * Example showing how to disable actions for a story
  */
-export const DisabledActions: Story = {
+export const DisabledActions = meta.story({
 	parameters: {
 		...defineActionsParam({
 			disable: true
@@ -51,12 +48,12 @@ export const DisabledActions: Story = {
 			}
 		})
 	}
-}
+})
 
 /**
  * Example showing how to explicitly specify action handlers
  */
-export const ExplicitHandles: Story = {
+export const ExplicitHandles = meta.story({
 	parameters: {
 		...defineActionsParam({
 			handles: ['onClick', 'onMouseOver', 'onSubmit']
@@ -69,12 +66,12 @@ export const ExplicitHandles: Story = {
 			}
 		})
 	}
-}
+})
 
 /**
  * Example showing combined configuration options
  */
-export const CombinedConfig: Story = {
+export const CombinedConfig = meta.story({
 	parameters: {
 		...defineActionsParam({
 			argTypesRegex: '^on[A-Z].*',
@@ -91,4 +88,4 @@ export const CombinedConfig: Story = {
 			}
 		})
 	}
-}
+})

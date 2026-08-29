@@ -1,14 +1,14 @@
 import dedent from 'dedent'
 import { showSource, withStoryCard } from '#repobuddy/storybook'
-import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
+import preview from '../../.storybook/preview'
 
-export default {
+const meta = preview.meta({
 	title: 'storybook-addon-tag-badges/varBadge',
 	tags: ['var', '!snapshot', 'version:2.16'],
 	render: () => <></>
-} satisfies Meta
+})
 
-export const VarBadge: StoryObj = {
+export const VarBadge = meta.story({
 	name: 'Variable Badge',
 	tags: ['var'],
 	decorators: [
@@ -30,9 +30,9 @@ export const VarBadge: StoryObj = {
 			}`
 		})
 	]
-}
+})
 
-export const DummyStory: StoryObj = {
+export const DummyStory = meta.story({
 	tags: ['unit'],
 	render: () => <div>Dummy story to force badge to show in story and not hoisted up</div>
-}
+})

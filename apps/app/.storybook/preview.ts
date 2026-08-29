@@ -1,6 +1,9 @@
-import type { Preview } from '@storybook/react-vite'
+import addonA11y from '@storybook/addon-a11y'
+import addonDocs from '@storybook/addon-docs'
+import { definePreview } from '@storybook/react-vite'
+import darkModeAddon from '@storybook-community/storybook-dark-mode/preview'
 
-const preview: Preview = {
+export default definePreview({
 	parameters: {
 		controls: {
 			matchers: {
@@ -15,7 +18,7 @@ const preview: Preview = {
 			// 'off' - skip a11y checks entirely
 			test: 'todo'
 		}
-	}
-}
+	},
 
-export default preview
+	addons: [addonDocs(), addonA11y(), darkModeAddon]
+})

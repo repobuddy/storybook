@@ -1,21 +1,18 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
 import { defineDocsParam, defineStoryCardParam, showSource, withStoryCard } from '#repobuddy/storybook'
+import preview from '../../.storybook/preview'
 
-const meta: Meta = {
+const meta = preview.meta({
 	title: 'parameters/defineStoryCard',
 	tags: ['func', 'new', 'version:2.9'],
 	decorators: [showSource()],
 	render: () => <p>This is the story content</p>
-}
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * Basic example showing how to configure story card parameters with title and content.
  */
-export const WithTitleAndContent: Story = {
+export const WithTitleAndContent = meta.story({
 	parameters: {
 		...defineStoryCardParam({
 			title: 'Important Notice',
@@ -33,12 +30,12 @@ export const WithTitleAndContent: Story = {
 		})
 	},
 	decorators: [withStoryCard()]
-}
+})
 
 /**
  * Example showing how to use story card with automatic content from story description.
  */
-export const WithStoryDescription: Story = {
+export const WithStoryDescription = meta.story({
 	parameters: {
 		...defineDocsParam({
 			description: {
@@ -59,12 +56,12 @@ export const WithStoryDescription: Story = {
 		})
 	},
 	decorators: [withStoryCard()]
-}
+})
 
 /**
  * Example showing error status card.
  */
-export const WithErrorStatus: Story = {
+export const WithErrorStatus = meta.story({
 	parameters: {
 		...defineStoryCardParam({
 			title: 'Error Card',
@@ -82,12 +79,12 @@ export const WithErrorStatus: Story = {
 		})
 	},
 	decorators: [withStoryCard()]
-}
+})
 
 /**
  * Example showing warn status card.
  */
-export const WithWarnStatus: Story = {
+export const WithWarnStatus = meta.story({
 	parameters: {
 		...defineStoryCardParam({
 			title: 'Warning Card',
@@ -105,12 +102,12 @@ export const WithWarnStatus: Story = {
 		})
 	},
 	decorators: [withStoryCard()]
-}
+})
 
 /**
  * Example showing info status card (default).
  */
-export const WithInfoStatus: Story = {
+export const WithInfoStatus = meta.story({
 	parameters: {
 		...defineStoryCardParam({
 			title: 'Info Card',
@@ -128,12 +125,12 @@ export const WithInfoStatus: Story = {
 		})
 	},
 	decorators: [withStoryCard()]
-}
+})
 
 /**
  * Example showing custom className string.
  */
-export const WithCustomClassName: Story = {
+export const WithCustomClassName = meta.story({
 	parameters: {
 		...defineStoryCardParam({
 			title: 'Custom Styled Card',
@@ -153,12 +150,12 @@ export const WithCustomClassName: Story = {
 		})
 	},
 	decorators: [withStoryCard()]
-}
+})
 
 /**
  * Example showing className function.
  */
-export const WithClassNameFunction: Story = {
+export const WithClassNameFunction = meta.story({
 	parameters: {
 		...defineStoryCardParam({
 			title: 'Function-Based Styling',
@@ -189,12 +186,12 @@ export const WithClassNameFunction: Story = {
 		})
 	},
 	decorators: [withStoryCard()]
-}
+})
 
 /**
  * Example showing that decorator props override parameter values.
  */
-export const DecoratorPropsOverride: Story = {
+export const DecoratorPropsOverride = meta.story({
 	parameters: {
 		...defineStoryCardParam({
 			title: 'Parameter Title',
@@ -226,4 +223,4 @@ export const DecoratorPropsOverride: Story = {
 			content: <p>This content comes from the decorator and overrides the parameter values.</p>
 		})
 	]
-}
+})

@@ -1,13 +1,13 @@
 import { themes } from 'storybook/theming'
 import { defineDocsParam, showDocSource, withStoryCard } from '#repobuddy/storybook'
-import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
+import preview from '../../.storybook/preview'
 
 // Simple demo component for testing the decorator
 const DemoComponent = ({ text = 'Hello World' }: { text?: string }) => (
 	<div className="rbsb:p-4 rbsb:bg-gray-100 rbsb:dark:bg-gray-500 rbsb:rounded">{text}</div>
 )
 
-const meta = {
+const meta = preview.meta({
 	title: 'decorators/showDocSource',
 	tags: ['deprecated', 'version:2.22', '!snapshot'],
 	decorators: [
@@ -21,13 +21,9 @@ const meta = {
 		})
 	],
 	render: () => <></>
-} satisfies Meta
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const ShowDocsSourceCode: Story = {
+export const ShowDocsSourceCode = meta.story({
 	parameters: {
 		docs: {
 			source: {
@@ -46,9 +42,9 @@ export const ShowDocsSourceCode: Story = {
 		showDocSource()
 	],
 	render: () => <DemoComponent text="Hello World" />
-}
+})
 
-export const ShowStorySource: Story = {
+export const ShowStorySource = meta.story({
 	decorators: [
 		withStoryCard({
 			content: <p>When no `source` is provided, the decorator will use the original source code of the story.</p>
@@ -56,9 +52,9 @@ export const ShowStorySource: Story = {
 		showDocSource()
 	],
 	render: () => <DemoComponent text="Hello World" />
-}
+})
 
-export const WithLanguageJson: Story = {
+export const WithLanguageJson = meta.story({
 	name: 'With docs.source.language: json',
 	parameters: defineDocsParam({
 		source: {
@@ -77,9 +73,9 @@ export const WithLanguageJson: Story = {
 		showDocSource(),
 		showDocSource({ showOriginalSource: true })
 	]
-}
+})
 
-export const WithLanguageMd: Story = {
+export const WithLanguageMd = meta.story({
 	name: 'With docs.source.language: md',
 	parameters: defineDocsParam({
 		source: {
@@ -98,9 +94,9 @@ export const WithLanguageMd: Story = {
 		showDocSource(),
 		showDocSource({ showOriginalSource: true })
 	]
-}
+})
 
-export const WithDocsTheme: Story = {
+export const WithDocsTheme = meta.story({
 	name: 'With docs.theme: dark',
 	parameters: defineDocsParam({
 		source: {
@@ -119,9 +115,9 @@ export const WithDocsTheme: Story = {
 		showDocSource(),
 		showDocSource({ showOriginalSource: true })
 	]
-}
+})
 
-export const ShowDocsSource: Story = {
+export const ShowDocsSource = meta.story({
 	name: 'showOriginalSource: true',
 	tags: ['props'],
 	parameters: {
@@ -142,9 +138,9 @@ export const ShowDocsSource: Story = {
 		}),
 		showDocSource({ showOriginalSource: true })
 	]
-}
+})
 
-export const WithClassNameString: Story = {
+export const WithClassNameString = meta.story({
 	name: 'className: string',
 	tags: ['props'],
 	parameters: defineDocsParam({
@@ -161,9 +157,9 @@ export const WithClassNameString: Story = {
 		})
 	],
 	render: () => <DemoComponent text="Custom border and shadow" />
-}
+})
 
-export const WithClassNameFunction: Story = {
+export const WithClassNameFunction = meta.story({
 	name: 'className: function',
 	tags: ['props'],
 	parameters: defineDocsParam({
@@ -182,9 +178,9 @@ export const WithClassNameFunction: Story = {
 		})
 	],
 	render: () => <DemoComponent text="Function-based styling" />
-}
+})
 
-export const WithClassNameConditional: Story = {
+export const WithClassNameConditional = meta.story({
 	name: 'className: conditional function',
 	tags: ['props'],
 	parameters: defineDocsParam({
@@ -208,9 +204,9 @@ export const WithClassNameConditional: Story = {
 		})
 	],
 	render: () => <DemoComponent text="Conditional styling with function" />
-}
+})
 
-export const WithSourceString: Story = {
+export const WithSourceString = meta.story({
 	name: 'source: string',
 	tags: ['props'],
 	decorators: [
@@ -224,9 +220,9 @@ export const WithSourceString: Story = {
 		showDocSource({ source: '() => <DemoComponent text="Hello World" />' })
 	],
 	render: () => <DemoComponent text="Hello World" />
-}
+})
 
-export const WithSourceFunction: Story = {
+export const WithSourceFunction = meta.story({
 	name: 'source: function',
 	tags: ['props'],
 	parameters: defineDocsParam({
@@ -251,9 +247,9 @@ export const WithSourceFunction: Story = {
 		})
 	],
 	render: () => <DemoComponent text="Hello World" />
-}
+})
 
-export const PlacementBefore: Story = {
+export const PlacementBefore = meta.story({
 	name: "placement: 'before'",
 	tags: ['props'],
 	parameters: defineDocsParam({
@@ -275,9 +271,9 @@ export const PlacementBefore: Story = {
 		showDocSource({ placement: 'before' })
 	],
 	render: () => <DemoComponent text="Rendered below the source" />
-}
+})
 
-export const TwoShowDocSourceBefore: Story = {
+export const TwoShowDocSourceBefore = meta.story({
 	name: "two showDocSource (placement: 'before')",
 	tags: ['unit', 'snapshot'],
 	parameters: defineDocsParam({
@@ -294,9 +290,9 @@ export const TwoShowDocSourceBefore: Story = {
 		showDocSource({ placement: 'before', source: '// Second source block' })
 	],
 	render: () => <DemoComponent text="Story content" />
-}
+})
 
-export const TwoShowDocSourceAfter: Story = {
+export const TwoShowDocSourceAfter = meta.story({
 	name: "two showDocSource (placement: 'after' / default)",
 	tags: ['unit', 'snapshot'],
 	parameters: defineDocsParam({
@@ -310,9 +306,9 @@ export const TwoShowDocSourceAfter: Story = {
 	}),
 	decorators: [showDocSource({ source: '// First source block' }), showDocSource({ source: '// Second source block' })],
 	render: () => <DemoComponent text="Story content" />
-}
+})
 
-export const TwoWithStoryCardTwoShowDocSource: Story = {
+export const TwoWithStoryCardTwoShowDocSource = meta.story({
 	name: 'two withStoryCard + two showDocSource',
 	tags: ['unit', 'snapshot'],
 	parameters: defineDocsParam({
@@ -325,10 +321,19 @@ export const TwoWithStoryCardTwoShowDocSource: Story = {
 		}
 	}),
 	decorators: [
-		withStoryCard({ title: 'First card', content: <p>This card should appear first.</p> }),
-		showDocSource({ placement: 'before', source: '// Source shown before the story' }),
-		withStoryCard({ title: 'Second card', content: <p>This card should appear after the first source.</p> }),
+		withStoryCard({
+			title: 'First card',
+			content: <p>This card should appear first.</p>
+		}),
+		showDocSource({
+			placement: 'before',
+			source: '// Source shown before the story'
+		}),
+		withStoryCard({
+			title: 'Second card',
+			content: <p>This card should appear after the first source.</p>
+		}),
 		showDocSource({ source: '// Source shown after the story' })
 	],
 	render: () => <DemoComponent text="Story content" />
-}
+})

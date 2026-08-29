@@ -1,11 +1,14 @@
-import { setProjectAnnotations } from '@storybook/react-vite'
 import { vis, visAnnotations } from 'storybook-addon-vis/vitest-setup'
 import { beforeAll } from 'vitest'
-import * as projectAnnotations from './preview'
+import preview from './preview'
 
-// This is an important step to apply the right configuration when testing your stories.
-// More info at: https://storybook.js.org/docs/api/portable-stories/portable-stories-vitest#setprojectannotations
-setProjectAnnotations([visAnnotations, projectAnnotations])
+// CSF factories bind every story to `.storybook/preview`, so a story run composes
+// `preview.composed` instead of the annotations `setProjectAnnotations` registers.
+// Attach the vis hook there so the `!snapshot` tag is still honored.
+preview.composed.beforeEach = [
+	...(preview.composed.beforeEach ? [preview.composed.beforeEach].flat() : []),
+	visAnnotations.beforeEach
+]
 
 beforeAll(async () => {
 	await document.fonts?.ready

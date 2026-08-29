@@ -1,8 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+// These stories document the legacy parameter shapes accepted by the `define*Param` helpers.
+// CSF factories type `parameters` strictly against Storybook 10's own parameter types, so each
+// `parameters` object is widened with `as Parameters`.
+import type { Parameters } from '@storybook/react-vite'
 import dedent from 'dedent'
 import { type ActionsParam, defineParameters, showSource } from '#repobuddy/storybook'
+import preview from '../../.storybook/preview'
 
-export default {
+const meta = preview.meta({
 	title: 'parameters/defineParameters',
 	tags: ['autodocs', '!snapshot', 'func', 'new', 'version:1.0'],
 	decorators: [showSource()],
@@ -16,11 +20,11 @@ export default {
 				].join('\n')
 			}
 		}
-	}),
+	}) as Parameters,
 	render: () => <></>
-} satisfies Meta
+})
 
-export const WithLayout: StoryObj = {
+export const WithLayout = meta.story({
 	parameters: defineParameters({
 		layout: 'centered',
 		docs: {
@@ -30,10 +34,10 @@ export const WithLayout: StoryObj = {
 			})`
 			}
 		}
-	})
-}
+	}) as Parameters
+})
 
-export const WithBackgroundsParam: StoryObj = {
+export const WithBackgroundsParam = meta.story({
 	parameters: defineParameters({
 		backgrounds: {
 			default: 'light'
@@ -47,10 +51,10 @@ export const WithBackgroundsParam: StoryObj = {
 			})`
 			}
 		}
-	})
-}
+	}) as Parameters
+})
 
-export const WithDocsParam: StoryObj = {
+export const WithDocsParam = meta.story({
 	parameters: defineParameters({
 		docs: {
 			description: {
@@ -66,10 +70,10 @@ export const WithDocsParam: StoryObj = {
 			})`
 			}
 		}
-	})
-}
+	}) as Parameters
+})
 
-export const WithViewportParam: StoryObj = {
+export const WithViewportParam = meta.story({
 	parameters: defineParameters({
 		viewport: {
 			defaultViewport: 'tablet1'
@@ -83,10 +87,10 @@ export const WithViewportParam: StoryObj = {
 			})`
 			}
 		}
-	})
-}
+	}) as Parameters
+})
 
-export const WithOtherParams: StoryObj = {
+export const WithOtherParams = meta.story({
 	parameters: defineParameters({
 		something: {
 			blah: 'beer'
@@ -100,14 +104,14 @@ export const WithOtherParams: StoryObj = {
 			})`
 			}
 		}
-	}),
+	}) as Parameters,
 	render: () => <div>You can use this to configure parameters that are not defined in the type</div>
-}
+})
 
 /**
  * Example showing how to use `defineParameters` to configure actions parameters
  */
-export const WithActionsParam: StoryObj = {
+export const WithActionsParam = meta.story({
 	parameters: defineParameters<ActionsParam>(
 		{
 			actions: {
@@ -125,10 +129,10 @@ export const WithActionsParam: StoryObj = {
 				}
 			}
 		}
-	)
-}
+	) as Parameters
+})
 
-export const ComposingParameters: StoryObj = {
+export const ComposingParameters = meta.story({
 	parameters: defineParameters(
 		{
 			layout: 'centered'
@@ -144,5 +148,5 @@ export const ComposingParameters: StoryObj = {
 				}
 			}
 		}
-	)
-}
+	) as Parameters
+})

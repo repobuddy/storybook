@@ -1,9 +1,9 @@
 import { expect } from 'storybook/test'
 import { twMerge } from 'tailwind-merge'
 import { defineDocsParam, isRunningInTest, showSource, withStoryCard } from '#repobuddy/storybook'
-import type { Meta, StoryObj } from '#repobuddy/storybook/storybook-addon-tag-badges'
+import preview from '../../.storybook/preview'
 
-const meta = {
+const meta = preview.meta({
 	title: 'decorators/withStoryCard',
 	tags: ['autodocs', 'version:2.2'],
 	parameters: defineDocsParam({
@@ -13,13 +13,9 @@ const meta = {
 		}
 	}),
 	render: () => <p>This is the story content</p>
-} satisfies Meta
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const ShowsComponentDescription: Story = {
+export const ShowsComponentDescription = meta.story({
 	tags: ['usecase', 'snapshot'],
 	decorators: [
 		withStoryCard(),
@@ -37,9 +33,9 @@ export const ShowsComponentDescription: Story = {
 		const sections = canvasElement.querySelectorAll('section')
 		await expect(sections).toHaveLength(2)
 	}
-}
+})
 
-export const ShowsStoryDescription: Story = {
+export const ShowsStoryDescription = meta.story({
 	tags: ['usecase', 'snapshot'],
 	parameters: defineDocsParam({
 		description: {
@@ -62,9 +58,9 @@ export const ShowsStoryDescription: Story = {
 		const sections = canvasElement.querySelectorAll('section')
 		await expect(sections).toHaveLength(2)
 	}
-}
+})
 
-export const WithContent: Story = {
+export const WithContent = meta.story({
 	name: 'content: ReactNode',
 	tags: ['props'],
 	decorators: [
@@ -82,9 +78,9 @@ export const WithContent: Story = {
 		const message = canvas.getByText('Custom message.')
 		await expect(message).toBeInTheDocument()
 	}
-}
+})
 
-export const WithTitle: Story = {
+export const WithTitle = meta.story({
 	name: 'title: ReactNode',
 	tags: ['props'],
 	parameters: defineDocsParam({
@@ -98,9 +94,9 @@ export const WithTitle: Story = {
 		const title = canvas.getByText('Story Card Title')
 		await expect(title).toBeInTheDocument()
 	}
-}
+})
 
-export const DataTestId: Story = {
+export const DataTestId = meta.story({
 	name: 'data-testid: provided',
 	tags: ['props'],
 	parameters: defineDocsParam({
@@ -120,9 +116,9 @@ export const DataTestId: Story = {
 		const section = canvas.getByTestId('with-story-card-example')
 		await expect(section).toBeInTheDocument()
 	}
-}
+})
 
-export const WithInfoStatus: Story = {
+export const WithInfoStatus = meta.story({
 	name: 'status: info',
 	tags: ['props', 'deprecated', 'version:2.14', '!version:2.2'],
 	parameters: defineDocsParam({
@@ -149,9 +145,9 @@ export const WithInfoStatus: Story = {
 		const statusCard = sections[1]
 		await expect(statusCard).toHaveClass('rbsb:bg-sky-100', 'rbsb:dark:bg-sky-900')
 	}
-}
+})
 
-export const WithWarnStatus: Story = {
+export const WithWarnStatus = meta.story({
 	name: 'status: warn',
 	tags: ['props', 'deprecated', 'version:2.14', '!version:2.2'],
 	parameters: defineDocsParam({
@@ -178,9 +174,9 @@ export const WithWarnStatus: Story = {
 		const statusCard = sections[1]
 		await expect(statusCard).toHaveClass('rbsb:bg-yellow-100', 'rbsb:dark:bg-yellow-900')
 	}
-}
+})
 
-export const WithErrorStatus: Story = {
+export const WithErrorStatus = meta.story({
 	name: 'status: error',
 	tags: ['props', 'deprecated', 'version:2.14', '!version:2.2'],
 	parameters: defineDocsParam({
@@ -207,9 +203,9 @@ export const WithErrorStatus: Story = {
 		const statusCard = sections[1]
 		await expect(statusCard).toHaveClass('rbsb:bg-red-100', 'rbsb:dark:bg-red-900')
 	}
-}
+})
 
-export const WithAppearanceError: Story = {
+export const WithAppearanceError = meta.story({
 	name: 'appearance: error',
 	tags: ['props', 'version:2.14', '!version:2.2'],
 	parameters: defineDocsParam({
@@ -238,9 +234,9 @@ export const WithAppearanceError: Story = {
 			'rbsb:dark:border-red-700'
 		)
 	}
-}
+})
 
-export const WithAppearanceWarn: Story = {
+export const WithAppearanceWarn = meta.story({
 	name: 'appearance: warn',
 	tags: ['props', 'version:2.14', '!version:2.2'],
 	parameters: defineDocsParam({
@@ -269,9 +265,9 @@ export const WithAppearanceWarn: Story = {
 			'rbsb:dark:border-yellow-700'
 		)
 	}
-}
+})
 
-export const WithAppearanceInfo: Story = {
+export const WithAppearanceInfo = meta.story({
 	name: 'appearance: info',
 	tags: ['props', 'version:2.14', '!version:2.2'],
 	parameters: defineDocsParam({
@@ -300,9 +296,9 @@ export const WithAppearanceInfo: Story = {
 			'rbsb:dark:border-sky-700'
 		)
 	}
-}
+})
 
-export const WithAppearanceSource: Story = {
+export const WithAppearanceSource = meta.story({
 	name: 'appearance: source',
 	tags: ['props', 'version:2.14', '!version:2.2'],
 	parameters: defineDocsParam({
@@ -331,9 +327,9 @@ export const WithAppearanceSource: Story = {
 			'rbsb:dark:border-gray-700'
 		)
 	}
-}
+})
 
-export const WithAppearanceOutput: Story = {
+export const WithAppearanceOutput = meta.story({
 	name: 'appearance: output',
 	tags: ['props', 'version:2.14', '!version:2.2'],
 	parameters: defineDocsParam({
@@ -362,9 +358,9 @@ export const WithAppearanceOutput: Story = {
 			'rbsb:dark:border-green-700'
 		)
 	}
-}
+})
 
-export const WithCustomClassName: Story = {
+export const WithCustomClassName = meta.story({
 	name: 'className: string',
 	tags: ['props'],
 	parameters: defineDocsParam({
@@ -384,9 +380,9 @@ export const WithCustomClassName: Story = {
 		const section = canvasElement.querySelector('section')
 		await expect(section).toHaveClass('rbsb:border-2 rbsb:border-blue-500 rbsb:shadow-lg')
 	}
-}
+})
 
-export const WithClassNameFunction: Story = {
+export const WithClassNameFunction = meta.story({
 	name: 'className: function',
 	tags: ['props', 'snapshot'],
 	parameters: defineDocsParam({
@@ -415,9 +411,9 @@ export const WithClassNameFunction: Story = {
 			source: 'className: ({ appearance, defaultClassName }) => string'
 		})
 	]
-}
+})
 
-export const HiddenWithoutMessage: Story = {
+export const HiddenWithoutMessage = meta.story({
 	tags: ['edgecase'],
 	parameters: defineDocsParam({
 		description: {
@@ -436,9 +432,9 @@ export const HiddenWithoutMessage: Story = {
 		const section = canvasElement.querySelector('section')
 		await expect(section).not.toBeInTheDocument()
 	}
-}
+})
 
-export const ControlsRedrawnWhenArgsChange: Story = {
+export const ControlsRedrawnWhenArgsChange = meta.story({
 	name: 'Controls: rerenders on args change',
 	tags: ['edgecase'],
 	args: { label: 'Initial label — change me in the Controls panel' },
@@ -461,4 +457,4 @@ export const ControlsRedrawnWhenArgsChange: Story = {
 		})
 	],
 	render: (args) => <p data-testid="label">{String((args as { label: string }).label)}</p>
-}
+})

@@ -1,19 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useEffect } from 'react'
 import { defineDarkModeParam, withDarkMode } from '#repobuddy/storybook/storybook-dark-mode'
+import preview from '../../.storybook/preview'
 
-const meta = {
+const meta = preview.meta({
 	title: 'storybook-dark-mode/withDarkMode',
 	tags: ['new', 'version:1.0'],
 	parameters: {
 		layout: 'centered'
 	}
-} satisfies Meta
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const WithClassName: Story = {
+export const WithClassName = meta.story({
 	parameters: defineDarkModeParam({
 		classTarget: 'html',
 		darkClass: ['rbsb:bg-green-800', 'rbsb:font-extrabold'],
@@ -38,9 +35,9 @@ export const WithClassName: Story = {
 			</div>
 		)
 	}
-}
+})
 
-export const WithStyle: Story = {
+export const WithStyle = meta.story({
 	parameters: defineDarkModeParam({
 		classTarget: 'html',
 		darkStyle: {
@@ -67,9 +64,9 @@ export const WithStyle: Story = {
 			</div>
 		)
 	}
-}
+})
 
-export const BodyClass: Story = {
+export const BodyClass = meta.story({
 	name: 'bodyClass',
 	tags: ['props'],
 	decorators: [
@@ -87,9 +84,9 @@ export const BodyClass: Story = {
 		)
 		return <div>The background color will turn green in dark mode and red in light mode.</div>
 	}
-}
+})
 
-export const BodyStyle: Story = {
+export const BodyStyle = meta.story({
 	name: 'bodyStyle',
 	tags: ['props'],
 	decorators: [
@@ -115,9 +112,9 @@ export const BodyStyle: Story = {
 			</div>
 		)
 	}
-}
+})
 
-export const WithBodyTarget: Story = {
+export const WithBodyTarget = meta.story({
 	parameters: defineDarkModeParam({
 		classTarget: 'body',
 		darkClass: ['rbsb:bg-green-800', 'rbsb:font-extrabold'],
@@ -138,4 +135,4 @@ export const WithBodyTarget: Story = {
 			</div>
 		)
 	}
-}
+})
