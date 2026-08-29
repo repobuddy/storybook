@@ -7,6 +7,10 @@ const meta = preview.meta({
 	tags: ['new', 'version:1.0', 'autodocs']
 })
 
+// These stories demonstrate specific colors, so the contrast rule is excluded
+// rather than the colors changed -- the colors are the subject.
+const demoColors = { a11y: { options: { rules: { 'color-contrast': { enabled: false } } } } }
+
 /**
  * Basic example showing how to create a brand title with just text
  */
@@ -34,6 +38,7 @@ export const SimpleString = meta.story({
 
 export const InHtml = meta.story({
 	parameters: {
+		...demoColors,
 		docs: {
 			source: {
 				code: dedent`brandTitle({

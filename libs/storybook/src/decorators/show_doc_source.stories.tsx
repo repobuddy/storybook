@@ -4,7 +4,9 @@ import preview from '../../.storybook/preview'
 
 // Simple demo component for testing the decorator
 const DemoComponent = ({ text = 'Hello World' }: { text?: string }) => (
-	<div className="rbsb:p-4 rbsb:bg-gray-100 rbsb:dark:bg-gray-500 rbsb:rounded">{text}</div>
+	<div className="rbsb:p-4 rbsb:text-black rbsb:dark:text-white rbsb:bg-gray-100 rbsb:dark:bg-gray-500 rbsb:rounded">
+		{text}
+	</div>
 )
 
 const meta = preview.meta({

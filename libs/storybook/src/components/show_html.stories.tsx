@@ -33,7 +33,7 @@ export const DefaultSubject = meta.story({
 	render: () => (
 		<div className="rbsb:flex rbsb:flex-col rbsb:gap-4">
 			<div data-testid="subject">
-				<button type="button" className="rbsb:bg-sky-500 rbsb:text-white rbsb:rounded rbsb:p-2">
+				<button type="button" className="rbsb:bg-sky-700 rbsb:text-white rbsb:rounded rbsb:p-2">
 					This is a button
 				</button>
 			</div>
@@ -48,10 +48,10 @@ export const NoSubjectFound = meta.story({
 
 export const CustomizeWithClassName = meta.story({
 	tags: ['props'],
-	render: () => <ShowHtml className="rbsb:bg-sky-500 rbsb:text-white rbsb:rounded rbsb:p-2" />
+	render: () => <ShowHtml className="rbsb:bg-sky-700 rbsb:text-white rbsb:rounded rbsb:p-2" />
 })
 
 export const CustomizeWithStyle = meta.story({
 	tags: ['props'],
-	render: () => <ShowHtml style={{ backgroundColor: 'red', color: 'white' }} />
+	render: () => <ShowHtml style={{ backgroundColor: 'darkred', color: 'white' }} />
 })

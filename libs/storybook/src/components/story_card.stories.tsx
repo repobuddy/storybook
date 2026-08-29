@@ -208,7 +208,7 @@ export const WithComplexContent = meta.story({
 				</ul>
 				<button
 					type="button"
-					className="rbsb:bg-sky-500 rbsb:text-white rbsb:rounded rbsb:px-4 rbsb:py-2 rbsb:self-start"
+					className="rbsb:bg-sky-700 rbsb:text-white rbsb:rounded rbsb:px-4 rbsb:py-2 rbsb:self-start"
 				>
 					Action Button
 				</button>

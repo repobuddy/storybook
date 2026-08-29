@@ -10,6 +10,10 @@ const meta = preview.meta({
 	}
 })
 
+// These stories demonstrate specific colors, so the contrast rule is excluded
+// rather than the colors changed -- the colors are the subject.
+const demoColors = { a11y: { options: { rules: { 'color-contrast': { enabled: false } } } } }
+
 export const WithClassName = meta.story({
 	parameters: defineDarkModeParam({
 		classTarget: 'html',
@@ -38,17 +42,20 @@ export const WithClassName = meta.story({
 })
 
 export const WithStyle = meta.story({
-	parameters: defineDarkModeParam({
-		classTarget: 'html',
-		darkStyle: {
-			backgroundColor: '#016630',
-			color: '#ffffff'
-		},
-		lightStyle: {
-			backgroundColor: '#9f0712',
-			color: '#000000'
-		}
-	}),
+	parameters: {
+		...demoColors,
+		...defineDarkModeParam({
+			classTarget: 'html',
+			darkStyle: {
+				backgroundColor: '#016630',
+				color: '#ffffff'
+			},
+			lightStyle: {
+				backgroundColor: '#9f0712',
+				color: '#000000'
+			}
+		})
+	},
 	decorators: [withDarkMode()],
 	render: () => {
 		useEffect(
@@ -69,6 +76,7 @@ export const WithStyle = meta.story({
 export const BodyClass = meta.story({
 	name: 'bodyClass',
 	tags: ['props'],
+	parameters: demoColors,
 	decorators: [
 		withDarkMode({
 			bodyClass: 'rbsb:bg-red-800 rbsb:font-extralight rbsb:dark:bg-green-800 rbsb:dark:font-extrabold'

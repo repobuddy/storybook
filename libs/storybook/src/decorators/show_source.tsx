@@ -98,14 +98,14 @@ export function showSource<TRenderer extends Renderer = Renderer, TArgs = Args>(
 			[className, isOriginalSource]
 		)
 
+		if (isRunningInTest()) {
+			return <Story />
+		}
+
 		const theme = convert(docs?.theme ?? (isDark ? themes.dark : themes.light))
 
 		function DocSourceCard({ children }: { children: ReactNode }) {
 			return <div>{children}</div>
-		}
-
-		if (isRunningInTest()) {
-			return <Story />
 		}
 
 		// For 'before', use StoryCardScope so this card participates in parent scope order.
@@ -119,12 +119,6 @@ export function showSource<TRenderer extends Renderer = Renderer, TArgs = Args>(
 			return <StoryCardScope Story={Story} content={scopeContent} className={sourceCardClassName} appearance="source" />
 		}
 
-		const storyCard = (
-			<StoryCard className={sourceCardClassName} appearance="source" {...options}>
-				<DocSourceCard>{sourceContent}</DocSourceCard>
-			</StoryCard>
-		)
-
 		return (
 			<ThemeProvider theme={theme}>
 				<section
@@ -135,7 +129,9 @@ export function showSource<TRenderer extends Renderer = Renderer, TArgs = Args>(
 					}}
 				>
 					<Story />
-					{storyCard}
+					<StoryCard className={sourceCardClassName} appearance="source" {...options}>
+						<DocSourceCard>{sourceContent}</DocSourceCard>
+					</StoryCard>
 				</section>
 			</ThemeProvider>
 		)
