@@ -1,5 +1,4 @@
 // This file has been automatically migrated to valid ESM format by Storybook.
-import { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { defineMain } from '@storybook/react-vite/node'
 import { getCodeEditorStaticDirs } from 'storybook-addon-code-editor/getStaticDirs'
@@ -10,16 +9,17 @@ export default defineMain({
 	stories: ['../src/**/*.@(mdx|stories.@(ts|tsx))'],
 	staticDirs: [...getCodeEditorStaticDirs(__filename)],
 	addons: [
-		getAbsolutePath('@storybook/addon-docs'),
-		getAbsolutePath('@storybook/addon-vitest'),
-		getAbsolutePath('storybook-addon-tag-badges'),
-		getAbsolutePath('@storybook-community/storybook-dark-mode'),
-		getAbsolutePath('storybook-addon-code-editor'),
-		getAbsolutePath('storybook-addon-vis')
+		'@storybook/addon-a11y',
+		'@storybook/addon-docs',
+		'@storybook/addon-vitest',
+		'storybook-addon-tag-badges',
+		'@storybook-community/storybook-dark-mode',
+		'storybook-addon-code-editor',
+		'storybook-addon-vis'
 	],
 	docs: { defaultName: 'Overview' },
 	framework: {
-		name: getAbsolutePath('@storybook/react-vite'),
+		name: '@storybook/react-vite',
 		options: {}
 	},
 	tags: {
@@ -34,7 +34,3 @@ export default defineMain({
 		}
 	}
 })
-
-function getAbsolutePath(value: string): any {
-	return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)))
-}

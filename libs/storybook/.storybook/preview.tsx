@@ -1,3 +1,4 @@
+import addonA11y from '@storybook/addon-a11y'
 import addonDocs from '@storybook/addon-docs'
 import { definePreview } from '@storybook/react-vite'
 import darkModeAddon from '@storybook-community/storybook-dark-mode/preview'
@@ -12,6 +13,12 @@ setupMonaco({ onMonacoLoad })
 
 export default definePreview({
 	parameters: {
+		a11y: {
+			// 'todo' - report violations in the test UI only
+			// 'error' - fail the test run on violations
+			// 'off' - skip a11y checks entirely
+			test: 'error'
+		},
 		docs: {
 			codePanel: true,
 			container: createDarkModeDocsContainer()
@@ -142,5 +149,5 @@ export default definePreview({
 		})
 	},
 
-	addons: [addonDocs(), tagBadgesAddon, darkModeAddon]
+	addons: [addonA11y(), addonDocs(), tagBadgesAddon, darkModeAddon]
 })
