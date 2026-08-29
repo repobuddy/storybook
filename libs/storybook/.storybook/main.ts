@@ -7,7 +7,7 @@ import { getCodeEditorStaticDirs } from 'storybook-addon-code-editor/getStaticDi
 const __filename = fileURLToPath(import.meta.url)
 
 export default defineMain({
-	stories: ['../src/**/*.mdx', '../src/**/*.stories.tsx'],
+	stories: ['../src/**/*.@(mdx|stories.@(ts|tsx))'],
 	staticDirs: [...getCodeEditorStaticDirs(__filename)],
 	addons: [
 		getAbsolutePath('@storybook/addon-docs'),

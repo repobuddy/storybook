@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url'
 import { defineMain } from '@storybook/react-vite/node'
 
 export default defineMain({
-	stories: ['../src/**/*.@(mdx|stories.tsx)'],
+	stories: ['../src/**/*.@(mdx|stories.@(ts|tsx))'],
 	addons: [
 		getAbsolutePath('@storybook/addon-docs'),
 		getAbsolutePath('@storybook/addon-a11y'),
