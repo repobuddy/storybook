@@ -83,17 +83,7 @@ export function showSource<TRenderer extends Renderer = Renderer, TArgs = Args>(
 
 		const sourceCardClassName = useCallback(
 			(state: Pick<StoryCardProps, 'status' | 'appearance'> & { defaultClassName: string }) => {
-				const modifiedState = {
-					...state,
-					defaultClassName: twJoin(
-						state.defaultClassName,
-						isOriginalSource && 'rbsb:bg-transparent rbsb:dark:bg-transparent'
-					)
-				}
-
-				return typeof className === 'function'
-					? className(modifiedState)
-					: twJoin(modifiedState.defaultClassName, className)
+				return typeof className === 'function' ? className(state) : twJoin(state.defaultClassName, className)
 			},
 			[className, isOriginalSource]
 		)
