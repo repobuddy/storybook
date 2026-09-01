@@ -15,5 +15,10 @@ minimumReleaseAgeExclude:
   # First-party, published in this same sweep; taken early because 0.8.3 pins
   # type-plus@8.0.0-beta.7 into every consumer of @repobuddy/storybook.
   - '@just-web/css@0.8.4'
+overrides:
+  # GHSA: Rollup 4 arbitrary file write via path traversal, fixed in 4.59.0.
+  # rollup is only here as @storybook/csf-plugin's optional `*` peer, so no
+  # manifest declares it and `pnpm update` cannot move it.
+  rollup: '^4.63.1'
 patchedDependencies:
   storybook-addon-tag-badges: patches/storybook-addon-tag-badges.patch
