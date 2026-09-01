@@ -17,9 +17,17 @@
 			"automerge": true
 		},
 		{
-			"description": "These reach every consumer of @repobuddy/storybook and need a changeset, so a human decides.",
+			"description": "These reach every consumer of @repobuddy/storybook and need a changeset, so a human decides. Scoped to the published manifest: the private root and apps/app list their tooling under `dependencies` too, and that tooling ships to nobody.",
+			"matchFileNames": ["libs/storybook/package.json"],
 			"matchDepTypes": ["dependencies", "peerDependencies"],
 			"automerge": false
+		},
+		{
+			"description": "The private root and the demo app publish nothing, so their `dependencies` are tooling and automerge like devDependencies.",
+			"matchFileNames": ["package.json", "apps/app/package.json"],
+			"matchDepTypes": ["dependencies"],
+			"matchUpdateTypes": ["patch", "minor", "pin", "digest"],
+			"automerge": true
 		},
 		{
 			"description": "Majors break builds in ways CI catches but a human should choose to absorb.",
