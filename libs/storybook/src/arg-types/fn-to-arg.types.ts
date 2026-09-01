@@ -1,4 +1,5 @@
-import type { AnyFunction, CreateTuple, Properties, Tail } from 'type-plus'
+import type { AnyFunction, CreateTuple, Tail } from 'type-plus'
+import type { Properties } from './_properties.js'
 
 /**
  * Converts a function's parameter types to `Args` type for Storybook.

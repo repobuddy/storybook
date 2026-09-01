@@ -1,4 +1,30 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"extends": ["config:recommended"]
+	"extends": ["config:recommended", ":semanticCommits"],
+	"platformAutomerge": true,
+	"minimumReleaseAge": "1 day",
+	"internalChecksFilter": "strict",
+	"packageRules": [
+		{
+			"description": "type-plus 8.x is an unfinished major parked in changesets prerelease mode. An already-unstable pin defeats ignoreUnstable, because every new beta then reads as a patch. Hard-cap it.",
+			"matchPackageNames": ["type-plus"],
+			"allowedVersions": "<8.0.0-0"
+		},
+		{
+			"description": "Repo-internal updates merge themselves once code / all-checks is green.",
+			"matchDepTypes": ["devDependencies"],
+			"matchUpdateTypes": ["patch", "minor", "pin", "digest"],
+			"automerge": true
+		},
+		{
+			"description": "These reach every consumer of @repobuddy/storybook and need a changeset, so a human decides.",
+			"matchDepTypes": ["dependencies", "peerDependencies"],
+			"automerge": false
+		},
+		{
+			"description": "Majors break builds in ways CI catches but a human should choose to absorb.",
+			"matchUpdateTypes": ["major"],
+			"automerge": false
+		}
+	]
 }

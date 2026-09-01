@@ -1,1 +1,10 @@
-extends: .github
+# Deliberately empty.
+#
+# Without this file the repo inherits repobuddy/.github's org-level Mergify
+# rules, which merge ANY bot pull request with `method: rebase` and no check
+# conditions at all — including updates to the published package's runtime
+# `dependencies`, which need a changeset before they may land.
+#
+# Merging here is Renovate `platformAutomerge` plus GitHub auto-merge, both of
+# which respect the `code / all-checks` required status check.
+pull_request_rules: []
