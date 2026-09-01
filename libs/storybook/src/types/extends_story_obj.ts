@@ -1,5 +1,5 @@
-import type { IsStringLiteral } from 'type-plus'
 import type { ExtractStringLiterals } from './_extract_string_literals.js'
+import type { IsStringLiteral } from './_is_string_literal.js'
 
 /**
  * Extends the Storybook StoryObj type with custom tag types.

@@ -6,5 +6,14 @@ allowBuilds:
   '@parcel/watcher': true
   esbuild: true
   fsevents: true
+# Supply-chain soak: no dependency may be installed until it is 24h old.
+# Strict mode makes a new, too-young resolution fail instead of being silently
+# waived, so every waiver below is a deliberate, exact-version decision.
+minimumReleaseAge: 1440
+minimumReleaseAgeStrict: true
+minimumReleaseAgeExclude:
+  # First-party, published in this same sweep; taken early because 0.8.3 pins
+  # type-plus@8.0.0-beta.7 into every consumer of @repobuddy/storybook.
+  - '@just-web/css@0.8.4'
 patchedDependencies:
   storybook-addon-tag-badges: patches/storybook-addon-tag-badges.patch
