@@ -6,11 +6,6 @@
 	"internalChecksFilter": "strict",
 	"packageRules": [
 		{
-			"description": "type-plus 8.x is an unfinished major parked in changesets prerelease mode. An already-unstable pin defeats ignoreUnstable, because every new beta then reads as a patch. Hard-cap it.",
-			"matchPackageNames": ["type-plus"],
-			"allowedVersions": "<8.0.0-0"
-		},
-		{
 			"description": "Repo-internal updates merge themselves once code / all-checks is green.",
 			"matchDepTypes": ["devDependencies"],
 			"matchUpdateTypes": ["patch", "minor", "pin", "digest"],

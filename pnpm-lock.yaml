@@ -128,8 +128,8 @@ importers:
         specifier: ^4.3.0
         version: 4.3.0
       type-plus:
-        specifier: ^7.6.2
-        version: 7.6.2
+        specifier: ^8.0.0-beta.10
+        version: 8.0.0-beta.10(typescript@7.0.2)
     devDependencies:
       '@repobuddy/vitest':
         specifier: ^2.1.1
@@ -3476,6 +3476,9 @@ packages:
   tersify@3.12.1:
     resolution: {integrity: sha512-VwzXGHZSOB4T27s4uvh9v8FYrNXyfVz0nBQi28TDwrZoQwT8ZJUp1W2Ff73ekN07stJSb0D+pr6iXeNeFqTI6Q==}
 
+  tersify@4.0.6:
+    resolution: {integrity: sha512-+z2dTeRvbPyI7qiAmBY+VgWnhhN9IuaGjgrPfeF33hI4A/Yd9KT11tbc4l8vfIA3L/5EWiE0swvxOfAckGRuzA==}
+
   tiny-invariant@1.3.3:
     resolution: {integrity: sha512-+FbBPE1o9QAYvviau/qC5SE3caw21q3xkvWKBtja5vgqOWIHHJ3ioaq1VPfn/Szqctz2bU/oYeKd9/z5BL+PVg==}
 
@@ -3562,6 +3565,11 @@ packages:
   type-plus@7.6.2:
     resolution: {integrity: sha512-qUlXv9Y0/W56pg38m275IMD3WA03QbVoqNY16S3kmwtuA4gOT2iheyUdOp8NWrmXWpf7om98hzr7AZD/eW2jLA==}
 
+  type-plus@8.0.0-beta.10:
+    resolution: {integrity: sha512-ZdhzmQg7f8oxt5Cbivslk8o3zef8L3ibpKIeGH1ESf73y8ZEY1z9fe4Z3fTxcjmFOb8ESE1TbW/MCgEvpeLC4w==}
+    peerDependencies:
+      typescript: '>= 5.6.0'
+
   type-plus@8.0.0-beta.8:
     resolution: {integrity: sha512-egrpXQq2tV0abCf99+n4SCD/stT76qEwPBI1q7BqiVUe5pHWc+bm4vsOiNR84SmZTv4SoEl9UOZUdkEbS3POdw==}
     peerDependencies:
@@ -3585,6 +3593,10 @@ packages:
   unpartial@1.0.5:
     resolution: {integrity: sha512-yAqaXcachjgZUnM2yIkf+4KJhmyuoj7stBvlnlZpB15OYVbKnLhgJfmLW7qkpzLHCdsm1bEFvhyN9hCmlZ3uuw==}
     engines: {node: '>=6'}
+
+  unpartial@1.0.7:
+    resolution: {integrity: sha512-DeyxEI3KSlmDihGAk3Js/p/Ca886ymIz39pWH3VVV/LZ36MsRETylFS37fdzWBWDjMlzB63Rdy2KLCdetOMPig==}
+    engines: {node: '>= 20'}
 
   unplugin@2.3.11:
     resolution: {integrity: sha512-5uKD0nqiYVzlmCRs01Fhs2BdkEgBS3SAVP6ndrBsuK42iC2+JHyxM05Rm9G8+5mkmRtzMZGY8Ct5+mliZxU/Ww==}
@@ -6535,6 +6547,11 @@ snapshots:
       is-buffer: 2.0.5
       unpartial: 1.0.5
 
+  tersify@4.0.6:
+    dependencies:
+      acorn: 8.18.0
+      unpartial: 1.0.7
+
   tiny-invariant@1.3.3: {}
 
   tinybench@2.9.0: {}
@@ -6606,6 +6623,12 @@ snapshots:
       tersify: 3.12.1
       unpartial: 1.0.5
 
+  type-plus@8.0.0-beta.10(typescript@7.0.2):
+    dependencies:
+      tersify: 4.0.6
+      typescript: 7.0.2
+      unpartial: 1.0.7
+
   type-plus@8.0.0-beta.8(typescript@7.0.2):
     dependencies:
       tersify: 3.12.1
@@ -6645,6 +6668,8 @@ snapshots:
   undici-types@7.24.6: {}
 
   unpartial@1.0.5: {}
+
+  unpartial@1.0.7: {}
 
   unplugin@2.3.11:
     dependencies:
