@@ -1,0 +1,17 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{a as t}from"./chunk-W22LQPXL-yBdeBQmp.js";import{n,r}from"./iframe-D7-c8wW5.js";import{n as i,t as a}from"./dedent-DQaCLeUO.js";import{O as o,t as s,w as c}from"./src-Dhw3iRbJ.js";var l,u,d,f;function p(){return(p=e((()=>{i(),s(),n(),l=t(),u=r.meta({title:`storybook-addon-tag-badges/versionBadge`,tags:[`var`,`!snapshot`,`version:2.4`],render:()=>(0,l.jsx)(l.Fragment,{})}),d=u.story({tags:[`version:1.0`],decorators:[c({content:(0,l.jsxs)(`p`,{children:[`Version tag indicates when the component/feature/property becomes available. In the sidebar it appears as the version label (e.g. `,(0,l.jsx)(`code`,{children:`1.0`}),`).`]})}),o({source:a`export const YourStory = {
+                tags: ['version:1.0'],
+                render: () => <YourComponent />
+            }`})]}),d.input.parameters={...d.input.parameters,docs:{...d.input.parameters?.docs,source:{originalSource:`meta.story({
+  tags: ['version:1.0'],
+  decorators: [withStoryCard({
+    content: <p>
+                    Version tag indicates when the component/feature/property becomes available. In the sidebar it appears as the
+                    version label (e.g. <code>1.0</code>).
+                </p>
+  }), showSource({
+    source: dedent\`export const YourStory = {
+                tags: ['version:1.0'],
+                render: () => <YourComponent />
+            }\`
+  })]
+})`,...d.input.parameters?.docs?.source}}},f=[`VersionBadge`]})))()}p();export{d as VersionBadge,f as __namedExportsOrder};
