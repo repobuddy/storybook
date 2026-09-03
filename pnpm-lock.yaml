@@ -190,7 +190,7 @@ importers:
         version: 3.1.0(patch_hash=879ed697b2eb31a0235c15156202359903ceddd61960bf87e9c66385eecd0dc8)(storybook@10.5.10(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))
       storybook-addon-vis:
         specifier: ^4.2.4
-        version: 4.2.4(@storybook/addon-vitest@10.5.10(@vitest/browser-playwright@4.1.11)(@vitest/browser@4.1.11)(@vitest/runner@4.1.11)(react@19.2.8)(storybook@10.5.10(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))(vitest@4.1.11))(@vitest/browser-playwright@4.1.11)(@vitest/browser@4.1.11)(react@19.2.8)(storybook@10.5.10(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))(typescript@7.0.2)(vitest@4.1.11)
+        version: 4.2.6(@storybook/addon-vitest@10.5.10(@vitest/browser-playwright@4.1.11)(@vitest/browser@4.1.11)(@vitest/runner@4.1.11)(react@19.2.8)(storybook@10.5.10(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))(vitest@4.1.11))(@vitest/browser-playwright@4.1.11)(@vitest/browser@4.1.11)(react@19.2.8)(storybook@10.5.10(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))(vitest@4.1.11)
       tsdown:
         specifier: ^0.22.0
         version: 0.22.14(oxc-resolver@11.24.2)(typescript@7.0.2)(unrun@0.2.34(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2))
@@ -3404,8 +3404,8 @@ packages:
     peerDependencies:
       storybook: ^10.0.0
 
-  storybook-addon-vis@4.2.4:
-    resolution: {integrity: sha512-FYVrkLmUEOOCcCDEX+L8YN3+9ekiPDHgbjAQrAG36fnmAoPBDjV3PE2ALYxph60sXvotwSHn7oGcLmRYF2rKJQ==}
+  storybook-addon-vis@4.2.6:
+    resolution: {integrity: sha512-15ryOksTskx72JYGNetSm8odz7vNbAUi1ir8d617USPwNc34sLgwcWbfIQ+tOOs957fIoRq9cLURqHSzmtEkaQ==}
     peerDependencies:
       '@storybook/addon-vitest': ^10.1.10
       '@vitest/browser': ^4
@@ -3573,11 +3573,6 @@ packages:
     peerDependencies:
       typescript: '>= 5.6.0'
 
-  type-plus@8.0.0-beta.8:
-    resolution: {integrity: sha512-egrpXQq2tV0abCf99+n4SCD/stT76qEwPBI1q7BqiVUe5pHWc+bm4vsOiNR84SmZTv4SoEl9UOZUdkEbS3POdw==}
-    peerDependencies:
-      typescript: '>= 5.6.0'
-
   typescript@7.0.2:
     resolution: {integrity: sha512-8FYau96o3NKOhbjKi/qNvG/W5jhzxkbdm5sj9AbZ/5T5sWqn3hJgLfGx27sRKZWTvyzCP8dLRBTf5tBTSRVUNA==}
     engines: {node: '>=16.20.0'}
@@ -3673,8 +3668,8 @@ packages:
       yaml:
         optional: true
 
-  vitest-plugin-vis@5.1.1:
-    resolution: {integrity: sha512-A/MEvQhDpNAj/5b53GiN139glgWUe0Qh5cDupm25G+06FA/2K85bd3tK+Hi4fTaolNbL5WiLNgnQ8dOL+kC7Pw==}
+  vitest-plugin-vis@5.1.3:
+    resolution: {integrity: sha512-D9Ac92sGbQ4E/5yM9ZdCVH85gzgxo40AaCMT6uRhWuOciEKdkxhg7210yQ8x7nDakcHON5uUJv1aH3EQq6Qf8w==}
     peerDependencies:
       '@vitest/browser': ^4
       '@vitest/browser-playwright': ^4
@@ -6460,7 +6455,7 @@ snapshots:
       memoizerific: 1.11.3
       storybook: 10.5.10(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8)
 
-  storybook-addon-vis@4.2.4(@storybook/addon-vitest@10.5.10(@vitest/browser-playwright@4.1.11)(@vitest/browser@4.1.11)(@vitest/runner@4.1.11)(react@19.2.8)(storybook@10.5.10(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))(vitest@4.1.11))(@vitest/browser-playwright@4.1.11)(@vitest/browser@4.1.11)(react@19.2.8)(storybook@10.5.10(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))(typescript@7.0.2)(vitest@4.1.11):
+  storybook-addon-vis@4.2.6(@storybook/addon-vitest@10.5.10(@vitest/browser-playwright@4.1.11)(@vitest/browser@4.1.11)(@vitest/runner@4.1.11)(react@19.2.8)(storybook@10.5.10(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))(vitest@4.1.11))(@vitest/browser-playwright@4.1.11)(@vitest/browser@4.1.11)(react@19.2.8)(storybook@10.5.10(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))(vitest@4.1.11):
     dependencies:
       '@storybook/addon-vitest': 10.5.10(@vitest/browser-playwright@4.1.11)(@vitest/browser@4.1.11)(@vitest/runner@4.1.11)(react@19.2.8)(storybook@10.5.10(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))(vitest@4.1.11)
       '@storybook/icons': 2.1.0(react@19.2.8)
@@ -6470,15 +6465,14 @@ snapshots:
       memoize: 11.0.0
       pathe: 2.0.3
       storybook: 10.5.10(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8)
-      type-plus: 8.0.0-beta.8(typescript@7.0.2)
+      type-plus: 7.6.2
       vitest: 4.1.11(@types/node@25.9.5)(@vitest/browser-playwright@4.1.11)(@vitest/coverage-v8@4.1.11)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0))
-      vitest-plugin-vis: 5.1.1(@vitest/browser-playwright@4.1.11)(@vitest/browser@4.1.11)(typescript@7.0.2)(vitest@4.1.11)
+      vitest-plugin-vis: 5.1.3(@vitest/browser-playwright@4.1.11)(@vitest/browser@4.1.11)(vitest@4.1.11)
     transitivePeerDependencies:
       - '@vitest/browser-playwright'
       - '@vitest/browser-webdriverio'
       - babel-plugin-macros
       - react
-      - typescript
 
   storybook@10.5.10(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8):
     dependencies:
@@ -6634,12 +6628,6 @@ snapshots:
       typescript: 7.0.2
       unpartial: 1.0.7
 
-  type-plus@8.0.0-beta.8(typescript@7.0.2):
-    dependencies:
-      tersify: 3.12.1
-      typescript: 7.0.2
-      unpartial: 1.0.5
-
   typescript@7.0.2:
     optionalDependencies:
       '@typescript/typescript-aix-ppc64': 7.0.2
@@ -6717,7 +6705,7 @@ snapshots:
       jiti: 2.7.0
       yaml: 2.9.0
 
-  vitest-plugin-vis@5.1.1(@vitest/browser-playwright@4.1.11)(@vitest/browser@4.1.11)(typescript@7.0.2)(vitest@4.1.11):
+  vitest-plugin-vis@5.1.3(@vitest/browser-playwright@4.1.11)(@vitest/browser@4.1.11)(vitest@4.1.11):
     dependencies:
       '@vitest/browser': 4.1.11(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0))(vitest@4.1.11)
       dedent: 1.7.2
@@ -6729,13 +6717,12 @@ snapshots:
       pngjs: 7.0.0
       rimraf: 6.1.3
       ssim.js: 3.5.0
-      type-plus: 8.0.0-beta.8(typescript@7.0.2)
+      type-plus: 7.6.2
       vitest: 4.1.11(@types/node@25.9.5)(@vitest/browser-playwright@4.1.11)(@vitest/coverage-v8@4.1.11)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0))
     optionalDependencies:
       '@vitest/browser-playwright': 4.1.11(playwright@1.62.1)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0))(vitest@4.1.11)
     transitivePeerDependencies:
       - babel-plugin-macros
-      - typescript
 
   vitest@4.1.11(@types/node@25.9.5)(@vitest/browser-playwright@4.1.11)(@vitest/coverage-v8@4.1.11)(vite@8.2.2(@types/node@25.9.5)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0)):
     dependencies:
