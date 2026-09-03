@@ -1,4 +1,0 @@
-import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{a as t}from"./chunk-W22LQPXL-yBdeBQmp.js";import{_ as n,g as r,h as i,v as a}from"./iframe-CqkqcWJk.js";function o(e){let t={code:`code`,h1:`h1`,p:`p`,...a(),...e.components};return(0,c.jsxs)(c.Fragment,{children:[(0,c.jsx)(i,{title:`parameters/storySort/wip`}),`
-`,(0,c.jsx)(t.h1,{id:`storysort--wip`,children:`storySort – wip`}),`
-`,(0,c.jsxs)(t.p,{children:[`A sub-path of `,(0,c.jsx)(t.code,{children:`parameters/storySort`}),`. `,(0,c.jsx)(t.code,{children:`wip`}),` sorts last among the three
-sub-paths alphabetically.`]})]})}function s(e={}){let{wrapper:t}={...a(),...e.components};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(o,{...e})}):o(e)}var c;function l(){return(l=e((()=>{c=t(),n(),r()})))()}l();export{s as default};
