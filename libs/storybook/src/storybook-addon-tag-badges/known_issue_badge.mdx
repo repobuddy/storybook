@@ -1,0 +1,20 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="storybook-addon-tag-badges/knownIssueBadge" />
+
+# Known issue badge
+
+Use the **known-issue** badge to mark a story that documents a known, accepted issue and is therefore expected to fail its tests, such as an a11y story that demonstrates a color contrast problem that has not been fixed yet. The badge displays 🩹 with a "Known Issue" tooltip.
+
+Use `bug` (🐛) instead when the story reproduces a defect that is meant to be fixed, and `known-issue` when the failure is acknowledged and left in place as documentation.
+
+## Usage
+
+Add the `known-issue` tag to your story.
+
+```tsx
+export const YourStory = {
+	tags: ['known-issue'],
+	render: () => <YourComponent />
+}
+```

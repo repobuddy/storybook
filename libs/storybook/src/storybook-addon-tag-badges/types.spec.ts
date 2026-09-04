@@ -18,6 +18,7 @@ it('improves StoryObj[tags]', () => {
 			'outdated',
 			'danger',
 			'bug',
+			'known-issue',
 			'todo',
 			'code-only',
 			'snapshot',
