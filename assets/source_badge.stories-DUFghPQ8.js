@@ -1,0 +1,21 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{a as t}from"./chunk-W22LQPXL-B066xLLY.js";import{n,r}from"./iframe-DurS4ax6.js";import{n as i,t as a}from"./dedent-DQaCLeUO.js";import{O as o,t as s,w as c}from"./src-Cjk9gBKT.js";var l,u,d,f,p;function m(){return(m=e((()=>{i(),s(),n(),l=t(),u=r.meta({title:`storybook-addon-tag-badges/sourceBadge`,tags:[`var`,`!snapshot`,`version:2.28`],render:()=>(0,l.jsx)(l.Fragment,{})}),d=u.story({tags:[`source`],decorators:[c({content:(0,l.jsxs)(`p`,{children:[`Story that shows the source code. In the sidebar it appears as `,(0,l.jsx)(`code`,{children:`</>`}),`.`]})}),o({source:a`export const YourStory = {
+                tags: ['source'],
+                decorators: [showSource()],
+                render: () => <YourComponent />
+            }`})]}),f=u.story({tags:[`unit`],render:()=>(0,l.jsx)(`div`,{children:`Dummy story to force badge to show in story and not hoisted up`})}),p=[`SourceBadge`,`DummyStory`],d.input.parameters={...d.input.parameters,docs:{...d.input.parameters?.docs,source:{originalSource:`meta.story({
+  tags: ['source'],
+  decorators: [withStoryCard({
+    content: <p>
+                    Story that shows the source code. In the sidebar it appears as <code>{'</>'}</code>.
+                </p>
+  }), showSource({
+    source: dedent\`export const YourStory = {
+                tags: ['source'],
+                decorators: [showSource()],
+                render: () => <YourComponent />
+            }\`
+  })]
+})`,...d.input.parameters?.docs?.source}}},f.input.parameters={...f.input.parameters,docs:{...f.input.parameters?.docs,source:{originalSource:`meta.story({
+  tags: ['unit'],
+  render: () => <div>Dummy story to force badge to show in story and not hoisted up</div>
+})`,...f.input.parameters?.docs?.source}}}})))()}m();export{f as DummyStory,d as SourceBadge,p as __namedExportsOrder};

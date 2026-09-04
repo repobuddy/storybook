@@ -1,0 +1,4 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{c as t,s as n}from"./blocks-uvQy2ZS2.js";import{a as r}from"./chunk-W22LQPXL-B066xLLY.js";import{i,r as a}from"./react-Bl2r1tuC.js";function o(e){let t={code:`code`,h1:`h1`,p:`p`,...i(),...e.components};return(0,c.jsxs)(c.Fragment,{children:[(0,c.jsx)(n,{title:`parameters/storySort/migration`}),`
+`,(0,c.jsx)(t.h1,{id:`storysort--migration`,children:`storySort – migration`}),`
+`,(0,c.jsxs)(t.p,{children:[`A sub-path of `,(0,c.jsx)(t.code,{children:`parameters/storySort`}),`. Sorts after `,(0,c.jsx)(t.code,{children:`examples`}),` and before
+`,(0,c.jsx)(t.code,{children:`wip`}),` alphabetically.`]})]})}function s(e={}){let{wrapper:t}={...i(),...e.components};return t?(0,c.jsx)(t,{...e,children:(0,c.jsx)(o,{...e})}):o(e)}var c;function l(){return(l=e((()=>{c=r(),a(),t()})))()}l();export{s as default};
