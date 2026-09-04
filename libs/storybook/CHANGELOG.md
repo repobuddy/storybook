@@ -1,5 +1,13 @@
 # @repobuddy/storybook
 
+## 2.33.0
+
+### Minor Changes
+
+- [#740](https://github.com/repobuddy/storybook/pull/740) [`5154ece`](https://github.com/repobuddy/storybook/commit/5154ece04d405c4da0ab2877eca32df8abc6fdc9) Thanks [@unional](https://github.com/unional)! - Add `explore` tag and `exploreBadge` (🔭) for stories that help users explore component behavior and configurations.
+
+- [#759](https://github.com/repobuddy/storybook/pull/759) [`1cda02f`](https://github.com/repobuddy/storybook/commit/1cda02fe5c8109e3c7be8b46bd1271dccbe0136e) Thanks [@unional](https://github.com/unional)! - Add `known-issue` tag and `knownIssueBadge` (🩹) for stories that document a known, accepted issue and are expected to fail tests.
+
 ## 2.32.3
 
 ### Patch Changes
