@@ -40,6 +40,7 @@ export type TagNames =
 	| 'bug'
 	| 'known-issue'
 	| 'experiment'
+	| 'explore'
 	| 'rc'
 	| 'props'
 	| 'deprecated'
@@ -132,6 +133,19 @@ export const rcBadge: TagBadgeParameter = {
 			borderColor: 'transparent'
 		},
 		tooltip: 'Release Candidate'
+	}
+}
+
+/** Badge (🔭) for stories meant to help users explore component behavior and configurations. */
+export const exploreBadge: TagBadgeParameter = {
+	tags: 'explore',
+	badge: {
+		text: '🔭',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
+		tooltip: 'Explore'
 	}
 }
 
@@ -576,12 +590,13 @@ export const perfBadge: TagBadgeParameter = {
  * Configuration for story tag badges that appear in the Storybook sidebar.
  * Each badge is associated with a specific tag and displays an emoji or symbol with a tooltip.
  *
- * Badge order (first match wins): New → Experiment → Alpha → Beta → RC → Deprecated → Remove → Outdated → Danger → Bug → Known Issue → Use Case →
+ * Badge order (first match wins): New → Experiment → Explore → Alpha → Beta → RC → Deprecated → Remove → Outdated → Danger → Bug → Known Issue → Use Case →
  * Spec → Playground → Example → Perf → A11y → Keyboard → Source → Type → Class → Function → Var → Props → Todo → Unit →
  * Integration → Editor → Code Only → Version → Internal → Snapshot.
  *
  * - 🆕 New - Recently added stories
  * - 🔬 Experiment - Stories for features in experiment
+ * - 🔭 Explore - Stories that help users explore component behavior and configurations
  * - 🔴 Alpha - Stories for features in alpha
  * - 🟡 Beta - Stories for features in beta
  * - 🔵 RC - Release candidate
@@ -618,7 +633,7 @@ export const tagBadges: TagBadgeParameters = [
 	// Story states
 	[bugBadge, knownIssueBadge, todoBadge],
 	newBadge,
-	[experimentBadge, alphaBadge, betaBadge, rcBadge],
+	[experimentBadge, exploreBadge, alphaBadge, betaBadge, rcBadge],
 	[deprecatedBadge, removeBadge, outdatedBadge, dangerBadge],
 	useCaseBadge,
 	specBadge,

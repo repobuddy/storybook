@@ -82,6 +82,7 @@ we provide a different set of badges that uses emojis (order: first match wins):
 | :-----  | :------------------------------------------------------- | :---------------------------------------------------------------------------------------- |
 | 🆕      | `new`                                                    | Recently added stories                                                                    |
 | 🔬      | `experiment`                                             | Features in experiment                                                                    |
+| 🔭      | `explore`                                                | Stories that help users explore component behavior and configurations                     |
 | 🔴      | `alpha`                                                  | Features in alpha                                                                         |
 | 🟡      | `beta`                                                   | Features in beta                                                                          |
 | 🔵      | `rc`                                                     | Release candidate                                                                         |
