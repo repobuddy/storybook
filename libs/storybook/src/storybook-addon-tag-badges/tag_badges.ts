@@ -38,6 +38,7 @@ export type TagNames =
 	| 'alpha'
 	| 'beta'
 	| 'bug'
+	| 'known-issue'
 	| 'experiment'
 	| 'rc'
 	| 'props'
@@ -242,6 +243,25 @@ export const bugBadge: TagBadgeParameter = {
 			borderColor: 'transparent'
 		},
 		tooltip: 'Known bug'
+	},
+	display: {
+		sidebar: {
+			type: 'story',
+			skipInherited: false
+		}
+	}
+}
+
+/** Badge (🩹) for stories that document a known, accepted issue and are expected to fail tests. */
+export const knownIssueBadge: TagBadgeParameter = {
+	tags: 'known-issue',
+	badge: {
+		text: '🩹',
+		style: {
+			backgroundColor: 'transparent',
+			borderColor: 'transparent'
+		},
+		tooltip: 'Known Issue'
 	},
 	display: {
 		sidebar: {
@@ -556,7 +576,7 @@ export const perfBadge: TagBadgeParameter = {
  * Configuration for story tag badges that appear in the Storybook sidebar.
  * Each badge is associated with a specific tag and displays an emoji or symbol with a tooltip.
  *
- * Badge order (first match wins): New → Experiment → Alpha → Beta → RC → Deprecated → Remove → Outdated → Danger → Bug → Use Case →
+ * Badge order (first match wins): New → Experiment → Alpha → Beta → RC → Deprecated → Remove → Outdated → Danger → Bug → Known Issue → Use Case →
  * Spec → Playground → Example → Perf → A11y → Keyboard → Source → Type → Class → Function → Var → Props → Todo → Unit →
  * Integration → Editor → Code Only → Version → Internal → Snapshot.
  *
@@ -570,6 +590,7 @@ export const perfBadge: TagBadgeParameter = {
  * - ⚠️ Outdated - Stories that need updating
  * - 🚨 Danger - Stories demonstrating dangerous patterns
  * - 🐛 Bug - Stories that document or reproduce a known bug
+ * - 🩹 Known Issue - Stories that document a known, accepted issue and are expected to fail tests
  * - 🎯 Use Case - Stories that demonstrate a specific use case or scenario
  * - 📜 Spec - Stories that serve as the specification of the component or code
  * - ▶️ Playground - High-quality interactive stories for users to explore and interact with the component
@@ -595,7 +616,7 @@ export const perfBadge: TagBadgeParameter = {
  */
 export const tagBadges: TagBadgeParameters = [
 	// Story states
-	[bugBadge, todoBadge],
+	[bugBadge, knownIssueBadge, todoBadge],
 	newBadge,
 	[experimentBadge, alphaBadge, betaBadge, rcBadge],
 	[deprecatedBadge, removeBadge, outdatedBadge, dangerBadge],
