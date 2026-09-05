@@ -209,7 +209,7 @@ importers:
     dependencies:
       '@just-web/css':
         specifier: ^0.8.4
-        version: 0.8.4
+        version: 0.8.5(typescript@7.0.2)
       '@repobuddy/test':
         specifier: ^1.0.0
         version: 1.0.2
@@ -813,8 +813,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@just-web/css@0.8.4':
-    resolution: {integrity: sha512-G5QxybeYJf7/T/sfpSPuBE9RObR0d6/Uf1qAqY2TCTVyP8uMBcvwktg9wZHDa1OJVguByIzS3D/enLJQRR0/Uw==}
+  '@just-web/css@0.8.5':
+    resolution: {integrity: sha512-1JfkAz0KD7IKuurFwiuXHrevx8KOUfm89fxDgSbFIzWr6y3tVyYAsk6qtxt9nTsfBiIuh26vmswMSAa887ZKmw==}
 
   '@manypkg/find-root@3.1.0':
     resolution: {integrity: sha512-BcSqCyKhBVZ5YkSzOiheMCV41kqAFptW6xGqYSTjkVTl9XQpr+pqHhwgGCOHQtjDCv7Is6EFyA14Sm5GVbVABA==}
@@ -2858,10 +2858,6 @@ packages:
   is-arrayish@0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
 
-  is-buffer@2.0.5:
-    resolution: {integrity: sha512-i2R6zNFDwgEHJyQUtJEk0XFi1i0dPFn/oqjK3/vPCcDeJvW5NQ83V8QbicfF1SupOaB0h8ntgBC2YiE7dfyctQ==}
-    engines: {node: '>=4'}
-
   is-ci@4.1.0:
     resolution: {integrity: sha512-Ab9bQDQ11lWootZUI5qxgN2ZXwxNI5hTwnsvOc1wyxQ7zQ8OkEDw79mI0+9jI3x432NfwbVRru+3noJfXF6lSQ==}
     hasBin: true
@@ -3561,9 +3557,6 @@ packages:
     resolution: {integrity: sha512-uxc/zpqFg6x7C8vOE7lh6Lbda8eEL9zmVm/PLeTPBRhh1xCgdWaQ+J1CUieGpIfm2HdtsUpRv+HshiasBMcc6A==}
     engines: {node: '>=6'}
 
-  tersify@3.12.1:
-    resolution: {integrity: sha512-VwzXGHZSOB4T27s4uvh9v8FYrNXyfVz0nBQi28TDwrZoQwT8ZJUp1W2Ff73ekN07stJSb0D+pr6iXeNeFqTI6Q==}
-
   tersify@4.0.6:
     resolution: {integrity: sha512-+z2dTeRvbPyI7qiAmBY+VgWnhhN9IuaGjgrPfeF33hI4A/Yd9KT11tbc4l8vfIA3L/5EWiE0swvxOfAckGRuzA==}
 
@@ -3654,9 +3647,6 @@ packages:
     resolution: {integrity: sha512-AswgMPnpOoaVZHrrSBejETzEbuIA69OVGwfkHwfrY0A23VjWXBANzgq9+OymWOHAIArB7D1+1z498WY8fGg1Jw==}
     hasBin: true
 
-  type-plus@7.6.2:
-    resolution: {integrity: sha512-qUlXv9Y0/W56pg38m275IMD3WA03QbVoqNY16S3kmwtuA4gOT2iheyUdOp8NWrmXWpf7om98hzr7AZD/eW2jLA==}
-
   type-plus@8.0.0-beta.10:
     resolution: {integrity: sha512-ZdhzmQg7f8oxt5Cbivslk8o3zef8L3ibpKIeGH1ESf73y8ZEY1z9fe4Z3fTxcjmFOb8ESE1TbW/MCgEvpeLC4w==}
     peerDependencies:
@@ -3676,10 +3666,6 @@ packages:
 
   undici-types@7.24.6:
     resolution: {integrity: sha512-WRNW+sJgj5OBN4/0JpHFqtqzhpbnV0GuB+OozA9gCL7a993SmU+1JBZCzLNxYsbMfIeDL+lTsphD5jN5N+n0zg==}
-
-  unpartial@1.0.5:
-    resolution: {integrity: sha512-yAqaXcachjgZUnM2yIkf+4KJhmyuoj7stBvlnlZpB15OYVbKnLhgJfmLW7qkpzLHCdsm1bEFvhyN9hCmlZ3uuw==}
-    engines: {node: '>=6'}
 
   unpartial@1.0.7:
     resolution: {integrity: sha512-DeyxEI3KSlmDihGAk3Js/p/Ca886ymIz39pWH3VVV/LZ36MsRETylFS37fdzWBWDjMlzB63Rdy2KLCdetOMPig==}
@@ -4424,10 +4410,12 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@just-web/css@0.8.4':
+  '@just-web/css@0.8.5(typescript@7.0.2)':
     dependencies:
       csstype: 3.2.3
-      type-plus: 7.6.2
+      type-plus: 8.0.0-beta.10(typescript@7.0.2)
+    transitivePeerDependencies:
+      - typescript
 
   '@manypkg/find-root@3.1.0':
     dependencies:
@@ -5888,8 +5876,6 @@ snapshots:
 
   is-arrayish@0.2.1: {}
 
-  is-buffer@2.0.5: {}
-
   is-ci@4.1.0:
     dependencies:
       ci-info: 4.4.0
@@ -6615,12 +6601,6 @@ snapshots:
 
   tapable@2.3.3: {}
 
-  tersify@3.12.1:
-    dependencies:
-      acorn: 8.18.0
-      is-buffer: 2.0.5
-      unpartial: 1.0.5
-
   tersify@4.0.6:
     dependencies:
       acorn: 8.18.0
@@ -6693,11 +6673,6 @@ snapshots:
       '@turbo/windows-64': 2.10.12
       '@turbo/windows-arm64': 2.10.12
 
-  type-plus@7.6.2:
-    dependencies:
-      tersify: 3.12.1
-      unpartial: 1.0.5
-
   type-plus@8.0.0-beta.10(typescript@7.0.2):
     dependencies:
       tersify: 4.0.6
@@ -6735,8 +6710,6 @@ snapshots:
       quansync: 1.0.0
 
   undici-types@7.24.6: {}
-
-  unpartial@1.0.5: {}
 
   unpartial@1.0.7: {}
 
