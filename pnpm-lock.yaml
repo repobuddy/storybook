@@ -212,7 +212,7 @@ importers:
         version: 0.8.4
       '@repobuddy/test':
         specifier: ^1.0.0
-        version: 1.0.1
+        version: 1.0.2
       '@types/react':
         specifier: '>= 16'
         version: 19.2.18
@@ -1413,9 +1413,6 @@ packages:
     resolution: {integrity: sha512-dFxQSl+lYZ5Wc9TVUxrSwze9vwC6IBpg4zcbxJkLiZPPnYLX95Zvp9zC+ChPRmc2QpyVzqH4eGnxKzHaVZ1A7Q==}
     peerDependencies:
       '@biomejs/biome': '>= 2'
-
-  '@repobuddy/test@1.0.1':
-    resolution: {integrity: sha512-eNXZ6Cfs18EGQtPS/H68E0GQyQeB+al5sPcMgb70553CE0vs5Y7jDdO8Csgk/CHiuPy/rCKdN33OvvkSiGaG+A==}
 
   '@repobuddy/test@1.0.2':
     resolution: {integrity: sha512-EeofGgGuvzLee0Ya41H3SDL+sSMG/MtekDDS9wPVpaPaFxHrq+vIzUl8Ls+mchFSBXwifrupRFjVwGYcL+9LZw==}
@@ -4799,8 +4796,6 @@ snapshots:
   '@repobuddy/biome@2.3.1(@biomejs/biome@2.5.12)':
     dependencies:
       '@biomejs/biome': 2.5.12
-
-  '@repobuddy/test@1.0.1': {}
 
   '@repobuddy/test@1.0.2': {}
 
