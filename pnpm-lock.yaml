@@ -229,7 +229,7 @@ importers:
         specifier: ^4.3.0
         version: 4.3.0
       type-plus:
-        specifier: ^8.0.0-beta.10
+        specifier: 8.0.0-beta.10
         version: 8.0.0-beta.10(typescript@7.0.2)
     devDependencies:
       '@repobuddy/vitest':
@@ -290,7 +290,7 @@ importers:
         specifier: ^3.1.0
         version: 3.1.0(patch_hash=879ed697b2eb31a0235c15156202359903ceddd61960bf87e9c66385eecd0dc8)(storybook@10.6.0(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))
       storybook-addon-vis:
-        specifier: ^4.2.4
+        specifier: ^4.2.7
         version: 4.2.7(@storybook/addon-vitest@10.6.0(@vitest/browser-playwright@4.1.11)(@vitest/browser@4.1.11)(@vitest/runner@4.1.11)(react@19.2.8)(storybook@10.6.0(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))(vitest@4.1.11))(@vitest/browser-playwright@4.1.11)(@vitest/browser@4.1.11)(react@19.2.8)(storybook@10.6.0(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))(typescript@7.0.2)(vitest@4.1.11)
       tsdown:
         specifier: ^0.23.0
