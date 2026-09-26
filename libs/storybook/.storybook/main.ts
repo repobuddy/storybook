@@ -18,6 +18,7 @@ export default defineMain({
 		'storybook-addon-vis'
 	],
 	docs: { defaultName: 'Overview' },
+	features: { experimentalTestSyntax: true },
 	framework: {
 		name: '@storybook/react-vite',
 		options: {}

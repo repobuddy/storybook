@@ -60,6 +60,18 @@ export const ShowsStoryDescription = meta.story({
 	}
 })
 
+ShowsStoryDescription.test('renders the story content', { tags: ['!snapshot'] }, async ({ canvas }) => {
+	await expect(canvas.getByText('This is the story content')).toBeInTheDocument()
+})
+
+ShowsStoryDescription.test(
+	'does not render the story card when running in test',
+	{ tags: ['!snapshot'] },
+	async ({ canvasElement }) => {
+		await expect(canvasElement.querySelectorAll('section')).toHaveLength(0)
+	}
+)
+
 export const WithContent = meta.story({
 	name: 'content: ReactNode',
 	tags: ['props'],
