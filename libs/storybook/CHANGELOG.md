@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 2.33.2
+
+### Patch Changes
+
+- [#781](https://github.com/repobuddy/storybook/pull/781) [`79301be`](https://github.com/repobuddy/storybook/commit/79301be7e0f70ba12eb082ab6a922dca0a3b60ba) Thanks [@unional](https://github.com/unional)! - Update `type-plus` to `8.0.0-beta.12`, `@just-web/css` to `^0.8.7`, and `@repobuddy/test` to `^1.1.0`.
+
 ## 2.33.1
 
 ### Patch Changes
