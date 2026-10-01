@@ -1,5 +1,13 @@
 # @repobuddy/storybook
 
+## 2.33.3
+
+### Patch Changes
+
+- [#785](https://github.com/repobuddy/storybook/pull/785) [`1b488f3`](https://github.com/repobuddy/storybook/commit/1b488f36ba0c5f3dc3b294778c0db894687a5c16) Thanks [@unional](https://github.com/unional)! - Declare `@storybook/react-vite` as an optional peer dependency.
+  
+  The published type declarations import from `@storybook/react-vite`, so pnpm now links the consumer's copy instead of letting TypeScript resolve another installed copy (fixes TS2322 and TS2883 in consumers).
+
 ## 2.33.2
 
 ### Patch Changes
