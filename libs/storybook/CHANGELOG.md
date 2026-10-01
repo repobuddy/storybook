@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 2.33.4
+
+### Patch Changes
+
+- [#789](https://github.com/repobuddy/storybook/pull/789) [`a371c7a`](https://github.com/repobuddy/storybook/commit/a371c7a210f1472da8b2267ec76358f93ee6605c) Thanks [@unional](https://github.com/unional)! - Build and test against Storybook 10.6.1. The peer dependency range is unchanged (`^10.5.10`), so Storybook 10.5 and 10.6 are both supported.
+
 ## 2.33.3
 
 ### Patch Changes
