@@ -230,7 +230,7 @@ importers:
     devDependencies:
       '@storybook-community/storybook-dark-mode':
         specifier: ^7.1.3
-        version: 7.1.3(@storybook/addon-docs@10.6.1(@types/react-dom@19.2.7(@types/react@19.2.18))(@types/react@19.2.18)(storybook@10.6.1(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8)))(react@19.2.8)(storybook@10.6.1(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))
+        version: 7.1.4(@storybook/addon-docs@10.6.1(@types/react-dom@19.2.7(@types/react@19.2.18))(@types/react@19.2.18)(storybook@10.6.1(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8)))(react@19.2.8)(storybook@10.6.1(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))
       '@storybook/addon-a11y':
         specifier: ^10.6.1
         version: 10.6.1(storybook@10.6.1(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))
@@ -294,7 +294,7 @@ importers:
         version: 2.3.0(@vitest/browser-playwright@4.1.11)(typescript@7.0.2)(vitest@4.1.11)
       '@storybook-community/storybook-dark-mode':
         specifier: ^7.1.3
-        version: 7.1.3(@storybook/addon-docs@10.6.1(@types/react-dom@19.2.7(@types/react@19.2.18))(@types/react@19.2.18)(storybook@10.6.1(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8)))(react@19.2.8)(storybook@10.6.1(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))
+        version: 7.1.4(@storybook/addon-docs@10.6.1(@types/react-dom@19.2.7(@types/react@19.2.18))(@types/react@19.2.18)(storybook@10.6.1(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8)))(react@19.2.8)(storybook@10.6.1(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))
       '@storybook/addon-a11y':
         specifier: ^10.6.1
         version: 10.6.1(storybook@10.6.1(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))
@@ -1796,8 +1796,9 @@ packages:
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
 
-  '@storybook-community/storybook-dark-mode@7.1.3':
-    resolution: {integrity: sha512-L7n3yc7YNW9nSrAIVSw/5VYgLd4od2w/SglBHRxOtwV5PQQmjFm6AozuruPF6OXOftcuQEJOyjgjmAZR+6M1fg==}
+  '@storybook-community/storybook-dark-mode@7.1.4':
+    resolution: {integrity: sha512-SQSMNpsabl66emsBCN8Ihc3aEk2T23o1pol1MpXqx6n/x8w3dd9lFXP9vjkfgrSn2HySHeqMZLSsx7mV7Bjcsg==}
+    engines: {node: '>=20.19.0'}
     peerDependencies:
       '@storybook/addon-docs': ^10.0.0
       storybook: ^10.0.0
@@ -4971,7 +4972,7 @@ snapshots:
 
   '@standard-schema/spec@1.1.0': {}
 
-  '@storybook-community/storybook-dark-mode@7.1.3(@storybook/addon-docs@10.6.1(@types/react-dom@19.2.7(@types/react@19.2.18))(@types/react@19.2.18)(storybook@10.6.1(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8)))(react@19.2.8)(storybook@10.6.1(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))':
+  '@storybook-community/storybook-dark-mode@7.1.4(@storybook/addon-docs@10.6.1(@types/react-dom@19.2.7(@types/react@19.2.18))(@types/react@19.2.18)(storybook@10.6.1(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8)))(react@19.2.8)(storybook@10.6.1(@types/react@19.2.18)(prettier@2.8.8)(react@19.2.8))':
     dependencies:
       '@storybook/icons': 2.1.0(react@19.2.8)
       dequal: 2.0.3
