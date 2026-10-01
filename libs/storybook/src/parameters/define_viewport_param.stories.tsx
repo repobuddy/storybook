@@ -1,5 +1,5 @@
 // These stories document the legacy parameter shapes accepted by the `define*Param` helpers.
-// CSF factories type `parameters` strictly against Storybook 10's own parameter types, so each
+// CSF factories type `parameters` strictly against Storybook's own parameter types, so each
 // `parameters` object is widened with `as Parameters`.
 import type { Parameters } from '@storybook/react-vite'
 import dedent from 'dedent'
