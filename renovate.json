@@ -6,6 +6,18 @@
 	"internalChecksFilter": "strict",
 	"packageRules": [
 		{
+			"description": "The packageManager pin is toolchain, so non-major updates merge themselves.",
+			"matchDepTypes": ["packageManager"],
+			"matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+			"automerge": true
+		},
+		{
+			"description": "The toolchain pins (mise, nvm) move with packageManager, so they merge themselves too.",
+			"matchManagers": ["mise", "nvm"],
+			"matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+			"automerge": true
+		},
+		{
 			"description": "Repo-internal updates merge themselves once code / all-checks is green.",
 			"matchDepTypes": ["devDependencies"],
 			"matchUpdateTypes": ["patch", "minor", "pin", "digest"],
