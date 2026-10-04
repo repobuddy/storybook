@@ -6,6 +6,11 @@
 	"internalChecksFilter": "strict",
 	"packageRules": [
 		{
+			"description": "storybook-addon-vis 4.3.1 and @repobuddy/vitest 2.x peer on vitest ^4, and this is a Storybook addon library; keep vitest and @vitest/* on v4 until those support v5.",
+			"matchPackageNames": ["vitest", "@vitest/*"],
+			"allowedVersions": "<5"
+		},
+		{
 			"description": "The packageManager pin is toolchain, so non-major updates merge themselves.",
 			"matchDepTypes": ["packageManager"],
 			"matchUpdateTypes": ["minor", "patch", "pin", "digest"],
