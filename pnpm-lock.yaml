@@ -269,7 +269,7 @@ importers:
         version: 0.8.7(typescript@7.0.2)
       '@repobuddy/test':
         specifier: ^1.1.0
-        version: 1.1.0(typescript@7.0.2)
+        version: 1.1.1(typescript@7.0.2)
       '@types/react':
         specifier: '>= 16'
         version: 19.3.0
@@ -1473,6 +1473,9 @@ packages:
 
   '@repobuddy/test@1.1.0':
     resolution: {integrity: sha512-YW0j5QOxaNA1cSZm8lcKSFNlTey+D3Qpx4N/hb1AsD+lkbXOnhcC+2TrPIP/Om3NmBiNtXKHGg+yPekapEMbLQ==}
+
+  '@repobuddy/test@1.1.1':
+    resolution: {integrity: sha512-UmnLcSmyk3Y7QsCpFaU6KpdBXmrc7z2WozQTYbIIBAUB/AZcUvzs6KtqgWYm/XFfs/2lJJOg6OdUqaZXTPlk/A==}
 
   '@repobuddy/vitest@2.4.1':
     resolution: {integrity: sha512-M58zQ8xXWzn1xyf2wtH+r9pxw7oB+wtH3ydQ4b4usJLhODLZLsze3jEhqBfaIjuTzlzTaaEHC7o63HqqxCD/qQ==}
@@ -4799,6 +4802,12 @@ snapshots:
       '@biomejs/biome': 2.5.15
 
   '@repobuddy/test@1.1.0(typescript@7.0.2)':
+    dependencies:
+      assertron: 11.7.0(typescript@7.0.2)
+    transitivePeerDependencies:
+      - typescript
+
+  '@repobuddy/test@1.1.1(typescript@7.0.2)':
     dependencies:
       assertron: 11.7.0(typescript@7.0.2)
     transitivePeerDependencies:
