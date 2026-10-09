@@ -290,8 +290,8 @@ importers:
         version: 8.0.0-beta.12(typescript@7.0.2)
     devDependencies:
       '@repobuddy/vitest':
-        specifier: ^2.3.0
-        version: 2.4.1(@vitest/browser-playwright@4.1.11)(typescript@7.0.2)(vitest@4.1.11)
+        specifier: ^3.0.0
+        version: 3.0.0(@vitest/browser-playwright@4.1.11)(typescript@7.0.2)(vitest@4.1.11)
       '@storybook-community/storybook-dark-mode':
         specifier: ^7.1.3
         version: 7.1.4(@storybook/addon-docs@10.6.1(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(storybook@10.6.1(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.0)))(react@19.3.0)(storybook@10.6.1(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.0))
@@ -1474,11 +1474,14 @@ packages:
   '@repobuddy/test@1.1.0':
     resolution: {integrity: sha512-YW0j5QOxaNA1cSZm8lcKSFNlTey+D3Qpx4N/hb1AsD+lkbXOnhcC+2TrPIP/Om3NmBiNtXKHGg+yPekapEMbLQ==}
 
-  '@repobuddy/vitest@2.4.1':
-    resolution: {integrity: sha512-M58zQ8xXWzn1xyf2wtH+r9pxw7oB+wtH3ydQ4b4usJLhODLZLsze3jEhqBfaIjuTzlzTaaEHC7o63HqqxCD/qQ==}
+  '@repobuddy/test@1.1.1':
+    resolution: {integrity: sha512-UmnLcSmyk3Y7QsCpFaU6KpdBXmrc7z2WozQTYbIIBAUB/AZcUvzs6KtqgWYm/XFfs/2lJJOg6OdUqaZXTPlk/A==}
+
+  '@repobuddy/vitest@3.0.0':
+    resolution: {integrity: sha512-WgoEqa5pvFOkWK1E8UC4SLzR03KCSqIumTLdtEzHlh/VE3uFccPSCiIUn8Y8BmhcLg6sT1DONF/f4NeA059j+w==}
     peerDependencies:
-      '@vitest/browser-playwright': ^4.0.15
-      vitest: ^4.0.15
+      '@vitest/browser-playwright': ^5.0.0
+      vitest: ^5.0.0
     peerDependenciesMeta:
       '@vitest/browser-playwright':
         optional: true
@@ -4808,9 +4811,15 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@repobuddy/vitest@2.4.1(@vitest/browser-playwright@4.1.11)(typescript@7.0.2)(vitest@4.1.11)':
+  '@repobuddy/test@1.1.1(typescript@7.0.2)':
     dependencies:
-      '@repobuddy/test': 1.1.0(typescript@7.0.2)
+      assertron: 11.7.0(typescript@7.0.2)
+    transitivePeerDependencies:
+      - typescript
+
+  '@repobuddy/vitest@3.0.0(@vitest/browser-playwright@4.1.11)(typescript@7.0.2)(vitest@4.1.11)':
+    dependencies:
+      '@repobuddy/test': 1.1.1(typescript@7.0.2)
       vitest: 4.1.11(@types/node@25.9.9)(@vitest/browser-playwright@4.1.11)(@vitest/coverage-v8@4.1.11)(vite@8.3.4(@types/node@25.9.9)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0))
     optionalDependencies:
       '@vitest/browser-playwright': 4.1.11(playwright@1.64.0)(vite@8.3.4(@types/node@25.9.9)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0))(vitest@4.1.11)
