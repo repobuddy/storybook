@@ -278,7 +278,7 @@ importers:
         version: 0.7.1
       htmlfy:
         specifier: ^1.0.0
-        version: 1.0.2
+        version: 1.1.0
       tailwind-merge:
         specifier: ^3.4.0
         version: 3.6.0
@@ -2805,8 +2805,8 @@ packages:
   html-escaper@2.0.2:
     resolution: {integrity: sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg==}
 
-  htmlfy@1.0.2:
-    resolution: {integrity: sha512-k7+pU010ukWx20twulTLtjM1TVazuQipwWFEZdDJiNTYHg8Xy0eBthGaPjZA2lcvKgk0p05GkhAWqNuBWj1gng==}
+  htmlfy@1.1.0:
+    resolution: {integrity: sha512-aZQ5csyoiWd/uOPEtEk7q0c0nR/IbdRELketf9t3c5ZAKlltisQHd1z/iwN5RRI2sgKpUGUc+rkEIA250G9PRQ==}
 
   human-id@4.2.0:
     resolution: {integrity: sha512-K3GbkIWqyvvlpfhBPlbEvD97TtqBpAYA4kt+cn2lD2x2HuohzZCibcA2nOlnJT6exqvJLggoB5nv2dNf192nEA==}
@@ -5835,7 +5835,7 @@ snapshots:
 
   html-escaper@2.0.2: {}
 
-  htmlfy@1.0.2: {}
+  htmlfy@1.1.0: {}
 
   human-id@4.2.0: {}
 
