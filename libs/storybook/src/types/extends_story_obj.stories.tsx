@@ -1,7 +1,7 @@
 import type { Args, StoryObj } from '@storybook/react-vite'
 import dedent from 'dedent'
 import type { Component } from 'react'
-import { testType } from 'type-plus'
+import { testType } from 'type-plus/testing'
 import type { ExtendsStoryObj } from '#repobuddy/storybook'
 import { defineDocsParam, showSource } from '#repobuddy/storybook'
 import preview from '../../.storybook/preview'

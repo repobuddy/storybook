@@ -1,7 +1,7 @@
 import type { Args } from '@storybook/react-vite'
 import dedent from 'dedent'
 import type { Component } from 'react'
-import { testType } from 'type-plus'
+import { testType } from 'type-plus/testing'
 import type { ExtendsMeta } from '#repobuddy/storybook'
 import { defineDocsParam, showSource } from '#repobuddy/storybook'
 import type { Meta, TagNames } from '#repobuddy/storybook/storybook-addon-tag-badges'
