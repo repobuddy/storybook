@@ -1,6 +1,6 @@
 import dedent from 'dedent'
 import { makeLiveEditStory } from 'storybook-addon-code-editor'
-import { testType } from 'type-plus'
+import { testType } from 'type-plus/testing'
 import type { FnToArgTypes } from '#repobuddy/storybook'
 import * as repobuddyStorybook from '#repobuddy/storybook'
 import { defineDocsParam, showSource, withStoryCard } from '#repobuddy/storybook'
