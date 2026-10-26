@@ -1,6 +1,8 @@
 export * from '@repobuddy/test'
 export type * from './arg-types/fn-to-arg.types.ts'
 export * from './components/show_html.tsx'
+export * from './components/source_code.tsx'
+export * from './components/source_code_card.tsx'
 export * from './components/story_card.tsx'
 export * from './decorators/show_doc_source.tsx'
 export * from './decorators/show_source.tsx'
