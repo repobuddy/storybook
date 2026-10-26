@@ -25,7 +25,7 @@ const meta = preview.meta({
 export const Basic = meta.story({
 	args: { 'data-testid': 'card' },
 	play: async ({ canvas }) => {
-		await expect(canvas.getByTestId('card')).toContainElement(canvas.getByTestId('source-content'))
+		await expect(canvas.getByTestId('card')).toContainElement(await canvas.findByTestId('source-content'))
 	}
 })
 

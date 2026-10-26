@@ -28,7 +28,7 @@ const meta = preview.meta({
 
 export const Basic = meta.story({
 	play: async ({ canvas }) => {
-		await expect(canvas.getByTestId('source-content')).toBeInTheDocument()
+		await expect(await canvas.findByTestId('source-content')).toBeInTheDocument()
 	}
 })
 
@@ -42,13 +42,20 @@ export const Json = meta.story({
 
 export const DarkTheme = meta.story({
 	tags: ['props'],
-	args: { theme: themes.dark }
+	args: { theme: themes.dark },
+	decorators: [
+		(Story) => (
+			<div style={{ backgroundColor: themes.dark.appContentBg }}>
+				<Story />
+			</div>
+		)
+	]
 })
 
 export const CustomTestId = meta.story({
 	tags: ['props'],
 	args: { 'data-testid': 'my-code' },
 	play: async ({ canvas }) => {
-		await expect(canvas.getByTestId('my-code')).toBeInTheDocument()
+		await expect(await canvas.findByTestId('my-code')).toBeInTheDocument()
 	}
 })
