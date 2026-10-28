@@ -11,19 +11,29 @@ permissions:
 
 jobs:
   code:
-    uses: repobuddy/.github/.github/workflows/pnpm-verify.yml@main
+    uses: repobuddy/.github/.github/workflows/pnpm-verify.yml@v2
     with:
       os: '["ubuntu-latest"]'
 
   release:
-    uses: repobuddy/.github/.github/workflows/pnpm-release-changeset.yml@main
+    uses: repobuddy/.github/.github/workflows/pnpm-release-changeset-oidc.yml@v2
     needs: code
-    secrets: inherit
+    # Declaring permissions replaces the default set, so list every scope the
+    # called workflow needs.
+    permissions:
+      # Mints the OIDC token npm exchanges for publish credentials.
+      id-token: write
+      # Lets changesets/action push the version branch and tags.
+      contents: write
+      # Lets changesets/action open the "version packages" PR.
+      pull-requests: write
+      # Approves the version packages PR's parked pull_request runs.
+      actions: write
 
   docgen:
     permissions:
       contents: write
-    uses: repobuddy/.github/.github/workflows/pnpm-docs.yml@main
+    uses: repobuddy/.github/.github/workflows/pnpm-docs.yml@v2
     needs: release
     if: github.ref == 'refs/heads/main'
     with:
