@@ -1,5 +1,11 @@
 # @repobuddy/storybook
 
+## 2.34.1
+
+### Patch Changes
+
+- [#857](https://github.com/repobuddy/storybook/pull/857) [`526ca0f`](https://github.com/repobuddy/storybook/commit/526ca0f9bcea3090e4188547fb3f27ff18fd0303) Thanks [@unional](https://github.com/unional)! - Include `CHANGELOG.md` in the published package.
+
 ## 2.34.0
 
 ### Minor Changes
