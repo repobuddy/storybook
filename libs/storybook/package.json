@@ -71,7 +71,8 @@
 		"styles.css",
 		"tailwind.css",
 		"!**/*.{spec,test,unit,accept,integrate,system,perf,stress,study,stories}.*",
-		"!**/*.mdx"
+		"!**/*.mdx",
+		"CHANGELOG.md"
 	],
 	"scripts": {
 		"build": "run-p build:*",
