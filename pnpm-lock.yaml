@@ -291,7 +291,7 @@ importers:
     devDependencies:
       '@repobuddy/vitest':
         specifier: ^3.0.1
-        version: 3.0.1(@vitest/browser-playwright@4.1.12)(typescript@7.0.2)(vitest@4.1.12)
+        version: 3.0.2(@vitest/browser-playwright@4.1.12)(typescript@7.0.2)(vitest@4.1.12)
       '@storybook-community/storybook-dark-mode':
         specifier: ^7.1.3
         version: 7.1.4(@storybook/addon-docs@10.6.5(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(storybook@10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1)))(react@19.3.1)(storybook@10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))
@@ -1472,8 +1472,11 @@ packages:
   '@repobuddy/test@1.1.2':
     resolution: {integrity: sha512-vpXJBksJKOM0CMJ/IWIycEfg3h1Is+z3vOQCrY5+f2xpNk6foyOlO1OOLU1xIG+yA84XWVt5VHRAi1H4M1EIsA==}
 
-  '@repobuddy/vitest@3.0.1':
-    resolution: {integrity: sha512-YJZJQT0U5An5uhkRXugYNTH7CUbOC7WWbrgsHsSf9h8SLN5enTMu3LxKf+uK8EICF1f4A1U2xeu7xjieeC66tw==}
+  '@repobuddy/test@1.1.3':
+    resolution: {integrity: sha512-NAZ+U8a4Xx0SErJgTI0aSr6On5JFbbpza5X8nqDOiHC06Ojzb4izNv7F7Qf3s9MUkX93dLBV4J+n4Ymy1arCLA==}
+
+  '@repobuddy/vitest@3.0.2':
+    resolution: {integrity: sha512-p0yTjCOo0K/25GvyZhKLfbuOvNgZaobZBRy8fkWNPnkKwwJkgQkvQV+z8pxC3Tky9aOtQzLRyMorTh6BbbPNfQ==}
     peerDependencies:
       '@vitest/browser-playwright': ^5.0.0
       vitest: ^5.0.0
@@ -4750,9 +4753,15 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@repobuddy/vitest@3.0.1(@vitest/browser-playwright@4.1.12)(typescript@7.0.2)(vitest@4.1.12)':
+  '@repobuddy/test@1.1.3(typescript@7.0.2)':
     dependencies:
-      '@repobuddy/test': 1.1.2(typescript@7.0.2)
+      assertron: 11.7.2(typescript@7.0.2)
+    transitivePeerDependencies:
+      - typescript
+
+  '@repobuddy/vitest@3.0.2(@vitest/browser-playwright@4.1.12)(typescript@7.0.2)(vitest@4.1.12)':
+    dependencies:
+      '@repobuddy/test': 1.1.3(typescript@7.0.2)
       vitest: 4.1.12(@types/node@25.9.9)(@vitest/browser-playwright@4.1.12)(@vitest/coverage-v8@4.1.12)(vite@8.3.5(@types/node@25.9.9)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0))
     optionalDependencies:
       '@vitest/browser-playwright': 4.1.12(playwright@1.64.1)(vite@8.3.5(@types/node@25.9.9)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0))(vitest@4.1.12)
