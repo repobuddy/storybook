@@ -1,5 +1,17 @@
 # @repobuddy/storybook
 
+## 2.34.1
+
+### Patch Changes
+
+- [#857](https://github.com/repobuddy/storybook/pull/857) [`526ca0f`](https://github.com/repobuddy/storybook/commit/526ca0f9bcea3090e4188547fb3f27ff18fd0303) Thanks [@unional](https://github.com/unional)! - Include `CHANGELOG.md` in the published package.
+
+## 2.34.0
+
+### Minor Changes
+
+- [`a8bc4af`](https://github.com/repobuddy/storybook/commit/a8bc4af160377c58a4b392d9478194574691d09c) Thanks [@unional](https://github.com/unional)! - Add `SourceCode` and `SourceCodeCard` components to display highlighted source code that follows the Storybook dark mode.
+
 ## 2.33.5
 
 ### Patch Changes
