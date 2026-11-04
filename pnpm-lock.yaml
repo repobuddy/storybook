@@ -348,7 +348,7 @@ importers:
         version: 3.1.0(patch_hash=879ed697b2eb31a0235c15156202359903ceddd61960bf87e9c66385eecd0dc8)(storybook@10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))
       storybook-addon-vis:
         specifier: ^4.3.2
-        version: 4.3.5(@storybook/addon-vitest@10.6.5(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react@19.3.1)(storybook@10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(vitest@4.1.12))(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react@19.3.1)(storybook@10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(typescript@7.0.2)(vitest@4.1.12)
+        version: 4.4.0(@storybook/addon-vitest@10.6.5(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react@19.3.1)(storybook@10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(vitest@4.1.12))(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(storybook@10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(typescript@7.0.2)(vitest@4.1.12)
       tsdown:
         specifier: ^0.23.0
         version: 0.23.4(oxc-resolver@11.24.2)(typescript@7.0.2)(unrun@0.2.34(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2))
@@ -885,6 +885,12 @@ packages:
   '@just-web/css@0.9.0':
     resolution: {integrity: sha512-ILla8b2eKkFPGyVaVU22axKY4psyLFo90QenpbMc6f+vGmB1g3AdPxiDQlvHDNuHo6HCVrLVQeL+hi0xPzpZeg==}
     engines: {node: ^20.19.0 || >=22.12.0}
+
+  '@just-web/react-image-compare@0.1.1':
+    resolution: {integrity: sha512-JbfTp4RWHmbZC5ruqrtt2sbFJoKyO2EnyyLwRDuv6Oq+LFTDIUVbVoMDkvExa7aSsy9PhFozKXNESjBS1P2RCA==}
+    peerDependencies:
+      react: '>=18'
+      react-dom: '>=18'
 
   '@manypkg/find-root@3.1.0':
     resolution: {integrity: sha512-BcSqCyKhBVZ5YkSzOiheMCV41kqAFptW6xGqYSTjkVTl9XQpr+pqHhwgGCOHQtjDCv7Is6EFyA14Sm5GVbVABA==}
@@ -3321,8 +3327,8 @@ packages:
     peerDependencies:
       storybook: ^10.0.0
 
-  storybook-addon-vis@4.3.5:
-    resolution: {integrity: sha512-WH2fS6KiNSh0kodeSrE0qyYU568ixJdA0hjoz1Td2PvDhtuPEcBrsu8FCSVGpcI6M9dMBTLLg1K2CvsDCKpv/Q==}
+  storybook-addon-vis@4.4.0:
+    resolution: {integrity: sha512-UyrsuY6X0NUTFInm5KCFEQJKNXqqIycuJpmRCE+HPwG7PLoSnAx9j0ooiXT8FOJcTvPd24Rzf52gxAIlkiJ1aA==}
     peerDependencies:
       '@storybook/addon-vitest': ^10.1.10
       '@vitest/browser': ^4
@@ -4279,6 +4285,11 @@ snapshots:
       type-plus: 8.0.0(typescript@7.0.2)
     transitivePeerDependencies:
       - typescript
+
+  '@just-web/react-image-compare@0.1.1(react-dom@19.3.1(react@19.3.1))(react@19.3.1)':
+    dependencies:
+      react: 19.3.1
+      react-dom: 19.3.1(react@19.3.1)
 
   '@manypkg/find-root@3.1.0':
     dependencies:
@@ -6239,8 +6250,9 @@ snapshots:
       memoizerific: 1.11.3
       storybook: 10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1)
 
-  storybook-addon-vis@4.3.5(@storybook/addon-vitest@10.6.5(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react@19.3.1)(storybook@10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(vitest@4.1.12))(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react@19.3.1)(storybook@10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(typescript@7.0.2)(vitest@4.1.12):
+  storybook-addon-vis@4.4.0(@storybook/addon-vitest@10.6.5(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react@19.3.1)(storybook@10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(vitest@4.1.12))(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(storybook@10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(typescript@7.0.2)(vitest@4.1.12):
     dependencies:
+      '@just-web/react-image-compare': 0.1.1(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@storybook/addon-vitest': 10.6.5(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react@19.3.1)(storybook@10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(vitest@4.1.12)
       '@storybook/icons': 2.1.0(react@19.3.1)
       '@vitest/browser': 4.1.12(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0))(vitest@4.1.12)
@@ -6257,6 +6269,7 @@ snapshots:
       - '@vitest/browser-webdriverio'
       - babel-plugin-macros
       - react
+      - react-dom
       - typescript
 
   storybook@10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1):
