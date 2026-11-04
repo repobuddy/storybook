@@ -3,7 +3,7 @@ packages:
   - libs/*
   - tools/*
 allowBuilds:
-  '@parcel/watcher': true
+  "@parcel/watcher": true
   esbuild: true
   fsevents: true
 # Supply-chain soak: no dependency may be installed until it is 24h old.
@@ -44,15 +44,15 @@ minimumReleaseAgeExclude:
   - storybook-addon-vis
   - vitest-plugin-vis
   - node-supported-releases
-  - '@just-func/*'
-  - '@just-web/*'
-  - '@mocktomata/*'
-  - '@repobuddy/*'
-  - '@unional/*'
+  - "@just-func/*"
+  - "@just-web/*"
+  - "@mocktomata/*"
+  - "@repobuddy/*"
+  - "@unional/*"
 overrides:
   # GHSA: Rollup 4 arbitrary file write via path traversal, fixed in 4.59.0.
   # rollup is only here as @storybook/csf-plugin's optional `*` peer, so no
   # manifest declares it and `pnpm update` cannot move it.
-  rollup: '^4.63.1'
+  rollup: "^4.63.1"
 patchedDependencies:
   storybook-addon-tag-badges: patches/storybook-addon-tag-badges.patch

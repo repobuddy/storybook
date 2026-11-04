@@ -3,8 +3,8 @@ on:
   pull_request:
     types: [opened, synchronize]
     branches-ignore:
-      - 'changeset-release/*'
-      - 'vis-bot/update-snapshot/*'
+      - "changeset-release/*"
+      - "vis-bot/update-snapshot/*"
 jobs:
   code:
     uses: repobuddy/.github/.github/workflows/pnpm-verify.yml@v2

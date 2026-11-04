@@ -28,6 +28,7 @@ export function createDarkModeDocsContainer(
 		  }
 		| undefined
 ) {
+	// biome-ignore lint/correctness/noComponentHookFactories: public factory API that returns the docs container
 	return function DarkModeDocsContainer(props: PropsWithChildren<{ context: DocsContextProps }>) {
 		const [isDark, setDark] = useState(readStoredMode)
 
