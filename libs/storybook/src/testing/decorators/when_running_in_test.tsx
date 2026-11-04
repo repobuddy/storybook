@@ -10,6 +10,7 @@ export function whenRunningInTest<TArgs = StrictArgs>(
 		// biome-ignore lint/suspicious/noConfusingVoidType: on purpose
 		| (() => ReturnType<Decorator<TArgs>> | undefined | void)
 ): Decorator<TArgs> {
+	// biome-ignore lint/correctness/noComponentHookFactories: public factory API that returns a decorator
 	return function RunInTest(Story, context) {
 		return ctx.isRunningInTest() ? (decoratorOrHandler(Story, context) ?? <Story />) : <Story />
 	}
