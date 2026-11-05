@@ -348,7 +348,7 @@ importers:
         version: 3.1.0(patch_hash=879ed697b2eb31a0235c15156202359903ceddd61960bf87e9c66385eecd0dc8)(storybook@10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))
       storybook-addon-vis:
         specifier: ^4.3.2
-        version: 4.4.0(@storybook/addon-vitest@10.6.5(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react@19.3.1)(storybook@10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(vitest@4.1.12))(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(storybook@10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(typescript@7.0.2)(vitest@4.1.12)
+        version: 4.5.0(@storybook/addon-vitest@10.6.5(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react@19.3.1)(storybook@10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(vitest@4.1.12))(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(storybook@10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(typescript@7.0.2)(vitest@4.1.12)
       tsdown:
         specifier: ^0.23.0
         version: 0.23.5(oxc-resolver@11.24.2)(typescript@7.0.2)(unrun@0.2.34(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2))
@@ -3306,8 +3306,8 @@ packages:
     peerDependencies:
       storybook: ^10.0.0
 
-  storybook-addon-vis@4.4.0:
-    resolution: {integrity: sha512-UyrsuY6X0NUTFInm5KCFEQJKNXqqIycuJpmRCE+HPwG7PLoSnAx9j0ooiXT8FOJcTvPd24Rzf52gxAIlkiJ1aA==}
+  storybook-addon-vis@4.5.0:
+    resolution: {integrity: sha512-gLqRbUM7LhE6jlXaeM8WMYy9lq9+bcgr97+Axgp/3Vm5I6wAK5rir60zskL/szv9H8Q2ZhOoWXtwx0+2GRWb1Q==}
     peerDependencies:
       '@storybook/addon-vitest': ^10.1.10
       '@vitest/browser': ^4
@@ -3573,8 +3573,8 @@ packages:
       yaml:
         optional: true
 
-  vitest-plugin-vis@5.3.0:
-    resolution: {integrity: sha512-cGxp8zGo5QcdXJ/3TuRRcTil5YWd8xubzxkILgOzpYi5pXWwOg0sv+8MfBSGgVyolXV3V1MDNLHzs0K1aJ3ltw==}
+  vitest-plugin-vis@5.4.0:
+    resolution: {integrity: sha512-rWTewZMuvGk+yzH2XedEs7f67pD3nsFiQXWyrddg4si4gJ6aI2PhIxXNljfEhe0y4TyJXHySlFWwF2Z7DfcVig==}
     peerDependencies:
       '@vitest/browser': ^4
       '@vitest/browser-playwright': ^4
@@ -6221,20 +6221,20 @@ snapshots:
       memoizerific: 1.11.3
       storybook: 10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1)
 
-  storybook-addon-vis@4.4.0(@storybook/addon-vitest@10.6.5(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react@19.3.1)(storybook@10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(vitest@4.1.12))(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(storybook@10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(typescript@7.0.2)(vitest@4.1.12):
+  storybook-addon-vis@4.5.0(@storybook/addon-vitest@10.6.5(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react@19.3.1)(storybook@10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(vitest@4.1.12))(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(storybook@10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(typescript@7.0.2)(vitest@4.1.12):
     dependencies:
       '@just-web/react-image-compare': 0.1.1(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@storybook/addon-vitest': 10.6.5(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react@19.3.1)(storybook@10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(vitest@4.1.12)
       '@storybook/icons': 2.1.0(react@19.3.1)
       '@vitest/browser': 4.1.12(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0))(vitest@4.1.12)
-      glob: 13.0.6
+      glob: 14.0.3
       is-ci: 4.1.0
       memoize: 11.0.0
       pathe: 2.0.3
       storybook: 10.6.5(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1)
       type-plus: 8.0.1(typescript@7.0.2)
       vitest: 4.1.12(@types/node@26.6.6)(@vitest/browser-playwright@4.1.12)(@vitest/coverage-v8@4.1.12)(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0))
-      vitest-plugin-vis: 5.3.0(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(typescript@7.0.2)(vitest@4.1.12)
+      vitest-plugin-vis: 5.4.0(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(typescript@7.0.2)(vitest@4.1.12)
     transitivePeerDependencies:
       - '@vitest/browser-playwright'
       - '@vitest/browser-webdriverio'
@@ -6468,11 +6468,11 @@ snapshots:
       jiti: 2.7.0
       yaml: 2.9.0
 
-  vitest-plugin-vis@5.3.0(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(typescript@7.0.2)(vitest@4.1.12):
+  vitest-plugin-vis@5.4.0(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(typescript@7.0.2)(vitest@4.1.12):
     dependencies:
       '@vitest/browser': 4.1.12(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0))(vitest@4.1.12)
       dedent: 1.7.2
-      glob: 13.0.6
+      glob: 14.0.3
       is-ci: 4.1.0
       mkdirp: 3.0.1
       pathe: 2.0.3
