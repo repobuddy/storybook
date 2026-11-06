@@ -51,5 +51,5 @@
 		"@types/node": "^26.0.0",
 		"npm-run-all2": "^9.0.0"
 	},
-	"packageManager": "pnpm@12.16.1"
+	"packageManager": "pnpm@12.18.0"
 }
