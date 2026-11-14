@@ -10,7 +10,9 @@ export default defineProject({
 		tailwindcss(),
 		storybookTest({ configDir: join(import.meta.dirname, '.storybook') }),
 		storybookVis(),
-		browserTestPreset()
+		// Vitest 5 resolves browser mode in an `enforce: 'pre'` plugin,
+		// so the preset must also run in the `pre` phase to enable it in time.
+		{ ...browserTestPreset(), enforce: 'pre' }
 	],
 	optimizeDeps: {
 		include: [
