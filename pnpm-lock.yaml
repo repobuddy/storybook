@@ -348,7 +348,7 @@ importers:
         version: 3.1.0(patch_hash=879ed697b2eb31a0235c15156202359903ceddd61960bf87e9c66385eecd0dc8)(storybook@10.6.7(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))
       storybook-addon-vis:
         specifier: ^4.3.2
-        version: 4.7.0(@storybook/addon-vitest@10.6.7(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react@19.3.1)(storybook@10.6.7(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(vitest@4.1.12))(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(storybook@10.6.7(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(typescript@7.0.2)(vitest@4.1.12)
+        version: 4.8.0(@storybook/addon-vitest@10.6.7(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react@19.3.1)(storybook@10.6.7(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(vitest@4.1.12))(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(storybook@10.6.7(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(typescript@7.0.2)(vitest@4.1.12)
       tsdown:
         specifier: ^0.23.0
         version: 0.23.7(oxc-resolver@11.24.2)(typescript@7.0.2)(unrun@0.2.34(@emnapi/core@2.0.0-beta.2)(@emnapi/runtime@2.0.0-beta.2))
@@ -3317,8 +3317,9 @@ packages:
     peerDependencies:
       storybook: ^10.0.0
 
-  storybook-addon-vis@4.7.0:
-    resolution: {integrity: sha512-avbxX+7WHTaWHFf6Hn8Mi/akb8tn6IS53o6FmyY3o0i/DkLAyQ3x1ZxeOcdlIRz3zLGM86n8vvx3xHDla9B2HA==}
+  storybook-addon-vis@4.8.0:
+    resolution: {integrity: sha512-5E2MH3HRL5kXVnD71cIbHC7q0xBW1zssWB/S1orHZY8ncXFEeHyCwj7gFXM4Zo7kqQise5JkgUC5qZpUG3CIlw==}
+    hasBin: true
     peerDependencies:
       '@storybook/addon-vitest': ^10.1.10
       '@vitest/browser': ^4
@@ -6262,7 +6263,7 @@ snapshots:
       memoizerific: 1.11.3
       storybook: 10.6.7(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1)
 
-  storybook-addon-vis@4.7.0(@storybook/addon-vitest@10.6.7(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react@19.3.1)(storybook@10.6.7(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(vitest@4.1.12))(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(storybook@10.6.7(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(typescript@7.0.2)(vitest@4.1.12):
+  storybook-addon-vis@4.8.0(@storybook/addon-vitest@10.6.7(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react@19.3.1)(storybook@10.6.7(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(vitest@4.1.12))(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(storybook@10.6.7(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(typescript@7.0.2)(vitest@4.1.12):
     dependencies:
       '@just-web/react-image-compare': 0.1.1(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@storybook/addon-vitest': 10.6.7(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react@19.3.1)(storybook@10.6.7(@types/react@19.3.0)(prettier@2.8.8)(react@19.3.1))(vitest@4.1.12)
