@@ -363,8 +363,8 @@ importers:
         specifier: ^6.2.0
         version: 6.2.0(@types/react@19.3.3)(react@19.3.1)(storybook@10.6.9(@types/react@19.3.3)(prettier@2.8.8)(react@19.3.1))
       storybook-addon-tag-badges:
-        specifier: ^3.1.0
-        version: 3.1.0(patch_hash=879ed697b2eb31a0235c15156202359903ceddd61960bf87e9c66385eecd0dc8)(storybook@10.6.9(@types/react@19.3.3)(prettier@2.8.8)(react@19.3.1))
+        specifier: ^4.0.0
+        version: 4.0.1(patch_hash=879ed697b2eb31a0235c15156202359903ceddd61960bf87e9c66385eecd0dc8)(storybook@10.6.9(@types/react@19.3.3)(prettier@2.8.8)(react@19.3.1))
       storybook-addon-vis:
         specifier: ^4.3.2
         version: 4.8.0(@storybook/addon-vitest@10.6.9(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react@19.3.1)(storybook@10.6.9(@types/react@19.3.3)(prettier@2.8.8)(react@19.3.1))(vitest@4.1.12))(@vitest/browser-playwright@4.1.12)(@vitest/browser@4.1.12)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(storybook@10.6.9(@types/react@19.3.3)(prettier@2.8.8)(react@19.3.1))(typescript@7.0.2)(vitest@4.1.12)
@@ -3326,11 +3326,11 @@ packages:
       '@types/react':
         optional: true
 
-  storybook-addon-tag-badges@3.1.0:
-    resolution: {integrity: sha512-sVWVyUT8woEmSKDsePJtSFCP9RFojrmsibD11dL0/+pkn7HrkhaJC96uz3mnqt78OuO7qflFMLF1Bqg3JwnrJA==}
-    engines: {node: '>=20'}
+  storybook-addon-tag-badges@4.0.1:
+    resolution: {integrity: sha512-TSb9KRcaXaohJdopvlZvRFJtHdRCmHkJDnNDYeHgK3WaJRqs4ERHW6AgJbALjLPmxQwZ8jqE0ZscGb/kpJs7WQ==}
+    engines: {node: '>=22.19.1'}
     peerDependencies:
-      storybook: ^10.0.0
+      storybook: ^11.0.0-beta.3
 
   storybook-addon-vis@4.8.0:
     resolution: {integrity: sha512-5E2MH3HRL5kXVnD71cIbHC7q0xBW1zssWB/S1orHZY8ncXFEeHyCwj7gFXM4Zo7kqQise5JkgUC5qZpUG3CIlw==}
@@ -6270,7 +6270,7 @@ snapshots:
     optionalDependencies:
       '@types/react': 19.3.3
 
-  storybook-addon-tag-badges@3.1.0(patch_hash=879ed697b2eb31a0235c15156202359903ceddd61960bf87e9c66385eecd0dc8)(storybook@10.6.9(@types/react@19.3.3)(prettier@2.8.8)(react@19.3.1)):
+  storybook-addon-tag-badges@4.0.1(patch_hash=879ed697b2eb31a0235c15156202359903ceddd61960bf87e9c66385eecd0dc8)(storybook@10.6.9(@types/react@19.3.3)(prettier@2.8.8)(react@19.3.1)):
     dependencies:
       memoizerific: 1.11.3
       storybook: 10.6.9(@types/react@19.3.3)(prettier@2.8.8)(react@19.3.1)
