@@ -1,0 +1,16 @@
+import{n as e}from"./rolldown-runtime-Dxh6kD9_.js";import{ht as t,n,r}from"./iframe-DCXwTUBD.js";import{n as i,t as a}from"./dedent-PcFMyqnX.js";import{O as o,t as s,w as c}from"./src-DrAjjz3b.js";var l,u,d,f;function p(){return(p=e((()=>{i(),s(),n(),l=t(),u=r.meta({title:`storybook-addon-tag-badges/a11yBadge`,tags:[`var`,`version:2.26`],render:()=>(0,l.jsx)(l.Fragment,{})}),d=u.story({tags:[`a11y`],decorators:[c({content:(0,l.jsxs)(`p`,{children:[`Story that demonstrates or tests accessibility. In the sidebar it appears as `,(0,l.jsx)(`code`,{children:`♿`}),`.`]})}),o({source:a`export const YourStory = {
+                tags: ['a11y'],
+                render: () => <YourComponent />
+            }`})]}),f=[`A11yBadge`],d.input.parameters={...d.input.parameters,docs:{...d.input.parameters?.docs,source:{originalSource:`meta.story({
+  tags: ['a11y'],
+  decorators: [withStoryCard({
+    content: <p>
+                    Story that demonstrates or tests accessibility. In the sidebar it appears as <code>♿</code>.
+                </p>
+  }), showSource({
+    source: dedent\`export const YourStory = {
+                tags: ['a11y'],
+                render: () => <YourComponent />
+            }\`
+  })]
+})`,...d.input.parameters?.docs?.source}}}})))()}p();export{d as A11yBadge,f as __namedExportsOrder};
