@@ -8,7 +8,7 @@ Your repository buddy for Storybook.
 
 > [!NOTE]
 >
-> For Storybook 10, please use version `2.x`.
+> For Storybook 10 and 11, please use version `2.x`.
 >
 > For Storybook 9, please use version `1.x`.
 >
