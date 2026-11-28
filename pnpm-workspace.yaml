@@ -54,5 +54,3 @@ overrides:
   # rollup is only here as @storybook/csf-plugin's optional `*` peer, so no
   # manifest declares it and `pnpm update` cannot move it.
   rollup: "^4.63.1"
-patchedDependencies:
-  storybook-addon-tag-badges: patches/storybook-addon-tag-badges.patch
