@@ -1,9 +1,18 @@
 Bundled license information:
 
-@vitest/pretty-format/dist/index.js:
+vitest/dist/chunks/index.Or9psEGe.js:
   /**
    * @license React
    * react-is.production.js
+   *
+   * Copyright (c) Meta Platforms, Inc. and affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   */
+  /**
+   * @license React
+   * react-is.development.js
    *
    * Copyright (c) Meta Platforms, Inc. and affiliates.
    *
@@ -19,8 +28,17 @@ Bundled license information:
    * This source code is licensed under the MIT license found in the
    * LICENSE file in the root directory of this source tree.
    */
+  /**
+   * @license React
+   * react-is.development.js
+   *
+   * Copyright (c) Facebook, Inc. and its affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   */
 
-@vitest/snapshot/dist/index.js:
+vitest/dist/chunks/rawSnapshot.DvoRLRNr.js:
   /*
    * @version    1.4.0
    * @date       2015-10-26

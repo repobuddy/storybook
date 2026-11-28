@@ -1,0 +1,21 @@
+import{n as e}from"./rolldown-runtime-Dxh6kD9_.js";import{gt as t,n,r}from"./iframe-CQ9MsOev.js";import{n as i,t as a}from"./dedent-PcFMyqnX.js";import{O as o,t as s,w as c}from"./src-vim89Lt8.js";var l,u,d,f;function p(){return(p=e((()=>{i(),s(),n(),l=t(),u=r.meta({title:`storybook-addon-tag-badges/propsBadge`,tags:[`var`,`!snapshot`,`version:0.11`],render:()=>(0,l.jsx)(l.Fragment,{})}),d=u.story({tags:[`props`],decorators:[c({content:(0,l.jsxs)(`p`,{children:[`Story focused on props or configuration. In the sidebar it appears as `,(0,l.jsx)(`code`,{children:`🔧`}),`.`]})}),o({source:a`export const YourStory = {
+				tags: ['props'],
+				render: () => <YourComponent />
+			}`})]}),f=[`PropsBadge`],d.input.parameters={...d.input.parameters,docs:{...d.input.parameters?.docs,source:{originalSource:`meta.story({
+	tags: ['props'],
+	decorators: [
+		withStoryCard({
+			content: (
+				<p>
+					Story focused on props or configuration. In the sidebar it appears as <code>🔧</code>.
+				</p>
+			)
+		}),
+		showSource({
+			source: dedent\`export const YourStory = {
+				tags: ['props'],
+				render: () => <YourComponent />
+			}\`
+		})
+	]
+})`,...d.input.parameters?.docs?.source}}}})))()}p();export{d as PropsBadge,f as __namedExportsOrder};
